@@ -1,0 +1,324 @@
+<!-- 입학 대상자 관리 및 신입생 반편성 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>입학 대상자 관리 및 신입생 반편성</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2951" viewBox="0 0 1800 2951">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2951" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 15 · 레인 5 · 게이트 5</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">입학 대상자 관리 및 신입생 반편성</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">입학 대상자를 확정하고 예비 학적을 생성한 뒤 반편성과 진급자 학적반영까지 처리하는 절차.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="2491" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="304" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="304" fill="#eef3f0"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#53645b">G0</text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">기준정보 설정</tspan></text>
+<rect x="38" y="664" width="1724" height="706" fill="#84baa9"/>
+<rect x="38" y="664" width="190" height="706" fill="#087452"/>
+<text x="58" y="696" class="mono" font-size="16" font-weight="800" fill="#ffffff">G1</text>
+<text x="58" y="729" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">입학대상자 등록</tspan></text>
+<rect x="38" y="1370" width="1724" height="487" fill="#84baa9"/>
+<rect x="38" y="1370" width="190" height="487" fill="#087452"/>
+<text x="58" y="1402" class="mono" font-size="16" font-weight="800" fill="#ffffff">G2</text>
+<text x="58" y="1435" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">자료확인·학적생</tspan><tspan x="58" dy="22">성</tspan></text>
+<rect x="38" y="1857" width="1724" height="688" fill="#f5f8f6"/>
+<rect x="38" y="1857" width="190" height="688" fill="#eef3f0"/>
+<text x="58" y="1889" class="mono" font-size="16" font-weight="800" fill="#53645b">G3</text>
+<text x="58" y="1922" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">신입생 반편성</tspan></text>
+<rect x="38" y="2545" width="1724" height="206" fill="#84baa9"/>
+<rect x="38" y="2545" width="190" height="206" fill="#087452"/>
+<text x="58" y="2577" class="mono" font-size="16" font-weight="800" fill="#ffffff">G4</text>
+<text x="58" y="2610" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">진급자 학적반영</tspan></text>
+<rect x="228" y="260" width="383.5" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="383.5" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">교육과정업무담당자</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">교육과정업무담당자</tspan></text>
+<rect x="611.5" y="260" width="383.5" height="100" fill="#f7faf8"/>
+<rect x="611.5" y="260" width="383.5" height="7" fill="#3b82f6"/>
+<text x="631.5" y="299" font-size="20" font-weight="800" fill="#17231d">입학업무담당자</text>
+<text x="631.5" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="631.5" dy="0">입학업무담당자</tspan></text>
+<rect x="995" y="260" width="383.5" height="100" fill="#f7faf8"/>
+<rect x="995" y="260" width="383.5" height="7" fill="#c78116"/>
+<text x="1015" y="299" font-size="20" font-weight="800" fill="#17231d">반편성업무담당자·학적업무담당자</text>
+<text x="1015" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1015" dy="0">반편성업무담당자 · 학적업무담당자</tspan></text>
+<rect x="1378.5" y="260" width="383.5" height="100" fill="#f7faf8"/>
+<rect x="1378.5" y="260" width="383.5" height="7" fill="#0891b2"/>
+<text x="1398.5" y="299" font-size="20" font-weight="800" fill="#17231d">결재권자</text>
+<text x="1398.5" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1398.5" dy="0">결재권자</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2751" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="611.5" y1="260" x2="611.5" y2="2751" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="995" y1="260" x2="995" y2="2751" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1378.5" y1="260" x2="1378.5" y2="2751" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2751" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="664" x2="1762" y2="664" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1370" x2="1762" y2="1370" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1857" x2="1762" y2="1857" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2545" x2="1762" y2="2545" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2751" x2="1762" y2="2751" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 668.3 1448.5 H 652 V 751.5 H 660.3" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 668.3 1448.5 H 652 V 751.5 H 660.3" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 1051.8 2648 H 1036 V 1944.5 H 1043.8" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 1051.8 2648 H 1036 V 1944.5 H 1043.8" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 938.3 1117.5 H 986.3 V 1294 H 946.3" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="7 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 938.3 1117.5 H 986.3 V 1294 H 946.3" fill="none" stroke="#0f8a65" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#arrow-message)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="508.1" y="1085" width="147.8" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="582" y="1105" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">출신교 자료 재요청</text>
+<rect x="891.1" y="2281.3" width="149.9" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="966" y="2301.3" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">미부여·미반영 보완</text>
+<rect x="988.9" y="1190.8" width="250.7" height="30" rx="6" fill="#ffffff" stroke="#0f8a65" stroke-width="1.4"/>
+<text x="1114.3" y="1210.8" text-anchor="middle" font-size="14" font-weight="750" fill="#0f8a65">고교입학시스템 다운로드 파일 활용</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="284.8" y="364" width="270" height="167" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="284.8" y="364" width="6" height="167" rx="3" fill="#35a77d"/>
+      <text x="299.8" y="384" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="494.8" y="371" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="519.8" y="388" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="299.8" y="408" font-size="10" font-weight="750" fill="#287a5c"><tspan x="299.8" dy="0">[학교정보-학교정보-기준년도/학기관리]</tspan></text>
+      <text x="299.8" y="432" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="299.8" dy="0">기준년도/학기관리에서</tspan><tspan x="299.8" dy="18">교무학년도·교무학기를</tspan><tspan x="299.8" dy="18">현재학년도 2학기로,</tspan><tspan x="299.8" dy="18">수업학년도·수업학기를 다음</tspan><tspan x="299.8" dy="18">학년도 1학기로 변경한다.</tspan></text>
+      <text x="299.8" y="521" font-size="11" font-weight="650" fill="#287a5c">교육과정업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="284.8" y="547" width="270" height="113" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="284.8" y="547" width="6" height="113" rx="3" fill="#b9c7bf"/>
+      <text x="299.8" y="567" font-size="12.5" font-weight="750" fill="#627169">P02</text>
+      <rect x="494.8" y="554" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="519.8" y="571" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="299.8" y="591" font-size="10" font-weight="750" fill="#627169"><tspan x="299.8" dy="0">[학교정보-학교정보-기준/반정보관리]</tspan></text>
+      <text x="299.8" y="615" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="299.8" dy="0">기준/반정보관리에서 신학년도</tspan><tspan x="299.8" dy="18">학년·반 정보를 등록한다.</tspan></text>
+      <text x="299.8" y="650" font-size="11" font-weight="650" fill="#627169">교육과정업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="668.3" y="668" width="270" height="167" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="668.3" y="668" width="6" height="167" rx="3" fill="#087452"/>
+      <text x="683.3" y="688" font-size="12.5" font-weight="750" fill="#d8f4e8">P03</text>
+      <rect x="878.3" y="675" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="903.3" y="692" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="683.3" y="712" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="683.3" dy="0">[입학-입학관리-입학대상자관리]</tspan></text>
+      <text x="683.3" y="736" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="683.3" dy="0">입학대상자관리의 재학생 탭에서</tspan><tspan x="683.3" dy="18">배정된 학생의 본교확인을</tspan><tspan x="683.3" dy="18">대상으로 선택해 저장하고</tspan><tspan x="683.3" dy="18">전송요청하여 출신 중학교 자료</tspan><tspan x="683.3" dy="18">도착 여부를 확인한다.</tspan></text>
+      <text x="683.3" y="825" font-size="11" font-weight="650" fill="#d8f4e8">입학업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="668.3" y="851" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="668.3" y="851" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="683.3" y="871" font-size="12.5" font-weight="750" fill="#627169">P04</text>
+      <rect x="878.3" y="858" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="903.3" y="875" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="683.3" y="895" font-size="10" font-weight="750" fill="#627169"><tspan x="683.3" dy="0">[입학-입학관리-입학대상자관리]</tspan></text>
+      <text x="683.3" y="919" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="683.3" dy="0">개별추가로 소규모</tspan><tspan x="683.3" dy="18">입학생·특수학생·졸업생·검정고</tspan><tspan x="683.3" dy="18">시 학생을 학생찾기하여</tspan><tspan x="683.3" dy="18">입학정보를 선택하고</tspan><tspan x="683.3" dy="18">추가·저장한다.</tspan></text>
+      <text x="683.3" y="1008" font-size="11" font-weight="650" fill="#627169">입학업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="668.3" y="1034" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="668.3" y="1034" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="683.3" y="1054" font-size="12.5" font-weight="750" fill="#627169">P05</text>
+      <rect x="878.3" y="1041" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="903.3" y="1058" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="683.3" y="1078" font-size="8" font-weight="750" fill="#627169"><tspan x="683.3" dy="0">[고교입학시스템-입학전형-합격사정관리-입학대상자다운로드]</tspan></text>
+      <text x="683.3" y="1102" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="683.3" dy="0">고교입학시스템의</tspan><tspan x="683.3" dy="18">입학대상자다운로드에서 조회</tspan><tspan x="683.3" dy="18">조건을 선택하여</tspan><tspan x="683.3" dy="18">합격자다운로드로 입학대상자</tspan><tspan x="683.3" dy="18">파일을 생성한다.</tspan></text>
+      <text x="683.3" y="1191" font-size="11" font-weight="650" fill="#627169">입학업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="668.3" y="1217" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="668.3" y="1217" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="683.3" y="1237" font-size="12.5" font-weight="750" fill="#627169">P06</text>
+      <rect x="878.3" y="1224" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="903.3" y="1241" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="683.3" y="1261" font-size="10" font-weight="750" fill="#627169"><tspan x="683.3" dy="0">[입학-입학관리-입학대상자관리]</tspan></text>
+      <text x="683.3" y="1285" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="683.3" dy="0">입학대상자관리의 일괄추가에서</tspan><tspan x="683.3" dy="18">입학대상자파일을 업로드하고</tspan><tspan x="683.3" dy="18">학생목록에서 대상 학생을 선택해</tspan><tspan x="683.3" dy="18">추가·저장한다.</tspan></text>
+      <text x="683.3" y="1356" font-size="11" font-weight="650" fill="#627169">입학업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="668.3" y="1374" width="270" height="149" rx="8" fill="#fff8e8" stroke="#d9901a" stroke-width="2.3"/>
+      <rect x="668.3" y="1374" width="6" height="149" rx="3" fill="#d9901a"/>
+      <text x="683.3" y="1394" font-size="12.5" font-weight="750" fill="#a96008">P07</text>
+      <rect x="878.3" y="1381" width="50" height="24" rx="5" fill="#d9901a" opacity="0.14"/>
+      <text x="903.3" y="1398" text-anchor="middle" font-size="12" font-weight="800" fill="#7a4305">병목</text>
+      <text x="683.3" y="1418" font-size="10" font-weight="750" fill="#a96008"><tspan x="683.3" dy="0">[입학-입학관리-입학대상자관리]</tspan></text>
+      <text x="683.3" y="1442" font-size="15.5" font-weight="800" fill="#7a4305"><tspan x="683.3" dy="0">자료도착을 미도착으로 선택해</tspan><tspan x="683.3" dy="18">조회하고 전체출력하여 비고에서</tspan><tspan x="683.3" dy="18">출신 중학교의 미도착 사유를</tspan><tspan x="683.3" dy="18">확인한다.</tspan></text>
+      <text x="683.3" y="1513" font-size="11" font-weight="650" fill="#a96008">입학업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="668.3" y="1539" width="270" height="167" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="668.3" y="1539" width="6" height="167" rx="3" fill="#087452"/>
+      <text x="683.3" y="1559" font-size="12.5" font-weight="750" fill="#d8f4e8">P08</text>
+      <rect x="878.3" y="1546" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="903.3" y="1563" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="683.3" y="1583" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="683.3" dy="0">[입학-입학관리-학적일괄생성]</tspan></text>
+      <text x="683.3" y="1607" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="683.3" dy="0">학적일괄생성에서</tspan><tspan x="683.3" dy="18">대상자수(재학생·졸업생·검정고</tspan><tspan x="683.3" dy="18">시·기타)를 확인하고</tspan><tspan x="683.3" dy="18">학적생성으로 입학생 예비 학적을</tspan><tspan x="683.3" dy="18">만든다.</tspan></text>
+      <text x="683.3" y="1696" font-size="11" font-weight="650" fill="#d8f4e8">입학업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="668.3" y="1722" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="668.3" y="1722" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="683.3" y="1742" font-size="12.5" font-weight="750" fill="#627169">P09</text>
+      <rect x="878.3" y="1729" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="903.3" y="1746" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="683.3" y="1766" font-size="10" font-weight="750" fill="#627169"><tspan x="683.3" dy="0">[입학-입학관리-입학자현황조회]</tspan></text>
+      <text x="683.3" y="1790" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="683.3" dy="0">입학자현황조회에서 조회 조건을</tspan><tspan x="683.3" dy="18">확인하고 조회하여 입학자 현황을</tspan><tspan x="683.3" dy="18">확인·출력한다.</tspan></text>
+      <text x="683.3" y="1843" font-size="11" font-weight="650" fill="#627169">입학업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1051.8" y="1861" width="270" height="167" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="1051.8" y="1861" width="6" height="167" rx="3" fill="#35a77d"/>
+      <text x="1066.8" y="1881" font-size="12.5" font-weight="750" fill="#287a5c">P10</text>
+      <rect x="1261.8" y="1868" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1286.8" y="1885" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="1066.8" y="1905" font-size="8" font-weight="750" fill="#287a5c"><tspan x="1066.8" dy="0">[학적-진급대상자반편성관리-진급대상자반편성관리-대상자생성]</tspan></text>
+      <text x="1066.8" y="1929" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="1066.8" dy="0">대상자생성에서 진급학년도를</tspan><tspan x="1066.8" dy="18">확인해 조회하고</tspan><tspan x="1066.8" dy="18">주민등록번호오류출력으로 오류를</tspan><tspan x="1066.8" dy="18">확인한 후 1학년 진급대상자로</tspan><tspan x="1066.8" dy="18">진급자학적반영한다.</tspan></text>
+      <text x="1066.8" y="2018" font-size="11" font-weight="650" fill="#287a5c">반편성업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1051.8" y="2044" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1051.8" y="2044" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="1066.8" y="2064" font-size="12.5" font-weight="750" fill="#627169">P11</text>
+      <rect x="1261.8" y="2051" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1286.8" y="2068" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1066.8" y="2088" font-size="8" font-weight="750" fill="#627169"><tspan x="1066.8" dy="0">[학적-진급대상자반편성관리-진급대상자반편성관리-일괄반편성]</tspan></text>
+      <text x="1066.8" y="2112" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1066.8" dy="0">일괄반편성에서 반편성기준을</tspan><tspan x="1066.8" dy="18">파일업로드로 선택해</tspan><tspan x="1066.8" dy="18">자료내리기·자료입력·자료올리기</tspan><tspan x="1066.8" dy="18">로 입학생 반을 일괄 편성한다.</tspan></text>
+      <text x="1066.8" y="2183" font-size="11" font-weight="650" fill="#627169">반편성업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1051.8" y="2209" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1051.8" y="2209" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="1066.8" y="2229" font-size="12.5" font-weight="750" fill="#627169">P12</text>
+      <rect x="1261.8" y="2216" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1286.8" y="2233" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1066.8" y="2253" font-size="8" font-weight="750" fill="#627169"><tspan x="1066.8" dy="0">[학적-진급대상자반편성관리-진급대상자반편성관리-개별반편성]</tspan></text>
+      <text x="1066.8" y="2277" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1066.8" dy="0">개별반편성의</tspan><tspan x="1066.8" dy="18">입학생반편성내역개별등록 탭에서</tspan><tspan x="1066.8" dy="18">조회 후 진급반을 선택하고</tspan><tspan x="1066.8" dy="18">저장한다.</tspan></text>
+      <text x="1066.8" y="2348" font-size="11" font-weight="650" fill="#627169">반편성업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1051.8" y="2374" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1051.8" y="2374" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="1066.8" y="2394" font-size="12.5" font-weight="750" fill="#627169">P13</text>
+      <rect x="1261.8" y="2381" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1286.8" y="2398" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1066.8" y="2418" font-size="8" font-weight="750" fill="#627169"><tspan x="1066.8" dy="0">[학적-진급대상자반편성관리-진급대상자반편성관리-반번호부여]</tspan></text>
+      <text x="1066.8" y="2442" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1066.8" dy="0">반번호부여에서</tspan><tspan x="1066.8" dy="18">진급학년·남녀구분·부여기준을</tspan><tspan x="1066.8" dy="18">설정해 작업실행하고</tspan><tspan x="1066.8" dy="18">결과조회에서 반번호를</tspan><tspan x="1066.8" dy="18">수정·저장한다.</tspan></text>
+      <text x="1066.8" y="2531" font-size="11" font-weight="650" fill="#627169">반편성업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1051.8" y="2549" width="270" height="198" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="1051.8" y="2549" width="6" height="198" rx="3" fill="#087452"/>
+      <text x="1066.8" y="2569" font-size="12.5" font-weight="750" fill="#d8f4e8">P14</text>
+      <rect x="1261.8" y="2556" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1286.8" y="2573" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="1066.8" y="2593" font-size="8" font-weight="750" fill="#d8f4e8"><tspan x="1066.8" dy="0">[학적-진급대상자반편성관리-진급대상자반편성관리-진급자학적반</tspan><tspan x="1066.8" dy="13">영]</tspan></text>
+      <text x="1066.8" y="2630" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="1066.8" dy="0">진급자학적반영에서</tspan><tspan x="1066.8" dy="18">학적미반영자료조회·반편성/반번</tspan><tspan x="1066.8" dy="18">호미부여자조회·유급대상자조회</tspan><tspan x="1066.8" dy="18">로 이상 유무를 파악하고</tspan><tspan x="1066.8" dy="18">학적반영일자를 확인해 3학년부터</tspan><tspan x="1066.8" dy="18">1학년 순서로 승인요청한다.</tspan></text>
+      <text x="1066.8" y="2737" font-size="11" font-weight="650" fill="#d8f4e8">학적업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1435.3" y="2582.5" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1435.3" y="2582.5" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="1450.3" y="2602.5" font-size="12.5" font-weight="750" fill="#627169">P15</text>
+      <rect x="1645.3" y="2589.5" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1670.3" y="2606.5" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1450.3" y="2626.5" font-size="10" font-weight="750" fill="#627169"><tspan x="1450.3" dy="0">[전자결재-결재-미결함]</tspan></text>
+      <text x="1450.3" y="2650.5" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1450.3" dy="0">상신된 진급자 학적반영 문서를</tspan><tspan x="1450.3" dy="18">확인하고 결재를 완료하여</tspan><tspan x="1450.3" dy="18">학적반영을 확정한다.</tspan></text>
+      <text x="1450.3" y="2703.5" font-size="11" font-weight="650" fill="#627169">결재권자</text>
+    </g>
+  
+<rect x="38" y="2773" width="772.5" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2811" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2795" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2810" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2795" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2810" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2795" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2810" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2795" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2810" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2803" x2="522" y2="2803" stroke="#0f8a65" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-message)"/><text x="536" y="2809" font-size="15" fill="#3a463f">정보 전달</text>
+<line x1="631.3" y1="2803" x2="677.3" y2="2803" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="691.3" y="2809" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

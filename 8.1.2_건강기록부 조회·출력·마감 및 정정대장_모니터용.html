@@ -1,0 +1,324 @@
+<!-- 건강기록부 조회·출력·마감 및 정정대장 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>건강기록부 조회·출력·마감 및 정정대장</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"건강기록부 조회·출력·마감 및 정정대장","subtitle":"보건교사가 건강기록부를 반별로 조회·출력하고 자료검증 후 마감하며, 정정대장을 등록해 결재를 거쳐 완결자료를 반영하는 절차.","lanes":["보건교사","결재자(교감/교장)"],"stages":["조회·출력","자료검증 및 마감","마감 승인요청","정정대장 일괄등록 및 개인별 정정","승인요청 및 완결자료반영","졸업생 정정대장 등록"],"nodes":[{"id":"P01","lane":"보건교사","stage":"조회·출력","label":"학년도·학년·반을 확인하여 조회하고 학생을 선택해 건강기록부를 출력한다.","menu":"[보건-건강기록부관리-반별출력]","emphasis":"lead"},{"id":"P02","lane":"보건교사","stage":"조회·출력","label":"학년도·학년·반을 조회하여 학생별 인적사항·감염병예방접종·건강검사실시현황을 확인하고 저장 또는 출력한다.","menu":"[보건-건강기록부관리-반별조회]","emphasis":"normal"},{"id":"P03","lane":"보건교사","stage":"조회·출력","label":"건강검진 탭에서 학년도·학년·반을 확인하고 검진여부(전체·검진·미검진)를 선택하여 조회된 항목을 저장 또는 출력한다.","menu":"[보건-건강기록부관리-건강기록부항목별조회]","emphasis":"normal"},{"id":"P04","lane":"보건교사","stage":"자료검증 및 마감","label":"학년도·학년을 확인하여 조회하고 전체 학급을 대상으로 인적사항생성을 실행한다.","menu":"[보건-건강기록부관리-건강기록부마감]","emphasis":"lead"},{"id":"P05","lane":"보건교사","stage":"자료검증 및 마감","label":"학급별로 선택하여 자료검증에서 반별등록에 등록된 자료검증대상제외 내역을 확인하고 마감한다.","menu":"[보건-건강기록부관리-건강기록부마감]","emphasis":"key"},{"id":"P06","lane":"보건교사","stage":"마감 승인요청","label":"인적사항생성·반별마감·학년별 전체마감을 완료한 후 승인요청한다.","menu":"[보건-건강기록부관리-건강기록부마감]","emphasis":"lead"},{"id":"P07","lane":"결재자(교감/교장)","stage":"마감 승인요청","label":"상신된 건강기록부 마감 결재 문서를 검토하여 승인한다.","menu":"[전자결재-결재-결재할문서함]","emphasis":"normal"},{"id":"P08","lane":"보건교사","stage":"정정대장 일괄등록 및 개인별 정정","label":"조회구분을 반별로 선택하고 학년도·과정·계열/학년/학과·반을 확인하여 조회한 후 등록에서 일괄등록을 선택하고 학생목록에서 대상 학생을 선택하여 항목·오류내용·정정내용·정정사유를 입력하고 저장한다.","menu":"[보건-건강기록부관리-정정대장등록]","emphasis":"lead"},{"id":"P09","lane":"보건교사","stage":"정정대장 일괄등록 및 개인별 정정","label":"정정대장 목록에서 성명을 클릭하여 개인별 정정대장 내역 화면으로 이동하고 별도검사 등 항목별 입력오류 내용을 선택한 후 검진일자·검진기관 등 정정사항을 입력하여 저장한다.","menu":"[보건-건강기록부관리-정정대장등록]","emphasis":"key"},{"id":"P10","lane":"보건교사","stage":"승인요청 및 완결자료반영","label":"조회구분을 반별로 선택하여 조회한 후 상신할 내용을 선택해 승인요청하고 기안문서상신창에서 개인결재선·결재자지정과 내용을 입력하여 상신한다.","menu":"[보건-건강기록부관리-정정대장등록]","emphasis":"lead"},{"id":"P11","lane":"결재자(교감/교장)","stage":"승인요청 및 완결자료반영","label":"상신된 건강기록부 정정대장 기안문서를 검토하여 결재를 승인한다.","menu":"[전자결재-결재-결재할문서함]","emphasis":"normal"},{"id":"P12","lane":"보건교사","stage":"승인요청 및 완결자료반영","label":"결재가 완료된 정정 내역을 확인하고 완결자료반영을 실행하여 정정된 자료를 건강기록부에 반영한다.","menu":"[보건-건강기록부관리-정정대장등록]","emphasis":"bottleneck"},{"id":"P13","lane":"보건교사","stage":"졸업생 정정대장 등록","label":"졸업학년도를 입력하고 학생찾기를 클릭하여 고등학교 학생찾기창에서 학년을 전체로 확인하고 성명을 입력하여 조회된 학생목록에서 해당 학생을 선택해 확인한다.","menu":"[보건-건강기록부관리-졸업생정정대장등록]","emphasis":"lead"},{"id":"P14","lane":"보건교사","stage":"졸업생 정정대장 등록","label":"조회된 학생에 대해 개인별 세부 정정내역을 저장하고 승인요청 및 완결자료반영 절차를 거쳐 건강기록부에 반영한다.","menu":"[보건-건강기록부관리-졸업생정정대장등록]","emphasis":"key"},{"id":"P15","lane":"결재자(교감/교장)","stage":"졸업생 정정대장 등록","label":"상신된 졸업생 건강기록부 정정대장 기안문서를 검토하여 결재를 승인한다.","menu":"[전자결재-결재-결재할문서함]","emphasis":"normal"}],"edges":[{"id":"L01","source":"P07","target":"P05","type":"loop","label":"반려·재검증"},{"id":"L02","source":"P11","target":"P09","type":"loop","label":"반려·재정정"},{"id":"L03","source":"P15","target":"P14","type":"loop","label":"반려·재정정"},{"id":"L04","source":"P09","target":"P10","type":"message","label":"세부내역 저장한 항목만 승인요청 가능"}]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2636" viewBox="0 0 1800 2636">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2636" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 15 · 레인 2 · 게이트 6</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">건강기록부 조회·출력·마감 및 정정대장</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">보건교사가 건강기록부를 반별로 조회·출력하고 자료검증 후 마감하며, 정정대장을 등록해 결재를 거쳐 완결자료를 반영하는 절차.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="2176" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="505" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="505" fill="#eef3f0"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">조회·출력</tspan></text>
+<rect x="38" y="865" width="1724" height="304" fill="#84baa9"/>
+<rect x="38" y="865" width="190" height="304" fill="#087452"/>
+<text x="58" y="897" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="930" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">자료검증 및 마감</tspan></text>
+<rect x="38" y="1169" width="1724" height="139" fill="#fbfcfb"/>
+<rect x="38" y="1169" width="190" height="139" fill="#eef3f0"/>
+<text x="58" y="1201" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1234" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">마감 승인요청</tspan></text>
+<rect x="38" y="1308" width="1724" height="430" fill="#84baa9"/>
+<rect x="38" y="1308" width="190" height="430" fill="#087452"/>
+<text x="58" y="1340" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1373" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">정정대장</tspan><tspan x="58" dy="22">일괄등록 및…</tspan></text>
+<rect x="38" y="1738" width="1724" height="340" fill="#fbfcfb"/>
+<rect x="38" y="1738" width="190" height="340" fill="#eef3f0"/>
+<text x="58" y="1770" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1803" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">승인요청 및</tspan><tspan x="58" dy="22">완결자료반영</tspan></text>
+<rect x="38" y="2078" width="1724" height="358" fill="#84baa9"/>
+<rect x="38" y="2078" width="190" height="358" fill="#087452"/>
+<text x="58" y="2110" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="2143" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">졸업생 정정대장</tspan><tspan x="58" dy="22">등록</tspan></text>
+<rect x="228" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="767" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">보건교사</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">보건교사</tspan></text>
+<rect x="995" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="995" y="260" width="767" height="7" fill="#3b82f6"/>
+<text x="1015" y="299" font-size="20" font-weight="800" fill="#17231d">결재자</text>
+<text x="1015" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1015" dy="0">결재자(교감/교장)</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2436" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="995" y1="260" x2="995" y2="2436" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2436" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="865" x2="1762" y2="865" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1169" x2="1762" y2="1169" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1308" x2="1762" y2="1308" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1738" x2="1762" y2="1738" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2078" x2="1762" y2="2078" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2436" x2="1762" y2="2436" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 1243.5 1238.5 H 461 V 1090.5 H 468.5" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 1243.5 1238.5 H 461 V 1090.5 H 468.5" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 1243.5 1908 H 455 V 1641.5 H 468.5" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 1243.5 1908 H 455 V 1641.5 H 468.5" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 1243.5 2257 H 774.5 V 2357.5 H 754.5" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 1243.5 2257 H 774.5 V 2357.5 H 754.5" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 600.5 1734 V 1726 H 611.5 V 1734" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="7 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 600.5 1734 V 1726 H 611.5 V 1734" fill="none" stroke="#0f8a65" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#arrow-message)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="339.5" y="1149.5" width="103" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="391" y="1169.5" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">반려·재검증</text>
+<rect x="333.5" y="1759.8" width="103" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="385" y="1779.8" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">반려·재정정</text>
+<rect x="943.5" y="2275.3" width="103" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="995" y="2295.3" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">반려·재정정</text>
+<rect x="191.2" y="1694" width="269.6" height="30" rx="6" fill="#ffffff" stroke="#0f8a65" stroke-width="1.4"/>
+<text x="326" y="1714" text-anchor="middle" font-size="14" font-weight="750" fill="#0f8a65">세부내역 저장한 항목만 승인요청 가능</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="364" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="364" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="384" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="686.5" y="371" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="388" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="408" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[보건-건강기록부관리-반별출력]</tspan></text>
+      <text x="491.5" y="432" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">학년도·학년·반을 확인하여</tspan><tspan x="491.5" dy="18">조회하고 학생을 선택해</tspan><tspan x="491.5" dy="18">건강기록부를 출력한다.</tspan></text>
+      <text x="491.5" y="485" font-size="11" font-weight="650" fill="#287a5c">보건교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="511" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="511" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="531" font-size="12.5" font-weight="750" fill="#627169">P02</text>
+      <rect x="686.5" y="518" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="535" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="555" font-size="10" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[보건-건강기록부관리-반별조회]</tspan></text>
+      <text x="491.5" y="579" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">학년도·학년·반을 조회하여</tspan><tspan x="491.5" dy="18">학생별</tspan><tspan x="491.5" dy="18">인적사항·감염병예방접종·건강검</tspan><tspan x="491.5" dy="18">사실시현황을 확인하고 저장 또는</tspan><tspan x="491.5" dy="18">출력한다.</tspan></text>
+      <text x="491.5" y="668" font-size="11" font-weight="650" fill="#627169">보건교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="694" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="694" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="714" font-size="12.5" font-weight="750" fill="#627169">P03</text>
+      <rect x="686.5" y="701" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="718" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="738" font-size="10" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[보건-건강기록부관리-건강기록부항목별조회]</tspan></text>
+      <text x="491.5" y="762" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">건강검진 탭에서</tspan><tspan x="491.5" dy="18">학년도·학년·반을 확인하고</tspan><tspan x="491.5" dy="18">검진여부(전체·검진·미검진)를</tspan><tspan x="491.5" dy="18">선택하여 조회된 항목을 저장 또는</tspan><tspan x="491.5" dy="18">출력한다.</tspan></text>
+      <text x="491.5" y="851" font-size="11" font-weight="650" fill="#627169">보건교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="869" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="869" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="889" font-size="12.5" font-weight="750" fill="#287a5c">P04</text>
+      <rect x="686.5" y="876" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="893" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="913" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[보건-건강기록부관리-건강기록부마감]</tspan></text>
+      <text x="491.5" y="937" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">학년도·학년을 확인하여 조회하고</tspan><tspan x="491.5" dy="18">전체 학급을 대상으로</tspan><tspan x="491.5" dy="18">인적사항생성을 실행한다.</tspan></text>
+      <text x="491.5" y="990" font-size="11" font-weight="650" fill="#287a5c">보건교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1016" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="1016" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="491.5" y="1036" font-size="12.5" font-weight="750" fill="#d8f4e8">P05</text>
+      <rect x="686.5" y="1023" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="1040" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="1060" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[보건-건강기록부관리-건강기록부마감]</tspan></text>
+      <text x="491.5" y="1084" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">학급별로 선택하여 자료검증에서</tspan><tspan x="491.5" dy="18">반별등록에 등록된</tspan><tspan x="491.5" dy="18">자료검증대상제외 내역을</tspan><tspan x="491.5" dy="18">확인하고 마감한다.</tspan></text>
+      <text x="491.5" y="1155" font-size="11" font-weight="650" fill="#d8f4e8">보건교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1173" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="1173" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="1193" font-size="12.5" font-weight="750" fill="#287a5c">P06</text>
+      <rect x="686.5" y="1180" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="1197" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="1217" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[보건-건강기록부관리-건강기록부마감]</tspan></text>
+      <text x="491.5" y="1241" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">인적사항생성·반별마감·학년별</tspan><tspan x="491.5" dy="18">전체마감을 완료한 후</tspan><tspan x="491.5" dy="18">승인요청한다.</tspan></text>
+      <text x="491.5" y="1294" font-size="11" font-weight="650" fill="#287a5c">보건교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1182" width="270" height="113" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1182" width="6" height="113" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1202" font-size="12.5" font-weight="750" fill="#627169">P07</text>
+      <rect x="1453.5" y="1189" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1206" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1226" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[전자결재-결재-결재할문서함]</tspan></text>
+      <text x="1258.5" y="1250" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">상신된 건강기록부 마감 결재</tspan><tspan x="1258.5" dy="18">문서를 검토하여 승인한다.</tspan></text>
+      <text x="1258.5" y="1285" font-size="11" font-weight="650" fill="#627169">결재자(교감/교장)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1312" width="270" height="221" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="1312" width="6" height="221" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="1332" font-size="12.5" font-weight="750" fill="#287a5c">P08</text>
+      <rect x="686.5" y="1319" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="1336" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="1356" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[보건-건강기록부관리-정정대장등록]</tspan></text>
+      <text x="491.5" y="1380" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">조회구분을 반별로 선택하고</tspan><tspan x="491.5" dy="18">학년도·과정·계열/학년/학과·반</tspan><tspan x="491.5" dy="18">을 확인하여 조회한 후 등록에서</tspan><tspan x="491.5" dy="18">일괄등록을 선택하고</tspan><tspan x="491.5" dy="18">학생목록에서 대상 학생을</tspan><tspan x="491.5" dy="18">선택하여</tspan><tspan x="491.5" dy="18">항목·오류내용·정정내용·정정사</tspan><tspan x="491.5" dy="18">유를 입력하고 저장한다.</tspan></text>
+      <text x="491.5" y="1523" font-size="11" font-weight="650" fill="#287a5c">보건교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1549" width="270" height="185" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="1549" width="6" height="185" rx="3" fill="#087452"/>
+      <text x="491.5" y="1569" font-size="12.5" font-weight="750" fill="#d8f4e8">P09</text>
+      <rect x="686.5" y="1556" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="1573" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="1593" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[보건-건강기록부관리-정정대장등록]</tspan></text>
+      <text x="491.5" y="1617" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">정정대장 목록에서 성명을</tspan><tspan x="491.5" dy="18">클릭하여 개인별 정정대장 내역</tspan><tspan x="491.5" dy="18">화면으로 이동하고 별도검사 등</tspan><tspan x="491.5" dy="18">항목별 입력오류 내용을 선택한 후</tspan><tspan x="491.5" dy="18">검진일자·검진기관 등 정정사항을</tspan><tspan x="491.5" dy="18">입력하여 저장한다.</tspan></text>
+      <text x="491.5" y="1724" font-size="11" font-weight="650" fill="#d8f4e8">보건교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1742" width="270" height="167" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="1742" width="6" height="167" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="1762" font-size="12.5" font-weight="750" fill="#287a5c">P10</text>
+      <rect x="686.5" y="1749" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="1766" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="1786" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[보건-건강기록부관리-정정대장등록]</tspan></text>
+      <text x="491.5" y="1810" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">조회구분을 반별로 선택하여</tspan><tspan x="491.5" dy="18">조회한 후 상신할 내용을 선택해</tspan><tspan x="491.5" dy="18">승인요청하고 기안문서상신창에서</tspan><tspan x="491.5" dy="18">개인결재선·결재자지정과 내용을</tspan><tspan x="491.5" dy="18">입력하여 상신한다.</tspan></text>
+      <text x="491.5" y="1899" font-size="11" font-weight="650" fill="#287a5c">보건교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1842.5" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1842.5" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1862.5" font-size="12.5" font-weight="750" fill="#627169">P11</text>
+      <rect x="1453.5" y="1849.5" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1866.5" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1886.5" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[전자결재-결재-결재할문서함]</tspan></text>
+      <text x="1258.5" y="1910.5" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">상신된 건강기록부 정정대장</tspan><tspan x="1258.5" dy="18">기안문서를 검토하여 결재를</tspan><tspan x="1258.5" dy="18">승인한다.</tspan></text>
+      <text x="1258.5" y="1963.5" font-size="11" font-weight="650" fill="#627169">결재자(교감/교장)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1925" width="270" height="149" rx="8" fill="#fff8e8" stroke="#d9901a" stroke-width="2.3"/>
+      <rect x="476.5" y="1925" width="6" height="149" rx="3" fill="#d9901a"/>
+      <text x="491.5" y="1945" font-size="12.5" font-weight="750" fill="#a96008">P12</text>
+      <rect x="686.5" y="1932" width="50" height="24" rx="5" fill="#d9901a" opacity="0.14"/>
+      <text x="711.5" y="1949" text-anchor="middle" font-size="12" font-weight="800" fill="#7a4305">병목</text>
+      <text x="491.5" y="1969" font-size="10" font-weight="750" fill="#a96008"><tspan x="491.5" dy="0">[보건-건강기록부관리-정정대장등록]</tspan></text>
+      <text x="491.5" y="1993" font-size="15.5" font-weight="800" fill="#7a4305"><tspan x="491.5" dy="0">결재가 완료된 정정 내역을</tspan><tspan x="491.5" dy="18">확인하고 완결자료반영을</tspan><tspan x="491.5" dy="18">실행하여 정정된 자료를</tspan><tspan x="491.5" dy="18">건강기록부에 반영한다.</tspan></text>
+      <text x="491.5" y="2064" font-size="11" font-weight="650" fill="#a96008">보건교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="2082" width="270" height="185" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="2082" width="6" height="185" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="2102" font-size="12.5" font-weight="750" fill="#287a5c">P13</text>
+      <rect x="686.5" y="2089" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="2106" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="2126" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[보건-건강기록부관리-졸업생정정대장등록]</tspan></text>
+      <text x="491.5" y="2150" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">졸업학년도를 입력하고</tspan><tspan x="491.5" dy="18">학생찾기를 클릭하여 고등학교</tspan><tspan x="491.5" dy="18">학생찾기창에서 학년을 전체로</tspan><tspan x="491.5" dy="18">확인하고 성명을 입력하여 조회된</tspan><tspan x="491.5" dy="18">학생목록에서 해당 학생을 선택해</tspan><tspan x="491.5" dy="18">확인한다.</tspan></text>
+      <text x="491.5" y="2257" font-size="11" font-weight="650" fill="#287a5c">보건교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="2283" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="2283" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="491.5" y="2303" font-size="12.5" font-weight="750" fill="#d8f4e8">P14</text>
+      <rect x="686.5" y="2290" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="2307" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="2327" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[보건-건강기록부관리-졸업생정정대장등록]</tspan></text>
+      <text x="491.5" y="2351" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">조회된 학생에 대해 개인별 세부</tspan><tspan x="491.5" dy="18">정정내역을 저장하고 승인요청 및</tspan><tspan x="491.5" dy="18">완결자료반영 절차를 거쳐</tspan><tspan x="491.5" dy="18">건강기록부에 반영한다.</tspan></text>
+      <text x="491.5" y="2422" font-size="11" font-weight="650" fill="#d8f4e8">보건교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="2191.5" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="2191.5" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="2211.5" font-size="12.5" font-weight="750" fill="#627169">P15</text>
+      <rect x="1453.5" y="2198.5" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="2215.5" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="2235.5" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[전자결재-결재-결재할문서함]</tspan></text>
+      <text x="1258.5" y="2259.5" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">상신된 졸업생 건강기록부</tspan><tspan x="1258.5" dy="18">정정대장 기안문서를 검토하여</tspan><tspan x="1258.5" dy="18">결재를 승인한다.</tspan></text>
+      <text x="1258.5" y="2312.5" font-size="11" font-weight="650" fill="#627169">결재자(교감/교장)</text>
+    </g>
+  
+<rect x="38" y="2458" width="772.5" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2496" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2480" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2495" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2480" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2495" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2480" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2495" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2480" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2495" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2488" x2="522" y2="2488" stroke="#0f8a65" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-message)"/><text x="536" y="2494" font-size="15" fill="#3a463f">정보 전달</text>
+<line x1="631.3" y1="2488" x2="677.3" y2="2488" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="691.3" y="2494" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

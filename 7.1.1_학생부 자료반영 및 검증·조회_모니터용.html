@@ -1,0 +1,282 @@
+<!-- 학생부 자료반영 및 검증·조회 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>학생부 자료반영 및 검증·조회</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"학생부 자료반영 및 검증·조회","subtitle":"학교생활기록부에 자료를 반영하고 검증한 뒤 결과를 조회·대조·확인하는 절차.","lanes":["학급담임교사","업무담당교사"],"stages":["학생부 반영","자료검증(전체/항목별검증)","검증결과 조회","학생부 조회 및 출력","항목별 조회·대조확인"],"nodes":[{"id":"P01","lane":"학급담임교사","stage":"학생부 반영","label":"[학생부-학교생활기록부-학교생활기록부-학생부반영]에서 학년도, 학년, 반을 확인한 후 조회한다.","menu":"[학생부-학교생활기록부-학교생활기록부-학생부반영]","emphasis":"lead"},{"id":"P02","lane":"학급담임교사","stage":"학생부 반영","label":"반영할 학생을 선택하고 학생부 반영 항목을 선택한 후 전체반영 또는 개인별반영을 실행한다.","menu":"[학생부-학교생활기록부-학교생활기록부-학생부반영]","emphasis":"key"},{"id":"P03","lane":"학급담임교사","stage":"자료검증(전체/항목별검증)","label":"[학생부-학교생활기록부-학교생활기록부-자료검증및반마감]에서 학년도, 학년, 반을 확인한 후 조회한다.","menu":"[학생부-학교생활기록부-학교생활기록부-자료검증및반마감]","emphasis":"lead"},{"id":"P04","lane":"학급담임교사","stage":"자료검증(전체/항목별검증)","label":"검증할 항목을 선택하여 전체검증 또는 항목별검증을 실행하고 최종검증일과 확인여부를 확인한다.","menu":"[학생부-학교생활기록부-학교생활기록부-자료검증및반마감]","emphasis":"key"},{"id":"P05","lane":"학급담임교사","stage":"자료검증(전체/항목별검증)","label":"확인여부에 확인필요로 표시된 항목을 클릭하여 검증내역의 오류내용을 확인하고, 오류는 수정하거나 인정오류는 예외처리사유를 입력한 후 저장한다.","menu":"[학생부-학교생활기록부-학교생활기록부-자료검증및반마감]","emphasis":"bottleneck"},{"id":"P06","lane":"업무담당교사","stage":"검증결과 조회","label":"[학생부-학교생활기록부-학교생활기록부-검증결과조회]에서 학년도, 학년, 반을 확인한 후 조회한다.","menu":"[학생부-학교생활기록부-학교생활기록부-검증결과조회]","emphasis":"lead"},{"id":"P07","lane":"업무담당교사","stage":"검증결과 조회","label":"검증결과를 조회하고자 하는 항목을 클릭하여 내용을 확인하며, 전체로 조회하면 확인필요 내용을 모두 조회하여 저장 또는 출력할 수 있다.","menu":"[학생부-학교생활기록부-학교생활기록부-검증결과조회]","emphasis":"normal"},{"id":"P08","lane":"학급담임교사","stage":"학생부 조회 및 출력","label":"[학생부-학교생활기록부-학교생활기록부-학생부조회및출력]에서 반별조회를 선택하고 학년도, 학년, 반을 확인한 후 조회한다.","menu":"[학생부-학교생활기록부-학교생활기록부-학생부조회및출력]","emphasis":"lead"},{"id":"P09","lane":"학급담임교사","stage":"학생부 조회 및 출력","label":"해당 학생을 클릭하여 학생부 선택과 출력옵션을 선택한 후 개별출력 또는 전체출력으로 저장·출력한다.","menu":"[학생부-학교생활기록부-학교생활기록부-학생부조회및출력]","emphasis":"normal"},{"id":"P10","lane":"학급담임교사","stage":"학생부 조회 및 출력","label":"학적변동자는 재학아닌학생을 선택한 후 성명을 입력하여 조회하고, 학생부자료검색으로 검색어를 대조 확인한다.","menu":"[학생부-학교생활기록부-학교생활기록부-학생부조회및출력]","emphasis":"normal"},{"id":"P11","lane":"학급담임교사","stage":"항목별 조회·대조확인","label":"[학생부-학교생활기록부-학교생활기록부-학생부항목별조회]에서 학년도, 학년, 반을 확인한 후 조회한다.","menu":"[학생부-학교생활기록부-학교생활기록부-학생부항목별조회]","emphasis":"lead"},{"id":"P12","lane":"학급담임교사","stage":"항목별 조회·대조확인","label":"조회하고자 하는 항목을 클릭하여 저장 또는 출력한다.","menu":"[학생부-학교생활기록부-학교생활기록부-학생부항목별조회]","emphasis":"normal"},{"id":"P13","lane":"학급담임교사","stage":"항목별 조회·대조확인","label":"3학년은 졸업대장번호와 인적·학적사항의 졸업 입력 여부를 확인하고, 전입생 학급은 누가주소·사진·인적·학적사항·출결상황·창의적체험활동 이수시간 및 교과학습발달상황 등을 3회 이상 대조·확인한다.","menu":"[학생부-학교생활기록부-학교생활기록부-학생부항목별조회]","emphasis":"normal"}],"edges":[{"id":"L01","source":"P05","target":"P02","type":"loop","label":"오류 수정 후 재반영"}]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2719" viewBox="0 0 1800 2719">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2719" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 13 · 레인 2 · 게이트 5</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">학생부 자료반영 및 검증·조회</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">학교생활기록부에 자료를 반영하고 검증한 뒤 결과를 조회·대조·확인하는 절차.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="2259" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="304" fill="#84baa9"/>
+<rect x="38" y="360" width="190" height="304" fill="#087452"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">학생부 반영</tspan></text>
+<rect x="38" y="664" width="1724" height="523" fill="#84baa9"/>
+<rect x="38" y="664" width="190" height="523" fill="#087452"/>
+<text x="58" y="696" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="729" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">자료검증(전체/</tspan><tspan x="58" dy="22">항목별검증)</tspan></text>
+<rect x="38" y="1187" width="1724" height="340" fill="#fbfcfb"/>
+<rect x="38" y="1187" width="190" height="340" fill="#eef3f0"/>
+<text x="58" y="1219" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1252" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">검증결과 조회</tspan></text>
+<rect x="38" y="1527" width="1724" height="487" fill="#f5f8f6"/>
+<rect x="38" y="1527" width="190" height="487" fill="#eef3f0"/>
+<text x="58" y="1559" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1592" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">학생부 조회 및</tspan><tspan x="58" dy="22">출력</tspan></text>
+<rect x="38" y="2014" width="1724" height="505" fill="#fbfcfb"/>
+<rect x="38" y="2014" width="190" height="505" fill="#eef3f0"/>
+<text x="58" y="2046" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="2079" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">항목별</tspan><tspan x="58" dy="22">조회·대조확인</tspan></text>
+<rect x="228" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="767" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">학급담임교사</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">학급담임교사</tspan></text>
+<rect x="995" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="995" y="260" width="767" height="7" fill="#3b82f6"/>
+<text x="1015" y="299" font-size="20" font-weight="800" fill="#17231d">업무담당교사</text>
+<text x="1015" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1015" dy="0">업무담당교사</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2519" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="995" y1="260" x2="995" y2="2519" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2519" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="664" x2="1762" y2="664" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1187" x2="1762" y2="1187" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1527" x2="1762" y2="1527" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2014" x2="1762" y2="2014" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2519" x2="1762" y2="2519" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 476.5 1090.5 H 216 V 644 H 611.5 V 668" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 476.5 1090.5 H 216 V 644 H 611.5 V 668" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="209.7" y="852.3" width="152.7" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="286" y="872.3" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">오류 수정 후 재반영</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="364" width="270" height="149" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="364" width="6" height="149" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="384" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="686.5" y="371" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="388" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="408" font-size="9.5" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학생부-학교생활기록부-학교생활기록부-학생부반영]</tspan></text>
+      <text x="491.5" y="432" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">[학생부-학교생활기록부-학교생</tspan><tspan x="491.5" dy="18">활기록부-학생부반영]에서</tspan><tspan x="491.5" dy="18">학년도, 학년, 반을 확인한 후</tspan><tspan x="491.5" dy="18">조회한다.</tspan></text>
+      <text x="491.5" y="503" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="529" width="270" height="131" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="529" width="6" height="131" rx="3" fill="#087452"/>
+      <text x="491.5" y="549" font-size="12.5" font-weight="750" fill="#d8f4e8">P02</text>
+      <rect x="686.5" y="536" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="553" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="573" font-size="9.5" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[학생부-학교생활기록부-학교생활기록부-학생부반영]</tspan></text>
+      <text x="491.5" y="597" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">반영할 학생을 선택하고 학생부</tspan><tspan x="491.5" dy="18">반영 항목을 선택한 후 전체반영</tspan><tspan x="491.5" dy="18">또는 개인별반영을 실행한다.</tspan></text>
+      <text x="491.5" y="650" font-size="11" font-weight="650" fill="#d8f4e8">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="668" width="270" height="149" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="668" width="6" height="149" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="688" font-size="12.5" font-weight="750" fill="#287a5c">P03</text>
+      <rect x="686.5" y="675" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="692" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="712" font-size="8.5" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학생부-학교생활기록부-학교생활기록부-자료검증및반마감]</tspan></text>
+      <text x="491.5" y="736" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">[학생부-학교생활기록부-학교생</tspan><tspan x="491.5" dy="18">활기록부-자료검증및반마감]에서</tspan><tspan x="491.5" dy="18">학년도, 학년, 반을 확인한 후</tspan><tspan x="491.5" dy="18">조회한다.</tspan></text>
+      <text x="491.5" y="807" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="833" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="833" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="491.5" y="853" font-size="12.5" font-weight="750" fill="#d8f4e8">P04</text>
+      <rect x="686.5" y="840" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="857" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="877" font-size="8.5" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[학생부-학교생활기록부-학교생활기록부-자료검증및반마감]</tspan></text>
+      <text x="491.5" y="901" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">검증할 항목을 선택하여 전체검증</tspan><tspan x="491.5" dy="18">또는 항목별검증을 실행하고</tspan><tspan x="491.5" dy="18">최종검증일과 확인여부를</tspan><tspan x="491.5" dy="18">확인한다.</tspan></text>
+      <text x="491.5" y="972" font-size="11" font-weight="650" fill="#d8f4e8">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="998" width="270" height="185" rx="8" fill="#fff8e8" stroke="#d9901a" stroke-width="2.3"/>
+      <rect x="476.5" y="998" width="6" height="185" rx="3" fill="#d9901a"/>
+      <text x="491.5" y="1018" font-size="12.5" font-weight="750" fill="#a96008">P05</text>
+      <rect x="686.5" y="1005" width="50" height="24" rx="5" fill="#d9901a" opacity="0.14"/>
+      <text x="711.5" y="1022" text-anchor="middle" font-size="12" font-weight="800" fill="#7a4305">병목</text>
+      <text x="491.5" y="1042" font-size="8.5" font-weight="750" fill="#a96008"><tspan x="491.5" dy="0">[학생부-학교생활기록부-학교생활기록부-자료검증및반마감]</tspan></text>
+      <text x="491.5" y="1066" font-size="15.5" font-weight="800" fill="#7a4305"><tspan x="491.5" dy="0">확인여부에 확인필요로 표시된</tspan><tspan x="491.5" dy="18">항목을 클릭하여 검증내역의</tspan><tspan x="491.5" dy="18">오류내용을 확인하고, 오류는</tspan><tspan x="491.5" dy="18">수정하거나 인정오류는</tspan><tspan x="491.5" dy="18">예외처리사유를 입력한 후</tspan><tspan x="491.5" dy="18">저장한다.</tspan></text>
+      <text x="491.5" y="1173" font-size="11" font-weight="650" fill="#a96008">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1191" width="270" height="149" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="1243.5" y="1191" width="6" height="149" rx="3" fill="#35a77d"/>
+      <text x="1258.5" y="1211" font-size="12.5" font-weight="750" fill="#287a5c">P06</text>
+      <rect x="1453.5" y="1198" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1478.5" y="1215" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="1258.5" y="1235" font-size="9" font-weight="750" fill="#287a5c"><tspan x="1258.5" dy="0">[학생부-학교생활기록부-학교생활기록부-검증결과조회]</tspan></text>
+      <text x="1258.5" y="1259" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="1258.5" dy="0">[학생부-학교생활기록부-학교생</tspan><tspan x="1258.5" dy="18">활기록부-검증결과조회]에서</tspan><tspan x="1258.5" dy="18">학년도, 학년, 반을 확인한 후</tspan><tspan x="1258.5" dy="18">조회한다.</tspan></text>
+      <text x="1258.5" y="1330" font-size="11" font-weight="650" fill="#287a5c">업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1356" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1356" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1376" font-size="12.5" font-weight="750" fill="#627169">P07</text>
+      <rect x="1453.5" y="1363" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1380" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1400" font-size="9" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[학생부-학교생활기록부-학교생활기록부-검증결과조회]</tspan></text>
+      <text x="1258.5" y="1424" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">검증결과를 조회하고자 하는</tspan><tspan x="1258.5" dy="18">항목을 클릭하여 내용을</tspan><tspan x="1258.5" dy="18">확인하며, 전체로 조회하면</tspan><tspan x="1258.5" dy="18">확인필요 내용을 모두 조회하여</tspan><tspan x="1258.5" dy="18">저장 또는 출력할 수 있다.</tspan></text>
+      <text x="1258.5" y="1513" font-size="11" font-weight="650" fill="#627169">업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1531" width="270" height="149" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="1531" width="6" height="149" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="1551" font-size="12.5" font-weight="750" fill="#287a5c">P08</text>
+      <rect x="686.5" y="1538" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="1555" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="1575" font-size="8.5" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학생부-학교생활기록부-학교생활기록부-학생부조회및출력]</tspan></text>
+      <text x="491.5" y="1599" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">[학생부-학교생활기록부-학교생</tspan><tspan x="491.5" dy="18">활기록부-학생부조회및출력]에서</tspan><tspan x="491.5" dy="18">반별조회를 선택하고 학년도,</tspan><tspan x="491.5" dy="18">학년, 반을 확인한 후 조회한다.</tspan></text>
+      <text x="491.5" y="1670" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1696" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="1696" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="1716" font-size="12.5" font-weight="750" fill="#627169">P09</text>
+      <rect x="686.5" y="1703" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="1720" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="1740" font-size="8.5" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학생부-학교생활기록부-학교생활기록부-학생부조회및출력]</tspan></text>
+      <text x="491.5" y="1764" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">해당 학생을 클릭하여 학생부</tspan><tspan x="491.5" dy="18">선택과 출력옵션을 선택한 후</tspan><tspan x="491.5" dy="18">개별출력 또는 전체출력으로</tspan><tspan x="491.5" dy="18">저장·출력한다.</tspan></text>
+      <text x="491.5" y="1835" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1861" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="1861" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="1881" font-size="12.5" font-weight="750" fill="#627169">P10</text>
+      <rect x="686.5" y="1868" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="1885" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="1905" font-size="8.5" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학생부-학교생활기록부-학교생활기록부-학생부조회및출력]</tspan></text>
+      <text x="491.5" y="1929" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">학적변동자는 재학아닌학생을</tspan><tspan x="491.5" dy="18">선택한 후 성명을 입력하여</tspan><tspan x="491.5" dy="18">조회하고, 학생부자료검색으로</tspan><tspan x="491.5" dy="18">검색어를 대조 확인한다.</tspan></text>
+      <text x="491.5" y="2000" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="2018" width="270" height="149" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="2018" width="6" height="149" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="2038" font-size="12.5" font-weight="750" fill="#287a5c">P11</text>
+      <rect x="686.5" y="2025" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="2042" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="2062" font-size="8.5" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학생부-학교생활기록부-학교생활기록부-학생부항목별조회]</tspan></text>
+      <text x="491.5" y="2086" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">[학생부-학교생활기록부-학교생</tspan><tspan x="491.5" dy="18">활기록부-학생부항목별조회]에서</tspan><tspan x="491.5" dy="18">학년도, 학년, 반을 확인한 후</tspan><tspan x="491.5" dy="18">조회한다.</tspan></text>
+      <text x="491.5" y="2157" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="2183" width="270" height="113" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="2183" width="6" height="113" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="2203" font-size="12.5" font-weight="750" fill="#627169">P12</text>
+      <rect x="686.5" y="2190" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="2207" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="2227" font-size="8.5" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학생부-학교생활기록부-학교생활기록부-학생부항목별조회]</tspan></text>
+      <text x="491.5" y="2251" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">조회하고자 하는 항목을 클릭하여</tspan><tspan x="491.5" dy="18">저장 또는 출력한다.</tspan></text>
+      <text x="491.5" y="2286" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="2312" width="270" height="203" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="2312" width="6" height="203" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="2332" font-size="12.5" font-weight="750" fill="#627169">P13</text>
+      <rect x="686.5" y="2319" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="2336" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="2356" font-size="8.5" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학생부-학교생활기록부-학교생활기록부-학생부항목별조회]</tspan></text>
+      <text x="491.5" y="2380" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">3학년은 졸업대장번호와</tspan><tspan x="491.5" dy="18">인적·학적사항의 졸업 입력</tspan><tspan x="491.5" dy="18">여부를 확인하고, 전입생 학급은</tspan><tspan x="491.5" dy="18">누가주소·사진·인적·학적사항·출</tspan><tspan x="491.5" dy="18">결상황·창의적체험활동 이수시간</tspan><tspan x="491.5" dy="18">및 교과학습발달상황 등을 3회</tspan><tspan x="491.5" dy="18">이상 대조·확인한다.</tspan></text>
+      <text x="491.5" y="2505" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+<rect x="38" y="2541" width="617.3" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2579" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2563" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2578" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2563" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2578" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2563" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2578" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2563" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2578" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2571" x2="522" y2="2571" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="536" y="2577" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

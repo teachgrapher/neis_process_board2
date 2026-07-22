@@ -1,0 +1,230 @@
+<!-- 학기초 OMR·코드 선행설정 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>학기초 OMR·코드 선행설정</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto; margin:0 auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"학기초 OMR·코드 선행설정","subtitle":"지필·수행평가 성적처리를 위해 도제학교 그룹, OMR 리딩 프로그램, 학과·과목 코드를 학기초에 선행 등록한다.","lanes":["성적처리 업무담당자","교과담당교사"],"stages":["도제학교 그룹관리","OMR 프로그램 설치","OMR 프로그램 실행/환경설정","학과코드 관리","과목코드 관리"],"nodes":[{"id":"P01","lane":"성적처리 업무담당자","stage":"도제학교 그룹관리","label":"학년도·학기를 확인한 후 계열/학년/학과를 선택하여 조회한다.","menu":"[성적-지필/수행선행작업-도제학교그룹관리]","emphasis":"lead"},{"id":"P02","lane":"성적처리 업무담당자","stage":"도제학교 그룹관리","label":"도제학교 그룹 등록 창에서 과목명을 선택하고 해당 강의실에 도제여부를 선택하여 저장한다.","menu":"[성적-지필/수행선행작업-도제학교그룹관리]","emphasis":"key"},{"id":"P03","lane":"성적처리 업무담당자","stage":"OMR 프로그램 설치","label":"OMR카드리딩프로그램내려받기를 클릭하여 확인하고 내려받은 설치 프로그램(neis_omr_setup_high)을 실행하여 설치한다.","menu":"[성적-지필/수행선행작업-OMR카드리딩프로그램관리]","emphasis":"lead"},{"id":"P04","lane":"성적처리 업무담당자","stage":"OMR 프로그램 실행/환경설정","label":"OMR카드리딩프로그램실행을 클릭하고 보안 경고 창에서 열기를 눌러 확인한 후 나이스 OMR 카드리딩 프로그램 창을 연다.","menu":"[성적-지필/수행선행작업-OMR카드리딩프로그램관리]","emphasis":"lead"},{"id":"P05","lane":"성적처리 업무담당자","stage":"OMR 프로그램 실행/환경설정","label":"환경설정 창의 판독기설정·학생카드설정·정답카드설정·점수카드설정·카드리더기설정가져오기 탭에서 값을 설정하고 저장한다.","menu":"[성적-지필/수행선행작업-OMR카드리딩프로그램관리]","emphasis":"key"},{"id":"P06","lane":"성적처리 업무담당자","stage":"학과코드 관리","label":"OMR용코드관리의 학과코드관리 탭에서 학년도를 확인하고 조회한다.","menu":"[성적-지필/수행선행작업-OMR용코드관리]","emphasis":"lead"},{"id":"P07","lane":"성적처리 업무담당자","stage":"학과코드 관리","label":"일괄부여로 학과코드를 순차 부여하고, 특성화고 등은 학과코드 순서를 조정한 후 저장한다.","menu":"[성적-지필/수행선행작업-OMR용코드관리]","emphasis":"key"},{"id":"P08","lane":"교과담당교사","stage":"과목코드 관리","label":"OMR용코드관리의 과목코드관리 탭에서 학년도·학기를 확인하고 학년을 선택하여 조회한다.","menu":"[성적-지필/수행선행작업-OMR용코드관리]","emphasis":"lead"},{"id":"P09","lane":"교과담당교사","stage":"과목코드 관리","label":"일괄부여하거나 개별 등록하여 카드과목코드를 확인한 후 저장한다.","menu":"[성적-지필/수행선행작업-OMR용코드관리]","emphasis":"key"}],"edges":[]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2400" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 9 · 레인 2 · 게이트 5</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">학기초 OMR·코드 선행설정</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">지필·수행평가 성적처리를 위해 도제학교 그룹, OMR 리딩 프로그램, 학과·과목 코드를 학기초에 선행 등록한다.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="1940" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="381" fill="#84baa9"/>
+<rect x="38" y="360" width="190" height="381" fill="#087452"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">도제학교</tspan><tspan x="58" dy="22">그룹관리</tspan></text>
+<rect x="38" y="741" width="1724" height="244" fill="#f5f8f6"/>
+<rect x="38" y="741" width="190" height="244" fill="#e4f5ed"/>
+<text x="58" y="773" class="mono" font-size="16" font-weight="800" fill="#087452"></text>
+<text x="58" y="806" font-size="19" font-weight="800" fill="#087452"><tspan x="58" dy="0">OMR 프로그램</tspan><tspan x="58" dy="22">설치</tspan></text>
+<rect x="38" y="985" width="1724" height="435" fill="#84baa9"/>
+<rect x="38" y="985" width="190" height="435" fill="#087452"/>
+<text x="58" y="1017" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1050" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">OMR 프로그램</tspan><tspan x="58" dy="22">실행/환경설정</tspan></text>
+<rect x="38" y="1420" width="1724" height="399" fill="#84baa9"/>
+<rect x="38" y="1420" width="190" height="399" fill="#087452"/>
+<text x="58" y="1452" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1485" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">학과코드 관리</tspan></text>
+<rect x="38" y="1819" width="1724" height="381" fill="#84baa9"/>
+<rect x="38" y="1819" width="190" height="381" fill="#087452"/>
+<text x="58" y="1851" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1884" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">과목코드 관리</tspan></text>
+<rect x="228" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="767" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">성적처리 업무담당자</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">성적처리 업무담당자</tspan></text>
+<rect x="995" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="995" y="260" width="767" height="7" fill="#3b82f6"/>
+<text x="1015" y="299" font-size="20" font-weight="800" fill="#17231d">교과담당교사</text>
+<text x="1015" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1015" dy="0">교과담당교사</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="995" y1="260" x2="995" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="741" x2="1762" y2="741" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="985" x2="1762" y2="985" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1420" x2="1762" y2="1420" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1819" x2="1762" y2="1819" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2200" x2="1762" y2="2200" stroke="#b8c7bf" stroke-width="2"/>
+
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="407.5" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="407.5" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="427.5" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="686.5" y="414.5" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="431.5" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="451.5" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[성적-지필/수행선행작업-도제학교그룹관리]</tspan></text>
+      <text x="491.5" y="475.5" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">학년도·학기를 확인한 후</tspan><tspan x="491.5" dy="18">계열/학년/학과를 선택하여</tspan><tspan x="491.5" dy="18">조회한다.</tspan></text>
+      <text x="491.5" y="528.5" font-size="11" font-weight="650" fill="#287a5c">성적처리 업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="562.5" width="270" height="131" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="562.5" width="6" height="131" rx="3" fill="#087452"/>
+      <text x="491.5" y="582.5" font-size="12.5" font-weight="750" fill="#d8f4e8">P02</text>
+      <rect x="686.5" y="569.5" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="586.5" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="606.5" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[성적-지필/수행선행작업-도제학교그룹관리]</tspan></text>
+      <text x="491.5" y="630.5" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">도제학교 그룹 등록 창에서</tspan><tspan x="491.5" dy="18">과목명을 선택하고 해당 강의실에</tspan><tspan x="491.5" dy="18">도제여부를 선택하여 저장한다.</tspan></text>
+      <text x="491.5" y="683.5" font-size="11" font-weight="650" fill="#d8f4e8">성적처리 업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="788.5" width="270" height="149" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="788.5" width="6" height="149" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="808.5" font-size="12.5" font-weight="750" fill="#287a5c">P03</text>
+      <rect x="686.5" y="795.5" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="812.5" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="832.5" font-size="9.5" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[성적-지필/수행선행작업-OMR카드리딩프로그램관리]</tspan></text>
+      <text x="491.5" y="856.5" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">OMR카드리딩프로그램내려받기를</tspan><tspan x="491.5" dy="18">클릭하여 확인하고 내려받은 설치</tspan><tspan x="491.5" dy="18">프로그램(neis_omr_setup_high</tspan><tspan x="491.5" dy="18">)을 실행하여 설치한다.</tspan></text>
+      <text x="491.5" y="927.5" font-size="11" font-weight="650" fill="#287a5c">성적처리 업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1032.5" width="270" height="149" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="1032.5" width="6" height="149" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="1052.5" font-size="12.5" font-weight="750" fill="#287a5c">P04</text>
+      <rect x="686.5" y="1039.5" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="1056.5" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="1076.5" font-size="9.5" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[성적-지필/수행선행작업-OMR카드리딩프로그램관리]</tspan></text>
+      <text x="491.5" y="1100.5" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">OMR카드리딩프로그램실행을</tspan><tspan x="491.5" dy="18">클릭하고 보안 경고 창에서 열기를</tspan><tspan x="491.5" dy="18">눌러 확인한 후 나이스 OMR</tspan><tspan x="491.5" dy="18">카드리딩 프로그램 창을 연다.</tspan></text>
+      <text x="491.5" y="1171.5" font-size="11" font-weight="650" fill="#287a5c">성적처리 업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1205.5" width="270" height="167" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="1205.5" width="6" height="167" rx="3" fill="#087452"/>
+      <text x="491.5" y="1225.5" font-size="12.5" font-weight="750" fill="#d8f4e8">P05</text>
+      <rect x="686.5" y="1212.5" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="1229.5" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="1249.5" font-size="9.5" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[성적-지필/수행선행작업-OMR카드리딩프로그램관리]</tspan></text>
+      <text x="491.5" y="1273.5" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">환경설정 창의</tspan><tspan x="491.5" dy="18">판독기설정·학생카드설정·정답카</tspan><tspan x="491.5" dy="18">드설정·점수카드설정·카드리더기</tspan><tspan x="491.5" dy="18">설정가져오기 탭에서 값을</tspan><tspan x="491.5" dy="18">설정하고 저장한다.</tspan></text>
+      <text x="491.5" y="1362.5" font-size="11" font-weight="650" fill="#d8f4e8">성적처리 업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1467.5" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="1467.5" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="1487.5" font-size="12.5" font-weight="750" fill="#287a5c">P06</text>
+      <rect x="686.5" y="1474.5" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="1491.5" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="1511.5" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[성적-지필/수행선행작업-OMR용코드관리]</tspan></text>
+      <text x="491.5" y="1535.5" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">OMR용코드관리의 학과코드관리</tspan><tspan x="491.5" dy="18">탭에서 학년도를 확인하고</tspan><tspan x="491.5" dy="18">조회한다.</tspan></text>
+      <text x="491.5" y="1588.5" font-size="11" font-weight="650" fill="#287a5c">성적처리 업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1622.5" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="1622.5" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="491.5" y="1642.5" font-size="12.5" font-weight="750" fill="#d8f4e8">P07</text>
+      <rect x="686.5" y="1629.5" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="1646.5" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="1666.5" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[성적-지필/수행선행작업-OMR용코드관리]</tspan></text>
+      <text x="491.5" y="1690.5" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">일괄부여로 학과코드를 순차</tspan><tspan x="491.5" dy="18">부여하고, 특성화고 등은</tspan><tspan x="491.5" dy="18">학과코드 순서를 조정한 후</tspan><tspan x="491.5" dy="18">저장한다.</tspan></text>
+      <text x="491.5" y="1761.5" font-size="11" font-weight="650" fill="#d8f4e8">성적처리 업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1866.5" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="1243.5" y="1866.5" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="1258.5" y="1886.5" font-size="12.5" font-weight="750" fill="#287a5c">P08</text>
+      <rect x="1453.5" y="1873.5" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1478.5" y="1890.5" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="1258.5" y="1910.5" font-size="10" font-weight="750" fill="#287a5c"><tspan x="1258.5" dy="0">[성적-지필/수행선행작업-OMR용코드관리]</tspan></text>
+      <text x="1258.5" y="1934.5" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="1258.5" dy="0">OMR용코드관리의 과목코드관리</tspan><tspan x="1258.5" dy="18">탭에서 학년도·학기를 확인하고</tspan><tspan x="1258.5" dy="18">학년을 선택하여 조회한다.</tspan></text>
+      <text x="1258.5" y="1987.5" font-size="11" font-weight="650" fill="#287a5c">교과담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="2021.5" width="270" height="131" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="1243.5" y="2021.5" width="6" height="131" rx="3" fill="#087452"/>
+      <text x="1258.5" y="2041.5" font-size="12.5" font-weight="750" fill="#d8f4e8">P09</text>
+      <rect x="1453.5" y="2028.5" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1478.5" y="2045.5" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="1258.5" y="2065.5" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="1258.5" dy="0">[성적-지필/수행선행작업-OMR용코드관리]</tspan></text>
+      <text x="1258.5" y="2089.5" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="1258.5" dy="0">일괄부여하거나 개별 등록하여</tspan><tspan x="1258.5" dy="18">카드과목코드를 확인한 후</tspan><tspan x="1258.5" dy="18">저장한다.</tspan></text>
+      <text x="1258.5" y="2142.5" font-size="11" font-weight="650" fill="#d8f4e8">교과담당교사</text>
+    </g>
+  
+<rect x="38" y="2222" width="462" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2260" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2244" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2259" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2244" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2259" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2244" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2259" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2244" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2259" font-size="15" fill="#3a463f">회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

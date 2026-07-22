@@ -1,0 +1,299 @@
+<!-- 과목별 성적산출 및 마감관리 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>과목별 성적산출 및 마감관리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"과목별 성적산출 및 마감관리","subtitle":"결시생 인정점을 산출하고 과목별 성적을 산출한 후 가정통신문·교양교과 이수를 관리하고 성적산출을 마감·승인한다.","lanes":["성적처리담당교사","교과담당교사","학급담임교사"],"stages":["결시생 인정점 산출","과목별 성적산출","성적통지표(가정통신문) 관리","교양교과 이수관리","성적산출 마감 및 승인"],"nodes":[{"id":"P01","lane":"성적처리담당교사","stage":"결시생 인정점 산출","label":"학년도·학기·학년·산출기준·과목을 선택하고 조회한 후 {인정점산출}하여 산출된 결시생의 인정점을 확인하고 저장한다. 결시생이 없어도 인정점산출 후 '인정점 설정여부: 부여함'을 확인해야 성적산출이 가능하다.","menu":"[성적-성적처리-성적산출관리-결시생인정점관리]","emphasis":"lead"},{"id":"P02","lane":"성적처리담당교사","stage":"결시생 인정점 산출","label":"학교자체인정점부여로 설정된 경우나 나이스가 제공하는 부여기준에 맞지 않는 경우 {수동입력}하여 인정점을 직접 입력한다. {평균점수조회}로 학년·학과·계열별 과목 평균점수를 참고한다.","menu":"[성적-성적처리-성적산출관리-결시생인정점관리]","emphasis":"bottleneck"},{"id":"P03","lane":"교과담당교사","stage":"결시생 인정점 산출","label":"현장실습으로 인한 능력단위 수행평가 결시생(공결)에 대해 {현장실습인정점부여}를 처리한다. 이 학생은 결시생인정점관리에서는 조회되지 않는다.","menu":"[성적-수행평가-수행평가성적관리]","emphasis":"normal"},{"id":"P04","lane":"교과담당교사","stage":"결시생 인정점 산출","label":"결시생 인정점 산출의 책임은 교과담당교사에게 있으므로 본인이 산출한 인정점과 성적처리담당교사가 나이스에서 산출한 결시생 인정점을 비교·검증한다.","menu":"[성적-성적처리-성적산출관리-결시생인정점관리]","emphasis":"normal"},{"id":"P05","lane":"성적처리담당교사","stage":"과목별 성적산출","label":"학년도·학기·학년·산출기준·과목을 선택하고 {지필/수행점수누락자보기}로 지필·수행 점수 누락 학생을 확인한다.","menu":"[성적-성적처리-성적산출관리-과목별성적산출]","emphasis":"lead"},{"id":"P06","lane":"성적처리담당교사","stage":"과목별 성적산출","label":"{성적산출준비}하여 성적산출 대상 및 기준을 확인한 후 {산출함}하여 확인하고 산출된 내용의 이상유무를 확인하여 {마감함}한다. 성취도 산출 과목은 성취율이 등록되어 있어야 산출이 가능하다.","menu":"[성적-성적처리-성적산출관리-과목별성적산출]","emphasis":"key"},{"id":"P07","lane":"학급담임교사","stage":"성적통지표(가정통신문) 관리","label":"학년도·학기·학년·산출기준·반을 선택하고 조회하여 반별 성적산출 결과를 확인한다.","menu":"[성적-성적처리-성적통지표(가정통신문)관리]","emphasis":"lead"},{"id":"P08","lane":"학급담임교사","stage":"성적통지표(가정통신문) 관리","label":"학생 '성명'을 클릭한 후 {개인가정통신문}, {전체가정통신문} 탭에서 내용을 입력하고 저장한다. 전체가정통신문은 임의 한 학생에게 입력해도 반 전체에 자동 적용된다.","menu":"[성적-성적처리-성적통지표(가정통신문)관리]","emphasis":"normal"},{"id":"P09","lane":"학급담임교사","stage":"성적통지표(가정통신문) 관리","label":"출력할 학생과 옵션을 선택하여 {미리보기} 한 후 성적통지표(가정통신문)를 저장하거나 출력한다.","menu":"[성적-성적처리-성적통지표(가정통신문)관리]","emphasis":"normal"},{"id":"P10","lane":"교과담당교사","stage":"교양교과 이수관리","label":"(2022 개정, 1·2학년) 학년도·학기·학년·과목·강의실·검색조건을 선택하고 조회하여 '이수기준 충족여부'를 확인한 후 '이수여부'에 'P' 또는 'F'를 입력하고 저장한다.","menu":"[성적-성적처리-교양교과이수관리]","emphasis":"lead"},{"id":"P11","lane":"교과담당교사","stage":"교양교과 이수관리","label":"(2015 개정, 3학년) 이수대상 학생을 선택한 후 {전체이수선택}하고 확인하여 '이수여부'에 'P' 입력 여부를 확인하고 저장한다. 출결마감을 하지 않고 이수여부를 저장하면 안내 메시지가 나타난다.","menu":"[성적-성적처리-교양교과이수관리]","emphasis":"normal"},{"id":"P12","lane":"성적처리담당교사","stage":"성적산출 마감 및 승인","label":"학년도·학기·학년·산출기준을 선택하고 조회하여 모든 과목의 '마감여부(○)'를 확인·선택한 후 저장하고 확인창에서 확인한다. 학기별 과목 출결이 마감되어야 총 수업시수·출석시수·결과시수가 반영된다.","menu":"[성적-성적처리-성적산출마감관리]","emphasis":"bottleneck"},{"id":"P13","lane":"성적처리담당교사","stage":"성적산출 마감 및 승인","label":"{승인요청}하여 기안문을 상신하고 결재가 완료되면 {학생/학부모서비스반영}을 진행한다. 결재가 완결된 자료만 반영하도록 승인요청 완료 후 진행할 것을 권장한다.","menu":"[성적-성적처리-성적산출마감관리]","emphasis":"key"},{"id":"P14","lane":"성적처리담당교사","stage":"성적산출 마감 및 승인","label":"'학생/학부모서비스 반영' 창에서 '학생/학부모서비스 성적기준'을 선택하고 {반영}한다. 반영 이후 가정통신문을 수정하면 다시 반영해야 학부모에게 제공된다.","menu":"[성적-성적처리-성적산출마감관리]","emphasis":"normal"}],"edges":[{"id":"L01","source":"P12","target":"P06","type":"loop","label":"마감 해제 후 성적 재산출"}]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2986" viewBox="0 0 1800 2986">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2986" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 14 · 레인 3 · 게이트 5</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">과목별 성적산출 및 마감관리</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">결시생 인정점을 산출하고 과목별 성적을 산출한 후 가정통신문·교양교과 이수를 관리하고 성적산출을 마감·승인한다.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="2526" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="448" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="448" fill="#eef3f0"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">결시생 인정점</tspan><tspan x="58" dy="22">산출</tspan></text>
+<rect x="38" y="808" width="1724" height="394" fill="#84baa9"/>
+<rect x="38" y="808" width="190" height="394" fill="#087452"/>
+<text x="58" y="840" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="873" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">과목별 성적산출</tspan></text>
+<rect x="38" y="1202" width="1724" height="523" fill="#fbfcfb"/>
+<rect x="38" y="1202" width="190" height="523" fill="#eef3f0"/>
+<text x="58" y="1234" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1267" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">성적통지표(가정</tspan><tspan x="58" dy="22">통신문) 관리</tspan></text>
+<rect x="38" y="1725" width="1724" height="430" fill="#f5f8f6"/>
+<rect x="38" y="1725" width="190" height="430" fill="#eef3f0"/>
+<text x="58" y="1757" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1790" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">교양교과</tspan><tspan x="58" dy="22">이수관리</tspan></text>
+<rect x="38" y="2155" width="1724" height="631" fill="#84baa9"/>
+<rect x="38" y="2155" width="190" height="631" fill="#087452"/>
+<text x="58" y="2187" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="2220" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">성적산출 마감 및</tspan><tspan x="58" dy="22">승인</tspan></text>
+<rect x="228" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="511.3" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">성적처리담당교사</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">성적처리담당교사</tspan></text>
+<rect x="739.3" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="739.3" y="260" width="511.3" height="7" fill="#3b82f6"/>
+<text x="759.3" y="299" font-size="20" font-weight="800" fill="#17231d">교과담당교사</text>
+<text x="759.3" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="759.3" dy="0">교과담당교사</tspan></text>
+<rect x="1250.7" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="1250.7" y="260" width="511.3" height="7" fill="#c78116"/>
+<text x="1270.7" y="299" font-size="20" font-weight="800" fill="#17231d">학급담임교사</text>
+<text x="1270.7" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1270.7" dy="0">학급담임교사</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2786" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="739.3" y1="260" x2="739.3" y2="2786" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1250.7" y1="260" x2="1250.7" y2="2786" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2786" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="808" x2="1762" y2="808" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1202" x2="1762" y2="1202" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1725" x2="1762" y2="1725" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2155" x2="1762" y2="2155" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2786" x2="1762" y2="2786" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 348.7 2269.5 H 216 V 1182 H 483.7 V 1206" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 348.7 2269.5 H 216 V 1182 H 483.7 V 1206" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="193.2" y="1674.8" width="185.6" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="286" y="1694.8" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">마감 해제 후 성적 재산출</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="364" width="270" height="221" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="348.7" y="364" width="6" height="221" rx="3" fill="#35a77d"/>
+      <text x="363.7" y="384" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="558.7" y="371" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="583.7" y="388" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="363.7" y="408" font-size="10" font-weight="750" fill="#287a5c"><tspan x="363.7" dy="0">[성적-성적처리-성적산출관리-결시생인정점관리]</tspan></text>
+      <text x="363.7" y="432" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="363.7" dy="0">학년도·학기·학년·산출기준·과목</tspan><tspan x="363.7" dy="18">을 선택하고 조회한 후</tspan><tspan x="363.7" dy="18">{인정점산출}하여 산출된</tspan><tspan x="363.7" dy="18">결시생의 인정점을 확인하고</tspan><tspan x="363.7" dy="18">저장한다. 결시생이 없어도</tspan><tspan x="363.7" dy="18">인정점산출 후 &apos;인정점</tspan><tspan x="363.7" dy="18">설정여부: 부여함&apos;을 확인해야</tspan><tspan x="363.7" dy="18">성적산출이 가능하다.</tspan></text>
+      <text x="363.7" y="575" font-size="11" font-weight="650" fill="#287a5c">성적처리담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="601" width="270" height="203" rx="8" fill="#fff8e8" stroke="#d9901a" stroke-width="2.3"/>
+      <rect x="348.7" y="601" width="6" height="203" rx="3" fill="#d9901a"/>
+      <text x="363.7" y="621" font-size="12.5" font-weight="750" fill="#a96008">P02</text>
+      <rect x="558.7" y="608" width="50" height="24" rx="5" fill="#d9901a" opacity="0.14"/>
+      <text x="583.7" y="625" text-anchor="middle" font-size="12" font-weight="800" fill="#7a4305">병목</text>
+      <text x="363.7" y="645" font-size="10" font-weight="750" fill="#a96008"><tspan x="363.7" dy="0">[성적-성적처리-성적산출관리-결시생인정점관리]</tspan></text>
+      <text x="363.7" y="669" font-size="15.5" font-weight="800" fill="#7a4305"><tspan x="363.7" dy="0">학교자체인정점부여로 설정된</tspan><tspan x="363.7" dy="18">경우나 나이스가 제공하는</tspan><tspan x="363.7" dy="18">부여기준에 맞지 않는 경우</tspan><tspan x="363.7" dy="18">{수동입력}하여 인정점을 직접</tspan><tspan x="363.7" dy="18">입력한다. {평균점수조회}로</tspan><tspan x="363.7" dy="18">학년·학과·계열별 과목</tspan><tspan x="363.7" dy="18">평균점수를 참고한다.</tspan></text>
+      <text x="363.7" y="794" font-size="11" font-weight="650" fill="#a96008">성적처리담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="391" width="270" height="185" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="860" y="391" width="6" height="185" rx="3" fill="#b9c7bf"/>
+      <text x="875" y="411" font-size="12.5" font-weight="750" fill="#627169">P03</text>
+      <rect x="1070" y="398" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1095" y="415" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="875" y="435" font-size="10" font-weight="750" fill="#627169"><tspan x="875" dy="0">[성적-수행평가-수행평가성적관리]</tspan></text>
+      <text x="875" y="459" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="875" dy="0">현장실습으로 인한 능력단위</tspan><tspan x="875" dy="18">수행평가 결시생(공결)에 대해</tspan><tspan x="875" dy="18">{현장실습인정점부여}를</tspan><tspan x="875" dy="18">처리한다. 이 학생은</tspan><tspan x="875" dy="18">결시생인정점관리에서는 조회되지</tspan><tspan x="875" dy="18">않는다.</tspan></text>
+      <text x="875" y="566" font-size="11" font-weight="650" fill="#627169">교과담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="592" width="270" height="185" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="860" y="592" width="6" height="185" rx="3" fill="#b9c7bf"/>
+      <text x="875" y="612" font-size="12.5" font-weight="750" fill="#627169">P04</text>
+      <rect x="1070" y="599" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1095" y="616" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="875" y="636" font-size="10" font-weight="750" fill="#627169"><tspan x="875" dy="0">[성적-성적처리-성적산출관리-결시생인정점관리]</tspan></text>
+      <text x="875" y="660" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="875" dy="0">결시생 인정점 산출의 책임은</tspan><tspan x="875" dy="18">교과담당교사에게 있으므로</tspan><tspan x="875" dy="18">본인이 산출한 인정점과</tspan><tspan x="875" dy="18">성적처리담당교사가 나이스에서</tspan><tspan x="875" dy="18">산출한 결시생 인정점을</tspan><tspan x="875" dy="18">비교·검증한다.</tspan></text>
+      <text x="875" y="767" font-size="11" font-weight="650" fill="#627169">교과담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="812" width="270" height="167" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="348.7" y="812" width="6" height="167" rx="3" fill="#35a77d"/>
+      <text x="363.7" y="832" font-size="12.5" font-weight="750" fill="#287a5c">P05</text>
+      <rect x="558.7" y="819" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="583.7" y="836" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="363.7" y="856" font-size="10" font-weight="750" fill="#287a5c"><tspan x="363.7" dy="0">[성적-성적처리-성적산출관리-과목별성적산출]</tspan></text>
+      <text x="363.7" y="880" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="363.7" dy="0">학년도·학기·학년·산출기준·과목</tspan><tspan x="363.7" dy="18">을 선택하고</tspan><tspan x="363.7" dy="18">{지필/수행점수누락자보기}로</tspan><tspan x="363.7" dy="18">지필·수행 점수 누락 학생을</tspan><tspan x="363.7" dy="18">확인한다.</tspan></text>
+      <text x="363.7" y="969" font-size="11" font-weight="650" fill="#287a5c">성적처리담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="995" width="270" height="203" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="348.7" y="995" width="6" height="203" rx="3" fill="#087452"/>
+      <text x="363.7" y="1015" font-size="12.5" font-weight="750" fill="#d8f4e8">P06</text>
+      <rect x="558.7" y="1002" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="583.7" y="1019" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="363.7" y="1039" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="363.7" dy="0">[성적-성적처리-성적산출관리-과목별성적산출]</tspan></text>
+      <text x="363.7" y="1063" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="363.7" dy="0">{성적산출준비}하여 성적산출</tspan><tspan x="363.7" dy="18">대상 및 기준을 확인한 후</tspan><tspan x="363.7" dy="18">{산출함}하여 확인하고 산출된</tspan><tspan x="363.7" dy="18">내용의 이상유무를 확인하여</tspan><tspan x="363.7" dy="18">{마감함}한다. 성취도 산출</tspan><tspan x="363.7" dy="18">과목은 성취율이 등록되어 있어야</tspan><tspan x="363.7" dy="18">산출이 가능하다.</tspan></text>
+      <text x="363.7" y="1188" font-size="11" font-weight="650" fill="#d8f4e8">성적처리담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1371.3" y="1206" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="1371.3" y="1206" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="1386.3" y="1226" font-size="12.5" font-weight="750" fill="#287a5c">P07</text>
+      <rect x="1581.3" y="1213" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1606.3" y="1230" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="1386.3" y="1250" font-size="10" font-weight="750" fill="#287a5c"><tspan x="1386.3" dy="0">[성적-성적처리-성적통지표(가정통신문)관리]</tspan></text>
+      <text x="1386.3" y="1274" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="1386.3" dy="0">학년도·학기·학년·산출기준·반을</tspan><tspan x="1386.3" dy="18">선택하고 조회하여 반별 성적산출</tspan><tspan x="1386.3" dy="18">결과를 확인한다.</tspan></text>
+      <text x="1386.3" y="1327" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1371.3" y="1353" width="270" height="203" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1371.3" y="1353" width="6" height="203" rx="3" fill="#b9c7bf"/>
+      <text x="1386.3" y="1373" font-size="12.5" font-weight="750" fill="#627169">P08</text>
+      <rect x="1581.3" y="1360" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1606.3" y="1377" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1386.3" y="1397" font-size="10" font-weight="750" fill="#627169"><tspan x="1386.3" dy="0">[성적-성적처리-성적통지표(가정통신문)관리]</tspan></text>
+      <text x="1386.3" y="1421" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1386.3" dy="0">학생 &apos;성명&apos;을 클릭한 후</tspan><tspan x="1386.3" dy="18">{개인가정통신문},</tspan><tspan x="1386.3" dy="18">{전체가정통신문} 탭에서 내용을</tspan><tspan x="1386.3" dy="18">입력하고 저장한다.</tspan><tspan x="1386.3" dy="18">전체가정통신문은 임의 한</tspan><tspan x="1386.3" dy="18">학생에게 입력해도 반 전체에 자동</tspan><tspan x="1386.3" dy="18">적용된다.</tspan></text>
+      <text x="1386.3" y="1546" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1371.3" y="1572" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1371.3" y="1572" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="1386.3" y="1592" font-size="12.5" font-weight="750" fill="#627169">P09</text>
+      <rect x="1581.3" y="1579" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1606.3" y="1596" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1386.3" y="1616" font-size="10" font-weight="750" fill="#627169"><tspan x="1386.3" dy="0">[성적-성적처리-성적통지표(가정통신문)관리]</tspan></text>
+      <text x="1386.3" y="1640" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1386.3" dy="0">출력할 학생과 옵션을 선택하여</tspan><tspan x="1386.3" dy="18">{미리보기} 한 후</tspan><tspan x="1386.3" dy="18">성적통지표(가정통신문)를</tspan><tspan x="1386.3" dy="18">저장하거나 출력한다.</tspan></text>
+      <text x="1386.3" y="1711" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="1729" width="270" height="185" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="860" y="1729" width="6" height="185" rx="3" fill="#35a77d"/>
+      <text x="875" y="1749" font-size="12.5" font-weight="750" fill="#287a5c">P10</text>
+      <rect x="1070" y="1736" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1095" y="1753" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="875" y="1773" font-size="10" font-weight="750" fill="#287a5c"><tspan x="875" dy="0">[성적-성적처리-교양교과이수관리]</tspan></text>
+      <text x="875" y="1797" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="875" dy="0">(2022 개정, 1·2학년)</tspan><tspan x="875" dy="18">학년도·학기·학년·과목·강의실·</tspan><tspan x="875" dy="18">검색조건을 선택하고 조회하여</tspan><tspan x="875" dy="18">&apos;이수기준 충족여부&apos;를 확인한</tspan><tspan x="875" dy="18">후 &apos;이수여부&apos;에 &apos;P&apos; 또는</tspan><tspan x="875" dy="18">&apos;F&apos;를 입력하고 저장한다.</tspan></text>
+      <text x="875" y="1904" font-size="11" font-weight="650" fill="#287a5c">교과담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="1930" width="270" height="221" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="860" y="1930" width="6" height="221" rx="3" fill="#b9c7bf"/>
+      <text x="875" y="1950" font-size="12.5" font-weight="750" fill="#627169">P11</text>
+      <rect x="1070" y="1937" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1095" y="1954" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="875" y="1974" font-size="10" font-weight="750" fill="#627169"><tspan x="875" dy="0">[성적-성적처리-교양교과이수관리]</tspan></text>
+      <text x="875" y="1998" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="875" dy="0">(2015 개정, 3학년) 이수대상</tspan><tspan x="875" dy="18">학생을 선택한 후</tspan><tspan x="875" dy="18">{전체이수선택}하고 확인하여</tspan><tspan x="875" dy="18">&apos;이수여부&apos;에 &apos;P&apos; 입력</tspan><tspan x="875" dy="18">여부를 확인하고 저장한다.</tspan><tspan x="875" dy="18">출결마감을 하지 않고 이수여부를</tspan><tspan x="875" dy="18">저장하면 안내 메시지가</tspan><tspan x="875" dy="18">나타난다.</tspan></text>
+      <text x="875" y="2141" font-size="11" font-weight="650" fill="#627169">교과담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="2159" width="270" height="221" rx="8" fill="#fff8e8" stroke="#d9901a" stroke-width="2.3"/>
+      <rect x="348.7" y="2159" width="6" height="221" rx="3" fill="#d9901a"/>
+      <text x="363.7" y="2179" font-size="12.5" font-weight="750" fill="#a96008">P12</text>
+      <rect x="558.7" y="2166" width="50" height="24" rx="5" fill="#d9901a" opacity="0.14"/>
+      <text x="583.7" y="2183" text-anchor="middle" font-size="12" font-weight="800" fill="#7a4305">병목</text>
+      <text x="363.7" y="2203" font-size="10" font-weight="750" fill="#a96008"><tspan x="363.7" dy="0">[성적-성적처리-성적산출마감관리]</tspan></text>
+      <text x="363.7" y="2227" font-size="15.5" font-weight="800" fill="#7a4305"><tspan x="363.7" dy="0">학년도·학기·학년·산출기준을</tspan><tspan x="363.7" dy="18">선택하고 조회하여 모든 과목의</tspan><tspan x="363.7" dy="18">&apos;마감여부(○)&apos;를 확인·선택한</tspan><tspan x="363.7" dy="18">후 저장하고 확인창에서</tspan><tspan x="363.7" dy="18">확인한다. 학기별 과목 출결이</tspan><tspan x="363.7" dy="18">마감되어야 총</tspan><tspan x="363.7" dy="18">수업시수·출석시수·결과시수가</tspan><tspan x="363.7" dy="18">반영된다.</tspan></text>
+      <text x="363.7" y="2370" font-size="11" font-weight="650" fill="#a96008">성적처리담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="2396" width="270" height="185" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="348.7" y="2396" width="6" height="185" rx="3" fill="#087452"/>
+      <text x="363.7" y="2416" font-size="12.5" font-weight="750" fill="#d8f4e8">P13</text>
+      <rect x="558.7" y="2403" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="583.7" y="2420" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="363.7" y="2440" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="363.7" dy="0">[성적-성적처리-성적산출마감관리]</tspan></text>
+      <text x="363.7" y="2464" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="363.7" dy="0">{승인요청}하여 기안문을</tspan><tspan x="363.7" dy="18">상신하고 결재가 완료되면</tspan><tspan x="363.7" dy="18">{학생/학부모서비스반영}을</tspan><tspan x="363.7" dy="18">진행한다. 결재가 완결된 자료만</tspan><tspan x="363.7" dy="18">반영하도록 승인요청 완료 후</tspan><tspan x="363.7" dy="18">진행할 것을 권장한다.</tspan></text>
+      <text x="363.7" y="2571" font-size="11" font-weight="650" fill="#d8f4e8">성적처리담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="2597" width="270" height="185" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="2597" width="6" height="185" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="2617" font-size="12.5" font-weight="750" fill="#627169">P14</text>
+      <rect x="558.7" y="2604" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="2621" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="2641" font-size="10" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[성적-성적처리-성적산출마감관리]</tspan></text>
+      <text x="363.7" y="2665" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">&apos;학생/학부모서비스 반영&apos;</tspan><tspan x="363.7" dy="18">창에서 &apos;학생/학부모서비스</tspan><tspan x="363.7" dy="18">성적기준&apos;을 선택하고</tspan><tspan x="363.7" dy="18">{반영}한다. 반영 이후</tspan><tspan x="363.7" dy="18">가정통신문을 수정하면 다시</tspan><tspan x="363.7" dy="18">반영해야 학부모에게 제공된다.</tspan></text>
+      <text x="363.7" y="2772" font-size="11" font-weight="650" fill="#627169">성적처리담당교사</text>
+    </g>
+  
+<rect x="38" y="2808" width="617.3" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2846" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2830" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2845" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2830" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2845" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2830" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2845" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2830" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2845" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2838" x2="522" y2="2838" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="536" y="2844" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

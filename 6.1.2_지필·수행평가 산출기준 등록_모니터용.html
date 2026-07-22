@@ -1,0 +1,245 @@
+<!-- 지필·수행평가 산출기준 등록 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>지필·수행평가 산출기준 등록</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"지필·수행평가 산출기준 등록","subtitle":"지필평가 고사·과목과 수행평가 영역을 등록하고 반영비율·만점을 관리하는 절차.","lanes":["성적처리 업무담당자","교과담당교사"],"stages":["지필평가 고사관리","지필평가 과목관리","수행평가 영역관리","반영비율/만점 관리"],"nodes":[{"id":"P01","lane":"성적처리 업무담당자","stage":"지필평가 고사관리","label":"학년도와 학기를 확인하고 조회한다.","menu":"[성적-지필/수행선행작업-지필평가고사관리]","emphasis":"lead"},{"id":"P02","lane":"성적처리 업무담당자","stage":"지필평가 고사관리","label":"행추가하여 고사명, 학기말반영여부, 시행일자, 정렬순서를 입력하고 저장한다.","menu":"[성적-지필/수행선행작업-지필평가고사관리]","emphasis":"key"},{"id":"P03","lane":"교과담당교사","stage":"지필평가 과목관리","label":"학년도, 학기를 확인하고 고사와 학년을 선택하여 조회한다.","menu":"[성적-지필/수행선행작업-지필평가과목관리]","emphasis":"lead"},{"id":"P04","lane":"교과담당교사","stage":"지필평가 과목관리","label":"등록 후 지필평가 과목등록 창에서 과목을 선택·추가하고 반영비율과 과목만점을 입력하여 저장한다.","menu":"[성적-지필/수행선행작업-지필평가과목관리]","emphasis":"key"},{"id":"P05","lane":"교과담당교사","stage":"지필평가 과목관리","label":"등록한 과목 정보를 일괄적용하거나 타학과복사로 다른 학과에 복사한다.","menu":"[성적-지필/수행선행작업-지필평가과목관리]","emphasis":"normal"},{"id":"P06","lane":"교과담당교사","stage":"수행평가 영역관리","label":"학년도, 학기를 확인하고 학년과 과목을 선택하여 조회한다.","menu":"[성적-지필/수행선행작업-수행평가영역관리]","emphasis":"lead"},{"id":"P07","lane":"교과담당교사","stage":"수행평가 영역관리","label":"행추가하여 영역명, 학기말반영여부, 반영비율(%), 영역만점을 입력하고 저장한다.","menu":"[성적-지필/수행선행작업-수행평가영역관리]","emphasis":"key"},{"id":"P08","lane":"교과담당교사","stage":"수행평가 영역관리","label":"전체반영비율보기로 지필평가와 수행평가의 전체 반영비율 합계를 확인한다.","menu":"[성적-지필/수행선행작업-수행평가영역관리]","emphasis":"normal"},{"id":"P09","lane":"교과담당교사","stage":"반영비율/만점 관리","label":"학년도, 학기를 확인하고 학년과 과목을 선택하여 조회한다.","menu":"[성적-지필/수행선행작업-반영비율/만점관리]","emphasis":"normal"},{"id":"P10","lane":"교과담당교사","stage":"반영비율/만점 관리","label":"등록 후 반영비율/만점관리 등록 창에서 평가구분, 영역명, 학기말반영여부, 학기말반영비율(%), 과목/영역만점을 입력하여 저장한다.","menu":"[성적-지필/수행선행작업-반영비율/만점관리]","emphasis":"key"}],"edges":[{"id":"L01","source":"P04","target":"P02","type":"loop","label":"과목 삭제 후 고사명 삭제 가능"},{"id":"L02","source":"P10","target":"P07","type":"loop","label":"반영비율 100% 미달 시 재조정"}]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2400" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 10 · 레인 2 · 게이트 4</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">지필·수행평가 산출기준 등록</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">지필평가 고사·과목과 수행평가 영역을 등록하고 반영비율·만점을 관리하는 절차.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="1940" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="369" fill="#84baa9"/>
+<rect x="38" y="360" width="190" height="369" fill="#087452"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">지필평가</tspan><tspan x="58" dy="22">고사관리</tspan></text>
+<rect x="38" y="729" width="1724" height="524" fill="#84baa9"/>
+<rect x="38" y="729" width="190" height="524" fill="#087452"/>
+<text x="58" y="761" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="794" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">지필평가</tspan><tspan x="58" dy="22">과목관리</tspan></text>
+<rect x="38" y="1253" width="1724" height="524" fill="#84baa9"/>
+<rect x="38" y="1253" width="190" height="524" fill="#087452"/>
+<text x="58" y="1285" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1318" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">수행평가</tspan><tspan x="58" dy="22">영역관리</tspan></text>
+<rect x="38" y="1777" width="1724" height="423" fill="#84baa9"/>
+<rect x="38" y="1777" width="190" height="423" fill="#087452"/>
+<text x="58" y="1809" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1842" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">반영비율/만점</tspan><tspan x="58" dy="22">관리</tspan></text>
+<rect x="228" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="767" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">성적처리 업무담당자</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">성적처리 업무담당자</tspan></text>
+<rect x="995" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="995" y="260" width="767" height="7" fill="#3b82f6"/>
+<text x="1015" y="299" font-size="20" font-weight="800" fill="#17231d">교과담당교사</text>
+<text x="1015" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1015" dy="0">교과담당교사</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="995" y1="260" x2="995" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="729" x2="1762" y2="729" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1253" x2="1762" y2="1253" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1777" x2="1762" y2="1777" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2200" x2="1762" y2="2200" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 1243.5 982 H 216 V 709 H 611.5 V 686.5" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 1243.5 982 H 216 V 709 H 611.5 V 686.5" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 1243.5 2057 H 1228 V 1506 H 1235.5" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 1243.5 2057 H 1228 V 1506 H 1235.5" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="176.8" y="866.5" width="218.5" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="286" y="886.5" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">과목 삭제 후 고사명 삭제 가능</text>
+<rect x="1116.7" y="1766.5" width="222.6" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="1228" y="1786.5" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">반영비율 100% 미달 시 재조정</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="410.5" width="270" height="113" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="410.5" width="6" height="113" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="430.5" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="686.5" y="417.5" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="434.5" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="454.5" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[성적-지필/수행선행작업-지필평가고사관리]</tspan></text>
+      <text x="491.5" y="478.5" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">학년도와 학기를 확인하고</tspan><tspan x="491.5" dy="18">조회한다.</tspan></text>
+      <text x="491.5" y="513.5" font-size="11" font-weight="650" fill="#287a5c">성적처리 업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="547.5" width="270" height="131" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="547.5" width="6" height="131" rx="3" fill="#087452"/>
+      <text x="491.5" y="567.5" font-size="12.5" font-weight="750" fill="#d8f4e8">P02</text>
+      <rect x="686.5" y="554.5" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="571.5" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="591.5" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[성적-지필/수행선행작업-지필평가고사관리]</tspan></text>
+      <text x="491.5" y="615.5" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">행추가하여 고사명,</tspan><tspan x="491.5" dy="18">학기말반영여부, 시행일자,</tspan><tspan x="491.5" dy="18">정렬순서를 입력하고 저장한다.</tspan></text>
+      <text x="491.5" y="668.5" font-size="11" font-weight="650" fill="#d8f4e8">성적처리 업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="779.5" width="270" height="113" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="1243.5" y="779.5" width="6" height="113" rx="3" fill="#35a77d"/>
+      <text x="1258.5" y="799.5" font-size="12.5" font-weight="750" fill="#287a5c">P03</text>
+      <rect x="1453.5" y="786.5" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1478.5" y="803.5" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="1258.5" y="823.5" font-size="10" font-weight="750" fill="#287a5c"><tspan x="1258.5" dy="0">[성적-지필/수행선행작업-지필평가과목관리]</tspan></text>
+      <text x="1258.5" y="847.5" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="1258.5" dy="0">학년도, 학기를 확인하고 고사와</tspan><tspan x="1258.5" dy="18">학년을 선택하여 조회한다.</tspan></text>
+      <text x="1258.5" y="882.5" font-size="11" font-weight="650" fill="#287a5c">교과담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="916.5" width="270" height="131" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="1243.5" y="916.5" width="6" height="131" rx="3" fill="#087452"/>
+      <text x="1258.5" y="936.5" font-size="12.5" font-weight="750" fill="#d8f4e8">P04</text>
+      <rect x="1453.5" y="923.5" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1478.5" y="940.5" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="1258.5" y="960.5" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="1258.5" dy="0">[성적-지필/수행선행작업-지필평가과목관리]</tspan></text>
+      <text x="1258.5" y="984.5" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="1258.5" dy="0">등록 후 지필평가 과목등록 창에서</tspan><tspan x="1258.5" dy="18">과목을 선택·추가하고 반영비율과</tspan><tspan x="1258.5" dy="18">과목만점을 입력하여 저장한다.</tspan></text>
+      <text x="1258.5" y="1037.5" font-size="11" font-weight="650" fill="#d8f4e8">교과담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1071.5" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1071.5" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1091.5" font-size="12.5" font-weight="750" fill="#627169">P05</text>
+      <rect x="1453.5" y="1078.5" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1095.5" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1115.5" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[성적-지필/수행선행작업-지필평가과목관리]</tspan></text>
+      <text x="1258.5" y="1139.5" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">등록한 과목 정보를</tspan><tspan x="1258.5" dy="18">일괄적용하거나 타학과복사로</tspan><tspan x="1258.5" dy="18">다른 학과에 복사한다.</tspan></text>
+      <text x="1258.5" y="1192.5" font-size="11" font-weight="650" fill="#627169">교과담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1303.5" width="270" height="113" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="1243.5" y="1303.5" width="6" height="113" rx="3" fill="#35a77d"/>
+      <text x="1258.5" y="1323.5" font-size="12.5" font-weight="750" fill="#287a5c">P06</text>
+      <rect x="1453.5" y="1310.5" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1478.5" y="1327.5" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="1258.5" y="1347.5" font-size="10" font-weight="750" fill="#287a5c"><tspan x="1258.5" dy="0">[성적-지필/수행선행작업-수행평가영역관리]</tspan></text>
+      <text x="1258.5" y="1371.5" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="1258.5" dy="0">학년도, 학기를 확인하고 학년과</tspan><tspan x="1258.5" dy="18">과목을 선택하여 조회한다.</tspan></text>
+      <text x="1258.5" y="1406.5" font-size="11" font-weight="650" fill="#287a5c">교과담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1440.5" width="270" height="131" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="1243.5" y="1440.5" width="6" height="131" rx="3" fill="#087452"/>
+      <text x="1258.5" y="1460.5" font-size="12.5" font-weight="750" fill="#d8f4e8">P07</text>
+      <rect x="1453.5" y="1447.5" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1478.5" y="1464.5" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="1258.5" y="1484.5" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="1258.5" dy="0">[성적-지필/수행선행작업-수행평가영역관리]</tspan></text>
+      <text x="1258.5" y="1508.5" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="1258.5" dy="0">행추가하여 영역명,</tspan><tspan x="1258.5" dy="18">학기말반영여부, 반영비율(%),</tspan><tspan x="1258.5" dy="18">영역만점을 입력하고 저장한다.</tspan></text>
+      <text x="1258.5" y="1561.5" font-size="11" font-weight="650" fill="#d8f4e8">교과담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1595.5" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1595.5" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1615.5" font-size="12.5" font-weight="750" fill="#627169">P08</text>
+      <rect x="1453.5" y="1602.5" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1619.5" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1639.5" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[성적-지필/수행선행작업-수행평가영역관리]</tspan></text>
+      <text x="1258.5" y="1663.5" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">전체반영비율보기로 지필평가와</tspan><tspan x="1258.5" dy="18">수행평가의 전체 반영비율 합계를</tspan><tspan x="1258.5" dy="18">확인한다.</tspan></text>
+      <text x="1258.5" y="1716.5" font-size="11" font-weight="650" fill="#627169">교과담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1827.5" width="270" height="113" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1827.5" width="6" height="113" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1847.5" font-size="12.5" font-weight="750" fill="#627169">P09</text>
+      <rect x="1453.5" y="1834.5" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1851.5" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1871.5" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[성적-지필/수행선행작업-반영비율/만점관리]</tspan></text>
+      <text x="1258.5" y="1895.5" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">학년도, 학기를 확인하고 학년과</tspan><tspan x="1258.5" dy="18">과목을 선택하여 조회한다.</tspan></text>
+      <text x="1258.5" y="1930.5" font-size="11" font-weight="650" fill="#627169">교과담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1964.5" width="270" height="185" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="1243.5" y="1964.5" width="6" height="185" rx="3" fill="#087452"/>
+      <text x="1258.5" y="1984.5" font-size="12.5" font-weight="750" fill="#d8f4e8">P10</text>
+      <rect x="1453.5" y="1971.5" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1478.5" y="1988.5" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="1258.5" y="2008.5" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="1258.5" dy="0">[성적-지필/수행선행작업-반영비율/만점관리]</tspan></text>
+      <text x="1258.5" y="2032.5" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="1258.5" dy="0">등록 후 반영비율/만점관리 등록</tspan><tspan x="1258.5" dy="18">창에서 평가구분, 영역명,</tspan><tspan x="1258.5" dy="18">학기말반영여부,</tspan><tspan x="1258.5" dy="18">학기말반영비율(%),</tspan><tspan x="1258.5" dy="18">과목/영역만점을 입력하여</tspan><tspan x="1258.5" dy="18">저장한다.</tspan></text>
+      <text x="1258.5" y="2139.5" font-size="11" font-weight="650" fill="#d8f4e8">교과담당교사</text>
+    </g>
+  
+<rect x="38" y="2222" width="617.3" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2260" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2244" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2259" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2244" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2259" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2244" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2259" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2244" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2259" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2252" x2="522" y2="2252" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="536" y="2258" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>
