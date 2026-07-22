@@ -1,0 +1,234 @@
+<!-- 수강학생 편성관리 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>수강학생 편성관리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto; margin:0 auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"수강학생 편성관리","subtitle":"개설과목에 학교지정 일괄편성·과목별 선택편성·전입생 특례·학생별 편성 방식으로 수강학생을 편성하는 절차.","lanes":["교육과정업무담당자","학적담당자"],"stages":["편성방식 선택","일괄/과목별 편성","전입생 수강과목 특례처리","학생별 수강과목 편성"],"nodes":[{"id":"P01","lane":"교육과정업무담당자","stage":"편성방식 선택","label":"학년도·학기·학년을 조회하여 편성 대상 과목의 편성 시점과 선택 현황에 따라 일괄편성·과목별편성·학생별편성 방식을 결정한다.","menu":"[교육과정-편제및과목개설관리-편제및과목개설관리-수강생편성]","emphasis":"lead"},{"id":"P02","lane":"교육과정업무담당자","stage":"일괄/과목별 편성","label":"해당 학년에 개설된 학교지정 과목(창의적체험활동·1학년 공통과목 등)을 선택하고 선택등록하여 수강학생을 일괄 편성한다. 성적이 처리된 과목은 일괄등록이 불가하다.","menu":"[교육과정-편제및과목개설관리-편제및과목개설관리-수강생편성]","emphasis":"key"},{"id":"P03","lane":"교육과정업무담당자","stage":"일괄/과목별 편성","label":"수강학생을 편성할 과목을 선택하고 미편성학생을 조회하여 편성할 학생을 선택한 후 편성학생에 추가하고 저장한다.","menu":"[교육과정-편제및과목개설관리-편제및과목개설관리-수강생편성]","emphasis":"normal"},{"id":"P04","lane":"교육과정업무담당자","stage":"일괄/과목별 편성","label":"과목을 선택하고 가져오기 창에서 수강신청을 선택한 뒤 계열/학년/학과·반을 조회하여 나이스플러스로 수강신청한 학생을 체크하여 선택·저장한다.","menu":"[교육과정-편제및과목개설관리-편제및과목개설관리-수강생편성]","emphasis":"normal"},{"id":"P05","lane":"교육과정업무담당자","stage":"일괄/과목별 편성","label":"미편성학생일괄등록을 실행하여 학적변동(전입)으로 미편성된 학생을 해당 학년에 개설된 모든 과목에 일괄 편성한다. 성적이 등록된 과목은 일괄등록·일괄삭제가 불가하다.","menu":"[교육과정-편제및과목개설관리-편제및과목개설관리-수강생편성]","emphasis":"normal"},{"id":"P06","lane":"학적담당자","stage":"전입생 수강과목 특례처리","label":"학적반영 목록에서 전입생 성명을 클릭하고 수강과목편성에서 타반 강의실 포함 여부를 선택해 개설과목을 편성된 과목 목록에 추가한 뒤, 전출교 과목 출결과 매칭되는 전입이전 출결산출 포함 과목을 지정하고 저장한다.","menu":"[학적-전입관리-전입관리-학적반영]","emphasis":"bottleneck"},{"id":"P07","lane":"학적담당자","stage":"전입생 수강과목 특례처리","label":"전출교·전입교 모두 학기말 성적 산출이 완료된 전입생의 출결관리를 위해 출결수강생편성 탭에서만 수강생을 편성한다.","menu":"[교육과정-편제및과목개설관리-편제및과목개설관리-수강생편성]","emphasis":"normal"},{"id":"P08","lane":"교육과정업무담당자","stage":"학생별 수강과목 편성","label":"학생을 선택한 후 미편성과목에서 편성할 과목을 선택하고 저장한다. 선택과목 편성에 유의한다.","menu":"[교육과정-편제및과목개설관리-학생별수강과목편성]","emphasis":"key"},{"id":"P09","lane":"학적담당자","stage":"학생별 수강과목 편성","label":"2015 개정 교육과정 3학년 전입생은 학적반영의 수강과목편성, 학생별수강과목편성, 수강생편성의 성적·출결수강생편성 탭 중에서 수강과목을 편성할 수 있다.","menu":"[교육과정-편제및과목개설관리-학생별수강과목편성]","emphasis":"normal"}],"edges":[{"id":"L01","source":"P05","target":"P08","type":"loop","label":"성적 등록 시 개별편성으로 전환"},{"id":"L02","source":"P09","target":"P03","type":"message","label":"대체 편성경로 안내"}]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2400" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 9 · 레인 2 · 게이트 4</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">수강학생 편성관리</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">개설과목에 학교지정 일괄편성·과목별 선택편성·전입생 특례·학생별 편성 방식으로 수강학생을 편성하는 절차.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="1940" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="251" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="251" fill="#e4f5ed"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#087452"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#087452"><tspan x="58" dy="0">편성방식 선택</tspan></text>
+<rect x="38" y="611" width="1724" height="842" fill="#84baa9"/>
+<rect x="38" y="611" width="190" height="842" fill="#087452"/>
+<text x="58" y="643" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="676" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">일괄/과목별 편성</tspan></text>
+<rect x="38" y="1453" width="1724" height="460" fill="#fbfcfb"/>
+<rect x="38" y="1453" width="190" height="460" fill="#eef3f0"/>
+<text x="58" y="1485" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1518" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">전입생 수강과목</tspan><tspan x="58" dy="22">특례처리</tspan></text>
+<rect x="38" y="1913" width="1724" height="287" fill="#84baa9"/>
+<rect x="38" y="1913" width="190" height="287" fill="#087452"/>
+<text x="58" y="1945" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1978" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">학생별 수강과목</tspan><tspan x="58" dy="22">편성</tspan></text>
+<rect x="228" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="767" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">교육과정업무담당자</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">교육과정업무담당자</tspan></text>
+<rect x="995" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="995" y="260" width="767" height="7" fill="#3b82f6"/>
+<text x="1015" y="299" font-size="20" font-weight="800" fill="#17231d">학적담당자</text>
+<text x="1015" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1015" dy="0">학적담당자</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="995" y1="260" x2="995" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="611" x2="1762" y2="611" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1453" x2="1762" y2="1453" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1913" x2="1762" y2="1913" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2200" x2="1762" y2="2200" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 611.5 1411 V 1441 H 977 V 1954 H 611.5 V 1974" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 611.5 1411 V 1441 H 977 V 1954 H 611.5 V 1974" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 1243.5 2056.5 H 455 V 936.5 H 468.5" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="7 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 1243.5 2056.5 H 455 V 936.5 H 468.5" fill="none" stroke="#0f8a65" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#arrow-message)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="863.2" y="1682.5" width="227.6" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="977" y="1702.5" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">성적 등록 시 개별편성으로 전환</text>
+<rect x="381.1" y="1481.5" width="147.8" height="30" rx="6" fill="#ffffff" stroke="#0f8a65" stroke-width="1.4"/>
+<text x="455" y="1501.5" text-anchor="middle" font-size="14" font-weight="750" fill="#0f8a65">대체 편성경로 안내</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="402" width="270" height="167" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="402" width="6" height="167" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="422" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="686.5" y="409" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="426" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="446" font-size="8" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[교육과정-편제및과목개설관리-편제및과목개설관리-수강생편성]</tspan></text>
+      <text x="491.5" y="470" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">학년도·학기·학년을 조회하여</tspan><tspan x="491.5" dy="18">편성 대상 과목의 편성 시점과</tspan><tspan x="491.5" dy="18">선택 현황에 따라</tspan><tspan x="491.5" dy="18">일괄편성·과목별편성·학생별편성</tspan><tspan x="491.5" dy="18">방식을 결정한다.</tspan></text>
+      <text x="491.5" y="559" font-size="11" font-weight="650" fill="#287a5c">교육과정업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="653" width="270" height="185" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="653" width="6" height="185" rx="3" fill="#087452"/>
+      <text x="491.5" y="673" font-size="12.5" font-weight="750" fill="#d8f4e8">P02</text>
+      <rect x="686.5" y="660" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="677" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="697" font-size="8" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[교육과정-편제및과목개설관리-편제및과목개설관리-수강생편성]</tspan></text>
+      <text x="491.5" y="721" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">해당 학년에 개설된 학교지정</tspan><tspan x="491.5" dy="18">과목(창의적체험활동·1학년</tspan><tspan x="491.5" dy="18">공통과목 등)을 선택하고</tspan><tspan x="491.5" dy="18">선택등록하여 수강학생을 일괄</tspan><tspan x="491.5" dy="18">편성한다. 성적이 처리된 과목은</tspan><tspan x="491.5" dy="18">일괄등록이 불가하다.</tspan></text>
+      <text x="491.5" y="828" font-size="11" font-weight="650" fill="#d8f4e8">교육과정업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="862" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="862" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="882" font-size="12.5" font-weight="750" fill="#627169">P03</text>
+      <rect x="686.5" y="869" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="886" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="906" font-size="8" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[교육과정-편제및과목개설관리-편제및과목개설관리-수강생편성]</tspan></text>
+      <text x="491.5" y="930" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">수강학생을 편성할 과목을</tspan><tspan x="491.5" dy="18">선택하고 미편성학생을 조회하여</tspan><tspan x="491.5" dy="18">편성할 학생을 선택한 후</tspan><tspan x="491.5" dy="18">편성학생에 추가하고 저장한다.</tspan></text>
+      <text x="491.5" y="1001" font-size="11" font-weight="650" fill="#627169">교육과정업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1035" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="1035" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="1055" font-size="12.5" font-weight="750" fill="#627169">P04</text>
+      <rect x="686.5" y="1042" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="1059" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="1079" font-size="8" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[교육과정-편제및과목개설관리-편제및과목개설관리-수강생편성]</tspan></text>
+      <text x="491.5" y="1103" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">과목을 선택하고 가져오기 창에서</tspan><tspan x="491.5" dy="18">수강신청을 선택한 뒤</tspan><tspan x="491.5" dy="18">계열/학년/학과·반을 조회하여</tspan><tspan x="491.5" dy="18">나이스플러스로 수강신청한</tspan><tspan x="491.5" dy="18">학생을 체크하여 선택·저장한다.</tspan></text>
+      <text x="491.5" y="1192" font-size="11" font-weight="650" fill="#627169">교육과정업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1226" width="270" height="185" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="1226" width="6" height="185" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="1246" font-size="12.5" font-weight="750" fill="#627169">P05</text>
+      <rect x="686.5" y="1233" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="1250" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="1270" font-size="8" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[교육과정-편제및과목개설관리-편제및과목개설관리-수강생편성]</tspan></text>
+      <text x="491.5" y="1294" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">미편성학생일괄등록을 실행하여</tspan><tspan x="491.5" dy="18">학적변동(전입)으로 미편성된</tspan><tspan x="491.5" dy="18">학생을 해당 학년에 개설된 모든</tspan><tspan x="491.5" dy="18">과목에 일괄 편성한다. 성적이</tspan><tspan x="491.5" dy="18">등록된 과목은</tspan><tspan x="491.5" dy="18">일괄등록·일괄삭제가 불가하다.</tspan></text>
+      <text x="491.5" y="1401" font-size="11" font-weight="650" fill="#627169">교육과정업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1495" width="270" height="203" rx="8" fill="#fff8e8" stroke="#d9901a" stroke-width="2.3"/>
+      <rect x="1243.5" y="1495" width="6" height="203" rx="3" fill="#d9901a"/>
+      <text x="1258.5" y="1515" font-size="12.5" font-weight="750" fill="#a96008">P06</text>
+      <rect x="1453.5" y="1502" width="50" height="24" rx="5" fill="#d9901a" opacity="0.14"/>
+      <text x="1478.5" y="1519" text-anchor="middle" font-size="12" font-weight="800" fill="#7a4305">병목</text>
+      <text x="1258.5" y="1539" font-size="10" font-weight="750" fill="#a96008"><tspan x="1258.5" dy="0">[학적-전입관리-전입관리-학적반영]</tspan></text>
+      <text x="1258.5" y="1563" font-size="15.5" font-weight="800" fill="#7a4305"><tspan x="1258.5" dy="0">학적반영 목록에서 전입생 성명을</tspan><tspan x="1258.5" dy="18">클릭하고 수강과목편성에서 타반</tspan><tspan x="1258.5" dy="18">강의실 포함 여부를 선택해</tspan><tspan x="1258.5" dy="18">개설과목을 편성된 과목 목록에</tspan><tspan x="1258.5" dy="18">추가한 뒤, 전출교 과목 출결과</tspan><tspan x="1258.5" dy="18">매칭되는 전입이전 출결산출 포함</tspan><tspan x="1258.5" dy="18">과목을 지정하고 저장한다.</tspan></text>
+      <text x="1258.5" y="1688" font-size="11" font-weight="650" fill="#a96008">학적담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1722" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1722" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1742" font-size="12.5" font-weight="750" fill="#627169">P07</text>
+      <rect x="1453.5" y="1729" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1746" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1766" font-size="8" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[교육과정-편제및과목개설관리-편제및과목개설관리-수강생편성]</tspan></text>
+      <text x="1258.5" y="1790" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">전출교·전입교 모두 학기말 성적</tspan><tspan x="1258.5" dy="18">산출이 완료된 전입생의</tspan><tspan x="1258.5" dy="18">출결관리를 위해 출결수강생편성</tspan><tspan x="1258.5" dy="18">탭에서만 수강생을 편성한다.</tspan></text>
+      <text x="1258.5" y="1861" font-size="11" font-weight="650" fill="#627169">학적담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1982" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="1982" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="491.5" y="2002" font-size="12.5" font-weight="750" fill="#d8f4e8">P08</text>
+      <rect x="686.5" y="1989" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="2006" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="2026" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[교육과정-편제및과목개설관리-학생별수강과목편성]</tspan></text>
+      <text x="491.5" y="2050" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">학생을 선택한 후 미편성과목에서</tspan><tspan x="491.5" dy="18">편성할 과목을 선택하고</tspan><tspan x="491.5" dy="18">저장한다. 선택과목 편성에</tspan><tspan x="491.5" dy="18">유의한다.</tspan></text>
+      <text x="491.5" y="2121" font-size="11" font-weight="650" fill="#d8f4e8">교육과정업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1955" width="270" height="203" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1955" width="6" height="203" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1975" font-size="12.5" font-weight="750" fill="#627169">P09</text>
+      <rect x="1453.5" y="1962" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1979" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1999" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[교육과정-편제및과목개설관리-학생별수강과목편성]</tspan></text>
+      <text x="1258.5" y="2023" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">2015 개정 교육과정 3학년</tspan><tspan x="1258.5" dy="18">전입생은 학적반영의</tspan><tspan x="1258.5" dy="18">수강과목편성,</tspan><tspan x="1258.5" dy="18">학생별수강과목편성,</tspan><tspan x="1258.5" dy="18">수강생편성의</tspan><tspan x="1258.5" dy="18">성적·출결수강생편성 탭 중에서</tspan><tspan x="1258.5" dy="18">수강과목을 편성할 수 있다.</tspan></text>
+      <text x="1258.5" y="2148" font-size="11" font-weight="650" fill="#627169">학적담당자</text>
+    </g>
+  
+<rect x="38" y="2222" width="772.5" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2260" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2244" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2259" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2244" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2259" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2244" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2259" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2244" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2259" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2252" x2="522" y2="2252" stroke="#0f8a65" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-message)"/><text x="536" y="2258" font-size="15" fill="#3a463f">정보 전달</text>
+<line x1="631.3" y1="2252" x2="677.3" y2="2252" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="691.3" y="2258" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

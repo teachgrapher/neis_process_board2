@@ -1,0 +1,242 @@
+<!-- 학급별 수상 관리 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>학급별 수상 관리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"학급별 수상 관리","subtitle":"전입생의 누락 수상과 위탁학생의 타기관 수상을 학급별로 등록하고 학급별 수상대장을 조회·출력하는 절차.","lanes":["학급담임교사","수상 업무담당교사"],"stages":["조회 준비","학생 선택","수상 등록","저장 및 확인","학급별 수상 조회·출력"],"nodes":[{"id":"P10","lane":"수상 업무담당교사","stage":"조회 준비","label":"대안교육기관 위탁교육·직업과정 위탁교육 위탁학생, 공동교육과정 수강학생, 교환학생이 위탁기관·교환학교에서 받은 상은 교내상으로 등록 가능함을 확인한다.","menu":"[학생생활-수상경력-학급별수상관리]","emphasis":"normal"},{"id":"P01","lane":"학급담임교사","stage":"조회 준비","label":"학급별수상관리 탭에서 학년도, 계열/학년/학과, 반을 확인한 후 조회한다.","menu":"[학생생활-수상경력-학급별수상관리-학급별수상관리]","emphasis":"lead"},{"id":"P02","lane":"학급담임교사","stage":"학생 선택","label":"조회된 목록에서 전입생 또는 위탁학생을 클릭하여 선택한다.","menu":"[학생생활-수상경력-학급별수상관리-학급별수상관리]","emphasis":"normal"},{"id":"P03","lane":"학급담임교사","stage":"수상 등록","label":"학급별 수상 등록 창을 열어 전입생의 전출교 누락 수상 또는 위탁학생의 위탁기관 수상내역을 입력한다. 본교 수상대장에 등록된 수상 내역은 이 화면에서 수정할 수 없다.","menu":"[학생생활-수상경력-학급별수상관리-학급별수상관리-등록]","emphasis":"key"},{"id":"P09","lane":"학급담임교사","stage":"수상 등록","label":"전출교의 교과우수상 등 시상일자 이전 전입 사례는, 전출교에서 송부한 수상관련 공문을 근거로 수상연월일을 전출교 기준으로 입력한다.","menu":"[학생생활-수상경력-학급별수상관리-학급별수상관리-등록]","emphasis":"normal"},{"id":"P04","lane":"수상 업무담당교사","stage":"수상 등록","label":"위탁학생 수상 등록 시 수여기관에는 위탁기관을 입력하되, 학생미혼모의 위탁교육 기관명이 드러나지 않도록 봉사활동 실적의 장소·주관기관명과 수상경력의 수여기관에는 위탁교육 기관명을 재적교로 입력한다.","menu":"[학생생활-수상경력-학급별수상관리-학급별수상관리-등록]","emphasis":"normal"},{"id":"P05","lane":"학급담임교사","stage":"저장 및 확인","label":"입력한 수상내역을 저장하고 등록창을 닫는다.","menu":"[학생생활-수상경력-학급별수상관리-학급별수상관리-등록]","emphasis":"normal"},{"id":"P06","lane":"학급담임교사","stage":"저장 및 확인","label":"학급별수상관리에서 등록한 내용은 해당 학교의 수상기록이 아니므로 수상대장에 반영되지 않으며, 결재를 상신할 수 없어 결재상태가 결재대상아님으로 표기됨을 확인한다.","menu":"[학생생활-수상경력-학급별수상관리-학급별수상관리]","emphasis":"normal"},{"id":"P07","lane":"수상 업무담당교사","stage":"학급별 수상 조회·출력","label":"학급별수상조회 탭에서 학년도, 계열/학년/학과, 반을 확인한 후 조회한다.","menu":"[학생생활-수상경력-학급별수상관리-학급별수상조회]","emphasis":"lead"},{"id":"P08","lane":"수상 업무담당교사","stage":"학급별 수상 조회·출력","label":"엑셀다운로드 또는 출력 기능으로 학급별 수상대장을 확인하고 활용한다.","menu":"[학생생활-수상경력-학급별수상관리-학급별수상조회]","emphasis":"key"}],"edges":[]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2400" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 10 · 레인 2 · 게이트 5</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">학급별 수상 관리</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">전입생의 누락 수상과 위탁학생의 타기관 수상을 학급별로 등록하고 학급별 수상대장을 조회·출력하는 절차.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="1940" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="296.6" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="296.6" fill="#eef3f0"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">조회 준비</tspan></text>
+<rect x="38" y="656.6" width="1724" height="224.6" fill="#f5f8f6"/>
+<rect x="38" y="656.6" width="190" height="224.6" fill="#eef3f0"/>
+<text x="58" y="688.6" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="721.6" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">학생 선택</tspan></text>
+<rect x="38" y="881.2" width="1724" height="487.6" fill="#84baa9"/>
+<rect x="38" y="881.2" width="190" height="487.6" fill="#087452"/>
+<text x="58" y="913.2" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="946.2" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">수상 등록</tspan></text>
+<rect x="38" y="1368.8" width="1724" height="433.6" fill="#f5f8f6"/>
+<rect x="38" y="1368.8" width="190" height="433.6" fill="#eef3f0"/>
+<text x="58" y="1400.8" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1433.8" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">저장 및 확인</tspan></text>
+<rect x="38" y="1802.4" width="1724" height="397.6" fill="#84baa9"/>
+<rect x="38" y="1802.4" width="190" height="397.6" fill="#087452"/>
+<text x="58" y="1834.4" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1867.4" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">학급별 수상</tspan><tspan x="58" dy="22">조회·출력</tspan></text>
+<rect x="228" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="767" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">학급담임교사</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">학급담임교사</tspan></text>
+<rect x="995" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="995" y="260" width="767" height="7" fill="#3b82f6"/>
+<text x="1015" y="299" font-size="20" font-weight="800" fill="#17231d">수상 업무담당교사</text>
+<text x="1015" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1015" dy="0">수상 업무담당교사</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="995" y1="260" x2="995" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="656.6" x2="1762" y2="656.6" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="881.2" x2="1762" y2="881.2" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1368.8" x2="1762" y2="1368.8" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1802.4" x2="1762" y2="1802.4" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2200" x2="1762" y2="2200" stroke="#b8c7bf" stroke-width="2"/>
+
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="415.8" width="270" height="185" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="415.8" width="6" height="185" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="435.8" font-size="12.5" font-weight="750" fill="#627169">P10</text>
+      <rect x="1453.5" y="422.8" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="439.8" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="459.8" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[학생생활-수상경력-학급별수상관리]</tspan></text>
+      <text x="1258.5" y="483.8" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">대안교육기관 위탁교육·직업과정</tspan><tspan x="1258.5" dy="18">위탁교육 위탁학생, 공동교육과정</tspan><tspan x="1258.5" dy="18">수강학생, 교환학생이</tspan><tspan x="1258.5" dy="18">위탁기관·교환학교에서 받은 상은</tspan><tspan x="1258.5" dy="18">교내상으로 등록 가능함을</tspan><tspan x="1258.5" dy="18">확인한다.</tspan></text>
+      <text x="1258.5" y="590.8" font-size="11" font-weight="650" fill="#627169">수상 업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="442.8" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="442.8" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="462.8" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="686.5" y="449.8" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="466.8" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="486.8" font-size="9.5" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학생생활-수상경력-학급별수상관리-학급별수상관리]</tspan></text>
+      <text x="491.5" y="510.8" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">학급별수상관리 탭에서 학년도,</tspan><tspan x="491.5" dy="18">계열/학년/학과, 반을 확인한 후</tspan><tspan x="491.5" dy="18">조회한다.</tspan></text>
+      <text x="491.5" y="563.8" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="712.4" width="270" height="113" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="712.4" width="6" height="113" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="732.4" font-size="12.5" font-weight="750" fill="#627169">P02</text>
+      <rect x="686.5" y="719.4" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="736.4" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="756.4" font-size="9.5" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학생생활-수상경력-학급별수상관리-학급별수상관리]</tspan></text>
+      <text x="491.5" y="780.4" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">조회된 목록에서 전입생 또는</tspan><tspan x="491.5" dy="18">위탁학생을 클릭하여 선택한다.</tspan></text>
+      <text x="491.5" y="815.4" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="937" width="270" height="185" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="937" width="6" height="185" rx="3" fill="#087452"/>
+      <text x="491.5" y="957" font-size="12.5" font-weight="750" fill="#d8f4e8">P03</text>
+      <rect x="686.5" y="944" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="961" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="981" font-size="8.5" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[학생생활-수상경력-학급별수상관리-학급별수상관리-등록]</tspan></text>
+      <text x="491.5" y="1005" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">학급별 수상 등록 창을 열어</tspan><tspan x="491.5" dy="18">전입생의 전출교 누락 수상 또는</tspan><tspan x="491.5" dy="18">위탁학생의 위탁기관 수상내역을</tspan><tspan x="491.5" dy="18">입력한다. 본교 수상대장에</tspan><tspan x="491.5" dy="18">등록된 수상 내역은 이 화면에서</tspan><tspan x="491.5" dy="18">수정할 수 없다.</tspan></text>
+      <text x="491.5" y="1112" font-size="11" font-weight="650" fill="#d8f4e8">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1146" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="1146" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="1166" font-size="12.5" font-weight="750" fill="#627169">P09</text>
+      <rect x="686.5" y="1153" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="1170" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="1190" font-size="8.5" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학생생활-수상경력-학급별수상관리-학급별수상관리-등록]</tspan></text>
+      <text x="491.5" y="1214" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">전출교의 교과우수상 등 시상일자</tspan><tspan x="491.5" dy="18">이전 전입 사례는, 전출교에서</tspan><tspan x="491.5" dy="18">송부한 수상관련 공문을 근거로</tspan><tspan x="491.5" dy="18">수상연월일을 전출교 기준으로</tspan><tspan x="491.5" dy="18">입력한다.</tspan></text>
+      <text x="491.5" y="1303" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1014.5" width="270" height="221" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1014.5" width="6" height="221" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1034.5" font-size="12.5" font-weight="750" fill="#627169">P04</text>
+      <rect x="1453.5" y="1021.5" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1038.5" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1058.5" font-size="8.5" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[학생생활-수상경력-학급별수상관리-학급별수상관리-등록]</tspan></text>
+      <text x="1258.5" y="1082.5" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">위탁학생 수상 등록 시</tspan><tspan x="1258.5" dy="18">수여기관에는 위탁기관을</tspan><tspan x="1258.5" dy="18">입력하되, 학생미혼모의 위탁교육</tspan><tspan x="1258.5" dy="18">기관명이 드러나지 않도록</tspan><tspan x="1258.5" dy="18">봉사활동 실적의</tspan><tspan x="1258.5" dy="18">장소·주관기관명과 수상경력의</tspan><tspan x="1258.5" dy="18">수여기관에는 위탁교육 기관명을</tspan><tspan x="1258.5" dy="18">재적교로 입력한다.</tspan></text>
+      <text x="1258.5" y="1225.5" font-size="11" font-weight="650" fill="#627169">수상 업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1424.6" width="270" height="113" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="1424.6" width="6" height="113" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="1444.6" font-size="12.5" font-weight="750" fill="#627169">P05</text>
+      <rect x="686.5" y="1431.6" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="1448.6" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="1468.6" font-size="8.5" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학생생활-수상경력-학급별수상관리-학급별수상관리-등록]</tspan></text>
+      <text x="491.5" y="1492.6" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">입력한 수상내역을 저장하고</tspan><tspan x="491.5" dy="18">등록창을 닫는다.</tspan></text>
+      <text x="491.5" y="1527.6" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1561.6" width="270" height="185" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="1561.6" width="6" height="185" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="1581.6" font-size="12.5" font-weight="750" fill="#627169">P06</text>
+      <rect x="686.5" y="1568.6" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="1585.6" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="1605.6" font-size="9.5" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학생생활-수상경력-학급별수상관리-학급별수상관리]</tspan></text>
+      <text x="491.5" y="1629.6" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">학급별수상관리에서 등록한</tspan><tspan x="491.5" dy="18">내용은 해당 학교의 수상기록이</tspan><tspan x="491.5" dy="18">아니므로 수상대장에 반영되지</tspan><tspan x="491.5" dy="18">않으며, 결재를 상신할 수 없어</tspan><tspan x="491.5" dy="18">결재상태가 결재대상아님으로</tspan><tspan x="491.5" dy="18">표기됨을 확인한다.</tspan></text>
+      <text x="491.5" y="1736.6" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1858.2" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="1243.5" y="1858.2" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="1258.5" y="1878.2" font-size="12.5" font-weight="750" fill="#287a5c">P07</text>
+      <rect x="1453.5" y="1865.2" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1478.5" y="1882.2" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="1258.5" y="1902.2" font-size="9.5" font-weight="750" fill="#287a5c"><tspan x="1258.5" dy="0">[학생생활-수상경력-학급별수상관리-학급별수상조회]</tspan></text>
+      <text x="1258.5" y="1926.2" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="1258.5" dy="0">학급별수상조회 탭에서 학년도,</tspan><tspan x="1258.5" dy="18">계열/학년/학과, 반을 확인한 후</tspan><tspan x="1258.5" dy="18">조회한다.</tspan></text>
+      <text x="1258.5" y="1979.2" font-size="11" font-weight="650" fill="#287a5c">수상 업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="2013.2" width="270" height="131" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="1243.5" y="2013.2" width="6" height="131" rx="3" fill="#087452"/>
+      <text x="1258.5" y="2033.2" font-size="12.5" font-weight="750" fill="#d8f4e8">P08</text>
+      <rect x="1453.5" y="2020.2" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1478.5" y="2037.2" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="1258.5" y="2057.2" font-size="9.5" font-weight="750" fill="#d8f4e8"><tspan x="1258.5" dy="0">[학생생활-수상경력-학급별수상관리-학급별수상조회]</tspan></text>
+      <text x="1258.5" y="2081.2" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="1258.5" dy="0">엑셀다운로드 또는 출력 기능으로</tspan><tspan x="1258.5" dy="18">학급별 수상대장을 확인하고</tspan><tspan x="1258.5" dy="18">활용한다.</tspan></text>
+      <text x="1258.5" y="2134.2" font-size="11" font-weight="650" fill="#d8f4e8">수상 업무담당교사</text>
+    </g>
+  
+<rect x="38" y="2222" width="462" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2260" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2244" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2259" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2244" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2259" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2244" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2259" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2244" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2259" font-size="15" fill="#3a463f">회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

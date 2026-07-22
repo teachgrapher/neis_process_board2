@@ -1,0 +1,233 @@
+<!-- 동아리활동 학교생활기록부 기록 및 반별 조회 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>동아리활동 학교생활기록부 기록 및 반별 조회</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"동아리활동 학교생활기록부 기록 및 반별 조회","subtitle":"동아리담당교사가 이수시간을 반영하고 특기사항·자율동아리 실적을 학교생활기록부에 기록하며, 학급담임교사가 반별로 자료를 조회하는 절차.","lanes":["동아리담당교사","학급담임교사"],"stages":["이수시간반영","특기사항입력","자율동아리반영","반별조회"],"nodes":[{"id":"P01","lane":"동아리담당교사","stage":"이수시간반영","label":"학생부자료기록 탭에서 학년도를 확인하고 구분·부서명을 선택하여 조회한다.","menu":"[학생생활-창의적체험활동-동아리활동관리-동아리활동관리]","emphasis":"lead"},{"id":"P02","lane":"동아리담당교사","stage":"이수시간반영","label":"해당 학생을 선택하고 이수시간기준일을 학기종료일 또는 최종실시일로 선택하여 이수시간반영을 실행한다.","menu":"[학생생활-창의적체험활동-동아리활동관리-동아리활동관리]","emphasis":"key"},{"id":"P03","lane":"동아리담당교사","stage":"특기사항입력","label":"이수시간과 누가기록이수시간합계가 일치하는지 확인한 후 학생별 특기사항을 입력하고 저장한다.","menu":"[학생생활-창의적체험활동-동아리활동관리-동아리활동관리]","emphasis":"key"},{"id":"P04","lane":"동아리담당교사","stage":"특기사항입력","label":"문자열바꾸기에서 찾을 내용과 바꿀 내용을 입력해 특기사항 중 특정 단어를 전체 또는 선택 학생 대상으로 일괄 변경하고 저장한다.","menu":"[학생생활-창의적체험활동-동아리활동관리-동아리활동관리]","emphasis":"normal"},{"id":"P05","lane":"동아리담당교사","stage":"특기사항입력","label":"출력을 눌러 동아리활동 학생부자료 창에서 내용을 확인하고 저장 또는 출력한다.","menu":"[학생생활-창의적체험활동-동아리활동관리-동아리활동관리]","emphasis":"normal"},{"id":"P06","lane":"동아리담당교사","stage":"자율동아리반영","label":"학생부자료기록 탭에서 학년도를 확인하고 구분·부서명을 선택하여 자율동아리 대상을 조회한다.","menu":"[학생생활-창의적체험활동-동아리활동관리-동아리활동관리]","emphasis":"lead"},{"id":"P07","lane":"동아리담당교사","stage":"자율동아리반영","label":"해당 학생의 특기사항(동아리 소개 30자 이내 포함)을 입력하여 저장하고 학생부반영을 실행한 후 확인한다.","menu":"[학생생활-창의적체험활동-동아리활동관리-동아리활동관리]","emphasis":"key"},{"id":"P08","lane":"학급담임교사","stage":"반별조회","label":"학생부자료 탭에서 학년도·학년·반을 확인하고 조회하여 반별 동아리활동 학생부자료를 확인한다.","menu":"[학생생활-창의적체험활동-동아리활동반별조회]","emphasis":"lead"},{"id":"P09","lane":"학급담임교사","stage":"반별조회","label":"누가기록 탭에서 학년도·학년·반을 확인하고 기간을 선택하여 조회하여 반별 동아리활동 누가기록을 확인한다.","menu":"[학생생활-창의적체험활동-동아리활동반별조회]","emphasis":"normal"}],"edges":[{"id":"L01","source":"P03","target":"P01","type":"loop","label":"이수시간 불일치 시 재확인"},{"id":"L02","source":"P07","target":"P06","type":"loop","label":"자율동아리 변경 시 특기사항 반영취소·재입력"}]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2400" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 9 · 레인 2 · 게이트 4</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">동아리활동 학교생활기록부 기록 및 반별 조회</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">동아리담당교사가 이수시간을 반영하고 특기사항·자율동아리 실적을 학교생활기록부에 기록하며, 학급담임교사가 반별로 자료를 조회…</text>
+    
+  
+<rect x="38" y="260" width="1724" height="1940" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="407.8" fill="#84baa9"/>
+<rect x="38" y="360" width="190" height="407.8" fill="#087452"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">이수시간반영</tspan></text>
+<rect x="38" y="767.8" width="1724" height="598.8" fill="#84baa9"/>
+<rect x="38" y="767.8" width="190" height="598.8" fill="#087452"/>
+<text x="58" y="799.8" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="832.8" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">특기사항입력</tspan></text>
+<rect x="38" y="1366.5" width="1724" height="407.8" fill="#84baa9"/>
+<rect x="38" y="1366.5" width="190" height="407.8" fill="#087452"/>
+<text x="58" y="1398.5" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1431.5" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">자율동아리반영</tspan></text>
+<rect x="38" y="1774.3" width="1724" height="425.8" fill="#f5f8f6"/>
+<rect x="38" y="1774.3" width="190" height="425.8" fill="#eef3f0"/>
+<text x="58" y="1806.3" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1839.3" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">반별조회</tspan></text>
+<rect x="228" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="767" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">동아리담당교사</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">동아리담당교사</tspan></text>
+<rect x="995" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="995" y="260" width="767" height="7" fill="#3b82f6"/>
+<text x="1015" y="299" font-size="20" font-weight="800" fill="#17231d">학급담임교사</text>
+<text x="1015" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1015" dy="0">학급담임교사</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="995" y1="260" x2="995" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="767.8" x2="1762" y2="767.8" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1366.5" x2="1762" y2="1366.5" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1774.3" x2="1762" y2="1774.3" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2200" x2="1762" y2="2200" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 476.5 894.1 H 461 V 477.4 H 468.5" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 476.5 894.1 H 461 V 477.4 H 468.5" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 476.5 1647.9 H 216 V 1483.9 H 468.5" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 476.5 1647.9 H 216 V 1483.9 H 468.5" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="363.7" y="742.8" width="194.7" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="461" y="762.8" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">이수시간 불일치 시 재확인</text>
+<rect x="116.7" y="1550.9" width="318.6" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="276" y="1570.9" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">자율동아리 변경 시 특기사항 반영취소·재입력</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="411.9" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="411.9" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="431.9" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="686.5" y="418.9" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="435.9" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="455.9" font-size="8.5" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학생생활-창의적체험활동-동아리활동관리-동아리활동관리]</tspan></text>
+      <text x="491.5" y="479.9" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">학생부자료기록 탭에서 학년도를</tspan><tspan x="491.5" dy="18">확인하고 구분·부서명을 선택하여</tspan><tspan x="491.5" dy="18">조회한다.</tspan></text>
+      <text x="491.5" y="532.9" font-size="11" font-weight="650" fill="#287a5c">동아리담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="566.9" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="566.9" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="491.5" y="586.9" font-size="12.5" font-weight="750" fill="#d8f4e8">P02</text>
+      <rect x="686.5" y="573.9" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="590.9" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="610.9" font-size="8.5" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[학생생활-창의적체험활동-동아리활동관리-동아리활동관리]</tspan></text>
+      <text x="491.5" y="634.9" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">해당 학생을 선택하고</tspan><tspan x="491.5" dy="18">이수시간기준일을 학기종료일</tspan><tspan x="491.5" dy="18">또는 최종실시일로 선택하여</tspan><tspan x="491.5" dy="18">이수시간반영을 실행한다.</tspan></text>
+      <text x="491.5" y="705.9" font-size="11" font-weight="650" fill="#d8f4e8">동아리담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="819.6" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="819.6" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="491.5" y="839.6" font-size="12.5" font-weight="750" fill="#d8f4e8">P03</text>
+      <rect x="686.5" y="826.6" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="843.6" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="863.6" font-size="8.5" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[학생생활-창의적체험활동-동아리활동관리-동아리활동관리]</tspan></text>
+      <text x="491.5" y="887.6" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">이수시간과</tspan><tspan x="491.5" dy="18">누가기록이수시간합계가</tspan><tspan x="491.5" dy="18">일치하는지 확인한 후 학생별</tspan><tspan x="491.5" dy="18">특기사항을 입력하고 저장한다.</tspan></text>
+      <text x="491.5" y="958.6" font-size="11" font-weight="650" fill="#d8f4e8">동아리담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="992.6" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="992.6" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="1012.6" font-size="12.5" font-weight="750" fill="#627169">P04</text>
+      <rect x="686.5" y="999.6" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="1016.6" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="1036.6" font-size="8.5" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학생생활-창의적체험활동-동아리활동관리-동아리활동관리]</tspan></text>
+      <text x="491.5" y="1060.6" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">문자열바꾸기에서 찾을 내용과</tspan><tspan x="491.5" dy="18">바꿀 내용을 입력해 특기사항 중</tspan><tspan x="491.5" dy="18">특정 단어를 전체 또는 선택 학생</tspan><tspan x="491.5" dy="18">대상으로 일괄 변경하고</tspan><tspan x="491.5" dy="18">저장한다.</tspan></text>
+      <text x="491.5" y="1149.6" font-size="11" font-weight="650" fill="#627169">동아리담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1183.6" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="1183.6" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="1203.6" font-size="12.5" font-weight="750" fill="#627169">P05</text>
+      <rect x="686.5" y="1190.6" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="1207.6" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="1227.6" font-size="8.5" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학생생활-창의적체험활동-동아리활동관리-동아리활동관리]</tspan></text>
+      <text x="491.5" y="1251.6" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">출력을 눌러 동아리활동</tspan><tspan x="491.5" dy="18">학생부자료 창에서 내용을</tspan><tspan x="491.5" dy="18">확인하고 저장 또는 출력한다.</tspan></text>
+      <text x="491.5" y="1304.6" font-size="11" font-weight="650" fill="#627169">동아리담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1418.4" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="1418.4" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="1438.4" font-size="12.5" font-weight="750" fill="#287a5c">P06</text>
+      <rect x="686.5" y="1425.4" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="1442.4" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="1462.4" font-size="8.5" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학생생활-창의적체험활동-동아리활동관리-동아리활동관리]</tspan></text>
+      <text x="491.5" y="1486.4" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">학생부자료기록 탭에서 학년도를</tspan><tspan x="491.5" dy="18">확인하고 구분·부서명을 선택하여</tspan><tspan x="491.5" dy="18">자율동아리 대상을 조회한다.</tspan></text>
+      <text x="491.5" y="1539.4" font-size="11" font-weight="650" fill="#287a5c">동아리담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1573.4" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="1573.4" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="491.5" y="1593.4" font-size="12.5" font-weight="750" fill="#d8f4e8">P07</text>
+      <rect x="686.5" y="1580.4" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="1597.4" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="1617.4" font-size="8.5" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[학생생활-창의적체험활동-동아리활동관리-동아리활동관리]</tspan></text>
+      <text x="491.5" y="1641.4" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">해당 학생의 특기사항(동아리</tspan><tspan x="491.5" dy="18">소개 30자 이내 포함)을 입력하여</tspan><tspan x="491.5" dy="18">저장하고 학생부반영을 실행한 후</tspan><tspan x="491.5" dy="18">확인한다.</tspan></text>
+      <text x="491.5" y="1712.4" font-size="11" font-weight="650" fill="#d8f4e8">동아리담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1826.1" width="270" height="149" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="1243.5" y="1826.1" width="6" height="149" rx="3" fill="#35a77d"/>
+      <text x="1258.5" y="1846.1" font-size="12.5" font-weight="750" fill="#287a5c">P08</text>
+      <rect x="1453.5" y="1833.1" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1478.5" y="1850.1" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="1258.5" y="1870.1" font-size="10" font-weight="750" fill="#287a5c"><tspan x="1258.5" dy="0">[학생생활-창의적체험활동-동아리활동반별조회]</tspan></text>
+      <text x="1258.5" y="1894.1" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="1258.5" dy="0">학생부자료 탭에서</tspan><tspan x="1258.5" dy="18">학년도·학년·반을 확인하고</tspan><tspan x="1258.5" dy="18">조회하여 반별 동아리활동</tspan><tspan x="1258.5" dy="18">학생부자료를 확인한다.</tspan></text>
+      <text x="1258.5" y="1965.1" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1999.1" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1999.1" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="2019.1" font-size="12.5" font-weight="750" fill="#627169">P09</text>
+      <rect x="1453.5" y="2006.1" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="2023.1" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="2043.1" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[학생생활-창의적체험활동-동아리활동반별조회]</tspan></text>
+      <text x="1258.5" y="2067.1" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">누가기록 탭에서</tspan><tspan x="1258.5" dy="18">학년도·학년·반을 확인하고</tspan><tspan x="1258.5" dy="18">기간을 선택하여 조회하여 반별</tspan><tspan x="1258.5" dy="18">동아리활동 누가기록을 확인한다.</tspan></text>
+      <text x="1258.5" y="2138.1" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+<rect x="38" y="2222" width="617.3" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2260" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2244" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2259" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2244" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2259" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2244" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2259" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2244" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2259" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2252" x2="522" y2="2252" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="536" y="2258" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

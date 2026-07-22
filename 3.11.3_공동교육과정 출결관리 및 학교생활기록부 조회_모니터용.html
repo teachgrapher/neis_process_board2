@@ -1,0 +1,251 @@
+<!-- 공동교육과정 출결관리 및 학교생활기록부 조회 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>공동교육과정 출결관리 및 학교생활기록부 조회</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"공동교육과정 출결관리 및 학교생활기록부 조회","subtitle":"공동교육과정 수업일 출결을 등록·마감하고 성적·세특·수상경력을 학생부에 반영·조회하는 절차.","lanes":["거점교(교과담당교사)","참여교 학급담임","학생부 담당자"],"stages":["수업일 출결자료 확인","담임 출결 등록/결시 처리","출결마감","학생부 자료반영","학생부 조회 및 수상경력 확인"],"nodes":[{"id":"P01","lane":"거점교(교과담당교사)","stage":"수업일 출결자료 확인","label":"공동교육과정 수업일에 교과담당교사가 출결자료를 등록한다(결시 시 '/' 표기).","menu":"[학적-공동교육과정관리-출결관리]","emphasis":"lead"},{"id":"P02","lane":"참여교 학급담임","stage":"수업일 출결자료 확인","label":"학년도·일자·기관명(개설학교)·성명을 확인 또는 선택 후 조회하여 거점교에서 전송한 공동교육과정 수강생의 출결자료를 확인한다.","menu":"[학적-공동교육과정관리-출결관리]","emphasis":"normal"},{"id":"P03","lane":"참여교 학급담임","stage":"담임 출결 등록/결시 처리","label":"학년도·계열/학년/학과·반을 확인하고 일자를 선택해 조회한 뒤 공동교육과정 수강생 성명을 클릭해 나타나는 '타학교출결내역' 창에서 과목 교시별 출결자료를 확인하고 해당 교시에 결시 또는 출석으로 반영한다.","menu":"[학적-출결관리-출결관리-일일출결관리(담임용)]","emphasis":"key"},{"id":"P04","lane":"참여교 학급담임","stage":"담임 출결 등록/결시 처리","label":"'마감' 항목을 클릭해 나타나는 '출결마감구분' 창에서 종류·구분을 선택하고 사유를 입력한 후 적용한다.","menu":"[학적-출결관리-출결관리-일일출결관리(담임용)]","emphasis":"normal"},{"id":"P05","lane":"참여교 학급담임","stage":"출결마감","label":"출결자료의 오류 유무를 확인한 후 저장하고 출결마감한다.","menu":"[학적-출결관리-출결관리-일일출결관리(담임용)]","emphasis":"bottleneck"},{"id":"P06","lane":"거점교(교과담당교사)","stage":"출결마감","label":"거점교에서 공동교육과정 수업일 출결자료를 등록하고 출결마감하면 공동교육과정 타교수강생 참여교로 자동 전송된다.","menu":"[학적-공동교육과정관리-출결관리]","emphasis":"normal"},{"id":"P07","lane":"학생부 담당자","stage":"학생부 자료반영","label":"학년도·계열/학년/학과·반을 확인 후 조회하고 학생 목록에서 공동교육과정 수강생을 선택하여 '학생부 반영 항목'에서 '교과학습발달상황', '세부능력및특기사항'을 선택한 후 개인별반영한다.","menu":"[학생부-학교생활기록부-학교생활기록부-학생부반영]","emphasis":"key"},{"id":"P08","lane":"학생부 담당자","stage":"학생부 자료반영","label":"거점교에서 전송한 공동교육과정 수강생의 교과우수상을 '학급별수상관리' 탭에서 '교내'와 '학생부 반영여부'를 선택하여 반영한다.","menu":"[학생생활-수상경력-학급별수상관리]","emphasis":"normal"},{"id":"P09","lane":"학생부 담당자","stage":"학생부 조회 및 수상경력 확인","label":"'반별조회'를 선택 후 학년도·계열/학년/학과·반을 확인하고 조회한 뒤 학생 목록에서 공동교육과정 수강생을 선택하여 교과학습발달상황의 과목 성적과 비고(공동,타기관), 세부능력 및 특기사항을 확인한다.","menu":"[학생부-학교생활기록부-학교생활기록부-학생부조회및출력]","emphasis":"lead"},{"id":"P10","lane":"학생부 담당자","stage":"학생부 조회 및 수상경력 확인","label":"'반별조회'를 선택 후 학년도·계열/학년/학과·반을 확인하고 조회한 뒤 학생 목록에서 공동교육과정 수강생을 선택하여 수상경력을 확인한다.","menu":"[학생부-학교생활기록부-학교생활기록부-학생부조회및출력]","emphasis":"normal"}],"edges":[{"id":"L01","source":"P09","target":"P07","type":"loop","label":"비고 미표시 시 재반영"}]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2400" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 10 · 레인 3 · 게이트 5</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">공동교육과정 출결관리 및 학교생활기록부 조회</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">공동교육과정 수업일 출결을 등록·마감하고 성적·세특·수상경력을 학생부에 반영·조회하는 절차.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="1940" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="231.8" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="231.8" fill="#eef3f0"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">수업일 출결자료</tspan><tspan x="58" dy="22">확인</tspan></text>
+<rect x="38" y="591.8" width="1724" height="458.8" fill="#84baa9"/>
+<rect x="38" y="591.8" width="190" height="458.8" fill="#087452"/>
+<text x="58" y="623.8" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="656.8" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">담임 출결</tspan><tspan x="58" dy="22">등록/결시 처리</tspan></text>
+<rect x="38" y="1050.6" width="1724" height="231.8" fill="#fbfcfb"/>
+<rect x="38" y="1050.6" width="190" height="231.8" fill="#eef3f0"/>
+<text x="58" y="1082.6" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1115.6" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">출결마감</tspan></text>
+<rect x="38" y="1282.4" width="1724" height="458.8" fill="#84baa9"/>
+<rect x="38" y="1282.4" width="190" height="458.8" fill="#087452"/>
+<text x="58" y="1314.4" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1347.4" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">학생부 자료반영</tspan></text>
+<rect x="38" y="1741.2" width="1724" height="458.8" fill="#fbfcfb"/>
+<rect x="38" y="1741.2" width="190" height="458.8" fill="#eef3f0"/>
+<text x="58" y="1773.2" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1806.2" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">학생부 조회 및</tspan><tspan x="58" dy="22">수상경력 확인</tspan></text>
+<rect x="228" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="511.3" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">거점교</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">거점교(교과담당교사)</tspan></text>
+<rect x="739.3" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="739.3" y="260" width="511.3" height="7" fill="#3b82f6"/>
+<text x="759.3" y="299" font-size="20" font-weight="800" fill="#17231d">참여교 학급담임</text>
+<text x="759.3" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="759.3" dy="0">참여교 학급담임</tspan></text>
+<rect x="1250.7" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="1250.7" y="260" width="511.3" height="7" fill="#c78116"/>
+<text x="1270.7" y="299" font-size="20" font-weight="800" fill="#17231d">학생부 담당자</text>
+<text x="1270.7" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1270.7" dy="0">학생부 담당자</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="739.3" y1="260" x2="739.3" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1250.7" y1="260" x2="1250.7" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="591.8" x2="1762" y2="591.8" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1050.6" x2="1762" y2="1050.6" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1282.4" x2="1762" y2="1282.4" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1741.2" x2="1762" y2="1741.2" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2200" x2="1762" y2="2200" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 1371.3 1875.1 H 1355 V 1416.3 H 1363.3" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 1371.3 1875.1 H 1355 V 1416.3 H 1363.3" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="1131.7" y="1630.7" width="166.7" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="1215" y="1650.7" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">비고 미표시 시 재반영</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="410.4" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="348.7" y="410.4" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="363.7" y="430.4" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="558.7" y="417.4" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="583.7" y="434.4" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="363.7" y="454.4" font-size="10" font-weight="750" fill="#287a5c"><tspan x="363.7" dy="0">[학적-공동교육과정관리-출결관리]</tspan></text>
+      <text x="363.7" y="478.4" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="363.7" dy="0">공동교육과정 수업일에</tspan><tspan x="363.7" dy="18">교과담당교사가 출결자료를</tspan><tspan x="363.7" dy="18">등록한다(결시 시 &apos;/&apos; 표기).</tspan></text>
+      <text x="363.7" y="531.4" font-size="11" font-weight="650" fill="#287a5c">거점교(교과담당교사)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="392.4" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="860" y="392.4" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="875" y="412.4" font-size="12.5" font-weight="750" fill="#627169">P02</text>
+      <rect x="1070" y="399.4" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1095" y="416.4" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="875" y="436.4" font-size="10" font-weight="750" fill="#627169"><tspan x="875" dy="0">[학적-공동교육과정관리-출결관리]</tspan></text>
+      <text x="875" y="460.4" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="875" dy="0">학년도·일자·기관명(개설학교)·</tspan><tspan x="875" dy="18">성명을 확인 또는 선택 후</tspan><tspan x="875" dy="18">조회하여 거점교에서 전송한</tspan><tspan x="875" dy="18">공동교육과정 수강생의</tspan><tspan x="875" dy="18">출결자료를 확인한다.</tspan></text>
+      <text x="875" y="549.4" font-size="11" font-weight="650" fill="#627169">참여교 학급담임</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="624.2" width="270" height="221" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="860" y="624.2" width="6" height="221" rx="3" fill="#087452"/>
+      <text x="875" y="644.2" font-size="12.5" font-weight="750" fill="#d8f4e8">P03</text>
+      <rect x="1070" y="631.2" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1095" y="648.2" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="875" y="668.2" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="875" dy="0">[학적-출결관리-출결관리-일일출결관리(담임용)]</tspan></text>
+      <text x="875" y="692.2" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="875" dy="0">학년도·계열/학년/학과·반을</tspan><tspan x="875" dy="18">확인하고 일자를 선택해 조회한 뒤</tspan><tspan x="875" dy="18">공동교육과정 수강생 성명을</tspan><tspan x="875" dy="18">클릭해 나타나는</tspan><tspan x="875" dy="18">&apos;타학교출결내역&apos; 창에서 과목</tspan><tspan x="875" dy="18">교시별 출결자료를 확인하고 해당</tspan><tspan x="875" dy="18">교시에 결시 또는 출석으로</tspan><tspan x="875" dy="18">반영한다.</tspan></text>
+      <text x="875" y="835.2" font-size="11" font-weight="650" fill="#d8f4e8">참여교 학급담임</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="869.2" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="860" y="869.2" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="875" y="889.2" font-size="12.5" font-weight="750" fill="#627169">P04</text>
+      <rect x="1070" y="876.2" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1095" y="893.2" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="875" y="913.2" font-size="10" font-weight="750" fill="#627169"><tspan x="875" dy="0">[학적-출결관리-출결관리-일일출결관리(담임용)]</tspan></text>
+      <text x="875" y="937.2" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="875" dy="0">&apos;마감&apos; 항목을 클릭해 나타나는</tspan><tspan x="875" dy="18">&apos;출결마감구분&apos; 창에서</tspan><tspan x="875" dy="18">종류·구분을 선택하고 사유를</tspan><tspan x="875" dy="18">입력한 후 적용한다.</tspan></text>
+      <text x="875" y="1008.2" font-size="11" font-weight="650" fill="#627169">참여교 학급담임</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="1110" width="270" height="113" rx="8" fill="#fff8e8" stroke="#d9901a" stroke-width="2.3"/>
+      <rect x="860" y="1110" width="6" height="113" rx="3" fill="#d9901a"/>
+      <text x="875" y="1130" font-size="12.5" font-weight="750" fill="#a96008">P05</text>
+      <rect x="1070" y="1117" width="50" height="24" rx="5" fill="#d9901a" opacity="0.14"/>
+      <text x="1095" y="1134" text-anchor="middle" font-size="12" font-weight="800" fill="#7a4305">병목</text>
+      <text x="875" y="1154" font-size="10" font-weight="750" fill="#a96008"><tspan x="875" dy="0">[학적-출결관리-출결관리-일일출결관리(담임용)]</tspan></text>
+      <text x="875" y="1178" font-size="15.5" font-weight="800" fill="#7a4305"><tspan x="875" dy="0">출결자료의 오류 유무를 확인한 후</tspan><tspan x="875" dy="18">저장하고 출결마감한다.</tspan></text>
+      <text x="875" y="1213" font-size="11" font-weight="650" fill="#a96008">참여교 학급담임</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="1083" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="1083" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="1103" font-size="12.5" font-weight="750" fill="#627169">P06</text>
+      <rect x="558.7" y="1090" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="1107" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="1127" font-size="10" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학적-공동교육과정관리-출결관리]</tspan></text>
+      <text x="363.7" y="1151" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">거점교에서 공동교육과정 수업일</tspan><tspan x="363.7" dy="18">출결자료를 등록하고</tspan><tspan x="363.7" dy="18">출결마감하면 공동교육과정</tspan><tspan x="363.7" dy="18">타교수강생 참여교로 자동</tspan><tspan x="363.7" dy="18">전송된다.</tspan></text>
+      <text x="363.7" y="1240" font-size="11" font-weight="650" fill="#627169">거점교(교과담당교사)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1371.3" y="1314.8" width="270" height="203" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="1371.3" y="1314.8" width="6" height="203" rx="3" fill="#087452"/>
+      <text x="1386.3" y="1334.8" font-size="12.5" font-weight="750" fill="#d8f4e8">P07</text>
+      <rect x="1581.3" y="1321.8" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1606.3" y="1338.8" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="1386.3" y="1358.8" font-size="9.5" font-weight="750" fill="#d8f4e8"><tspan x="1386.3" dy="0">[학생부-학교생활기록부-학교생활기록부-학생부반영]</tspan></text>
+      <text x="1386.3" y="1382.8" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="1386.3" dy="0">학년도·계열/학년/학과·반을 확인</tspan><tspan x="1386.3" dy="18">후 조회하고 학생 목록에서</tspan><tspan x="1386.3" dy="18">공동교육과정 수강생을 선택하여</tspan><tspan x="1386.3" dy="18">&apos;학생부 반영 항목&apos;에서</tspan><tspan x="1386.3" dy="18">&apos;교과학습발달상황&apos;,</tspan><tspan x="1386.3" dy="18">&apos;세부능력및특기사항&apos;을 선택한</tspan><tspan x="1386.3" dy="18">후 개인별반영한다.</tspan></text>
+      <text x="1386.3" y="1507.8" font-size="11" font-weight="650" fill="#d8f4e8">학생부 담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1371.3" y="1541.8" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1371.3" y="1541.8" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="1386.3" y="1561.8" font-size="12.5" font-weight="750" fill="#627169">P08</text>
+      <rect x="1581.3" y="1548.8" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1606.3" y="1565.8" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1386.3" y="1585.8" font-size="10" font-weight="750" fill="#627169"><tspan x="1386.3" dy="0">[학생생활-수상경력-학급별수상관리]</tspan></text>
+      <text x="1386.3" y="1609.8" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1386.3" dy="0">거점교에서 전송한 공동교육과정</tspan><tspan x="1386.3" dy="18">수강생의 교과우수상을</tspan><tspan x="1386.3" dy="18">&apos;학급별수상관리&apos; 탭에서</tspan><tspan x="1386.3" dy="18">&apos;교내&apos;와 &apos;학생부</tspan><tspan x="1386.3" dy="18">반영여부&apos;를 선택하여 반영한다.</tspan></text>
+      <text x="1386.3" y="1698.8" font-size="11" font-weight="650" fill="#627169">학생부 담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1371.3" y="1773.6" width="270" height="203" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="1371.3" y="1773.6" width="6" height="203" rx="3" fill="#35a77d"/>
+      <text x="1386.3" y="1793.6" font-size="12.5" font-weight="750" fill="#287a5c">P09</text>
+      <rect x="1581.3" y="1780.6" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1606.3" y="1797.6" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="1386.3" y="1817.6" font-size="8.5" font-weight="750" fill="#287a5c"><tspan x="1386.3" dy="0">[학생부-학교생활기록부-학교생활기록부-학생부조회및출력]</tspan></text>
+      <text x="1386.3" y="1841.6" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="1386.3" dy="0">&apos;반별조회&apos;를 선택 후</tspan><tspan x="1386.3" dy="18">학년도·계열/학년/학과·반을</tspan><tspan x="1386.3" dy="18">확인하고 조회한 뒤 학생 목록에서</tspan><tspan x="1386.3" dy="18">공동교육과정 수강생을 선택하여</tspan><tspan x="1386.3" dy="18">교과학습발달상황의 과목 성적과</tspan><tspan x="1386.3" dy="18">비고(공동,타기관), 세부능력 및</tspan><tspan x="1386.3" dy="18">특기사항을 확인한다.</tspan></text>
+      <text x="1386.3" y="1966.6" font-size="11" font-weight="650" fill="#287a5c">학생부 담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1371.3" y="2000.6" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1371.3" y="2000.6" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="1386.3" y="2020.6" font-size="12.5" font-weight="750" fill="#627169">P10</text>
+      <rect x="1581.3" y="2007.6" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1606.3" y="2024.6" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1386.3" y="2044.6" font-size="8.5" font-weight="750" fill="#627169"><tspan x="1386.3" dy="0">[학생부-학교생활기록부-학교생활기록부-학생부조회및출력]</tspan></text>
+      <text x="1386.3" y="2068.6" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1386.3" dy="0">&apos;반별조회&apos;를 선택 후</tspan><tspan x="1386.3" dy="18">학년도·계열/학년/학과·반을</tspan><tspan x="1386.3" dy="18">확인하고 조회한 뒤 학생 목록에서</tspan><tspan x="1386.3" dy="18">공동교육과정 수강생을 선택하여</tspan><tspan x="1386.3" dy="18">수상경력을 확인한다.</tspan></text>
+      <text x="1386.3" y="2157.6" font-size="11" font-weight="650" fill="#627169">학생부 담당자</text>
+    </g>
+  
+<rect x="38" y="2222" width="617.3" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2260" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2244" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2259" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2244" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2259" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2244" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2259" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2244" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2259" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2252" x2="522" y2="2252" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="536" y="2258" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

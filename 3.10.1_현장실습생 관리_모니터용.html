@@ -1,0 +1,253 @@
+<!-- 현장실습생 관리 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>현장실습생 관리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto; margin:0 auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"현장실습생 관리","subtitle":"현장실습생을 등록하고 일일출결관리로 현장실습·인정결을 처리·마감하여 실무과목 능력단위 이수시간에 반영·확인·재계산한다.","lanes":["현장실습 업무담당자","학급담임교사"],"stages":["현장실습생 등록","출결기간 입력 및 적용","출결마감","이수시간 반영 확인 및 재계산"],"nodes":[{"id":"P01","lane":"현장실습 업무담당자","stage":"현장실습생 등록","label":"학년도, 학기, 계열/학년/학과, 반, 기관명(타학교)을 선택하고 조회한다.","menu":"[학적-위탁·현장실습학생관리-위탁·현장실습학생관리-위탁·현장실습학생등록]","emphasis":"lead"},{"id":"P02","lane":"현장실습 업무담당자","stage":"현장실습생 등록","label":"등록을 클릭하여 나타나는 위탁학생등록 창에서 나이스플러스 활용 기관을 검색하거나 조회되지 않는 기관은 수기입력으로 직접 등록하여 현장실습생 정보를 등록한다.","menu":"[학적-위탁·현장실습학생관리-위탁·현장실습학생관리-위탁·현장실습학생등록]","emphasis":"key"},{"id":"P03","lane":"학급담임교사","stage":"출결기간 입력 및 적용","label":"학년도, 계열/학년/학과, 반 확인 후 일자를 선택하고 조회한다.","menu":"[학적-출결관리-출결관리-일일출결관리(담임용)]","emphasis":"lead"},{"id":"P04","lane":"학급담임교사","stage":"출결기간 입력 및 적용","label":"현장실습/인정결을 클릭하여 나타나는 출결기간입력 창에서 현장실습생의 시작일자, 종료일자, 비고를 입력하고 저장 후 닫기한다.","menu":"[학적-출결관리-출결관리-일일출결관리(담임용)]","emphasis":"normal"},{"id":"P05","lane":"학급담임교사","stage":"출결기간 입력 및 적용","label":"현장실습/인정결적용을 실행하여 조회·교시·종례란에 '/'가 표시되고 마감란에 출석인정결석으로 입력된 현장실습생의 출결정보를 확인한다.","menu":"[학적-출결관리-출결관리-일일출결관리(담임용)]","emphasis":"normal"},{"id":"P06","lane":"학급담임교사","stage":"출결마감","label":"확인한 출결정보를 저장하고 출결마감을 처리한다. 대상자의 출결이 비어있으면 출석인정결석으로 마감된다.","menu":"[학적-출결관리-출결관리-일일출결관리(담임용)]","emphasis":"key"},{"id":"P07","lane":"학급담임교사","stage":"출결마감","label":"선택학생 비고 일괄반영에서 비고란을 입력하고 대상 현장실습생을 선택하여 선택학생비고반영한다.","menu":"[학적-출결관리-출결관리-일일출결관리(담임용)]","emphasis":"normal"},{"id":"P08","lane":"학급담임교사","stage":"이수시간 반영 확인 및 재계산","label":"학년도, 학기, 계열/학년/학과, 반 확인 후 조회한다.","menu":"[학생생활-자격증및NCS이수상황-국가직무능력표준이수상황관리]","emphasis":"lead"},{"id":"P09","lane":"학급담임교사","stage":"이수시간 반영 확인 및 재계산","label":"학생 성명을 선택하고 실무과목 능력단위 이수시간을 클릭하여 나타나는 상세내역 창에서 현장실습 기간의 월별 실무과목 능력단위 이수시간을 확인 후 닫기한다.","menu":"[학생생활-자격증및NCS이수상황-국가직무능력표준이수상황관리]","emphasis":"normal"},{"id":"P10","lane":"현장실습 업무담당자","stage":"이수시간 반영 확인 및 재계산","label":"전체시간표관리에서 실무과목 능력단위 시간표가 변경된 경우 이수시간 기준일의 시작일과 종료일을 설정하고 이수시간재계산으로 이수시간을 다시 반영한다.","menu":"[교육과정-시간표관리-전체시간표관리]","emphasis":"bottleneck"},{"id":"P11","lane":"현장실습 업무담당자","stage":"이수시간 반영 확인 및 재계산","label":"수시·정시 대입전형자료 작성 시 이수시간 기준일의 종료일을 직접입력으로 2025.08.31.과 2025.11.30.으로 각각 설정하여 학생별로 이수시간재계산 후 저장하고 대입전형자료를 생성한다.","menu":"[학생생활-자격증및NCS이수상황-국가직무능력표준이수상황관리]","emphasis":"key"}],"edges":[{"id":"L01","source":"P06","target":"P04","type":"loop","label":"출결자료 삭제·재입력"}]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2400" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 11 · 레인 2 · 게이트 4</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">현장실습생 관리</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">현장실습생을 등록하고 일일출결관리로 현장실습·인정결을 처리·마감하여 실무과목 능력단위 이수시간에 반영·확인·재계산한다.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="1940" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="419.5" fill="#84baa9"/>
+<rect x="38" y="360" width="190" height="419.5" fill="#087452"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">현장실습생 등록</tspan></text>
+<rect x="38" y="779.5" width="1724" height="566.5" fill="#f5f8f6"/>
+<rect x="38" y="779.5" width="190" height="566.5" fill="#eef3f0"/>
+<text x="58" y="811.5" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="844.5" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">출결기간 입력 및</tspan><tspan x="58" dy="22">적용</tspan></text>
+<rect x="38" y="1346" width="1724" height="375.5" fill="#84baa9"/>
+<rect x="38" y="1346" width="190" height="375.5" fill="#087452"/>
+<text x="58" y="1378" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1411" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">출결마감</tspan></text>
+<rect x="38" y="1721.5" width="1724" height="478.5" fill="#84baa9"/>
+<rect x="38" y="1721.5" width="190" height="478.5" fill="#087452"/>
+<text x="58" y="1753.5" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1786.5" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">이수시간 반영</tspan><tspan x="58" dy="22">확인 및 재계산</tspan></text>
+<rect x="228" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="767" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">현장실습 업무담당자</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">현장실습 업무담당자</tspan></text>
+<rect x="995" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="995" y="260" width="767" height="7" fill="#3b82f6"/>
+<text x="1015" y="299" font-size="20" font-weight="800" fill="#17231d">학급담임교사</text>
+<text x="1015" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1015" dy="0">학급담임교사</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="995" y1="260" x2="995" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="779.5" x2="1762" y2="779.5" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1346" x2="1762" y2="1346" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1721.5" x2="1762" y2="1721.5" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2200" x2="1762" y2="2200" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 1243.5 1447.3 H 1228 V 1026.8 H 1235.5" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 1243.5 1447.3 H 1228 V 1026.8 H 1235.5" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="1146.1" y="1330" width="163.9" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="1228" y="1350" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">출결자료 삭제·재입력</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="386.8" width="270" height="144" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="386.8" width="6" height="144" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="406.8" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="686.5" y="393.8" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="410.8" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="430.8" font-size="8" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학적-위탁·현장실습학생관리-위탁·현장실습학생관리-위탁·현장</tspan><tspan x="491.5" dy="13">실습학생등록]</tspan></text>
+      <text x="491.5" y="467.8" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">학년도, 학기, 계열/학년/학과,</tspan><tspan x="491.5" dy="18">반, 기관명(타학교)을 선택하고</tspan><tspan x="491.5" dy="18">조회한다.</tspan></text>
+      <text x="491.5" y="520.8" font-size="11" font-weight="650" fill="#287a5c">현장실습 업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="554.8" width="270" height="198" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="554.8" width="6" height="198" rx="3" fill="#087452"/>
+      <text x="491.5" y="574.8" font-size="12.5" font-weight="750" fill="#d8f4e8">P02</text>
+      <rect x="686.5" y="561.8" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="578.8" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="598.8" font-size="8" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[학적-위탁·현장실습학생관리-위탁·현장실습학생관리-위탁·현장</tspan><tspan x="491.5" dy="13">실습학생등록]</tspan></text>
+      <text x="491.5" y="635.8" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">등록을 클릭하여 나타나는</tspan><tspan x="491.5" dy="18">위탁학생등록 창에서</tspan><tspan x="491.5" dy="18">나이스플러스 활용 기관을</tspan><tspan x="491.5" dy="18">검색하거나 조회되지 않는 기관은</tspan><tspan x="491.5" dy="18">수기입력으로 직접 등록하여</tspan><tspan x="491.5" dy="18">현장실습생 정보를 등록한다.</tspan></text>
+      <text x="491.5" y="742.8" font-size="11" font-weight="650" fill="#d8f4e8">현장실습 업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="806.3" width="270" height="113" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="1243.5" y="806.3" width="6" height="113" rx="3" fill="#35a77d"/>
+      <text x="1258.5" y="826.3" font-size="12.5" font-weight="750" fill="#287a5c">P03</text>
+      <rect x="1453.5" y="813.3" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1478.5" y="830.3" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="1258.5" y="850.3" font-size="10" font-weight="750" fill="#287a5c"><tspan x="1258.5" dy="0">[학적-출결관리-출결관리-일일출결관리(담임용)]</tspan></text>
+      <text x="1258.5" y="874.3" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="1258.5" dy="0">학년도, 계열/학년/학과, 반 확인</tspan><tspan x="1258.5" dy="18">후 일자를 선택하고 조회한다.</tspan></text>
+      <text x="1258.5" y="909.3" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="943.3" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="943.3" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="963.3" font-size="12.5" font-weight="750" fill="#627169">P04</text>
+      <rect x="1453.5" y="950.3" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="967.3" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="987.3" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[학적-출결관리-출결관리-일일출결관리(담임용)]</tspan></text>
+      <text x="1258.5" y="1011.3" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">현장실습/인정결을 클릭하여</tspan><tspan x="1258.5" dy="18">나타나는 출결기간입력 창에서</tspan><tspan x="1258.5" dy="18">현장실습생의 시작일자,</tspan><tspan x="1258.5" dy="18">종료일자, 비고를 입력하고 저장</tspan><tspan x="1258.5" dy="18">후 닫기한다.</tspan></text>
+      <text x="1258.5" y="1100.3" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1134.3" width="270" height="185" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1134.3" width="6" height="185" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1154.3" font-size="12.5" font-weight="750" fill="#627169">P05</text>
+      <rect x="1453.5" y="1141.3" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1158.3" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1178.3" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[학적-출결관리-출결관리-일일출결관리(담임용)]</tspan></text>
+      <text x="1258.5" y="1202.3" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">현장실습/인정결적용을 실행하여</tspan><tspan x="1258.5" dy="18">조회·교시·종례란에 &apos;/&apos;가</tspan><tspan x="1258.5" dy="18">표시되고 마감란에</tspan><tspan x="1258.5" dy="18">출석인정결석으로 입력된</tspan><tspan x="1258.5" dy="18">현장실습생의 출결정보를</tspan><tspan x="1258.5" dy="18">확인한다.</tspan></text>
+      <text x="1258.5" y="1309.3" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1372.8" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="1243.5" y="1372.8" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="1258.5" y="1392.8" font-size="12.5" font-weight="750" fill="#d8f4e8">P06</text>
+      <rect x="1453.5" y="1379.8" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1478.5" y="1396.8" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="1258.5" y="1416.8" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="1258.5" dy="0">[학적-출결관리-출결관리-일일출결관리(담임용)]</tspan></text>
+      <text x="1258.5" y="1440.8" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="1258.5" dy="0">확인한 출결정보를 저장하고</tspan><tspan x="1258.5" dy="18">출결마감을 처리한다. 대상자의</tspan><tspan x="1258.5" dy="18">출결이 비어있으면</tspan><tspan x="1258.5" dy="18">출석인정결석으로 마감된다.</tspan></text>
+      <text x="1258.5" y="1511.8" font-size="11" font-weight="650" fill="#d8f4e8">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1545.8" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1545.8" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1565.8" font-size="12.5" font-weight="750" fill="#627169">P07</text>
+      <rect x="1453.5" y="1552.8" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1569.8" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1589.8" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[학적-출결관리-출결관리-일일출결관리(담임용)]</tspan></text>
+      <text x="1258.5" y="1613.8" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">선택학생 비고 일괄반영에서</tspan><tspan x="1258.5" dy="18">비고란을 입력하고 대상</tspan><tspan x="1258.5" dy="18">현장실습생을 선택하여</tspan><tspan x="1258.5" dy="18">선택학생비고반영한다.</tspan></text>
+      <text x="1258.5" y="1684.8" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1786.8" width="270" height="126" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="1243.5" y="1786.8" width="6" height="126" rx="3" fill="#35a77d"/>
+      <text x="1258.5" y="1806.8" font-size="12.5" font-weight="750" fill="#287a5c">P08</text>
+      <rect x="1453.5" y="1793.8" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1478.5" y="1810.8" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="1258.5" y="1830.8" font-size="8" font-weight="750" fill="#287a5c"><tspan x="1258.5" dy="0">[학생생활-자격증및NCS이수상황-국가직무능력표준이수상황관리</tspan><tspan x="1258.5" dy="13">]</tspan></text>
+      <text x="1258.5" y="1867.8" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="1258.5" dy="0">학년도, 학기, 계열/학년/학과,</tspan><tspan x="1258.5" dy="18">반 확인 후 조회한다.</tspan></text>
+      <text x="1258.5" y="1902.8" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1936.8" width="270" height="198" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1936.8" width="6" height="198" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1956.8" font-size="12.5" font-weight="750" fill="#627169">P09</text>
+      <rect x="1453.5" y="1943.8" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1960.8" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1980.8" font-size="8" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[학생생활-자격증및NCS이수상황-국가직무능력표준이수상황관리</tspan><tspan x="1258.5" dy="13">]</tspan></text>
+      <text x="1258.5" y="2017.8" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">학생 성명을 선택하고 실무과목</tspan><tspan x="1258.5" dy="18">능력단위 이수시간을 클릭하여</tspan><tspan x="1258.5" dy="18">나타나는 상세내역 창에서</tspan><tspan x="1258.5" dy="18">현장실습 기간의 월별 실무과목</tspan><tspan x="1258.5" dy="18">능력단위 이수시간을 확인 후</tspan><tspan x="1258.5" dy="18">닫기한다.</tspan></text>
+      <text x="1258.5" y="2124.8" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1748.3" width="270" height="185" rx="8" fill="#fff8e8" stroke="#d9901a" stroke-width="2.3"/>
+      <rect x="476.5" y="1748.3" width="6" height="185" rx="3" fill="#d9901a"/>
+      <text x="491.5" y="1768.3" font-size="12.5" font-weight="750" fill="#a96008">P10</text>
+      <rect x="686.5" y="1755.3" width="50" height="24" rx="5" fill="#d9901a" opacity="0.14"/>
+      <text x="711.5" y="1772.3" text-anchor="middle" font-size="12" font-weight="800" fill="#7a4305">병목</text>
+      <text x="491.5" y="1792.3" font-size="10" font-weight="750" fill="#a96008"><tspan x="491.5" dy="0">[교육과정-시간표관리-전체시간표관리]</tspan></text>
+      <text x="491.5" y="1816.3" font-size="15.5" font-weight="800" fill="#7a4305"><tspan x="491.5" dy="0">전체시간표관리에서 실무과목</tspan><tspan x="491.5" dy="18">능력단위 시간표가 변경된 경우</tspan><tspan x="491.5" dy="18">이수시간 기준일의 시작일과</tspan><tspan x="491.5" dy="18">종료일을 설정하고</tspan><tspan x="491.5" dy="18">이수시간재계산으로 이수시간을</tspan><tspan x="491.5" dy="18">다시 반영한다.</tspan></text>
+      <text x="491.5" y="1923.3" font-size="11" font-weight="650" fill="#a96008">현장실습 업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1957.3" width="270" height="216" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="1957.3" width="6" height="216" rx="3" fill="#087452"/>
+      <text x="491.5" y="1977.3" font-size="12.5" font-weight="750" fill="#d8f4e8">P11</text>
+      <rect x="686.5" y="1964.3" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="1981.3" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="2001.3" font-size="8" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[학생생활-자격증및NCS이수상황-국가직무능력표준이수상황관리</tspan><tspan x="491.5" dy="13">]</tspan></text>
+      <text x="491.5" y="2038.3" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">수시·정시 대입전형자료 작성 시</tspan><tspan x="491.5" dy="18">이수시간 기준일의 종료일을</tspan><tspan x="491.5" dy="18">직접입력으로 2025.08.31.과</tspan><tspan x="491.5" dy="18">2025.11.30.으로 각각 설정하여</tspan><tspan x="491.5" dy="18">학생별로 이수시간재계산 후</tspan><tspan x="491.5" dy="18">저장하고 대입전형자료를</tspan><tspan x="491.5" dy="18">생성한다.</tspan></text>
+      <text x="491.5" y="2163.3" font-size="11" font-weight="650" fill="#d8f4e8">현장실습 업무담당자</text>
+    </g>
+  
+<rect x="38" y="2222" width="617.3" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2260" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2244" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2259" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2244" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2259" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2244" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2259" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2244" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2259" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2252" x2="522" y2="2252" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="536" y="2258" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

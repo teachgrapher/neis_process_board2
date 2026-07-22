@@ -1,0 +1,204 @@
+<!-- 학사일정 관리 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>학사일정 관리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2400" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 7 · 레인 1 · 게이트 5</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">학사일정 관리</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">교육과정에 따른 학사운영 일정을 행사코드로 등록·관리하는 절차.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="1940" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="327.6" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="327.6" fill="#e4f5ed"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#087452">G0</text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#087452"><tspan x="58" dy="0">행사코드관리</tspan></text>
+<rect x="38" y="687.6" width="1724" height="327.6" fill="#84baa9"/>
+<rect x="38" y="687.6" width="190" height="327.6" fill="#087452"/>
+<text x="58" y="719.6" class="mono" font-size="16" font-weight="800" fill="#ffffff">G1</text>
+<text x="58" y="752.6" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">공휴일정보생성</tspan></text>
+<rect x="38" y="1015.2" width="1724" height="619.6" fill="#fbfcfb"/>
+<rect x="38" y="1015.2" width="190" height="619.6" fill="#eef3f0"/>
+<text x="58" y="1047.2" class="mono" font-size="16" font-weight="800" fill="#53645b">G2</text>
+<text x="58" y="1080.2" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">학사일정등록</tspan></text>
+<rect x="38" y="1634.8" width="1724" height="273.6" fill="#f5f8f6"/>
+<rect x="38" y="1634.8" width="190" height="273.6" fill="#eef3f0"/>
+<text x="58" y="1666.8" class="mono" font-size="16" font-weight="800" fill="#53645b">G3</text>
+<text x="58" y="1699.8" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">기타일정관리</tspan></text>
+<rect x="38" y="1908.4" width="1724" height="291.6" fill="#fbfcfb"/>
+<rect x="38" y="1908.4" width="190" height="291.6" fill="#eef3f0"/>
+<text x="58" y="1940.4" class="mono" font-size="16" font-weight="800" fill="#53645b">G4</text>
+<text x="58" y="1973.4" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">수업일수확인</tspan></text>
+<rect x="228" y="260" width="1534" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="1534" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">교육과정담당자</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">교육과정담당자</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="687.6" x2="1762" y2="687.6" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1015.2" x2="1762" y2="1015.2" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1634.8" x2="1762" y2="1634.8" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1908.4" x2="1762" y2="1908.4" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2200" x2="1762" y2="2200" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 860 1489 H 216 V 1170 H 852" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 860 1489 H 216 V 1170 H 852" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="216.1" y="1314.5" width="119.8" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="276" y="1334.5" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">삭제 후 재등록</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="440.3" width="270" height="167" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="860" y="440.3" width="6" height="167" rx="3" fill="#35a77d"/>
+      <text x="875" y="460.3" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="1070" y="447.3" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1095" y="464.3" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="875" y="484.3" font-size="9.5" font-weight="750" fill="#287a5c"><tspan x="875" dy="0">[교육과정-학사일정관리-학사일정관리-행사코드관리]</tspan></text>
+      <text x="875" y="508.3" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="875" dy="0">행추가하여 행사명을 입력하고</tspan><tspan x="875" dy="18">수업공제일구분,</tspan><tspan x="875" dy="18">전국공통행사코드,</tspan><tspan x="875" dy="18">학생부특별활동, 사용여부를</tspan><tspan x="875" dy="18">선택해 저장한다.</tspan></text>
+      <text x="875" y="597.3" font-size="11" font-weight="650" fill="#287a5c">교육과정담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="767.9" width="270" height="167" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="860" y="767.9" width="6" height="167" rx="3" fill="#087452"/>
+      <text x="875" y="787.9" font-size="12.5" font-weight="750" fill="#d8f4e8">P02</text>
+      <rect x="1070" y="774.9" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1095" y="791.9" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="875" y="811.9" font-size="9" font-weight="750" fill="#d8f4e8"><tspan x="875" dy="0">[교육과정-학사일정관리-학사일정관리-연간학사일정관리]</tspan></text>
+      <text x="875" y="835.9" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="875" dy="0">학년도와 기준학기를 확인·설정해</tspan><tspan x="875" dy="18">조회하고, 주5일수업제적용을</tspan><tspan x="875" dy="18">선택한 뒤 공휴일정보생성으로</tspan><tspan x="875" dy="18">법정공휴일과 토요휴업일을 일괄</tspan><tspan x="875" dy="18">생성한다.</tspan></text>
+      <text x="875" y="924.9" font-size="11" font-weight="650" fill="#d8f4e8">교육과정담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="1095.5" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="860" y="1095.5" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="875" y="1115.5" font-size="12.5" font-weight="750" fill="#627169">P03</text>
+      <rect x="1070" y="1102.5" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1095" y="1119.5" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="875" y="1139.5" font-size="9" font-weight="750" fill="#627169"><tspan x="875" dy="0">[교육과정-학사일정관리-학사일정관리-연간학사일정관리]</tspan></text>
+      <text x="875" y="1163.5" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="875" dy="0">등록할 날짜에서 행사추가를</tspan><tspan x="875" dy="18">클릭해 학년을 선택하고</tspan><tspan x="875" dy="18">행사코드를 찾기하여 등록하며</tspan><tspan x="875" dy="18">필요시 행사세부내용을 입력한다.</tspan></text>
+      <text x="875" y="1234.5" font-size="11" font-weight="650" fill="#627169">교육과정담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="1268.5" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="860" y="1268.5" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="875" y="1288.5" font-size="12.5" font-weight="750" fill="#627169">P04</text>
+      <rect x="1070" y="1275.5" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1095" y="1292.5" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="875" y="1312.5" font-size="9" font-weight="750" fill="#627169"><tspan x="875" dy="0">[교육과정-학사일정관리-학사일정관리-연간학사일정관리]</tspan></text>
+      <text x="875" y="1336.5" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="875" dy="0">일괄등록 창에서 학년과</tspan><tspan x="875" dy="18">학사일정을 선택하고 행사코드를</tspan><tspan x="875" dy="18">찾기하여 등록한다.</tspan></text>
+      <text x="875" y="1389.5" font-size="11" font-weight="650" fill="#627169">교육과정담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="1423.5" width="270" height="131" rx="8" fill="#edf4ff" stroke="#3478db" stroke-width="2.3"/>
+      <rect x="860" y="1423.5" width="6" height="131" rx="3" fill="#3478db"/>
+      <text x="875" y="1443.5" font-size="12.5" font-weight="750" fill="#316bbd">P05</text>
+      <rect x="1070" y="1430.5" width="50" height="24" rx="5" fill="#3478db" opacity="0.14"/>
+      <text x="1095" y="1447.5" text-anchor="middle" font-size="12" font-weight="800" fill="#173f7a">회귀</text>
+      <text x="875" y="1467.5" font-size="9" font-weight="750" fill="#316bbd"><tspan x="875" dy="0">[교육과정-학사일정관리-학사일정관리-연간학사일정관리]</tspan></text>
+      <text x="875" y="1491.5" font-size="15.5" font-weight="800" fill="#173f7a"><tspan x="875" dy="0">삭제할 날짜를 클릭해 학사일정</tspan><tspan x="875" dy="18">확인 창에서 삭제할 행사명을</tspan><tspan x="875" dy="18">선택하여 삭제한다.</tspan></text>
+      <text x="875" y="1544.5" font-size="11" font-weight="650" fill="#316bbd">교육과정담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="1715.1" width="270" height="113" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="860" y="1715.1" width="6" height="113" rx="3" fill="#b9c7bf"/>
+      <text x="875" y="1735.1" font-size="12.5" font-weight="750" fill="#627169">P06</text>
+      <rect x="1070" y="1722.1" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1095" y="1739.1" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="875" y="1759.1" font-size="9.5" font-weight="750" fill="#627169"><tspan x="875" dy="0">[교육과정-학사일정관리-학사일정관리-기타일정관리]</tspan></text>
+      <text x="875" y="1783.1" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="875" dy="0">등록을 클릭해 등록일자, 제목,</tspan><tspan x="875" dy="18">내용을 입력하고 저장한다.</tspan></text>
+      <text x="875" y="1818.1" font-size="11" font-weight="650" fill="#627169">교육과정담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="1988.7" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="860" y="1988.7" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="875" y="2008.7" font-size="12.5" font-weight="750" fill="#627169">P07</text>
+      <rect x="1070" y="1995.7" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1095" y="2012.7" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="875" y="2032.7" font-size="10" font-weight="750" fill="#627169"><tspan x="875" dy="0">[교육과정-학사일정관리-연간수업일수확보계획표]</tspan></text>
+      <text x="875" y="2056.7" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="875" dy="0">학년도를 확인하고 학년을 선택해</tspan><tspan x="875" dy="18">조회하여 연간 수업일수 확보</tspan><tspan x="875" dy="18">계획을 확인한다.</tspan></text>
+      <text x="875" y="2109.7" font-size="11" font-weight="650" fill="#627169">교육과정담당자</text>
+    </g>
+  
+<rect x="38" y="2222" width="617.3" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2260" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2244" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2259" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2244" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2259" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2244" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2259" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2244" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2259" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2252" x2="522" y2="2252" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="536" y="2258" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

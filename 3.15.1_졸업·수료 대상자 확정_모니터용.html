@@ -1,0 +1,233 @@
+<!-- 졸업·수료 대상자 확정 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>졸업·수료 대상자 확정</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"졸업·수료 대상자 확정","subtitle":"조기졸업자와 수료대상자를 등록하고 졸업/수료대상자를 생성하여 졸업·수료대장 번호를 부여한다.","lanes":["학적업무담당자","나이스시스템"],"stages":["조기졸업자 등록·출력","수료자 등록","졸업/수료대상자 생성","졸업·수료대장 번호부여"],"nodes":[{"id":"P01","lane":"학적업무담당자","stage":"조기졸업자 등록·출력","label":"[학적-졸업/수료관리-조기졸업자관리]에서 졸업학년도를 확인하고 조회한 후 학년·반을 선택하여 조기졸업 대상 2학년 학생을 선택하고 학교찾기로 진학학교를 등록한 뒤 저장한다.","menu":"[학적-졸업/수료관리-조기졸업자관리]","emphasis":"lead"},{"id":"P02","lane":"학적업무담당자","stage":"조기졸업자 등록·출력","label":"졸업학년도 확인 후 조회하고 출력을 클릭하여 조기졸업대상자 창에서 내용을 확인한 후 PDF·워드·엑셀 등으로 저장하거나 출력한다.","menu":"[학적-졸업/수료관리-조기졸업자관리]","emphasis":"normal"},{"id":"P03","lane":"학적업무담당자","stage":"수료자 등록","label":"[학적-졸업/수료관리-수료자관리]에서 졸업학년도를 확인하고 조회한 후 학년(2·3학년)·반을 선택하여 수료대상 학생을 선택하고 저장한다.","menu":"[학적-졸업/수료관리-수료자관리]","emphasis":"normal"},{"id":"P04","lane":"학적업무담당자","stage":"졸업/수료대상자 생성","label":"[학적-졸업/수료관리-졸업/수료대상자관리]에서 졸업학년도와 졸업구분을 확인한 후 조회한다.","menu":"[학적-졸업/수료관리-졸업/수료대상자관리]","emphasis":"normal"},{"id":"P05","lane":"학적업무담당자","stage":"졸업/수료대상자 생성","label":"조기졸업자관리와 수료자관리에서 등록한 조기졸업자·수료대상자를 목록에서 확인하고 생성을 클릭한다.","menu":"[학적-졸업/수료관리-졸업/수료대상자관리]","emphasis":"normal"},{"id":"P06","lane":"나이스시스템","stage":"졸업/수료대상자 생성","label":"졸업/수료대상자 생성창에서 졸업학년도를 확인하고 작업실행 후 확인하여 조기졸업자·수료대상자·정상졸업자를 생성한다.","menu":"[학적-졸업/수료관리-졸업/수료대상자관리]","emphasis":"key"},{"id":"P07","lane":"학적업무담당자","stage":"졸업·수료대장 번호부여","label":"[학적-졸업/수료관리-졸업/수료대장번호부여]에서 졸업학년도, 졸업회차, 졸업대장시작번호, 수료대장시작번호, 졸업일자를 확인하고 학교 실정에 맞는 졸업대장번호부여 방식을 선택한 후 작업실행하고 확인한다.","menu":"[학적-졸업/수료관리-졸업/수료대장번호부여]","emphasis":"bottleneck"},{"id":"P08","lane":"나이스시스템","stage":"졸업·수료대장 번호부여","label":"작업실행 시 학교생활기록부의 학교정보(학년이력)에 졸업대장번호를, 인적·학적사항의 학적사항에 졸업 관련 내용을 자동으로 등록한다.","menu":"[학적-졸업/수료관리-졸업/수료대장번호부여]","emphasis":"normal"},{"id":"P09","lane":"학적업무담당자","stage":"졸업·수료대장 번호부여","label":"제공된 방식이 학교 기준과 다르거나 추가 대상자가 있는 경우 졸업대장번호수정파일올리기에서 엑셀다운로드 후 졸업/수료증서번호를 수정 입력하여 저장하고 엑셀업로드한다.","menu":"[학적-졸업/수료관리-졸업/수료대장번호부여]","emphasis":"normal"}],"edges":[{"id":"L01","source":"P06","target":"P05","type":"loop","label":"생성취소·재생성"},{"id":"L02","source":"P08","target":"P07","type":"loop","label":"작업취소·재실행"}]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2400" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 9 · 레인 2 · 게이트 4</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">졸업·수료 대상자 확정</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">조기졸업자와 수료대상자를 등록하고 졸업/수료대상자를 생성하여 졸업·수료대장 번호를 부여한다.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="1940" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="516.8" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="516.8" fill="#eef3f0"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">조기졸업자</tspan><tspan x="58" dy="22">등록·출력</tspan></text>
+<rect x="38" y="876.8" width="1724" height="307.8" fill="#f5f8f6"/>
+<rect x="38" y="876.8" width="190" height="307.8" fill="#eef3f0"/>
+<text x="58" y="908.8" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="941.8" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">수료자 등록</tspan></text>
+<rect x="38" y="1184.5" width="1724" height="444.8" fill="#84baa9"/>
+<rect x="38" y="1184.5" width="190" height="444.8" fill="#087452"/>
+<text x="58" y="1216.5" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1249.5" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">졸업/수료대상자</tspan><tspan x="58" dy="22">생성</tspan></text>
+<rect x="38" y="1629.3" width="1724" height="570.8" fill="#f5f8f6"/>
+<rect x="38" y="1629.3" width="190" height="570.8" fill="#eef3f0"/>
+<text x="58" y="1661.3" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1694.3" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">졸업·수료대장</tspan><tspan x="58" dy="22">번호부여</tspan></text>
+<rect x="228" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="767" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">학적업무담당자</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">학적업무담당자</tspan></text>
+<rect x="995" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="995" y="260" width="767" height="7" fill="#3b82f6"/>
+<text x="1015" y="299" font-size="20" font-weight="800" fill="#17231d">나이스시스템</text>
+<text x="1015" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1015" dy="0">나이스시스템</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="995" y1="260" x2="995" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="876.8" x2="1762" y2="876.8" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1184.5" x2="1762" y2="1184.5" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1629.3" x2="1762" y2="1629.3" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2200" x2="1762" y2="2200" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 1243.5 1406.9 H 774.5 V 1484.4 H 754.5" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 1243.5 1406.9 H 774.5 V 1484.4 H 754.5" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 1243.5 1914.6 H 774.5 V 1801.1 H 754.5" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 1243.5 1914.6 H 774.5 V 1801.1 H 754.5" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="929.5" y="1413.6" width="131" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="995" y="1433.6" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">생성취소·재생성</text>
+<rect x="929.5" y="1825.9" width="131" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="995" y="1845.9" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">작업취소·재실행</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="430.4" width="270" height="185" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="430.4" width="6" height="185" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="450.4" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="686.5" y="437.4" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="454.4" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="474.4" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학적-졸업/수료관리-조기졸업자관리]</tspan></text>
+      <text x="491.5" y="498.4" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">[학적-졸업/수료관리-조기졸업자</tspan><tspan x="491.5" dy="18">관리]에서 졸업학년도를 확인하고</tspan><tspan x="491.5" dy="18">조회한 후 학년·반을 선택하여</tspan><tspan x="491.5" dy="18">조기졸업 대상 2학년 학생을</tspan><tspan x="491.5" dy="18">선택하고 학교찾기로 진학학교를</tspan><tspan x="491.5" dy="18">등록한 뒤 저장한다.</tspan></text>
+      <text x="491.5" y="605.4" font-size="11" font-weight="650" fill="#287a5c">학적업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="639.4" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="639.4" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="659.4" font-size="12.5" font-weight="750" fill="#627169">P02</text>
+      <rect x="686.5" y="646.4" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="663.4" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="683.4" font-size="10" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학적-졸업/수료관리-조기졸업자관리]</tspan></text>
+      <text x="491.5" y="707.4" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">졸업학년도 확인 후 조회하고</tspan><tspan x="491.5" dy="18">출력을 클릭하여 조기졸업대상자</tspan><tspan x="491.5" dy="18">창에서 내용을 확인한 후</tspan><tspan x="491.5" dy="18">PDF·워드·엑셀 등으로</tspan><tspan x="491.5" dy="18">저장하거나 출력한다.</tspan></text>
+      <text x="491.5" y="796.4" font-size="11" font-weight="650" fill="#627169">학적업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="947.1" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="947.1" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="967.1" font-size="12.5" font-weight="750" fill="#627169">P03</text>
+      <rect x="686.5" y="954.1" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="971.1" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="991.1" font-size="10" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학적-졸업/수료관리-수료자관리]</tspan></text>
+      <text x="491.5" y="1015.1" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">[학적-졸업/수료관리-수료자관리</tspan><tspan x="491.5" dy="18">]에서 졸업학년도를 확인하고</tspan><tspan x="491.5" dy="18">조회한 후 학년(2·3학년)·반을</tspan><tspan x="491.5" dy="18">선택하여 수료대상 학생을</tspan><tspan x="491.5" dy="18">선택하고 저장한다.</tspan></text>
+      <text x="491.5" y="1104.1" font-size="11" font-weight="650" fill="#627169">학적업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1254.9" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="1254.9" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="1274.9" font-size="12.5" font-weight="750" fill="#627169">P04</text>
+      <rect x="686.5" y="1261.9" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="1278.9" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="1298.9" font-size="10" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학적-졸업/수료관리-졸업/수료대상자관리]</tspan></text>
+      <text x="491.5" y="1322.9" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">[학적-졸업/수료관리-졸업/수료</tspan><tspan x="491.5" dy="18">대상자관리]에서 졸업학년도와</tspan><tspan x="491.5" dy="18">졸업구분을 확인한 후 조회한다.</tspan></text>
+      <text x="491.5" y="1375.9" font-size="11" font-weight="650" fill="#627169">학적업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1409.9" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="1409.9" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="1429.9" font-size="12.5" font-weight="750" fill="#627169">P05</text>
+      <rect x="686.5" y="1416.9" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="1433.9" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="1453.9" font-size="10" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학적-졸업/수료관리-졸업/수료대상자관리]</tspan></text>
+      <text x="491.5" y="1477.9" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">조기졸업자관리와 수료자관리에서</tspan><tspan x="491.5" dy="18">등록한 조기졸업자·수료대상자를</tspan><tspan x="491.5" dy="18">목록에서 확인하고 생성을</tspan><tspan x="491.5" dy="18">클릭한다.</tspan></text>
+      <text x="491.5" y="1548.9" font-size="11" font-weight="650" fill="#627169">학적업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1323.4" width="270" height="167" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="1243.5" y="1323.4" width="6" height="167" rx="3" fill="#087452"/>
+      <text x="1258.5" y="1343.4" font-size="12.5" font-weight="750" fill="#d8f4e8">P06</text>
+      <rect x="1453.5" y="1330.4" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1478.5" y="1347.4" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="1258.5" y="1367.4" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="1258.5" dy="0">[학적-졸업/수료관리-졸업/수료대상자관리]</tspan></text>
+      <text x="1258.5" y="1391.4" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="1258.5" dy="0">졸업/수료대상자 생성창에서</tspan><tspan x="1258.5" dy="18">졸업학년도를 확인하고 작업실행</tspan><tspan x="1258.5" dy="18">후 확인하여</tspan><tspan x="1258.5" dy="18">조기졸업자·수료대상자·정상졸업</tspan><tspan x="1258.5" dy="18">자를 생성한다.</tspan></text>
+      <text x="1258.5" y="1480.4" font-size="11" font-weight="650" fill="#d8f4e8">나이스시스템</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1699.6" width="270" height="203" rx="8" fill="#fff8e8" stroke="#d9901a" stroke-width="2.3"/>
+      <rect x="476.5" y="1699.6" width="6" height="203" rx="3" fill="#d9901a"/>
+      <text x="491.5" y="1719.6" font-size="12.5" font-weight="750" fill="#a96008">P07</text>
+      <rect x="686.5" y="1706.6" width="50" height="24" rx="5" fill="#d9901a" opacity="0.14"/>
+      <text x="711.5" y="1723.6" text-anchor="middle" font-size="12" font-weight="800" fill="#7a4305">병목</text>
+      <text x="491.5" y="1743.6" font-size="10" font-weight="750" fill="#a96008"><tspan x="491.5" dy="0">[학적-졸업/수료관리-졸업/수료대장번호부여]</tspan></text>
+      <text x="491.5" y="1767.6" font-size="15.5" font-weight="800" fill="#7a4305"><tspan x="491.5" dy="0">[학적-졸업/수료관리-졸업/수료</tspan><tspan x="491.5" dy="18">대장번호부여]에서 졸업학년도,</tspan><tspan x="491.5" dy="18">졸업회차, 졸업대장시작번호,</tspan><tspan x="491.5" dy="18">수료대장시작번호, 졸업일자를</tspan><tspan x="491.5" dy="18">확인하고 학교 실정에 맞는</tspan><tspan x="491.5" dy="18">졸업대장번호부여 방식을 선택한</tspan><tspan x="491.5" dy="18">후 작업실행하고 확인한다.</tspan></text>
+      <text x="491.5" y="1892.6" font-size="11" font-weight="650" fill="#a96008">학적업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1831.1" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1831.1" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1851.1" font-size="12.5" font-weight="750" fill="#627169">P08</text>
+      <rect x="1453.5" y="1838.1" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1855.1" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1875.1" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[학적-졸업/수료관리-졸업/수료대장번호부여]</tspan></text>
+      <text x="1258.5" y="1899.1" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">작업실행 시 학교생활기록부의</tspan><tspan x="1258.5" dy="18">학교정보(학년이력)에</tspan><tspan x="1258.5" dy="18">졸업대장번호를, 인적·학적사항의</tspan><tspan x="1258.5" dy="18">학적사항에 졸업 관련 내용을</tspan><tspan x="1258.5" dy="18">자동으로 등록한다.</tspan></text>
+      <text x="1258.5" y="1988.1" font-size="11" font-weight="650" fill="#627169">나이스시스템</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1926.6" width="270" height="203" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="1926.6" width="6" height="203" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="1946.6" font-size="12.5" font-weight="750" fill="#627169">P09</text>
+      <rect x="686.5" y="1933.6" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="1950.6" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="1970.6" font-size="10" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학적-졸업/수료관리-졸업/수료대장번호부여]</tspan></text>
+      <text x="491.5" y="1994.6" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">제공된 방식이 학교 기준과</tspan><tspan x="491.5" dy="18">다르거나 추가 대상자가 있는 경우</tspan><tspan x="491.5" dy="18">졸업대장번호수정파일올리기에서</tspan><tspan x="491.5" dy="18">엑셀다운로드 후</tspan><tspan x="491.5" dy="18">졸업/수료증서번호를 수정</tspan><tspan x="491.5" dy="18">입력하여 저장하고</tspan><tspan x="491.5" dy="18">엑셀업로드한다.</tspan></text>
+      <text x="491.5" y="2119.6" font-size="11" font-weight="650" fill="#627169">학적업무담당자</text>
+    </g>
+  
+<rect x="38" y="2222" width="617.3" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2260" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2244" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2259" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2244" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2259" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2244" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2259" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2244" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2259" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2252" x2="522" y2="2252" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="536" y="2258" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

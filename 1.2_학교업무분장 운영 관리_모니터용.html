@@ -1,0 +1,316 @@
+<!-- 학교업무분장 운영 관리 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>학교업무분장 운영 관리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"학교업무분장 운영 관리","subtitle":"학교업무분장관리 담당자가 소유자·이력을 조회하고 임시교원 등록·권한이양·자료권한 승인·담임업무기준을 관리하는 절차.","lanes":["학교업무분장관리담당자(권한관리자)","교원(사용자)","시스템관리자"],"stages":["소유자·이력 조회","임시교원 등록","권한이양","교무자료권한 승인관리","담임업무기준·특수권한 관리"],"nodes":[{"id":"P01","lane":"학교업무분장관리담당자(권한관리자)","stage":"소유자·이력 조회","label":"메뉴별학교업무분장소유자조회에서 조회조건을 확인·선택하여 사용자별 메뉴별 업무분장과 학년반·교과목·동아리활동 자료권한을 조회한다.","menu":"[학교업무분장-학교업무분장관리-메뉴별학교업무분장소유자조회]","emphasis":"lead"},{"id":"P02","lane":"학교업무분장관리담당자(권한관리자)","stage":"소유자·이력 조회","label":"학교업무분장변경통계현황에서 부서원편성이력, 메뉴및자료권한변경이력, 업무별부서원편성이력을 탭별로 조회한다.","menu":"[학교업무분장-학교업무분장관리-학교업무분장변경통계현황]","emphasis":"normal"},{"id":"P03","lane":"학교업무분장관리담당자(권한관리자)","stage":"소유자·이력 조회","label":"학교업무분장변경이력삭제관리에서 조회일 기준 5년 전 변경이력 건수를 조회하여 보존기간이 종료된 자료를 삭제한다.","menu":"[업무분장설정업무-학교업무분장-학교업무분장관리-학교업무분장변경이력삭제관리]","emphasis":"normal"},{"id":"P04","lane":"학교업무분장관리담당자(권한관리자)","stage":"임시교원 등록","label":"발령전임시교원등록에서 사용자가져오기로 겸임교원 등의 사용자명을 조회하고 소속과 사용자명을 확인 후 저장한다.","menu":"[학교업무분장-학교업무분장관리-발령전임시교원등록]","emphasis":"normal"},{"id":"P05","lane":"학교업무분장관리담당자(권한관리자)","stage":"임시교원 등록","label":"발령전임시교원등록에서 임시교원등록을 클릭하여 신규 발령교원·초임 계약직교원·타시도 전입교원의 임시 사용자명을 입력하고 등록한다.","menu":"[학교업무분장-학교업무분장관리-발령전임시교원등록]","emphasis":"normal"},{"id":"P06","lane":"학교업무분장관리담당자(권한관리자)","stage":"권한이양","label":"학교업무분장권한이양에서 인계자에 임시교원 사용자명을 입력하여 조회한다.","menu":"[학교업무분장-학교업무분장관리-학교업무분장권한이양]","emphasis":"normal"},{"id":"P07","lane":"학교업무분장관리담당자(권한관리자)","stage":"권한이양","label":"인수자에 정식 사용자명을 입력해 조회한 후 업무분장인계를 실행하여 임시 사용자ID를 삭제하고 권한을 일괄 이전한다.","menu":"[학교업무분장-학교업무분장관리-학교업무분장권한이양]","emphasis":"key"},{"id":"P08","lane":"교원(사용자)","stage":"교무자료권한 승인관리","label":"학급담임편성관리, 과목개설관리, 동아리활동관리 등에서 담임·교과담당·동아리지도 업무를 편성한다.","menu":"[교육과정-학급담임편성관리-학급담임편성관리]","emphasis":"normal"},{"id":"P09","lane":"교원(사용자)","stage":"교무자료권한 승인관리","label":"교무자료권한승인관리에서 담임편성을 선택하고 학년반·교과목·동아리활동 탭의 미상신 자료권한을 선택해 승인요청한다.","menu":"[기본메뉴-권한관리-교무자료권한승인관리]","emphasis":"normal"},{"id":"P10","lane":"학교업무분장관리담당자(권한관리자)","stage":"교무자료권한 승인관리","label":"교무자료권한승인관리에서 권한관리를 선택하고 학년반·교과목·동아리활동 탭의 미상신 자료권한을 승인요청하여 결재권자의 결재를 완료한다.","menu":"[기본메뉴-권한관리-교무자료권한승인관리]","emphasis":"key"},{"id":"P11","lane":"학교업무분장관리담당자(권한관리자)","stage":"담임업무기준·특수권한 관리","label":"부서관리(부서장지정)에서 행추가 후 단위업무선택창의 공통관리에서 시스템관리를 선택하여 행공 업무를 등록한다.","menu":"[업무분장설정업무-학교업무분장-학교업무분장관리-학교업무분장설정-부서관리(부서장지정)]","emphasis":"normal"},{"id":"P12","lane":"학교업무분장관리담당자(권한관리자)","stage":"담임업무기준·특수권한 관리","label":"업무관리(메뉴,자료권한관리)의 업무메뉴관리에서 전체사용자관리 메뉴에 메뉴등록과 관리권한(등록/수정/삭제)을 체크하고 저장한다.","menu":"[업무분장설정업무-학교업무분장-학교업무분장관리-학교업무분장설정-업무관리(메뉴,자료권한관리)]","emphasis":"normal"},{"id":"P13","lane":"시스템관리자","stage":"담임업무기준·특수권한 관리","label":"전체사용자관리에서 해당 사용자에게 행공을 체크하고 저장하여 행공 권한을 부여한다.","menu":"[{시스템관리}사용자-사용자관리-전체사용자관리]","emphasis":"key"},{"id":"P14","lane":"학교업무분장관리담당자(권한관리자)","stage":"담임업무기준·특수권한 관리","label":"담임업무기준관리에서 담임구분을 선택해 조회한 후 편성 대상 업무의 교무업무 메뉴 트리에서 필요한 메뉴를 선택해 추가하고 저장한다.","menu":"[업무분장설정업무-학교업무분장-학교업무분장관리-담임업무기준관리]","emphasis":"lead"},{"id":"P15","lane":"학교업무분장관리담당자(권한관리자)","stage":"담임업무기준·특수권한 관리","label":"담임업무기준관리의 현재 편성 업무에서 불필요한 메뉴를 선택해 반환한 후 저장하여 추가했던 학급담임 권한을 삭제한다.","menu":"[업무분장설정업무-학교업무분장-학교업무분장관리-담임업무기준관리]","emphasis":"loop"}],"edges":[{"id":"L01","source":"P05","target":"P07","type":"message","label":"6개월 이내 정식 이양 필요"},{"id":"L02","source":"P15","target":"P14","type":"loop","label":"메뉴 반환 후 재편성"}]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2820" viewBox="0 0 1800 2820">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2820" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 15 · 레인 3 · 게이트 5</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">학교업무분장 운영 관리</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">학교업무분장관리 담당자가 소유자·이력을 조회하고 임시교원 등록·권한이양·자료권한 승인·담임업무기준을 관리하는 절차.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="2360" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="536" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="536" fill="#eef3f0"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">소유자·이력 조회</tspan></text>
+<rect x="38" y="896" width="1724" height="340" fill="#f5f8f6"/>
+<rect x="38" y="896" width="190" height="340" fill="#eef3f0"/>
+<text x="58" y="928" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="961" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">임시교원 등록</tspan></text>
+<rect x="38" y="1236" width="1724" height="304" fill="#84baa9"/>
+<rect x="38" y="1236" width="190" height="304" fill="#087452"/>
+<text x="58" y="1268" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1301" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">권한이양</tspan></text>
+<rect x="38" y="1540" width="1724" height="340" fill="#84baa9"/>
+<rect x="38" y="1540" width="190" height="340" fill="#087452"/>
+<text x="58" y="1572" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1605" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">교무자료권한</tspan><tspan x="58" dy="22">승인관리</tspan></text>
+<rect x="38" y="1880" width="1724" height="740" fill="#84baa9"/>
+<rect x="38" y="1880" width="190" height="740" fill="#087452"/>
+<text x="58" y="1912" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1945" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">담임업무기준·특</tspan><tspan x="58" dy="22">수권한 관리</tspan></text>
+<rect x="228" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="511.3" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">학교업무분장관리담당자</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">학교업무분장관리담당자(권한관리자)</tspan></text>
+<rect x="739.3" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="739.3" y="260" width="511.3" height="7" fill="#3b82f6"/>
+<text x="759.3" y="299" font-size="20" font-weight="800" fill="#17231d">교원</text>
+<text x="759.3" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="759.3" dy="0">교원(사용자)</tspan></text>
+<rect x="1250.7" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="1250.7" y="260" width="511.3" height="7" fill="#c78116"/>
+<text x="1270.7" y="299" font-size="20" font-weight="800" fill="#17231d">시스템관리자</text>
+<text x="1270.7" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1270.7" dy="0">시스템관리자</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2620" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="739.3" y1="260" x2="739.3" y2="2620" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1250.7" y1="260" x2="1250.7" y2="2620" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2620" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="896" x2="1762" y2="896" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1236" x2="1762" y2="1236" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1540" x2="1762" y2="1540" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1880" x2="1762" y2="1880" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2620" x2="1762" y2="2620" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 483.7 1232 V 1224 H 721.3 V 1461.5 H 626.7" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="7 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 483.7 1232 V 1224 H 721.3 V 1461.5 H 626.7" fill="none" stroke="#0f8a65" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#arrow-message)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 348.7 2535 H 216 V 2348 H 340.7" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 348.7 2535 H 216 V 2348 H 340.7" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="645.6" y="1192" width="193.7" height="30" rx="6" fill="#ffffff" stroke="#0f8a65" stroke-width="1.4"/>
+<text x="742.5" y="1212" text-anchor="middle" font-size="14" font-weight="750" fill="#0f8a65">6개월 이내 정식 이양 필요</text>
+<rect x="129.7" y="2426.5" width="152.7" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="206" y="2446.5" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">메뉴 반환 후 재편성</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="364" width="270" height="167" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="348.7" y="364" width="6" height="167" rx="3" fill="#35a77d"/>
+      <text x="363.7" y="384" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="558.7" y="371" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="583.7" y="388" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="363.7" y="408" font-size="8" font-weight="750" fill="#287a5c"><tspan x="363.7" dy="0">[학교업무분장-학교업무분장관리-메뉴별학교업무분장소유자조회]</tspan></text>
+      <text x="363.7" y="432" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="363.7" dy="0">메뉴별학교업무분장소유자조회에</tspan><tspan x="363.7" dy="18">서 조회조건을 확인·선택하여</tspan><tspan x="363.7" dy="18">사용자별 메뉴별 업무분장과</tspan><tspan x="363.7" dy="18">학년반·교과목·동아리활동</tspan><tspan x="363.7" dy="18">자료권한을 조회한다.</tspan></text>
+      <text x="363.7" y="521" font-size="11" font-weight="650" fill="#287a5c">학교업무분장관리담당자(권한관리자)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="547" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="547" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="567" font-size="12.5" font-weight="750" fill="#627169">P02</text>
+      <rect x="558.7" y="554" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="571" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="591" font-size="8.5" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학교업무분장-학교업무분장관리-학교업무분장변경통계현황]</tspan></text>
+      <text x="363.7" y="615" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">학교업무분장변경통계현황에서</tspan><tspan x="363.7" dy="18">부서원편성이력,</tspan><tspan x="363.7" dy="18">메뉴및자료권한변경이력,</tspan><tspan x="363.7" dy="18">업무별부서원편성이력을 탭별로</tspan><tspan x="363.7" dy="18">조회한다.</tspan></text>
+      <text x="363.7" y="704" font-size="11" font-weight="650" fill="#627169">학교업무분장관리담당자(권한관리자)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="730" width="270" height="162" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="730" width="6" height="162" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="750" font-size="12.5" font-weight="750" fill="#627169">P03</text>
+      <rect x="558.7" y="737" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="754" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="774" font-size="8" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[업무분장설정업무-학교업무분장-학교업무분장관리-학교업무분장</tspan><tspan x="363.7" dy="13">변경이력삭제관리]</tspan></text>
+      <text x="363.7" y="811" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">학교업무분장변경이력삭제관리에</tspan><tspan x="363.7" dy="18">서 조회일 기준 5년 전 변경이력</tspan><tspan x="363.7" dy="18">건수를 조회하여 보존기간이</tspan><tspan x="363.7" dy="18">종료된 자료를 삭제한다.</tspan></text>
+      <text x="363.7" y="882" font-size="11" font-weight="650" fill="#627169">학교업무분장관리담당자(권한관리자)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="900" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="900" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="920" font-size="12.5" font-weight="750" fill="#627169">P04</text>
+      <rect x="558.7" y="907" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="924" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="944" font-size="9.5" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학교업무분장-학교업무분장관리-발령전임시교원등록]</tspan></text>
+      <text x="363.7" y="968" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">발령전임시교원등록에서</tspan><tspan x="363.7" dy="18">사용자가져오기로 겸임교원 등의</tspan><tspan x="363.7" dy="18">사용자명을 조회하고 소속과</tspan><tspan x="363.7" dy="18">사용자명을 확인 후 저장한다.</tspan></text>
+      <text x="363.7" y="1039" font-size="11" font-weight="650" fill="#627169">학교업무분장관리담당자(권한관리자)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="1065" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="1065" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="1085" font-size="12.5" font-weight="750" fill="#627169">P05</text>
+      <rect x="558.7" y="1072" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="1089" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="1109" font-size="9.5" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학교업무분장-학교업무분장관리-발령전임시교원등록]</tspan></text>
+      <text x="363.7" y="1133" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">발령전임시교원등록에서</tspan><tspan x="363.7" dy="18">임시교원등록을 클릭하여 신규</tspan><tspan x="363.7" dy="18">발령교원·초임 계약직교원·타시도</tspan><tspan x="363.7" dy="18">전입교원의 임시 사용자명을</tspan><tspan x="363.7" dy="18">입력하고 등록한다.</tspan></text>
+      <text x="363.7" y="1222" font-size="11" font-weight="650" fill="#627169">학교업무분장관리담당자(권한관리자)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="1240" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="1240" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="1260" font-size="12.5" font-weight="750" fill="#627169">P06</text>
+      <rect x="558.7" y="1247" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="1264" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="1284" font-size="9" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학교업무분장-학교업무분장관리-학교업무분장권한이양]</tspan></text>
+      <text x="363.7" y="1308" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">학교업무분장권한이양에서</tspan><tspan x="363.7" dy="18">인계자에 임시교원 사용자명을</tspan><tspan x="363.7" dy="18">입력하여 조회한다.</tspan></text>
+      <text x="363.7" y="1361" font-size="11" font-weight="650" fill="#627169">학교업무분장관리담당자(권한관리자)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="1387" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="348.7" y="1387" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="363.7" y="1407" font-size="12.5" font-weight="750" fill="#d8f4e8">P07</text>
+      <rect x="558.7" y="1394" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="583.7" y="1411" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="363.7" y="1431" font-size="9" font-weight="750" fill="#d8f4e8"><tspan x="363.7" dy="0">[학교업무분장-학교업무분장관리-학교업무분장권한이양]</tspan></text>
+      <text x="363.7" y="1455" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="363.7" dy="0">인수자에 정식 사용자명을 입력해</tspan><tspan x="363.7" dy="18">조회한 후 업무분장인계를</tspan><tspan x="363.7" dy="18">실행하여 임시 사용자ID를</tspan><tspan x="363.7" dy="18">삭제하고 권한을 일괄 이전한다.</tspan></text>
+      <text x="363.7" y="1526" font-size="11" font-weight="650" fill="#d8f4e8">학교업무분장관리담당자(권한관리자)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="1544" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="860" y="1544" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="875" y="1564" font-size="12.5" font-weight="750" fill="#627169">P08</text>
+      <rect x="1070" y="1551" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1095" y="1568" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="875" y="1588" font-size="10" font-weight="750" fill="#627169"><tspan x="875" dy="0">[교육과정-학급담임편성관리-학급담임편성관리]</tspan></text>
+      <text x="875" y="1612" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="875" dy="0">학급담임편성관리, 과목개설관리,</tspan><tspan x="875" dy="18">동아리활동관리 등에서</tspan><tspan x="875" dy="18">담임·교과담당·동아리지도 업무를</tspan><tspan x="875" dy="18">편성한다.</tspan></text>
+      <text x="875" y="1683" font-size="11" font-weight="650" fill="#627169">교원(사용자)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="1709" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="860" y="1709" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="875" y="1729" font-size="12.5" font-weight="750" fill="#627169">P09</text>
+      <rect x="1070" y="1716" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1095" y="1733" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="875" y="1753" font-size="10" font-weight="750" fill="#627169"><tspan x="875" dy="0">[기본메뉴-권한관리-교무자료권한승인관리]</tspan></text>
+      <text x="875" y="1777" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="875" dy="0">교무자료권한승인관리에서</tspan><tspan x="875" dy="18">담임편성을 선택하고</tspan><tspan x="875" dy="18">학년반·교과목·동아리활동 탭의</tspan><tspan x="875" dy="18">미상신 자료권한을 선택해</tspan><tspan x="875" dy="18">승인요청한다.</tspan></text>
+      <text x="875" y="1866" font-size="11" font-weight="650" fill="#627169">교원(사용자)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="1626.5" width="270" height="167" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="348.7" y="1626.5" width="6" height="167" rx="3" fill="#087452"/>
+      <text x="363.7" y="1646.5" font-size="12.5" font-weight="750" fill="#d8f4e8">P10</text>
+      <rect x="558.7" y="1633.5" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="583.7" y="1650.5" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="363.7" y="1670.5" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="363.7" dy="0">[기본메뉴-권한관리-교무자료권한승인관리]</tspan></text>
+      <text x="363.7" y="1694.5" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="363.7" dy="0">교무자료권한승인관리에서</tspan><tspan x="363.7" dy="18">권한관리를 선택하고</tspan><tspan x="363.7" dy="18">학년반·교과목·동아리활동 탭의</tspan><tspan x="363.7" dy="18">미상신 자료권한을 승인요청하여</tspan><tspan x="363.7" dy="18">결재권자의 결재를 완료한다.</tspan></text>
+      <text x="363.7" y="1783.5" font-size="11" font-weight="650" fill="#d8f4e8">학교업무분장관리담당자(권한관리자)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="1884" width="270" height="162" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="1884" width="6" height="162" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="1904" font-size="12.5" font-weight="750" fill="#627169">P11</text>
+      <rect x="558.7" y="1891" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="1908" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="1928" font-size="8" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[업무분장설정업무-학교업무분장-학교업무분장관리-학교업무분장</tspan><tspan x="363.7" dy="13">설정-부서관리(부서장지정)]</tspan></text>
+      <text x="363.7" y="1965" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">부서관리(부서장지정)에서 행추가</tspan><tspan x="363.7" dy="18">후 단위업무선택창의</tspan><tspan x="363.7" dy="18">공통관리에서 시스템관리를</tspan><tspan x="363.7" dy="18">선택하여 행공 업무를 등록한다.</tspan></text>
+      <text x="363.7" y="2036" font-size="11" font-weight="650" fill="#627169">학교업무분장관리담당자(권한관리자)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="2062" width="270" height="180" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="2062" width="6" height="180" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="2082" font-size="12.5" font-weight="750" fill="#627169">P12</text>
+      <rect x="558.7" y="2069" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="2086" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="2106" font-size="8" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[업무분장설정업무-학교업무분장-학교업무분장관리-학교업무분장</tspan><tspan x="363.7" dy="13">설정-업무관리(메뉴,자료권한관리)]</tspan></text>
+      <text x="363.7" y="2143" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">업무관리(메뉴,자료권한관리)의</tspan><tspan x="363.7" dy="18">업무메뉴관리에서 전체사용자관리</tspan><tspan x="363.7" dy="18">메뉴에 메뉴등록과</tspan><tspan x="363.7" dy="18">관리권한(등록/수정/삭제)을</tspan><tspan x="363.7" dy="18">체크하고 저장한다.</tspan></text>
+      <text x="363.7" y="2232" font-size="11" font-weight="650" fill="#627169">학교업무분장관리담당자(권한관리자)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1371.3" y="2184.5" width="270" height="131" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="1371.3" y="2184.5" width="6" height="131" rx="3" fill="#087452"/>
+      <text x="1386.3" y="2204.5" font-size="12.5" font-weight="750" fill="#d8f4e8">P13</text>
+      <rect x="1581.3" y="2191.5" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1606.3" y="2208.5" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="1386.3" y="2228.5" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="1386.3" dy="0">[{시스템관리}사용자-사용자관리-전체사용자관리]</tspan></text>
+      <text x="1386.3" y="2252.5" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="1386.3" dy="0">전체사용자관리에서 해당</tspan><tspan x="1386.3" dy="18">사용자에게 행공을 체크하고</tspan><tspan x="1386.3" dy="18">저장하여 행공 권한을 부여한다.</tspan></text>
+      <text x="1386.3" y="2305.5" font-size="11" font-weight="650" fill="#d8f4e8">시스템관리자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="2258" width="270" height="180" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="348.7" y="2258" width="6" height="180" rx="3" fill="#35a77d"/>
+      <text x="363.7" y="2278" font-size="12.5" font-weight="750" fill="#287a5c">P14</text>
+      <rect x="558.7" y="2265" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="583.7" y="2282" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="363.7" y="2302" font-size="8" font-weight="750" fill="#287a5c"><tspan x="363.7" dy="0">[업무분장설정업무-학교업무분장-학교업무분장관리-담임업무기준</tspan><tspan x="363.7" dy="13">관리]</tspan></text>
+      <text x="363.7" y="2339" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="363.7" dy="0">담임업무기준관리에서 담임구분을</tspan><tspan x="363.7" dy="18">선택해 조회한 후 편성 대상</tspan><tspan x="363.7" dy="18">업무의 교무업무 메뉴 트리에서</tspan><tspan x="363.7" dy="18">필요한 메뉴를 선택해 추가하고</tspan><tspan x="363.7" dy="18">저장한다.</tspan></text>
+      <text x="363.7" y="2428" font-size="11" font-weight="650" fill="#287a5c">학교업무분장관리담당자(권한관리자)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="2454" width="270" height="162" rx="8" fill="#edf4ff" stroke="#3478db" stroke-width="2.3"/>
+      <rect x="348.7" y="2454" width="6" height="162" rx="3" fill="#3478db"/>
+      <text x="363.7" y="2474" font-size="12.5" font-weight="750" fill="#316bbd">P15</text>
+      <rect x="558.7" y="2461" width="50" height="24" rx="5" fill="#3478db" opacity="0.14"/>
+      <text x="583.7" y="2478" text-anchor="middle" font-size="12" font-weight="800" fill="#173f7a">회귀</text>
+      <text x="363.7" y="2498" font-size="8" font-weight="750" fill="#316bbd"><tspan x="363.7" dy="0">[업무분장설정업무-학교업무분장-학교업무분장관리-담임업무기준</tspan><tspan x="363.7" dy="13">관리]</tspan></text>
+      <text x="363.7" y="2535" font-size="15.5" font-weight="800" fill="#173f7a"><tspan x="363.7" dy="0">담임업무기준관리의 현재 편성</tspan><tspan x="363.7" dy="18">업무에서 불필요한 메뉴를 선택해</tspan><tspan x="363.7" dy="18">반환한 후 저장하여 추가했던</tspan><tspan x="363.7" dy="18">학급담임 권한을 삭제한다.</tspan></text>
+      <text x="363.7" y="2606" font-size="11" font-weight="650" fill="#316bbd">학교업무분장관리담당자(권한관리자)</text>
+    </g>
+  
+<rect x="38" y="2642" width="772.5" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2680" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2664" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2679" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2664" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2679" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2664" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2679" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2664" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2679" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2672" x2="522" y2="2672" stroke="#0f8a65" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-message)"/><text x="536" y="2678" font-size="15" fill="#3a463f">정보 전달</text>
+<line x1="631.3" y1="2672" x2="677.3" y2="2672" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="691.3" y="2678" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

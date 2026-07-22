@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>나이스(고등) 업무구조도</title>
+  <style>
+    /* 네오 브루탈리즘 목차 페이지 - 기존 Q&A 페이지들과 동일한 디자인 언어 */
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+      background-color: #f4f3ec;
+      color: #111;
+      margin: 0;
+      padding: 40px 20px 80px;
+      line-height: 1.6;
+      letter-spacing: -0.3px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container { width: 100%; max-width: 860px; }
+
+    /* 상단 키워드 박스 */
+    .keyword-box {
+      background-color: #000;
+      color: #fff;
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 12pt;
+      font-weight: 900;
+      margin-bottom: 20px;
+      box-shadow: 5px 5px 0px 0px #ffc900;
+      border: 2px solid #000;
+    }
+
+    .page-title {
+      font-size: 26pt;
+      font-weight: 900;
+      margin: 0 0 8px;
+      line-height: 1.25;
+    }
+
+    .page-sub {
+      font-size: 11pt;
+      margin: 0 0 30px;
+      font-weight: 600;
+    }
+
+    .page-sub .count {
+      background: #ffc900;
+      border: 2px solid #000;
+      padding: 2px 8px;
+      font-weight: 900;
+    }
+
+    /* 검색창 */
+    .search-wrap { margin-bottom: 30px; }
+
+    .search-input {
+      width: 100%;
+      border: 3px solid #000;
+      background: #fff;
+      padding: 14px 18px;
+      font-size: 12pt;
+      font-weight: 700;
+      font-family: inherit;
+      box-shadow: 6px 6px 0px 0px #000;
+      outline: none;
+    }
+
+    .search-input:focus {
+      box-shadow: 6px 6px 0px 0px #00e5ff;
+    }
+
+    /* Part 카드(서랍) */
+    details.part {
+      background: #fff;
+      border: 3px solid #000;
+      margin-bottom: 22px;
+      box-shadow: 6px 6px 0px 0px #000;
+    }
+
+    details.part[open] { box-shadow: 8px 8px 0px 0px var(--accent, #ffc900); }
+
+    summary.part-head {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 22px;
+      user-select: none;
+    }
+
+    summary.part-head::-webkit-details-marker { display: none; }
+
+    summary.part-head:focus-visible {
+      outline: 3px solid #00e5ff;
+      outline-offset: -3px;
+    }
+
+    .part-num {
+      flex-shrink: 0;
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20pt;
+      font-weight: 900;
+      background: var(--accent, #ffc900);
+      border: 3px solid #000;
+    }
+
+    .part-info { flex: 1; min-width: 0; }
+
+    .part-name {
+      font-size: 15pt;
+      font-weight: 900;
+      display: block;
+    }
+
+    .part-meta {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #444;
+    }
+
+    .part-arrow {
+      flex-shrink: 0;
+      font-size: 14pt;
+      font-weight: 900;
+      transition: transform 0.2s;
+    }
+
+    details.part[open] .part-arrow { transform: rotate(90deg); }
+
+    /* 파일 링크 목록 */
+    .file-list {
+      border-top: 3px solid #000;
+      padding: 20px 22px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    a.file-btn {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      border: 2px solid #000;
+      background: #fff;
+      padding: 10px 14px;
+      text-decoration: none;
+      color: #111;
+      font-size: 10.5pt;
+      font-weight: 700;
+      box-shadow: 3px 3px 0px 0px #000;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    a.file-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px 0px var(--accent, #ffc900);
+    }
+
+    a.file-btn:focus-visible {
+      outline: 3px solid #00e5ff;
+      outline-offset: 2px;
+    }
+
+    .file-code {
+      flex-shrink: 0;
+      font-weight: 900;
+      background: #000;
+      color: #fff;
+      padding: 1px 7px;
+      font-size: 9pt;
+    }
+
+    .no-result {
+      display: none;
+      border: 3px dashed #000;
+      padding: 24px;
+      font-weight: 700;
+      text-align: center;
+      background: #fff;
+    }
+
+    /* 하단 나이스 광장 버튼 */
+    .footer-btn-wrap { text-align: center; margin-top: 40px; }
+
+    a.footer-btn {
+      display: inline-block;
+      background: #ffc900;
+      border: 3px solid #000;
+      box-shadow: 6px 6px 0px 0px #000;
+      padding: 14px 30px;
+      font-size: 12pt;
+      font-weight: 900;
+      color: #000;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    a.footer-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 8px 8px 0px 0px #000;
+    }
+
+    /* 하단 크레딧 푸터 */
+    .credit {
+      margin-top: 36px;
+      text-align: center;
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: #666;
+      line-height: 1.8;
+    }
+
+    .credit a {
+      color: #666;
+      text-decoration: underline;
+    }
+
+    .credit a:hover { color: #000; }
+
+    @media (max-width: 620px) {
+      .file-list { grid-template-columns: 1fr; }
+      .page-title { font-size: 20pt; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="keyword-box">#나이스_프로세스_보드 #나이스_FAQ #나이스_고등 #강원_나이스_현장지원단</div>
+    <h1 class="page-title">나이스(고등) 업무구조도</h1>
+    <p class="page-sub">Part 1~9 · 총 <span class="count">108</span>개 문서 — 챕터를 누르면 세부 문서 목록이 열립니다.</p>
+
+    <div class="search-wrap">
+      <input type="search" id="search" class="search-input" placeholder="문서 제목 검색 (예: 출결마감, 전입생, 수행평가)" aria-label="문서 제목 검색">
+    </div>
+
+    <div id="parts"></div>
+    <div class="no-result" id="noResult">검색 결과가 없습니다. 다른 키워드로 검색해 보세요.</div>
+
+    <div class="footer-btn-wrap">
+      <a class="footer-btn" href="https://help.neis.go.kr/" target="_blank" rel="noopener">나이스 광장 바로가기 →</a>
+    </div>
+
+    <footer class="credit">
+      Created by MSK<br>
+      Inspired by <a href="https://github.com/hosungseo/korea100studio" target="_blank" rel="noopener">korea100studio</a>
+    </footer>
+  </div>
+
+  <script>
+    // 파일명 규칙: "코드_제목_모니터용.html" (index.html과 같은 폴더). 규칙과 다른 파일은 items의 3번째 값으로 실제 파일명을 직접 지정합니다.
+    const PARTS = [
+      { num: 1, name: "학교업무분장", pages: "9-70", accent: "#ffc900", items: [
+        ["1.1", "나이스 권한부여 체계와 학교업무분장 설정", "1.1_나이스_권한부여_체계와_학교업무분장_설정_모니터용"],
+        ["1.2", "학교업무분장 운영 관리"],
+        ["1.3", "나이스 서버사이드 권한 오류 대응"],
+        ["1.4", "결재선 및 결재문서 관리"],
+        ["1.5", "원격업무(EVPN) 신청 관리"],
+        ["1.6", "2차 인증 관리"],
+      ]},
+      { num: 2, name: "교육과정", pages: "71-213", accent: "#ff90e8", items: [
+        ["2.1", "입학생 학교교육과정 관리 절차"],
+        ["2.2", "수요조사 및 수강신청 관리"],
+        ["2.3", "학급담임교사 편성"],
+        ["2.4.1", "학교교육과정 신규 편제 등록"],
+        ["2.4.2", "편제 가져오기·수정 및 업무승인"],
+        ["2.5.1", "선택과목군·강의실 및 과목개설"],
+        ["2.5.2", "수강학생 편성관리"],
+        ["2.5.3", "이동수업(N+1) 관리"],
+        ["2.5.4", "교육과정 현황조회"],
+        ["2.6", "학사일정 관리"],
+        ["2.8", "시간표·수업 조회 및 학교일지 관리"],
+      ]},
+      { num: 3, name: "학적", pages: "215-589", accent: "#00e5ff", items: [
+        ["3.1.1", "학생 기본신상·사진·명렬표·주소 관리"],
+        ["3.1.2", "학적변동 등록 및 승인 처리"],
+        ["3.2.1", "전입생 등록 및 학적반영"],
+        ["3.2.2", "전입생 학적반영 사후관리 및 일괄반배정"],
+        ["3.2.3", "전입생 성적자료 관리"],
+        ["3.2.4", "전입생 세부능력·출결·학점 관리"],
+        ["3.3.1", "재입학·편입학·복학생 학적처리"],
+        ["3.4.1", "전출 관리(일반)"],
+        ["3.4.2", "통폐합학교 전출생 처리"],
+        ["3.5.1", "학업중단 및 정원 외 학적관리"],
+        ["3.6.1", "진급대상자 생성 및 반편성 사전준비"],
+        ["3.6.2", "반편성 실행 및 진급자 학적반영"],
+        ["3.7.1", "학기별 과목 출결마감 및 전체마감"],
+        ["3.7.2", "출결 현황 확인 및 출석부 출력"],
+        ["3.7.3", "위탁·현장실습생 및 정규외 과목 출결관리"],
+        ["3.7.4", "학기별 과목 출결마감 및 전체마감"],
+        ["3.8.1", "일일 출결 관리 및 마감"],
+        ["3.8.2", "결석자 조회 및 월출결 마감·위탁학생 관리"],
+        ["3.8.3", "출결현황 통계 및 학생부 반영"],
+        ["3.9.1", "위탁학생 등록 및 확인 관리"],
+        ["3.9.2", "위탁학생 자료(성적·세특·창체) 관리"],
+        ["3.9.3", "위탁학생 출결 관리"],
+        ["3.10.1", "현장실습생 관리"],
+        ["3.11.1", "공동교육과정 수강생 확인요청 관리"],
+        ["3.11.2", "공동교육과정 성적·학생생활 자료전송 확인 및 반영"],
+        ["3.11.3", "공동교육과정 출결관리 및 학교생활기록부 조회"],
+        ["3.12.1", "위탁학생 등록 및 학적반영"],
+        ["3.12.2", "위탁학생 자료관리 및 전송"],
+        ["3.13.1", "공동교육과정 반정보·수강생 등록관리"],
+        ["3.13.2", "공동교육과정 출결관리"],
+        ["3.13.3", "공동교육과정 수강생 학생생활·세특 자료관리"],
+        ["3.13.4", "공동교육과정 학기말 성적처리 및 자료전송"],
+        ["3.14", "명예졸업 관리"],
+        ["3.15.1", "졸업·수료 대상자 확정"],
+        ["3.15.2", "졸업·수료 처리 및 서류 출력"],
+        ["3.16.1", "졸업생 자료 조회·출력 관리"],
+        ["3.16.2", "졸업생 학교생활기록부 정정대장 관리"],
+        ["3.17", "졸업생 대외기관 자료 제공 관리"],
+        ["3.18", "미인정결석 학생 관리"],
+        ["3.19", "입학 관리"],
+      ]},
+      { num: 4, name: "개별화교육계획", pages: "591-623", accent: "#ffc900", items: [
+        ["4.1", "개별화교육계획 관리"],
+      ]},
+      { num: 5, name: "학생생활", pages: "7-109", accent: "#ff90e8", items: [
+        ["5.1.1", "자율·자치활동(자율활동) 관리"],
+        ["5.1.2", "진로활동 관리"],
+        ["5.1.3", "창의적체험활동 부가기능 및 예외처리"],
+        ["5.2.1", "동아리활동 부서 구성 및 학생 배정"],
+        ["5.2.2", "동아리활동 운영 관리(이수시간·출결·누가기록)"],
+        ["5.2.3", "동아리활동 학교생활기록부 기록 및 반별 조회"],
+        ["5.2.4", "학적변동·위탁학생·스포츠클럽 동아리활동 처리"],
+        ["5.3.1", "개인별 봉사활동 실적 입력관리"],
+        ["5.3.2", "반별 봉사활동 실적관리 및 실적조회"],
+        ["5.4", "수상대장 관리"],
+        ["5.5.1", "교내상 수상 등록"],
+        ["5.5.2", "수상대장 오류 수정"],
+        ["5.6", "학급별 수상 관리"],
+        ["5.7.1", "자격증 관리"],
+        ["5.7.2", "NCS 이수상황 관리"],
+        ["5.7.3", "자격기반 능력단위 편성관리"],
+        ["5.8", "독서활동상황 관리"],
+        ["5.9", "행동특성 및 종합의견 관리"],
+        ["5.10", "학교폭력 조치상황 관리"],
+        ["5.11", "학부모서비스 승인 관리"],
+      ]},
+      { num: 6, name: "성적", pages: "111-313", accent: "#00e5ff", items: [
+        ["6.1.1", "학기초 OMR·코드 선행설정"],
+        ["6.1.2", "지필·수행평가 산출기준 등록"],
+        ["6.1.3", "성적파일 업로드 및 관리"],
+        ["6.2.1", "지필평가 채점 및 점수 입력"],
+        ["6.2.2", "지필평가 학생 확인 및 성적 마감"],
+        ["6.2.3", "지필평가 성적산출 선행작업"],
+        ["6.2.4", "교과목별 성적 산출 및 통지표 작성"],
+        ["6.2.5", "지필평가 성적 조회 및 통계"],
+        ["6.3.1", "수행평가 채점 준비(OMR)"],
+        ["6.3.2", "수행평가 성적 입력·관리"],
+        ["6.3.3", "수행평가 확인·마감·조회"],
+        ["6.4", "추정분할점수 산출 관리"],
+        ["6.5.1", "학기말 성적산출 선행작업"],
+        ["6.5.2", "전입·편입·재입학생 및 위탁학생 성적처리"],
+        ["6.5.3", "과목별 성적산출 및 마감관리"],
+        ["6.5.4", "세부능력 및 특기사항·독서활동 관리"],
+        ["6.5.5", "최소성취수준보장지도(추가학습) 관리"],
+        ["6.6.1", "학기말 성적 조회"],
+        ["6.6.2", "학기말 성적 통계"],
+        ["6.7", "성적 및 학습 분석자료 조회"],
+        ["6.8", "관찰기록 관리"],
+      ]},
+      { num: 7, name: "학생부", pages: "315-346", accent: "#ffc900", items: [
+        ["7.1.1", "학생부 자료반영 및 검증·조회"],
+        ["7.1.2", "학생부 반별·전체 마감 및 결재"],
+        ["7.2.1", "정정대장 등록 및 결재"],
+        ["7.2.2", "정정대장 조회·공개여부·이력관리"],
+        ["7.2.3", "편제 능력단위 성적 일괄 정정"],
+      ]},
+      { num: 8, name: "보건", pages: "347-380", accent: "#ff90e8", items: [
+        ["8.1.1", "건강기록부 등록(반별·개인별)"],
+        ["8.1.2", "건강기록부 조회·출력·마감 및 정정대장"],
+        ["8.2", "감염병 환자 관리"],
+      ]},
+      { num: 9, name: "입학", pages: "381-399", accent: "#00e5ff", items: [
+        ["9.1", "입학 대상자 관리 및 신입생 반편성"],
+      ]},
+    ];
+
+    // 파일명 규칙이 다르면 이 함수만 고치면 됩니다. file이 주어지면 그 이름을 그대로 씁니다.
+    function fileHref(code, title, file) {
+      const base = file || (code + "_" + title + "_모니터용");
+      return encodeURI(base + ".html");
+    }
+
+    const partsEl = document.getElementById("parts");
+
+    PARTS.forEach(part => {
+      const details = document.createElement("details");
+      details.className = "part";
+      details.style.setProperty("--accent", part.accent);
+
+      const summary = document.createElement("summary");
+      summary.className = "part-head";
+      summary.innerHTML =
+        '<span class="part-num">' + part.num + '</span>' +
+        '<span class="part-info">' +
+          '<span class="part-name">Part ' + part.num + '. ' + part.name + '</span>' +
+          '<span class="part-meta">문서 ' + part.items.length + '개 · 매뉴얼 p.' + part.pages + '</span>' +
+        '</span>' +
+        '<span class="part-arrow">▶</span>';
+      details.appendChild(summary);
+
+      const list = document.createElement("div");
+      list.className = "file-list";
+      part.items.forEach(([code, title, file]) => {
+        const a = document.createElement("a");
+        a.className = "file-btn";
+        a.href = fileHref(code, title, file);
+        a.innerHTML = '<span class="file-code">' + code + '</span><span>' + title + '</span>';
+        a.dataset.text = (code + " " + title).toLowerCase();
+        list.appendChild(a);
+      });
+      details.appendChild(list);
+      partsEl.appendChild(details);
+    });
+
+    // 검색: 제목에 키워드가 포함된 문서만 남기고, 해당 Part를 자동으로 펼침
+    const searchEl = document.getElementById("search");
+    const noResult = document.getElementById("noResult");
+
+    searchEl.addEventListener("input", () => {
+      const q = searchEl.value.trim().toLowerCase();
+      let total = 0;
+
+      document.querySelectorAll("details.part").forEach(details => {
+        let visible = 0;
+        details.querySelectorAll("a.file-btn").forEach(a => {
+          const show = !q || a.dataset.text.includes(q);
+          a.style.display = show ? "" : "none";
+          if (show) visible++;
+        });
+        details.style.display = visible ? "" : "none";
+        if (q) details.open = visible > 0;
+        else details.open = false;
+        total += visible;
+      });
+
+      noResult.style.display = (q && total === 0) ? "block" : "none";
+    });
+  </script>
+</body>
+</html>

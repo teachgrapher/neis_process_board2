@@ -1,0 +1,249 @@
+<!-- 졸업생 자료 조회·출력 관리 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>졸업생 자료 조회·출력 관리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"졸업생 자료 조회·출력 관리","subtitle":"졸업대장을 조회·정비하고 졸업생 학생부를 개별 출력하며 학교폭력 조치상황을 삭제하는 절차이다.","lanes":["학적업무담당자","나이스 시스템"],"stages":["졸업현황 조회","오류자료 조회 및 수정","학생부 개별출력","학교폭력 조치상황 삭제"],"nodes":[{"id":"P01","lane":"학적업무담당자","stage":"졸업현황 조회","label":"졸업학년도를 확인한 후 졸업현황조회를 클릭한다.","menu":"[학적-졸업생자료관리-졸업대장관리]","emphasis":"lead"},{"id":"P02","lane":"나이스 시스템","stage":"졸업현황 조회","label":"졸업현황조회 창을 표시하고 담당자가 저장하거나 출력할 수 있도록 지원한다.","menu":"[학적-졸업생자료관리-졸업대장관리]","emphasis":"normal"},{"id":"P03","lane":"학적업무담당자","stage":"오류자료 조회 및 수정","label":"조회구분과 졸업학년도를 선택하고 조회하여 오류자료조회 창의 내용을 저장하거나 출력한다.","menu":"[학적-졸업생자료관리-졸업대장관리]","emphasis":"lead"},{"id":"P04","lane":"나이스 시스템","stage":"오류자료 조회 및 수정","label":"오류자료조회 결과를 화면에 표시하며, 이 메뉴에서의 일괄수정이나 추가는 졸업대장에만 반영됨을 안내한다.","menu":"[학적-졸업생자료관리-졸업대장관리]","emphasis":"normal"},{"id":"P05","lane":"학적업무담당자","stage":"오류자료 조회 및 수정","label":"졸업대장의 오류자료를 일괄수정하거나 신규 항목을 추가하여 졸업대장을 정비한다.","menu":"[학적-졸업생자료관리-졸업대장관리]","emphasis":"normal"},{"id":"P06","lane":"학적업무담당자","stage":"학생부 개별출력","label":"졸업학년도를 입력하고 학생찾기를 실행한다.","menu":"[학적-졸업생자료관리-졸업생학생부개별출력]","emphasis":"lead"},{"id":"P07","lane":"나이스 시스템","stage":"학생부 개별출력","label":"고등학교 학생찾기 창에서 학생명으로 조회한 결과를 표시하고 선택한 학생을 확정한다.","menu":"[학적-졸업생자료관리-졸업생학생부개별출력]","emphasis":"normal"},{"id":"P08","lane":"학적업무담당자","stage":"학생부 개별출력","label":"졸업생 학생부 조회 및 출력 사유 등록 창에서 사유를 입력해 저장하고, 학생부를 선택해 저장하거나 출력한다.","menu":"[학적-졸업생자료관리-졸업생학생부개별출력]","emphasis":"key"},{"id":"P09","lane":"학적업무담당자","stage":"학교폭력 조치상황 삭제","label":"변경년도를 확인한 후 졸업학년도와 성명을 입력해 조회한다.","menu":"[학적-졸업생자료관리-졸업생학교폭력조치상황삭제]","emphasis":"lead"},{"id":"P10","lane":"나이스 시스템","stage":"학교폭력 조치상황 삭제","label":"2026학년도 이후 학교폭력조치상황관리에서 관리된 학생만 조회되도록 제한하여 결과를 표시한다.","menu":"[학생생활-학교폭력조치상황관리-학교폭력조치상황관리]","emphasis":"normal"},{"id":"P11","lane":"학적업무담당자","stage":"학교폭력 조치상황 삭제","label":"조회된 조치사항을 확인하고 삭제를 처리한다. 다만 제9호 퇴학처분은 삭제 대상에서 제외한다.","menu":"[학적-졸업생자료관리-졸업생학교폭력조치상황삭제]","emphasis":"key"}],"edges":[]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2400" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 11 · 레인 2 · 게이트 4</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">졸업생 자료 조회·출력 관리</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">졸업대장을 조회·정비하고 졸업생 학생부를 개별 출력하며 학교폭력 조치상황을 삭제하는 절차이다.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="1940" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="334.8" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="334.8" fill="#eef3f0"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">졸업현황 조회</tspan></text>
+<rect x="38" y="694.8" width="1724" height="507.8" fill="#f5f8f6"/>
+<rect x="38" y="694.8" width="190" height="507.8" fill="#eef3f0"/>
+<text x="58" y="726.8" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="759.8" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">오류자료 조회 및</tspan><tspan x="58" dy="22">수정</tspan></text>
+<rect x="38" y="1202.5" width="1724" height="489.8" fill="#84baa9"/>
+<rect x="38" y="1202.5" width="190" height="489.8" fill="#087452"/>
+<text x="58" y="1234.5" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1267.5" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">학생부 개별출력</tspan></text>
+<rect x="38" y="1692.3" width="1724" height="507.8" fill="#84baa9"/>
+<rect x="38" y="1692.3" width="190" height="507.8" fill="#087452"/>
+<text x="58" y="1724.3" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1757.3" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">학교폭력</tspan><tspan x="58" dy="22">조치상황 삭제</tspan></text>
+<rect x="228" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="767" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">학적업무담당자</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">학적업무담당자</tspan></text>
+<rect x="995" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="995" y="260" width="767" height="7" fill="#3b82f6"/>
+<text x="1015" y="299" font-size="20" font-weight="800" fill="#17231d">나이스 시스템</text>
+<text x="1015" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1015" dy="0">나이스 시스템</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="995" y1="260" x2="995" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="694.8" x2="1762" y2="694.8" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1202.5" x2="1762" y2="1202.5" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1692.3" x2="1762" y2="1692.3" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2200" x2="1762" y2="2200" stroke="#b8c7bf" stroke-width="2"/>
+
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="470.9" width="270" height="113" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="470.9" width="6" height="113" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="490.9" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="686.5" y="477.9" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="494.9" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="514.9" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학적-졸업생자료관리-졸업대장관리]</tspan></text>
+      <text x="491.5" y="538.9" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">졸업학년도를 확인한 후</tspan><tspan x="491.5" dy="18">졸업현황조회를 클릭한다.</tspan></text>
+      <text x="491.5" y="573.9" font-size="11" font-weight="650" fill="#287a5c">학적업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="461.9" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="461.9" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="481.9" font-size="12.5" font-weight="750" fill="#627169">P02</text>
+      <rect x="1453.5" y="468.9" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="485.9" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="505.9" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[학적-졸업생자료관리-졸업대장관리]</tspan></text>
+      <text x="1258.5" y="529.9" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">졸업현황조회 창을 표시하고</tspan><tspan x="1258.5" dy="18">담당자가 저장하거나 출력할 수</tspan><tspan x="1258.5" dy="18">있도록 지원한다.</tspan></text>
+      <text x="1258.5" y="582.9" font-size="11" font-weight="650" fill="#627169">나이스 시스템</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="796.6" width="270" height="149" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="796.6" width="6" height="149" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="816.6" font-size="12.5" font-weight="750" fill="#287a5c">P03</text>
+      <rect x="686.5" y="803.6" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="820.6" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="840.6" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학적-졸업생자료관리-졸업대장관리]</tspan></text>
+      <text x="491.5" y="864.6" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">조회구분과 졸업학년도를</tspan><tspan x="491.5" dy="18">선택하고 조회하여 오류자료조회</tspan><tspan x="491.5" dy="18">창의 내용을 저장하거나</tspan><tspan x="491.5" dy="18">출력한다.</tspan></text>
+      <text x="491.5" y="935.6" font-size="11" font-weight="650" fill="#287a5c">학적업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="874.1" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="874.1" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="894.1" font-size="12.5" font-weight="750" fill="#627169">P04</text>
+      <rect x="1453.5" y="881.1" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="898.1" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="918.1" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[학적-졸업생자료관리-졸업대장관리]</tspan></text>
+      <text x="1258.5" y="942.1" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">오류자료조회 결과를 화면에</tspan><tspan x="1258.5" dy="18">표시하며, 이 메뉴에서의</tspan><tspan x="1258.5" dy="18">일괄수정이나 추가는</tspan><tspan x="1258.5" dy="18">졸업대장에만 반영됨을 안내한다.</tspan></text>
+      <text x="1258.5" y="1013.1" font-size="11" font-weight="650" fill="#627169">나이스 시스템</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="969.6" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="969.6" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="989.6" font-size="12.5" font-weight="750" fill="#627169">P05</text>
+      <rect x="686.5" y="976.6" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="993.6" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="1013.6" font-size="10" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학적-졸업생자료관리-졸업대장관리]</tspan></text>
+      <text x="491.5" y="1037.6" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">졸업대장의 오류자료를</tspan><tspan x="491.5" dy="18">일괄수정하거나 신규 항목을</tspan><tspan x="491.5" dy="18">추가하여 졸업대장을 정비한다.</tspan></text>
+      <text x="491.5" y="1090.6" font-size="11" font-weight="650" fill="#627169">학적업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1304.4" width="270" height="113" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="1304.4" width="6" height="113" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="1324.4" font-size="12.5" font-weight="750" fill="#287a5c">P06</text>
+      <rect x="686.5" y="1311.4" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="1328.4" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="1348.4" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학적-졸업생자료관리-졸업생학생부개별출력]</tspan></text>
+      <text x="491.5" y="1372.4" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">졸업학년도를 입력하고</tspan><tspan x="491.5" dy="18">학생찾기를 실행한다.</tspan></text>
+      <text x="491.5" y="1407.4" font-size="11" font-weight="650" fill="#287a5c">학적업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1372.9" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1372.9" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1392.9" font-size="12.5" font-weight="750" fill="#627169">P07</text>
+      <rect x="1453.5" y="1379.9" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1396.9" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1416.9" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[학적-졸업생자료관리-졸업생학생부개별출력]</tspan></text>
+      <text x="1258.5" y="1440.9" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">고등학교 학생찾기 창에서</tspan><tspan x="1258.5" dy="18">학생명으로 조회한 결과를</tspan><tspan x="1258.5" dy="18">표시하고 선택한 학생을</tspan><tspan x="1258.5" dy="18">확정한다.</tspan></text>
+      <text x="1258.5" y="1511.9" font-size="11" font-weight="650" fill="#627169">나이스 시스템</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1441.4" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="1441.4" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="491.5" y="1461.4" font-size="12.5" font-weight="750" fill="#d8f4e8">P08</text>
+      <rect x="686.5" y="1448.4" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="1465.4" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="1485.4" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[학적-졸업생자료관리-졸업생학생부개별출력]</tspan></text>
+      <text x="491.5" y="1509.4" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">졸업생 학생부 조회 및 출력 사유</tspan><tspan x="491.5" dy="18">등록 창에서 사유를 입력해</tspan><tspan x="491.5" dy="18">저장하고, 학생부를 선택해</tspan><tspan x="491.5" dy="18">저장하거나 출력한다.</tspan></text>
+      <text x="491.5" y="1580.4" font-size="11" font-weight="650" fill="#d8f4e8">학적업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1794.1" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="1794.1" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="1814.1" font-size="12.5" font-weight="750" fill="#287a5c">P09</text>
+      <rect x="686.5" y="1801.1" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="1818.1" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="1838.1" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학적-졸업생자료관리-졸업생학교폭력조치상황삭제]</tspan></text>
+      <text x="491.5" y="1862.1" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">변경년도를 확인한 후</tspan><tspan x="491.5" dy="18">졸업학년도와 성명을 입력해</tspan><tspan x="491.5" dy="18">조회한다.</tspan></text>
+      <text x="491.5" y="1915.1" font-size="11" font-weight="650" fill="#287a5c">학적업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1871.6" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1871.6" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1891.6" font-size="12.5" font-weight="750" fill="#627169">P10</text>
+      <rect x="1453.5" y="1878.6" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1895.6" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1915.6" font-size="9" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[학생생활-학교폭력조치상황관리-학교폭력조치상황관리]</tspan></text>
+      <text x="1258.5" y="1939.6" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">2026학년도 이후</tspan><tspan x="1258.5" dy="18">학교폭력조치상황관리에서 관리된</tspan><tspan x="1258.5" dy="18">학생만 조회되도록 제한하여</tspan><tspan x="1258.5" dy="18">결과를 표시한다.</tspan></text>
+      <text x="1258.5" y="2010.6" font-size="11" font-weight="650" fill="#627169">나이스 시스템</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1949.1" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="1949.1" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="491.5" y="1969.1" font-size="12.5" font-weight="750" fill="#d8f4e8">P11</text>
+      <rect x="686.5" y="1956.1" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="1973.1" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="1993.1" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[학적-졸업생자료관리-졸업생학교폭력조치상황삭제]</tspan></text>
+      <text x="491.5" y="2017.1" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">조회된 조치사항을 확인하고</tspan><tspan x="491.5" dy="18">삭제를 처리한다. 다만 제9호</tspan><tspan x="491.5" dy="18">퇴학처분은 삭제 대상에서</tspan><tspan x="491.5" dy="18">제외한다.</tspan></text>
+      <text x="491.5" y="2088.1" font-size="11" font-weight="650" fill="#d8f4e8">학적업무담당자</text>
+    </g>
+  
+<rect x="38" y="2222" width="462" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2260" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2244" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2259" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2244" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2259" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2244" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2259" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2244" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2259" font-size="15" fill="#3a463f">회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

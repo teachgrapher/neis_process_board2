@@ -1,0 +1,250 @@
+<!-- 동아리활동 부서 구성 및 학생 배정 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>동아리활동 부서 구성 및 학생 배정</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"동아리활동 부서 구성 및 학생 배정","subtitle":"동아리활동 부서를 만들고 담당교사를 등록·승인한 뒤 학생을 배정하고 수정·삭제하는 절차.","lanes":["동아리업무담당교사","학급담임교사"],"stages":["부서만들기","담당교사등록","권한승인","학생배정","배정수정/삭제"],"nodes":[{"id":"P01","lane":"동아리업무담당교사","stage":"부서만들기","label":"학년도를 확인한 후 조회하고, 전년도부서·반복사에서 전년도와 동일한 동아리활동부서를 선택하여 일괄복사한다.","menu":"[학생생활-창의적체험활동-동아리활동관리-부서만들기]","emphasis":"lead"},{"id":"P02","lane":"동아리업무담당교사","stage":"부서만들기","label":"분반하지 않는 단일 동아리는 행추가 후 동아리활동부서명을 입력하고 동아리부서구분을 선택한다.","menu":"[학생생활-창의적체험활동-동아리활동관리-부서만들기]","emphasis":"normal"},{"id":"P03","lane":"동아리업무담당교사","stage":"부서만들기","label":"분반 동아리는 동아리활동부서명을 동일하게 하고 부서반 명을 구분하여 등록한다.","menu":"[학생생활-창의적체험활동-동아리활동관리-부서만들기]","emphasis":"normal"},{"id":"P04","lane":"동아리업무담당교사","stage":"담당교사등록","label":"담당교사를 추가할 동아리부서를 클릭하여 담당교사추가에서 교사명을 검색·더블클릭으로 반영한 후 저장·확인한다.","menu":"[학생생활-창의적체험활동-동아리활동관리-부서만들기]","emphasis":"key"},{"id":"P05","lane":"동아리업무담당교사","stage":"권한승인","label":"교무년도, 승인상태, 담임편성을 선택·확인한 후 조회한다.","menu":"[기본메뉴 및 승인사항-기본메뉴-권한관리-교무자료권한승인관리]","emphasis":"lead"},{"id":"P06","lane":"동아리업무담당교사","stage":"권한승인","label":"동아리활동 탭에서 상신할 동아리담당교사를 선택하여 승인요청한다.","menu":"[기본메뉴 및 승인사항-기본메뉴-권한관리-교무자료권한승인관리]","emphasis":"key"},{"id":"P07","lane":"학급담임교사","stage":"학생배정","label":"학년도, 학년을 확인한 후 조회한다.","menu":"[학급담임-학생생활-창의적체험활동-동아리활동관리-부서배정]","emphasis":"lead"},{"id":"P08","lane":"학급담임교사","stage":"학생배정","label":"반을 확인한 후 동일부서로 배정할 학생들을 선택하고 동아리부서를 선택하여 저장한다.","menu":"[학급담임-학생생활-창의적체험활동-동아리활동관리-부서배정]","emphasis":"key"},{"id":"P09","lane":"학급담임교사","stage":"배정수정/삭제","label":"해당 학생의 부서배정수 숫자를 클릭하고 배정부서 목록에서 삭제할 배정부서명을 선택한 후 삭제한다.","menu":"[학급담임-학생생활-창의적체험활동-동아리활동관리-부서배정]","emphasis":"loop"},{"id":"P10","lane":"학급담임교사","stage":"배정수정/삭제","label":"해당 동아리부서의 배정학생수 숫자를 클릭하고 동아리 배정학생 목록에서 삭제할 학생을 선택한 후 삭제한다.","menu":"[학급담임-학생생활-창의적체험활동-동아리활동관리-부서배정]","emphasis":"loop"}],"edges":[{"id":"L01","source":"P09","target":"P08","type":"loop","label":"재배정"},{"id":"L02","source":"P10","target":"P08","type":"loop","label":"재배정"}]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2400" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 10 · 레인 2 · 게이트 5</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">동아리활동 부서 구성 및 학생 배정</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">동아리활동 부서를 만들고 담당교사를 등록·승인한 뒤 학생을 배정하고 수정·삭제하는 절차.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="1940" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="557.4" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="557.4" fill="#eef3f0"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">부서만들기</tspan></text>
+<rect x="38" y="917.4" width="1724" height="211.4" fill="#84baa9"/>
+<rect x="38" y="917.4" width="190" height="211.4" fill="#087452"/>
+<text x="58" y="949.4" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="982.4" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">담당교사등록</tspan></text>
+<rect x="38" y="1128.8" width="1724" height="356.4" fill="#84baa9"/>
+<rect x="38" y="1128.8" width="190" height="356.4" fill="#087452"/>
+<text x="58" y="1160.8" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1193.8" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">권한승인</tspan></text>
+<rect x="38" y="1485.2" width="1724" height="330.4" fill="#84baa9"/>
+<rect x="38" y="1485.2" width="190" height="330.4" fill="#087452"/>
+<text x="58" y="1517.2" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1550.2" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">학생배정</tspan></text>
+<rect x="38" y="1815.6" width="1724" height="384.4" fill="#fbfcfb"/>
+<rect x="38" y="1815.6" width="190" height="384.4" fill="#eef3f0"/>
+<text x="58" y="1847.6" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1880.6" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">배정수정/삭제</tspan></text>
+<rect x="228" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="767" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">동아리업무담당교사</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">동아리업무담당교사</tspan></text>
+<rect x="995" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="995" y="260" width="767" height="7" fill="#3b82f6"/>
+<text x="1015" y="299" font-size="20" font-weight="800" fill="#17231d">학급담임교사</text>
+<text x="1015" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1015" dy="0">학급담임교사</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="995" y1="260" x2="995" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="917.4" x2="1762" y2="917.4" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1128.8" x2="1762" y2="1128.8" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1485.2" x2="1762" y2="1485.2" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1815.6" x2="1762" y2="1815.6" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2200" x2="1762" y2="2200" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 1243.5 1921.3 H 216 V 1795.6 H 1367.5 V 1792.4" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 1243.5 1921.3 H 216 V 1795.6 H 1367.5 V 1792.4" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 1243.5 2096.8 H 196 V 1775.6 H 1377.5 V 1792.4" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 1243.5 2096.8 H 196 V 1775.6 H 1377.5 V 1792.4" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="238" y="1843.5" width="96" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="286" y="1863.5" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">재배정</text>
+<rect x="218" y="1956" width="96" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="266" y="1976" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">재배정</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="391.2" width="270" height="149" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="391.2" width="6" height="149" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="411.2" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="686.5" y="398.2" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="415.2" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="435.2" font-size="9" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학생생활-창의적체험활동-동아리활동관리-부서만들기]</tspan></text>
+      <text x="491.5" y="459.2" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">학년도를 확인한 후 조회하고,</tspan><tspan x="491.5" dy="18">전년도부서·반복사에서 전년도와</tspan><tspan x="491.5" dy="18">동일한 동아리활동부서를</tspan><tspan x="491.5" dy="18">선택하여 일괄복사한다.</tspan></text>
+      <text x="491.5" y="530.2" font-size="11" font-weight="650" fill="#287a5c">동아리업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="564.2" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="564.2" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="584.2" font-size="12.5" font-weight="750" fill="#627169">P02</text>
+      <rect x="686.5" y="571.2" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="588.2" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="608.2" font-size="9" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학생생활-창의적체험활동-동아리활동관리-부서만들기]</tspan></text>
+      <text x="491.5" y="632.2" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">분반하지 않는 단일 동아리는</tspan><tspan x="491.5" dy="18">행추가 후 동아리활동부서명을</tspan><tspan x="491.5" dy="18">입력하고 동아리부서구분을</tspan><tspan x="491.5" dy="18">선택한다.</tspan></text>
+      <text x="491.5" y="703.2" font-size="11" font-weight="650" fill="#627169">동아리업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="737.2" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="737.2" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="757.2" font-size="12.5" font-weight="750" fill="#627169">P03</text>
+      <rect x="686.5" y="744.2" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="761.2" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="781.2" font-size="9" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학생생활-창의적체험활동-동아리활동관리-부서만들기]</tspan></text>
+      <text x="491.5" y="805.2" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">분반 동아리는</tspan><tspan x="491.5" dy="18">동아리활동부서명을 동일하게</tspan><tspan x="491.5" dy="18">하고 부서반 명을 구분하여</tspan><tspan x="491.5" dy="18">등록한다.</tspan></text>
+      <text x="491.5" y="876.2" font-size="11" font-weight="650" fill="#627169">동아리업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="948.6" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="948.6" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="491.5" y="968.6" font-size="12.5" font-weight="750" fill="#d8f4e8">P04</text>
+      <rect x="686.5" y="955.6" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="972.6" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="992.6" font-size="9" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[학생생활-창의적체험활동-동아리활동관리-부서만들기]</tspan></text>
+      <text x="491.5" y="1016.6" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">담당교사를 추가할 동아리부서를</tspan><tspan x="491.5" dy="18">클릭하여 담당교사추가에서</tspan><tspan x="491.5" dy="18">교사명을 검색·더블클릭으로</tspan><tspan x="491.5" dy="18">반영한 후 저장·확인한다.</tspan></text>
+      <text x="491.5" y="1087.6" font-size="11" font-weight="650" fill="#d8f4e8">동아리업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1160" width="270" height="126" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="1160" width="6" height="126" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="1180" font-size="12.5" font-weight="750" fill="#287a5c">P05</text>
+      <rect x="686.5" y="1167" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="1184" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="1204" font-size="8" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[기본메뉴 및</tspan><tspan x="491.5" dy="13">승인사항-기본메뉴-권한관리-교무자료권한승인관리]</tspan></text>
+      <text x="491.5" y="1241" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">교무년도, 승인상태, 담임편성을</tspan><tspan x="491.5" dy="18">선택·확인한 후 조회한다.</tspan></text>
+      <text x="491.5" y="1276" font-size="11" font-weight="650" fill="#287a5c">동아리업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1310" width="270" height="144" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="1310" width="6" height="144" rx="3" fill="#087452"/>
+      <text x="491.5" y="1330" font-size="12.5" font-weight="750" fill="#d8f4e8">P06</text>
+      <rect x="686.5" y="1317" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="1334" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="1354" font-size="8" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[기본메뉴 및</tspan><tspan x="491.5" dy="13">승인사항-기본메뉴-권한관리-교무자료권한승인관리]</tspan></text>
+      <text x="491.5" y="1391" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">동아리활동 탭에서 상신할</tspan><tspan x="491.5" dy="18">동아리담당교사를 선택하여</tspan><tspan x="491.5" dy="18">승인요청한다.</tspan></text>
+      <text x="491.5" y="1444" font-size="11" font-weight="650" fill="#d8f4e8">동아리업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1516.4" width="270" height="113" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="1243.5" y="1516.4" width="6" height="113" rx="3" fill="#35a77d"/>
+      <text x="1258.5" y="1536.4" font-size="12.5" font-weight="750" fill="#287a5c">P07</text>
+      <rect x="1453.5" y="1523.4" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1478.5" y="1540.4" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="1258.5" y="1560.4" font-size="8" font-weight="750" fill="#287a5c"><tspan x="1258.5" dy="0">[학급담임-학생생활-창의적체험활동-동아리활동관리-부서배정]</tspan></text>
+      <text x="1258.5" y="1584.4" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="1258.5" dy="0">학년도, 학년을 확인한 후</tspan><tspan x="1258.5" dy="18">조회한다.</tspan></text>
+      <text x="1258.5" y="1619.4" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1653.4" width="270" height="131" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="1243.5" y="1653.4" width="6" height="131" rx="3" fill="#087452"/>
+      <text x="1258.5" y="1673.4" font-size="12.5" font-weight="750" fill="#d8f4e8">P08</text>
+      <rect x="1453.5" y="1660.4" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1478.5" y="1677.4" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="1258.5" y="1697.4" font-size="8" font-weight="750" fill="#d8f4e8"><tspan x="1258.5" dy="0">[학급담임-학생생활-창의적체험활동-동아리활동관리-부서배정]</tspan></text>
+      <text x="1258.5" y="1721.4" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="1258.5" dy="0">반을 확인한 후 동일부서로 배정할</tspan><tspan x="1258.5" dy="18">학생들을 선택하고 동아리부서를</tspan><tspan x="1258.5" dy="18">선택하여 저장한다.</tspan></text>
+      <text x="1258.5" y="1774.4" font-size="11" font-weight="650" fill="#d8f4e8">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1846.8" width="270" height="149" rx="8" fill="#edf4ff" stroke="#3478db" stroke-width="2.3"/>
+      <rect x="1243.5" y="1846.8" width="6" height="149" rx="3" fill="#3478db"/>
+      <text x="1258.5" y="1866.8" font-size="12.5" font-weight="750" fill="#316bbd">P09</text>
+      <rect x="1453.5" y="1853.8" width="50" height="24" rx="5" fill="#3478db" opacity="0.14"/>
+      <text x="1478.5" y="1870.8" text-anchor="middle" font-size="12" font-weight="800" fill="#173f7a">회귀</text>
+      <text x="1258.5" y="1890.8" font-size="8" font-weight="750" fill="#316bbd"><tspan x="1258.5" dy="0">[학급담임-학생생활-창의적체험활동-동아리활동관리-부서배정]</tspan></text>
+      <text x="1258.5" y="1914.8" font-size="15.5" font-weight="800" fill="#173f7a"><tspan x="1258.5" dy="0">해당 학생의 부서배정수 숫자를</tspan><tspan x="1258.5" dy="18">클릭하고 배정부서 목록에서</tspan><tspan x="1258.5" dy="18">삭제할 배정부서명을 선택한 후</tspan><tspan x="1258.5" dy="18">삭제한다.</tspan></text>
+      <text x="1258.5" y="1985.8" font-size="11" font-weight="650" fill="#316bbd">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="2019.8" width="270" height="149" rx="8" fill="#edf4ff" stroke="#3478db" stroke-width="2.3"/>
+      <rect x="1243.5" y="2019.8" width="6" height="149" rx="3" fill="#3478db"/>
+      <text x="1258.5" y="2039.8" font-size="12.5" font-weight="750" fill="#316bbd">P10</text>
+      <rect x="1453.5" y="2026.8" width="50" height="24" rx="5" fill="#3478db" opacity="0.14"/>
+      <text x="1478.5" y="2043.8" text-anchor="middle" font-size="12" font-weight="800" fill="#173f7a">회귀</text>
+      <text x="1258.5" y="2063.8" font-size="8" font-weight="750" fill="#316bbd"><tspan x="1258.5" dy="0">[학급담임-학생생활-창의적체험활동-동아리활동관리-부서배정]</tspan></text>
+      <text x="1258.5" y="2087.8" font-size="15.5" font-weight="800" fill="#173f7a"><tspan x="1258.5" dy="0">해당 동아리부서의 배정학생수</tspan><tspan x="1258.5" dy="18">숫자를 클릭하고 동아리 배정학생</tspan><tspan x="1258.5" dy="18">목록에서 삭제할 학생을 선택한 후</tspan><tspan x="1258.5" dy="18">삭제한다.</tspan></text>
+      <text x="1258.5" y="2158.8" font-size="11" font-weight="650" fill="#316bbd">학급담임교사</text>
+    </g>
+  
+<rect x="38" y="2222" width="617.3" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2260" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2244" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2259" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2244" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2259" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2244" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2259" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2244" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2259" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2252" x2="522" y2="2252" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="536" y="2258" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

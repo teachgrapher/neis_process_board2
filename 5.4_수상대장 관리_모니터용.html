@@ -1,0 +1,330 @@
+<!-- 수상대장 관리 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>수상대장 관리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"수상대장 관리","subtitle":"상장양식을 등록·관리하고 상장번호 형식과 수상대장 정렬을 설정하여 상장을 인쇄하며, 담당자 부재 시 결재문서를 정정·삭제하는 절차.","lanes":["수상 업무담당교사","학교업무분장관리자"],"stages":["G0 상장양식 등록·관리","G1 상장번호 형식 설정","G2 수상대장 정렬 방식 설정","G3 상장 인쇄","G4 결재문서 정정·삭제(예외처리)"],"nodes":[{"id":"P01","lane":"수상 업무담당교사","stage":"G0 상장양식 등록·관리","label":"수상대장관리 탭에서 학년도를 확인한 후 상장양식관리 창을 연다.","menu":"[학생생활-수상경력-수상대장관리]","emphasis":"lead"},{"id":"P02","lane":"수상 업무담당교사","stage":"G0 상장양식 등록·관리","label":"상장양식관리 창에서 등록하여 상장명·상장분류·상장제목·부문명칭·용지설정·상장문구·수여자명 등을 선택·입력하고 저장 후 확인한다.","menu":"[학생생활-수상경력-수상대장관리-상장양식관리]","emphasis":"key"},{"id":"P03","lane":"수상 업무담당교사","stage":"G0 상장양식 등록·관리","label":"상장양식편집에서 용지설정·상장번호·상장명·부문명칭·학년반·학생성명·상장문구·수상일자·수여자명의 폰트·크기·속성을 설정하고, 배경이미지에 학교 로고를 첨부한 후 미리보기 확인 후 저장한다.","menu":"[학생생활-수상경력-수상대장관리-상장양식관리-상장양식편집]","emphasis":"normal"},{"id":"P04","lane":"수상 업무담당교사","stage":"G0 상장양식 등록·관리","label":"등록된 상장명(코드:상장분류)을 선택하여 상장명·부문명칭·상장문구 등을 연중으로 수정하거나 삭제한다.","menu":"[학생생활-수상경력-수상대장관리-상장양식관리]","emphasis":"normal"},{"id":"P05","lane":"수상 업무담당교사","stage":"G1 상장번호 형식 설정","label":"수상대장관리 탭에서 학년도·교내/교외·학년·상태를 확인한 후 조회한다.","menu":"[학생생활-수상경력-수상대장관리]","emphasis":"lead"},{"id":"P06","lane":"수상 업무담당교사","stage":"G1 상장번호 형식 설정","label":"상장번호설정 창에서 상장번호 입력형식(자동채번/직접입력)·상장 시작번호·수상대장 정렬방식을 선택·입력한 후 저장한다.","menu":"[학생생활-수상경력-수상대장관리-상장번호설정]","emphasis":"key"},{"id":"P07","lane":"수상 업무담당교사","stage":"G1 상장번호 형식 설정","label":"상장번호 입력형식을 직접입력으로 설정하여 삭제된 상장번호를 재입력해 수상을 다시 등록한다.","menu":"[학생생활-수상경력-수상대장관리-상장번호설정]","emphasis":"normal"},{"id":"P08","lane":"수상 업무담당교사","stage":"G1 상장번호 형식 설정","label":"직접입력에서 자동채번으로 변경할 때 등록했던 다음 번호를 상장시작번호에 직접 입력하여 이후 자동채번되게 한다.","menu":"[학생생활-수상경력-수상대장관리-상장번호설정]","emphasis":"normal"},{"id":"P09","lane":"수상 업무담당교사","stage":"G2 수상대장 정렬 방식 설정","label":"수상대장관리 탭에서 학년도를 확인하고 조회 조건을 선택하여 조회한다.","menu":"[학생생활-수상경력-수상대장관리]","emphasis":"lead"},{"id":"P10","lane":"수상 업무담당교사","stage":"G2 수상대장 정렬 방식 설정","label":"설정에서 필터를 클릭하면 각 항목에 삼각형 아이콘이 나타나며 원하는 항목을 기준으로 선택해 정렬한다.","menu":"[학생생활-수상경력-수상대장관리-필터]","emphasis":"key"},{"id":"P11","lane":"수상 업무담당교사","stage":"G3 상장 인쇄","label":"수상대장관리 탭에서 학년도와 조회 조건을 확인·선택하고 출력할 수상명을 입력하여 조회한다.","menu":"[학생생활-수상경력-수상대장관리]","emphasis":"lead"},{"id":"P12","lane":"수상 업무담당교사","stage":"G3 상장 인쇄","label":"출력할 목록을 선택하여 출력하고, 상장출력미리보기 창에서 내용을 확인한 후 출력한다.","menu":"[학생생활-수상경력-수상대장관리-상장출력]","emphasis":"key"},{"id":"P13","lane":"수상 업무담당교사","stage":"G3 상장 인쇄","label":"단체건일 경우 체크박스를 선택하여 단체상장과 개인별단체상장을 동시에 출력한다.","menu":"[학생생활-수상경력-수상대장관리-상장출력]","emphasis":"normal"},{"id":"P14","lane":"수상 업무담당교사","stage":"G3 상장 인쇄","label":"외국인 학생 이름이 끝까지 출력되지 않으면 출력 후 한글파일(HWP)로 내려받아 성명을 편집하여 다시 출력한다.","menu":"[학생생활-수상경력-수상대장관리-상장출력]","emphasis":"bottleneck"},{"id":"P15","lane":"학교업무분장관리자","stage":"G4 결재문서 정정·삭제(예외처리)","label":"결재현황판관리에서 해당 수상문서의 기안자를 찾아 상신기간을 설정하여 조회한다.","menu":"[업무승인관리-업무승인-결재현황관리-결재현황판관리]","emphasis":"lead"},{"id":"P16","lane":"학교업무분장관리자","stage":"G4 결재문서 정정·삭제(예외처리)","label":"수정해야 할 결재문서명을 선택하여 삭제하고, 결재문서삭제 창에서 삭제사유를 등록하여 삭제한다.","menu":"[업무승인관리-업무승인-결재현황관리-결재현황판관리-결재문서삭제]","emphasis":"loop"},{"id":"P17","lane":"수상 업무담당교사","stage":"G4 결재문서 정정·삭제(예외처리)","label":"결재문서 삭제 후 수상대장관리에서 해당 수상 건을 새로 등록·수정한다.","menu":"[학생생활-수상경력-수상대장관리]","emphasis":"loop"}],"edges":[{"id":"L01","source":"P16","target":"P17","type":"loop","label":"삭제 후 재등록"}]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="3173" viewBox="0 0 1800 3173">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="3173" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 17 · 레인 2 · 게이트 5</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">수상대장 관리</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">상장양식을 등록·관리하고 상장번호 형식과 수상대장 정렬을 설정하여 상장을 인쇄하며, 담당자 부재 시 결재문서를 정정·삭제하는 절차.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="2713" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="706" fill="#84baa9"/>
+<rect x="38" y="360" width="190" height="706" fill="#087452"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#ffffff">G0</text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">상장양식</tspan><tspan x="58" dy="22">등록·관리</tspan></text>
+<rect x="38" y="1066" width="1724" height="634" fill="#84baa9"/>
+<rect x="38" y="1066" width="190" height="634" fill="#087452"/>
+<text x="58" y="1098" class="mono" font-size="16" font-weight="800" fill="#ffffff">G1</text>
+<text x="58" y="1131" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">상장번호 형식</tspan><tspan x="58" dy="22">설정</tspan></text>
+<rect x="38" y="1700" width="1724" height="304" fill="#84baa9"/>
+<rect x="38" y="1700" width="190" height="304" fill="#087452"/>
+<text x="58" y="1732" class="mono" font-size="16" font-weight="800" fill="#ffffff">G2</text>
+<text x="58" y="1765" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">수상대장 정렬</tspan><tspan x="58" dy="22">방식 설정</tspan></text>
+<rect x="38" y="2004" width="1724" height="652" fill="#84baa9"/>
+<rect x="38" y="2004" width="190" height="652" fill="#087452"/>
+<text x="58" y="2036" class="mono" font-size="16" font-weight="800" fill="#ffffff">G3</text>
+<text x="58" y="2069" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">상장 인쇄</tspan></text>
+<rect x="38" y="2656" width="1724" height="317" fill="#fbfcfb"/>
+<rect x="38" y="2656" width="190" height="317" fill="#eef3f0"/>
+<text x="58" y="2688" class="mono" font-size="16" font-weight="800" fill="#53645b">G4</text>
+<text x="58" y="2721" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">결재문서</tspan><tspan x="58" dy="22">정정·삭제(예…</tspan></text>
+<rect x="228" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="767" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">수상 업무담당교사</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">수상 업무담당교사</tspan></text>
+<rect x="995" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="995" y="260" width="767" height="7" fill="#3b82f6"/>
+<text x="1015" y="299" font-size="20" font-weight="800" fill="#17231d">학교업무분장관리자</text>
+<text x="1015" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1015" dy="0">학교업무분장관리자</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2973" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="995" y1="260" x2="995" y2="2973" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2973" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1066" x2="1762" y2="1066" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1700" x2="1762" y2="1700" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2004" x2="1762" y2="2004" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2656" x2="1762" y2="2656" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2973" x2="1762" y2="2973" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 1243.5 2888 H 774.5 V 2814.5 H 754.5" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 1243.5 2888 H 774.5 V 2814.5 H 754.5" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="935.1" y="2819.3" width="119.8" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="995" y="2839.3" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">삭제 후 재등록</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="364" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="364" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="384" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="686.5" y="371" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="388" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="408" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학생생활-수상경력-수상대장관리]</tspan></text>
+      <text x="491.5" y="432" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">수상대장관리 탭에서 학년도를</tspan><tspan x="491.5" dy="18">확인한 후 상장양식관리 창을</tspan><tspan x="491.5" dy="18">연다.</tspan></text>
+      <text x="491.5" y="485" font-size="11" font-weight="650" fill="#287a5c">수상 업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="511" width="270" height="167" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="511" width="6" height="167" rx="3" fill="#087452"/>
+      <text x="491.5" y="531" font-size="12.5" font-weight="750" fill="#d8f4e8">P02</text>
+      <rect x="686.5" y="518" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="535" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="555" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[학생생활-수상경력-수상대장관리-상장양식관리]</tspan></text>
+      <text x="491.5" y="579" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">상장양식관리 창에서 등록하여</tspan><tspan x="491.5" dy="18">상장명·상장분류·상장제목·부문</tspan><tspan x="491.5" dy="18">명칭·용지설정·상장문구·수여자</tspan><tspan x="491.5" dy="18">명 등을 선택·입력하고 저장 후</tspan><tspan x="491.5" dy="18">확인한다.</tspan></text>
+      <text x="491.5" y="668" font-size="11" font-weight="650" fill="#d8f4e8">수상 업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="694" width="270" height="203" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="694" width="6" height="203" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="714" font-size="12.5" font-weight="750" fill="#627169">P03</text>
+      <rect x="686.5" y="701" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="718" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="738" font-size="8" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학생생활-수상경력-수상대장관리-상장양식관리-상장양식편집]</tspan></text>
+      <text x="491.5" y="762" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">상장양식편집에서</tspan><tspan x="491.5" dy="18">용지설정·상장번호·상장명·부문</tspan><tspan x="491.5" dy="18">명칭·학년반·학생성명·상장문구·</tspan><tspan x="491.5" dy="18">수상일자·수여자명의</tspan><tspan x="491.5" dy="18">폰트·크기·속성을 설정하고,</tspan><tspan x="491.5" dy="18">배경이미지에 학교 로고를 첨부한</tspan><tspan x="491.5" dy="18">후 미리보기 확인 후 저장한다.</tspan></text>
+      <text x="491.5" y="887" font-size="11" font-weight="650" fill="#627169">수상 업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="913" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="913" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="933" font-size="12.5" font-weight="750" fill="#627169">P04</text>
+      <rect x="686.5" y="920" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="937" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="957" font-size="10" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학생생활-수상경력-수상대장관리-상장양식관리]</tspan></text>
+      <text x="491.5" y="981" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">등록된 상장명(코드:상장분류)을</tspan><tspan x="491.5" dy="18">선택하여</tspan><tspan x="491.5" dy="18">상장명·부문명칭·상장문구 등을</tspan><tspan x="491.5" dy="18">연중으로 수정하거나 삭제한다.</tspan></text>
+      <text x="491.5" y="1052" font-size="11" font-weight="650" fill="#627169">수상 업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1070" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="1070" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="1090" font-size="12.5" font-weight="750" fill="#287a5c">P05</text>
+      <rect x="686.5" y="1077" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="1094" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="1114" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학생생활-수상경력-수상대장관리]</tspan></text>
+      <text x="491.5" y="1138" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">수상대장관리 탭에서</tspan><tspan x="491.5" dy="18">학년도·교내/교외·학년·상태를</tspan><tspan x="491.5" dy="18">확인한 후 조회한다.</tspan></text>
+      <text x="491.5" y="1191" font-size="11" font-weight="650" fill="#287a5c">수상 업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1217" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="1217" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="491.5" y="1237" font-size="12.5" font-weight="750" fill="#d8f4e8">P06</text>
+      <rect x="686.5" y="1224" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="1241" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="1261" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[학생생활-수상경력-수상대장관리-상장번호설정]</tspan></text>
+      <text x="491.5" y="1285" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">상장번호설정 창에서 상장번호</tspan><tspan x="491.5" dy="18">입력형식(자동채번/직접입력)·상</tspan><tspan x="491.5" dy="18">장 시작번호·수상대장 정렬방식을</tspan><tspan x="491.5" dy="18">선택·입력한 후 저장한다.</tspan></text>
+      <text x="491.5" y="1356" font-size="11" font-weight="650" fill="#d8f4e8">수상 업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1382" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="1382" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="1402" font-size="12.5" font-weight="750" fill="#627169">P07</text>
+      <rect x="686.5" y="1389" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="1406" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="1426" font-size="10" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학생생활-수상경력-수상대장관리-상장번호설정]</tspan></text>
+      <text x="491.5" y="1450" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">상장번호 입력형식을</tspan><tspan x="491.5" dy="18">직접입력으로 설정하여 삭제된</tspan><tspan x="491.5" dy="18">상장번호를 재입력해 수상을 다시</tspan><tspan x="491.5" dy="18">등록한다.</tspan></text>
+      <text x="491.5" y="1521" font-size="11" font-weight="650" fill="#627169">수상 업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1547" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="1547" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="1567" font-size="12.5" font-weight="750" fill="#627169">P08</text>
+      <rect x="686.5" y="1554" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="1571" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="1591" font-size="10" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학생생활-수상경력-수상대장관리-상장번호설정]</tspan></text>
+      <text x="491.5" y="1615" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">직접입력에서 자동채번으로</tspan><tspan x="491.5" dy="18">변경할 때 등록했던 다음 번호를</tspan><tspan x="491.5" dy="18">상장시작번호에 직접 입력하여</tspan><tspan x="491.5" dy="18">이후 자동채번되게 한다.</tspan></text>
+      <text x="491.5" y="1686" font-size="11" font-weight="650" fill="#627169">수상 업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1704" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="1704" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="1724" font-size="12.5" font-weight="750" fill="#287a5c">P09</text>
+      <rect x="686.5" y="1711" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="1728" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="1748" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학생생활-수상경력-수상대장관리]</tspan></text>
+      <text x="491.5" y="1772" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">수상대장관리 탭에서 학년도를</tspan><tspan x="491.5" dy="18">확인하고 조회 조건을 선택하여</tspan><tspan x="491.5" dy="18">조회한다.</tspan></text>
+      <text x="491.5" y="1825" font-size="11" font-weight="650" fill="#287a5c">수상 업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1851" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="1851" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="491.5" y="1871" font-size="12.5" font-weight="750" fill="#d8f4e8">P10</text>
+      <rect x="686.5" y="1858" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="1875" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="1895" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[학생생활-수상경력-수상대장관리-필터]</tspan></text>
+      <text x="491.5" y="1919" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">설정에서 필터를 클릭하면 각</tspan><tspan x="491.5" dy="18">항목에 삼각형 아이콘이 나타나며</tspan><tspan x="491.5" dy="18">원하는 항목을 기준으로 선택해</tspan><tspan x="491.5" dy="18">정렬한다.</tspan></text>
+      <text x="491.5" y="1990" font-size="11" font-weight="650" fill="#d8f4e8">수상 업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="2008" width="270" height="149" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="2008" width="6" height="149" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="2028" font-size="12.5" font-weight="750" fill="#287a5c">P11</text>
+      <rect x="686.5" y="2015" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="2032" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="2052" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학생생활-수상경력-수상대장관리]</tspan></text>
+      <text x="491.5" y="2076" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">수상대장관리 탭에서 학년도와</tspan><tspan x="491.5" dy="18">조회 조건을 확인·선택하고</tspan><tspan x="491.5" dy="18">출력할 수상명을 입력하여</tspan><tspan x="491.5" dy="18">조회한다.</tspan></text>
+      <text x="491.5" y="2147" font-size="11" font-weight="650" fill="#287a5c">수상 업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="2173" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="2173" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="491.5" y="2193" font-size="12.5" font-weight="750" fill="#d8f4e8">P12</text>
+      <rect x="686.5" y="2180" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="2197" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="2217" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[학생생활-수상경력-수상대장관리-상장출력]</tspan></text>
+      <text x="491.5" y="2241" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">출력할 목록을 선택하여</tspan><tspan x="491.5" dy="18">출력하고, 상장출력미리보기</tspan><tspan x="491.5" dy="18">창에서 내용을 확인한 후</tspan><tspan x="491.5" dy="18">출력한다.</tspan></text>
+      <text x="491.5" y="2312" font-size="11" font-weight="650" fill="#d8f4e8">수상 업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="2338" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="2338" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="2358" font-size="12.5" font-weight="750" fill="#627169">P13</text>
+      <rect x="686.5" y="2345" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="2362" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="2382" font-size="10" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학생생활-수상경력-수상대장관리-상장출력]</tspan></text>
+      <text x="491.5" y="2406" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">단체건일 경우 체크박스를</tspan><tspan x="491.5" dy="18">선택하여 단체상장과</tspan><tspan x="491.5" dy="18">개인별단체상장을 동시에</tspan><tspan x="491.5" dy="18">출력한다.</tspan></text>
+      <text x="491.5" y="2477" font-size="11" font-weight="650" fill="#627169">수상 업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="2503" width="270" height="149" rx="8" fill="#fff8e8" stroke="#d9901a" stroke-width="2.3"/>
+      <rect x="476.5" y="2503" width="6" height="149" rx="3" fill="#d9901a"/>
+      <text x="491.5" y="2523" font-size="12.5" font-weight="750" fill="#a96008">P14</text>
+      <rect x="686.5" y="2510" width="50" height="24" rx="5" fill="#d9901a" opacity="0.14"/>
+      <text x="711.5" y="2527" text-anchor="middle" font-size="12" font-weight="800" fill="#7a4305">병목</text>
+      <text x="491.5" y="2547" font-size="10" font-weight="750" fill="#a96008"><tspan x="491.5" dy="0">[학생생활-수상경력-수상대장관리-상장출력]</tspan></text>
+      <text x="491.5" y="2571" font-size="15.5" font-weight="800" fill="#7a4305"><tspan x="491.5" dy="0">외국인 학생 이름이 끝까지</tspan><tspan x="491.5" dy="18">출력되지 않으면 출력 후</tspan><tspan x="491.5" dy="18">한글파일(HWP)로 내려받아</tspan><tspan x="491.5" dy="18">성명을 편집하여 다시 출력한다.</tspan></text>
+      <text x="491.5" y="2642" font-size="11" font-weight="650" fill="#a96008">수상 업무담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="2660" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="1243.5" y="2660" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="1258.5" y="2680" font-size="12.5" font-weight="750" fill="#287a5c">P15</text>
+      <rect x="1453.5" y="2667" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1478.5" y="2684" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="1258.5" y="2704" font-size="9" font-weight="750" fill="#287a5c"><tspan x="1258.5" dy="0">[업무승인관리-업무승인-결재현황관리-결재현황판관리]</tspan></text>
+      <text x="1258.5" y="2728" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="1258.5" dy="0">결재현황판관리에서 해당</tspan><tspan x="1258.5" dy="18">수상문서의 기안자를 찾아</tspan><tspan x="1258.5" dy="18">상신기간을 설정하여 조회한다.</tspan></text>
+      <text x="1258.5" y="2781" font-size="11" font-weight="650" fill="#287a5c">학교업무분장관리자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="2807" width="270" height="162" rx="8" fill="#edf4ff" stroke="#3478db" stroke-width="2.3"/>
+      <rect x="1243.5" y="2807" width="6" height="162" rx="3" fill="#3478db"/>
+      <text x="1258.5" y="2827" font-size="12.5" font-weight="750" fill="#316bbd">P16</text>
+      <rect x="1453.5" y="2814" width="50" height="24" rx="5" fill="#3478db" opacity="0.14"/>
+      <text x="1478.5" y="2831" text-anchor="middle" font-size="12" font-weight="800" fill="#173f7a">회귀</text>
+      <text x="1258.5" y="2851" font-size="8" font-weight="750" fill="#316bbd"><tspan x="1258.5" dy="0">[업무승인관리-업무승인-결재현황관리-결재현황판관리-결재문서</tspan><tspan x="1258.5" dy="13">삭제]</tspan></text>
+      <text x="1258.5" y="2888" font-size="15.5" font-weight="800" fill="#173f7a"><tspan x="1258.5" dy="0">수정해야 할 결재문서명을</tspan><tspan x="1258.5" dy="18">선택하여 삭제하고, 결재문서삭제</tspan><tspan x="1258.5" dy="18">창에서 삭제사유를 등록하여</tspan><tspan x="1258.5" dy="18">삭제한다.</tspan></text>
+      <text x="1258.5" y="2959" font-size="11" font-weight="650" fill="#316bbd">학교업무분장관리자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="2749" width="270" height="131" rx="8" fill="#edf4ff" stroke="#3478db" stroke-width="2.3"/>
+      <rect x="476.5" y="2749" width="6" height="131" rx="3" fill="#3478db"/>
+      <text x="491.5" y="2769" font-size="12.5" font-weight="750" fill="#316bbd">P17</text>
+      <rect x="686.5" y="2756" width="50" height="24" rx="5" fill="#3478db" opacity="0.14"/>
+      <text x="711.5" y="2773" text-anchor="middle" font-size="12" font-weight="800" fill="#173f7a">회귀</text>
+      <text x="491.5" y="2793" font-size="10" font-weight="750" fill="#316bbd"><tspan x="491.5" dy="0">[학생생활-수상경력-수상대장관리]</tspan></text>
+      <text x="491.5" y="2817" font-size="15.5" font-weight="800" fill="#173f7a"><tspan x="491.5" dy="0">결재문서 삭제 후</tspan><tspan x="491.5" dy="18">수상대장관리에서 해당 수상 건을</tspan><tspan x="491.5" dy="18">새로 등록·수정한다.</tspan></text>
+      <text x="491.5" y="2870" font-size="11" font-weight="650" fill="#316bbd">수상 업무담당교사</text>
+    </g>
+  
+<rect x="38" y="2995" width="617.3" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="3033" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="3017" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="3032" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="3017" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="3032" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="3017" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="3032" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="3017" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="3032" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="3025" x2="522" y2="3025" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="536" y="3031" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

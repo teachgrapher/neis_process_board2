@@ -1,0 +1,271 @@
+<!-- 학적변동 등록 및 승인 처리 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>학적변동 등록 및 승인 처리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"학적변동 등록 및 승인 처리","subtitle":"반변경·조기진급·추가입학 등 학적변동 대상자를 등록해 승인요청하고 결재 완료 후 학적반영하며 학생이동부와 학적현황을 조회한다.","lanes":["학급담임교사","학적담당자","결재권자(교감/교장)"],"stages":["대상자 등록","승인요청","결재 완료","학적반영","현황·이동부 조회"],"nodes":[{"id":"P01","lane":"학급담임교사","stage":"대상자 등록","label":"학생을 선택해 부전공과 세부전공을 입력하고 저장한다.","menu":"[학급담임-학적-기본학적관리-부전공/세부전공등록]","emphasis":"lead"},{"id":"P02","lane":"학적담당자","stage":"대상자 등록","label":"미반영된 자료를 조회한 뒤 반변경 등록창에서 학생을 선택하고 변경후 계열·학과·반·번호를 설정해 저장한다.","menu":"[학적-기본학적관리-계열/학과/반변경]","emphasis":"lead"},{"id":"P03","lane":"학적담당자","stage":"대상자 등록","label":"조기진급부적응자 등록창에서 대상 학년의 학생을 조회·선택하여 저장한다.","menu":"[학적-기본학적관리-조기진급부적응자관리]","emphasis":"normal"},{"id":"P04","lane":"학적담당자","stage":"승인요청","label":"등록한 반변경 내역에 대해 승인요청으로 결재권자에게 상신한다.","menu":"[학적-기본학적관리-계열/학과/반변경]","emphasis":"lead"},{"id":"P05","lane":"학적담당자","stage":"승인요청","label":"미반영된 자료를 추가하여 학적변동구분·학적변동사유·학적반영일자·인적사항을 입력·저장한 뒤 승인요청으로 상신한다.","menu":"[학적-기본학적관리-추가입학/입력누락자등록]","emphasis":"loop"},{"id":"P06","lane":"결재권자(교감/교장)","stage":"결재 완료","label":"상신된 반변경 요청을 검토하여 결재를 완료한다.","menu":"[승인사항-결재함]","emphasis":"normal"},{"id":"P07","lane":"결재권자(교감/교장)","stage":"결재 완료","label":"상신된 조기진급·부적응자 및 추가입학/입력누락자 요청을 검토하여 결재를 완료한다.","menu":"[승인사항-결재함]","emphasis":"normal"},{"id":"P08","lane":"학적담당자","stage":"학적반영","label":"결재 완료된 반변경 대상자를 선택해 학적반영하고 개설과목 변경창에서 변경후 과목명·강의실을 선택해 반영한다.","menu":"[학적-기본학적관리-계열/학과/반변경]","emphasis":"key"},{"id":"P09","lane":"학적담당자","stage":"학적반영","label":"결재 완료된 조기진급·부적응자와 추가입학/입력누락자를 학적반영하고, 서류를 참고해 인적사항을 항목별로 입력·저장한다.","menu":"[학적-기본학적관리-조기진급부적응자관리]","emphasis":"normal"},{"id":"P10","lane":"학적담당자","stage":"현황·이동부 조회","label":"학년도·학년·기간과 학적변동구분을 설정해 학생이동부를 조회한 뒤 오류가 있는 학생의 변동일자·변동구분·이동사유를 수정하여 저장한다.","menu":"[학적-기본학적관리-학생이동부]","emphasis":"normal"},{"id":"P11","lane":"학적담당자","stage":"현황·이동부 조회","label":"학년도·계열·학년·학적구분·학적변동구분을 선택해 학적현황을 조회하고 출력한다.","menu":"[학적-기본학적관리-학적현황조회]","emphasis":"normal"}],"edges":[{"id":"L01","source":"P06","target":"P02","type":"loop","label":"반려 시 재등록"},{"id":"L02","source":"P07","target":"P05","type":"loop","label":"반려 시 재등록"},{"id":"L03","source":"P10","target":"P02","type":"loop","label":"학적변동 오류 정정"}]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2400" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 11 · 레인 3 · 게이트 5</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">학적변동 등록 및 승인 처리</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">반변경·조기진급·추가입학 등 학적변동 대상자를 등록해 승인요청하고 결재 완료 후 학적반영하며 학생이동부와 학적현황을 조회한다.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="1940" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="357.2" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="357.2" fill="#eef3f0"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">대상자 등록</tspan></text>
+<rect x="38" y="717.2" width="1724" height="357.2" fill="#f5f8f6"/>
+<rect x="38" y="717.2" width="190" height="357.2" fill="#eef3f0"/>
+<text x="58" y="749.2" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="782.2" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">승인요청</tspan></text>
+<rect x="38" y="1074.4" width="1724" height="321.2" fill="#fbfcfb"/>
+<rect x="38" y="1074.4" width="190" height="321.2" fill="#eef3f0"/>
+<text x="58" y="1106.4" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1139.4" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">결재 완료</tspan></text>
+<rect x="38" y="1395.6" width="1724" height="411.2" fill="#84baa9"/>
+<rect x="38" y="1395.6" width="190" height="411.2" fill="#087452"/>
+<text x="58" y="1427.6" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1460.6" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">학적반영</tspan></text>
+<rect x="38" y="1806.8" width="1724" height="393.2" fill="#fbfcfb"/>
+<rect x="38" y="1806.8" width="190" height="393.2" fill="#eef3f0"/>
+<text x="58" y="1838.8" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1871.8" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">현황·이동부 조회</tspan></text>
+<rect x="228" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="511.3" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">학급담임교사</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">학급담임교사</tspan></text>
+<rect x="739.3" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="739.3" y="260" width="511.3" height="7" fill="#3b82f6"/>
+<text x="759.3" y="299" font-size="20" font-weight="800" fill="#17231d">학적담당자</text>
+<text x="759.3" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="759.3" dy="0">학적담당자</tspan></text>
+<rect x="1250.7" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="1250.7" y="260" width="511.3" height="7" fill="#c78116"/>
+<text x="1270.7" y="299" font-size="20" font-weight="800" fill="#17231d">결재권자</text>
+<text x="1270.7" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1270.7" dy="0">결재권자(교감/교장)</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="739.3" y1="260" x2="739.3" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1250.7" y1="260" x2="1250.7" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="717.2" x2="1762" y2="717.2" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1074.4" x2="1762" y2="1074.4" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1395.6" x2="1762" y2="1395.6" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1806.8" x2="1762" y2="1806.8" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2200" x2="1762" y2="2200" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 1371.3 1157.5 H 838 V 461.1 H 852" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 1371.3 1157.5 H 838 V 461.1 H 852" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 1371.3 1306 H 176 V 1054.4 H 995 V 1055.8" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 1371.3 1306 H 176 V 1054.4 H 995 V 1055.8" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 860 1925.9 H 844 V 461.1 H 852" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 860 1925.9 H 844 V 461.1 H 852" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="708.1" y="794.3" width="119.8" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="768" y="814.3" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">반려 시 재등록</text>
+<rect x="186.1" y="1200" width="119.8" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="246" y="1220" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">반려 시 재등록</text>
+<rect x="770.1" y="1178.5" width="147.8" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="844" y="1198.5" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">학적변동 오류 정정</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="482.1" width="270" height="113" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="348.7" y="482.1" width="6" height="113" rx="3" fill="#35a77d"/>
+      <text x="363.7" y="502.1" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="558.7" y="489.1" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="583.7" y="506.1" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="363.7" y="526.1" font-size="10" font-weight="750" fill="#287a5c"><tspan x="363.7" dy="0">[학급담임-학적-기본학적관리-부전공/세부전공등록]</tspan></text>
+      <text x="363.7" y="550.1" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="363.7" dy="0">학생을 선택해 부전공과</tspan><tspan x="363.7" dy="18">세부전공을 입력하고 저장한다.</tspan></text>
+      <text x="363.7" y="585.1" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="386.6" width="270" height="149" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="860" y="386.6" width="6" height="149" rx="3" fill="#35a77d"/>
+      <text x="875" y="406.6" font-size="12.5" font-weight="750" fill="#287a5c">P02</text>
+      <rect x="1070" y="393.6" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1095" y="410.6" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="875" y="430.6" font-size="10" font-weight="750" fill="#287a5c"><tspan x="875" dy="0">[학적-기본학적관리-계열/학과/반변경]</tspan></text>
+      <text x="875" y="454.6" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="875" dy="0">미반영된 자료를 조회한 뒤 반변경</tspan><tspan x="875" dy="18">등록창에서 학생을 선택하고</tspan><tspan x="875" dy="18">변경후 계열·학과·반·번호를</tspan><tspan x="875" dy="18">설정해 저장한다.</tspan></text>
+      <text x="875" y="525.6" font-size="11" font-weight="650" fill="#287a5c">학적담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="559.6" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="860" y="559.6" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="875" y="579.6" font-size="12.5" font-weight="750" fill="#627169">P03</text>
+      <rect x="1070" y="566.6" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1095" y="583.6" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="875" y="603.6" font-size="10" font-weight="750" fill="#627169"><tspan x="875" dy="0">[학적-기본학적관리-조기진급부적응자관리]</tspan></text>
+      <text x="875" y="627.6" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="875" dy="0">조기진급부적응자 등록창에서</tspan><tspan x="875" dy="18">대상 학년의 학생을</tspan><tspan x="875" dy="18">조회·선택하여 저장한다.</tspan></text>
+      <text x="875" y="680.6" font-size="11" font-weight="650" fill="#627169">학적담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="743.8" width="270" height="131" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="860" y="743.8" width="6" height="131" rx="3" fill="#35a77d"/>
+      <text x="875" y="763.8" font-size="12.5" font-weight="750" fill="#287a5c">P04</text>
+      <rect x="1070" y="750.8" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1095" y="767.8" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="875" y="787.8" font-size="10" font-weight="750" fill="#287a5c"><tspan x="875" dy="0">[학적-기본학적관리-계열/학과/반변경]</tspan></text>
+      <text x="875" y="811.8" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="875" dy="0">등록한 반변경 내역에 대해</tspan><tspan x="875" dy="18">승인요청으로 결재권자에게</tspan><tspan x="875" dy="18">상신한다.</tspan></text>
+      <text x="875" y="864.8" font-size="11" font-weight="650" fill="#287a5c">학적담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="898.8" width="270" height="149" rx="8" fill="#edf4ff" stroke="#3478db" stroke-width="2.3"/>
+      <rect x="860" y="898.8" width="6" height="149" rx="3" fill="#3478db"/>
+      <text x="875" y="918.8" font-size="12.5" font-weight="750" fill="#316bbd">P05</text>
+      <rect x="1070" y="905.8" width="50" height="24" rx="5" fill="#3478db" opacity="0.14"/>
+      <text x="1095" y="922.8" text-anchor="middle" font-size="12" font-weight="800" fill="#173f7a">회귀</text>
+      <text x="875" y="942.8" font-size="10" font-weight="750" fill="#316bbd"><tspan x="875" dy="0">[학적-기본학적관리-추가입학/입력누락자등록]</tspan></text>
+      <text x="875" y="966.8" font-size="15.5" font-weight="800" fill="#173f7a"><tspan x="875" dy="0">미반영된 자료를 추가하여</tspan><tspan x="875" dy="18">학적변동구분·학적변동사유·학적</tspan><tspan x="875" dy="18">반영일자·인적사항을 입력·저장한</tspan><tspan x="875" dy="18">뒤 승인요청으로 상신한다.</tspan></text>
+      <text x="875" y="1037.8" font-size="11" font-weight="650" fill="#316bbd">학적담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1371.3" y="1101" width="270" height="113" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1371.3" y="1101" width="6" height="113" rx="3" fill="#b9c7bf"/>
+      <text x="1386.3" y="1121" font-size="12.5" font-weight="750" fill="#627169">P06</text>
+      <rect x="1581.3" y="1108" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1606.3" y="1125" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1386.3" y="1145" font-size="10" font-weight="750" fill="#627169"><tspan x="1386.3" dy="0">[승인사항-결재함]</tspan></text>
+      <text x="1386.3" y="1169" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1386.3" dy="0">상신된 반변경 요청을 검토하여</tspan><tspan x="1386.3" dy="18">결재를 완료한다.</tspan></text>
+      <text x="1386.3" y="1204" font-size="11" font-weight="650" fill="#627169">결재권자(교감/교장)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1371.3" y="1238" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1371.3" y="1238" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="1386.3" y="1258" font-size="12.5" font-weight="750" fill="#627169">P07</text>
+      <rect x="1581.3" y="1245" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1606.3" y="1262" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1386.3" y="1282" font-size="10" font-weight="750" fill="#627169"><tspan x="1386.3" dy="0">[승인사항-결재함]</tspan></text>
+      <text x="1386.3" y="1306" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1386.3" dy="0">상신된 조기진급·부적응자 및</tspan><tspan x="1386.3" dy="18">추가입학/입력누락자 요청을</tspan><tspan x="1386.3" dy="18">검토하여 결재를 완료한다.</tspan></text>
+      <text x="1386.3" y="1359" font-size="11" font-weight="650" fill="#627169">결재권자(교감/교장)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="1422.2" width="270" height="167" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="860" y="1422.2" width="6" height="167" rx="3" fill="#087452"/>
+      <text x="875" y="1442.2" font-size="12.5" font-weight="750" fill="#d8f4e8">P08</text>
+      <rect x="1070" y="1429.2" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1095" y="1446.2" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="875" y="1466.2" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="875" dy="0">[학적-기본학적관리-계열/학과/반변경]</tspan></text>
+      <text x="875" y="1490.2" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="875" dy="0">결재 완료된 반변경 대상자를</tspan><tspan x="875" dy="18">선택해 학적반영하고 개설과목</tspan><tspan x="875" dy="18">변경창에서 변경후</tspan><tspan x="875" dy="18">과목명·강의실을 선택해</tspan><tspan x="875" dy="18">반영한다.</tspan></text>
+      <text x="875" y="1579.2" font-size="11" font-weight="650" fill="#d8f4e8">학적담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="1613.2" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="860" y="1613.2" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="875" y="1633.2" font-size="12.5" font-weight="750" fill="#627169">P09</text>
+      <rect x="1070" y="1620.2" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1095" y="1637.2" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="875" y="1657.2" font-size="10" font-weight="750" fill="#627169"><tspan x="875" dy="0">[학적-기본학적관리-조기진급부적응자관리]</tspan></text>
+      <text x="875" y="1681.2" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="875" dy="0">결재 완료된 조기진급·부적응자와</tspan><tspan x="875" dy="18">추가입학/입력누락자를</tspan><tspan x="875" dy="18">학적반영하고, 서류를 참고해</tspan><tspan x="875" dy="18">인적사항을 항목별로</tspan><tspan x="875" dy="18">입력·저장한다.</tspan></text>
+      <text x="875" y="1770.2" font-size="11" font-weight="650" fill="#627169">학적담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="1833.4" width="270" height="185" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="860" y="1833.4" width="6" height="185" rx="3" fill="#b9c7bf"/>
+      <text x="875" y="1853.4" font-size="12.5" font-weight="750" fill="#627169">P10</text>
+      <rect x="1070" y="1840.4" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1095" y="1857.4" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="875" y="1877.4" font-size="10" font-weight="750" fill="#627169"><tspan x="875" dy="0">[학적-기본학적관리-학생이동부]</tspan></text>
+      <text x="875" y="1901.4" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="875" dy="0">학년도·학년·기간과</tspan><tspan x="875" dy="18">학적변동구분을 설정해</tspan><tspan x="875" dy="18">학생이동부를 조회한 뒤 오류가</tspan><tspan x="875" dy="18">있는 학생의</tspan><tspan x="875" dy="18">변동일자·변동구분·이동사유를</tspan><tspan x="875" dy="18">수정하여 저장한다.</tspan></text>
+      <text x="875" y="2008.4" font-size="11" font-weight="650" fill="#627169">학적담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="2042.4" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="860" y="2042.4" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="875" y="2062.4" font-size="12.5" font-weight="750" fill="#627169">P11</text>
+      <rect x="1070" y="2049.4" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1095" y="2066.4" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="875" y="2086.4" font-size="10" font-weight="750" fill="#627169"><tspan x="875" dy="0">[학적-기본학적관리-학적현황조회]</tspan></text>
+      <text x="875" y="2110.4" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="875" dy="0">학년도·계열·학년·학적구분·학적</tspan><tspan x="875" dy="18">변동구분을 선택해 학적현황을</tspan><tspan x="875" dy="18">조회하고 출력한다.</tspan></text>
+      <text x="875" y="2163.4" font-size="11" font-weight="650" fill="#627169">학적담당자</text>
+    </g>
+  
+<rect x="38" y="2222" width="617.3" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2260" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2244" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2259" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2244" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2259" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2244" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2259" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2244" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2259" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2252" x2="522" y2="2252" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="536" y="2258" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

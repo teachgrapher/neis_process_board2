@@ -1,0 +1,333 @@
+<!-- 학생 기본신상·사진·명렬표·주소 관리 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>학생 기본신상·사진·명렬표·주소 관리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto; margin:0 auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"학생 기본신상·사진·명렬표·주소 관리","subtitle":"학급담임교사가 학생의 인적사항과 사진·명렬표를 확인·등록하고, 행정안전부 주민등록정보시스템과 연계해 주소를 갱신·반영하는 절차.","lanes":["학급담임교사","학생/학부모","나이스시스템(행정안전부 연계)"],"stages":["인적사항 확인","학적·이력 확인","사진 등록","명렬표 출력","주소 등록·연계","연계결과 확인·반영","연계이력·현황 조회"],"nodes":[{"id":"P01","lane":"학급담임교사","stage":"인적사항 확인","label":"기본신상관리에서 '학년도', '학년', '반' 확인 후 '기본신상'을 선택해 조회하고, 성명·주민등록번호·성별 등 기본 인적사항의 이상 유무(동명이인·반편성 오류 등)를 확인한다.","menu":"[학적-기본학적관리-기본신상관리-기본신상]","emphasis":"lead"},{"id":"P02","lane":"학급담임교사","stage":"인적사항 확인","label":"학생 성명을 클릭하고 누가주소등록 탭에서 등록·주소찾기로 도로명주소를 검색해 입력하고 저장한다.","menu":"[학적-기본학적관리-기본신상관리-누가주소등록]","emphasis":"normal"},{"id":"P03","lane":"학급담임교사","stage":"학적·이력 확인","label":"학적사항 탭에서 학년도·변동일자·학년·학적변동구분·학적변동사유·관련학교명과 학적특기사항(면제·자퇴·퇴학·휴학·유급 등)을 확인한다.","menu":"[학적-기본학적관리-기본신상관리-학적사항]","emphasis":"normal"},{"id":"P04","lane":"학급담임교사","stage":"학적·이력 확인","label":"학년반이력조회 탭에서 학년·반·번호·담임성명을 확인한다.","menu":"[학적-기본학적관리-기본신상관리-학년반이력조회]","emphasis":"normal"},{"id":"P05","lane":"학급담임교사","stage":"사진 등록","label":"사진일괄입력에서 학년도·계열/학년/학과·반 확인 후 사진일괄올리기로 '성명(번호)' 형식의 학생 사진 파일을 일괄 선택해 업로드하고 저장한다.","menu":"[학적-기본학적관리-사진일괄입력]","emphasis":"lead"},{"id":"P06","lane":"학급담임교사","stage":"사진 등록","label":"기본신상 탭에서 찾아보기&변환을 클릭해 나타나는 열기 창에서 개별 학생 사진을 선택해 등록하고 저장한다.","menu":"[학적-기본학적관리-기본신상관리-기본신상]","emphasis":"normal"},{"id":"P07","lane":"학급담임교사","stage":"명렬표 출력","label":"명렬표출력에서 학년도·학년·반 확인 후 조회하고, 필요시 명렬표내용선택으로 제목과 항목을 지정해 출력한다.","menu":"[학적-기본학적관리-명렬표출력]","emphasis":"normal"},{"id":"P08","lane":"학급담임교사","stage":"명렬표 출력","label":"사진명렬표출력을 클릭해 조회된 반 전체 학생의 사진명렬표를 확인·출력하여 학생 사진의 이상 유무를 점검한다.","menu":"[학적-기본학적관리-명렬표출력-사진명렬표출력]","emphasis":"normal"},{"id":"P09","lane":"학생/학부모","stage":"주소 등록·연계","label":"행정정보 공동이용 사전 동의서를 작성해 학급담임교사에게 제출한다.","emphasis":"lead"},{"id":"P10","lane":"학급담임교사","stage":"주소 등록·연계","label":"학생주소연계의 연계대상자관리 탭에서 학년도·학년·반 확인 후 '진행상태'를 선택해 연계대상 학생을 조회한다.","menu":"[학적-기본학적관리-학생주소연계-연계대상자관리]","emphasis":"normal"},{"id":"P11","lane":"학급담임교사","stage":"주소 등록·연계","label":"연계대상 학생을 선택하고 승인및자료요청을 클릭해 기안문서상신 창에서 결재경로를 지정해 상신하고, 결재권자의 결재를 완료한다.","menu":"[학적-기본학적관리-학생주소연계-연계대상자관리]","emphasis":"key"},{"id":"P12","lane":"나이스시스템(행정안전부 연계)","stage":"주소 등록·연계","label":"결재 완료된 건에 대해 학생 성명·주민등록번호를 주민등록정보시스템으로 송신하고, 해당 학생의 주소 정보를 수신한다. 학생주소정보 요청기간(3~4월, 9~10월초)에만 처리된다.","emphasis":"bottleneck"},{"id":"P13","lane":"학급담임교사","stage":"연계결과 확인·반영","label":"학생주소연계의 연계결과확인및반영 탭에서 학년도·학년·반 확인 후 '전송결과'를 선택해 수신된 학생주소정보를 조회한다.","menu":"[학적-기본학적관리-학생주소연계-연계결과확인및반영]","emphasis":"normal"},{"id":"P14","lane":"학급담임교사","stage":"연계결과 확인·반영","label":"연계주소를 반영할 학생을 선택해 자료반영을 클릭하여 학교생활기록부 인적·학적사항의 학생정보에 반영한다.","menu":"[학적-기본학적관리-학생주소연계-연계결과확인및반영]","emphasis":"key"},{"id":"P15","lane":"학급담임교사","stage":"연계이력·현황 조회","label":"학생주소연계이력조회에서 학년도·학년·반 확인 후 '요청일자'를 설정해 조회하고 필요시 출력한다.","menu":"[학적-기본학적관리-학생주소연계이력조회]","emphasis":"normal"},{"id":"P16","lane":"학급담임교사","stage":"연계이력·현황 조회","label":"학생주소연계조회현황에서 학년도 확인 후 '기간'을 설정해 조회하여 요청건수·수신건수·반영건수를 확인한다.","menu":"[학적-기본학적관리-학생주소연계조회현황]","emphasis":"normal"}],"edges":[{"id":"L01","source":"P11","target":"P10","type":"loop","label":"회수·반려 시 재상신"}]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2976" viewBox="0 0 1800 2976">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2976" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 16 · 레인 3 · 게이트 7</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">학생 기본신상·사진·명렬표·주소 관리</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">학급담임교사가 학생의 인적사항과 사진·명렬표를 확인·등록하고, 행정안전부 주민등록정보시스템과 연계해 주소를 갱신·반영하는 절차.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="2516" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="376" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="376" fill="#eef3f0"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">인적사항 확인</tspan></text>
+<rect x="38" y="736" width="1724" height="322" fill="#f5f8f6"/>
+<rect x="38" y="736" width="190" height="322" fill="#eef3f0"/>
+<text x="58" y="768" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="801" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">학적·이력 확인</tspan></text>
+<rect x="38" y="1058" width="1724" height="376" fill="#fbfcfb"/>
+<rect x="38" y="1058" width="190" height="376" fill="#eef3f0"/>
+<text x="58" y="1090" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1123" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">사진 등록</tspan></text>
+<rect x="38" y="1434" width="1724" height="322" fill="#f5f8f6"/>
+<rect x="38" y="1434" width="190" height="322" fill="#eef3f0"/>
+<text x="58" y="1466" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1499" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">명렬표 출력</tspan></text>
+<rect x="38" y="1756" width="1724" height="340" fill="#84baa9"/>
+<rect x="38" y="1756" width="190" height="340" fill="#087452"/>
+<text x="58" y="1788" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1821" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">주소 등록·연계</tspan></text>
+<rect x="38" y="2096" width="1724" height="340" fill="#84baa9"/>
+<rect x="38" y="2096" width="190" height="340" fill="#087452"/>
+<text x="58" y="2128" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="2161" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">연계결과</tspan><tspan x="58" dy="22">확인·반영</tspan></text>
+<rect x="38" y="2436" width="1724" height="340" fill="#fbfcfb"/>
+<rect x="38" y="2436" width="190" height="340" fill="#eef3f0"/>
+<text x="58" y="2468" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="2501" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">연계이력·현황</tspan><tspan x="58" dy="22">조회</tspan></text>
+<rect x="228" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="511.3" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">학급담임교사</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">학급담임교사</tspan></text>
+<rect x="739.3" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="739.3" y="260" width="511.3" height="7" fill="#3b82f6"/>
+<text x="759.3" y="299" font-size="20" font-weight="800" fill="#17231d">학생·학부모</text>
+<text x="759.3" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="759.3" dy="0">학생/학부모</tspan></text>
+<rect x="1250.7" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="1250.7" y="260" width="511.3" height="7" fill="#c78116"/>
+<text x="1270.7" y="299" font-size="20" font-weight="800" fill="#17231d">나이스시스템</text>
+<text x="1270.7" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1270.7" dy="0">나이스시스템(행정안전부 연계)</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2776" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="739.3" y1="260" x2="739.3" y2="2776" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1250.7" y1="260" x2="1250.7" y2="2776" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2776" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="736" x2="1762" y2="736" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1058" x2="1762" y2="1058" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1434" x2="1762" y2="1434" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1756" x2="1762" y2="1756" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2096" x2="1762" y2="2096" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2436" x2="1762" y2="2436" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2776" x2="1762" y2="2776" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 348.7 2008.5 H 216 V 1834.5 H 340.7" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 348.7 2008.5 H 216 V 1834.5 H 340.7" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="128.6" y="1906.5" width="154.8" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="206" y="1926.5" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">회수·반려 시 재상신</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="364" width="270" height="203" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="348.7" y="364" width="6" height="203" rx="3" fill="#35a77d"/>
+      <text x="363.7" y="384" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="558.7" y="371" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="583.7" y="388" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="363.7" y="408" font-size="10" font-weight="750" fill="#287a5c"><tspan x="363.7" dy="0">[학적-기본학적관리-기본신상관리-기본신상]</tspan></text>
+      <text x="363.7" y="432" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="363.7" dy="0">기본신상관리에서 &apos;학년도&apos;,</tspan><tspan x="363.7" dy="18">&apos;학년&apos;, &apos;반&apos; 확인 후</tspan><tspan x="363.7" dy="18">&apos;기본신상&apos;을 선택해 조회하고,</tspan><tspan x="363.7" dy="18">성명·주민등록번호·성별 등 기본</tspan><tspan x="363.7" dy="18">인적사항의 이상</tspan><tspan x="363.7" dy="18">유무(동명이인·반편성 오류 등)를</tspan><tspan x="363.7" dy="18">확인한다.</tspan></text>
+      <text x="363.7" y="557" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="583" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="583" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="603" font-size="12.5" font-weight="750" fill="#627169">P02</text>
+      <rect x="558.7" y="590" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="607" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="627" font-size="10" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학적-기본학적관리-기본신상관리-누가주소등록]</tspan></text>
+      <text x="363.7" y="651" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">학생 성명을 클릭하고</tspan><tspan x="363.7" dy="18">누가주소등록 탭에서</tspan><tspan x="363.7" dy="18">등록·주소찾기로 도로명주소를</tspan><tspan x="363.7" dy="18">검색해 입력하고 저장한다.</tspan></text>
+      <text x="363.7" y="722" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="740" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="740" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="760" font-size="12.5" font-weight="750" fill="#627169">P03</text>
+      <rect x="558.7" y="747" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="764" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="784" font-size="10" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학적-기본학적관리-기본신상관리-학적사항]</tspan></text>
+      <text x="363.7" y="808" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">학적사항 탭에서</tspan><tspan x="363.7" dy="18">학년도·변동일자·학년·학적변동</tspan><tspan x="363.7" dy="18">구분·학적변동사유·관련학교명과</tspan><tspan x="363.7" dy="18">학적특기사항(면제·자퇴·퇴학·휴</tspan><tspan x="363.7" dy="18">학·유급 등)을 확인한다.</tspan></text>
+      <text x="363.7" y="897" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="923" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="923" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="943" font-size="12.5" font-weight="750" fill="#627169">P04</text>
+      <rect x="558.7" y="930" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="947" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="967" font-size="10" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학적-기본학적관리-기본신상관리-학년반이력조회]</tspan></text>
+      <text x="363.7" y="991" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">학년반이력조회 탭에서</tspan><tspan x="363.7" dy="18">학년·반·번호·담임성명을</tspan><tspan x="363.7" dy="18">확인한다.</tspan></text>
+      <text x="363.7" y="1044" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="1062" width="270" height="185" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="348.7" y="1062" width="6" height="185" rx="3" fill="#35a77d"/>
+      <text x="363.7" y="1082" font-size="12.5" font-weight="750" fill="#287a5c">P05</text>
+      <rect x="558.7" y="1069" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="583.7" y="1086" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="363.7" y="1106" font-size="10" font-weight="750" fill="#287a5c"><tspan x="363.7" dy="0">[학적-기본학적관리-사진일괄입력]</tspan></text>
+      <text x="363.7" y="1130" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="363.7" dy="0">사진일괄입력에서</tspan><tspan x="363.7" dy="18">학년도·계열/학년/학과·반 확인</tspan><tspan x="363.7" dy="18">후 사진일괄올리기로</tspan><tspan x="363.7" dy="18">&apos;성명(번호)&apos; 형식의 학생 사진</tspan><tspan x="363.7" dy="18">파일을 일괄 선택해 업로드하고</tspan><tspan x="363.7" dy="18">저장한다.</tspan></text>
+      <text x="363.7" y="1237" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="1263" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="1263" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="1283" font-size="12.5" font-weight="750" fill="#627169">P06</text>
+      <rect x="558.7" y="1270" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="1287" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="1307" font-size="10" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학적-기본학적관리-기본신상관리-기본신상]</tspan></text>
+      <text x="363.7" y="1331" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">기본신상 탭에서</tspan><tspan x="363.7" dy="18">찾아보기&amp;변환을 클릭해</tspan><tspan x="363.7" dy="18">나타나는 열기 창에서 개별 학생</tspan><tspan x="363.7" dy="18">사진을 선택해 등록하고</tspan><tspan x="363.7" dy="18">저장한다.</tspan></text>
+      <text x="363.7" y="1420" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="1438" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="1438" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="1458" font-size="12.5" font-weight="750" fill="#627169">P07</text>
+      <rect x="558.7" y="1445" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="1462" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="1482" font-size="10" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학적-기본학적관리-명렬표출력]</tspan></text>
+      <text x="363.7" y="1506" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">명렬표출력에서 학년도·학년·반</tspan><tspan x="363.7" dy="18">확인 후 조회하고, 필요시</tspan><tspan x="363.7" dy="18">명렬표내용선택으로 제목과</tspan><tspan x="363.7" dy="18">항목을 지정해 출력한다.</tspan></text>
+      <text x="363.7" y="1577" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="1603" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="1603" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="1623" font-size="12.5" font-weight="750" fill="#627169">P08</text>
+      <rect x="558.7" y="1610" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="1627" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="1647" font-size="10" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학적-기본학적관리-명렬표출력-사진명렬표출력]</tspan></text>
+      <text x="363.7" y="1671" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">사진명렬표출력을 클릭해 조회된</tspan><tspan x="363.7" dy="18">반 전체 학생의 사진명렬표를</tspan><tspan x="363.7" dy="18">확인·출력하여 학생 사진의 이상</tspan><tspan x="363.7" dy="18">유무를 점검한다.</tspan></text>
+      <text x="363.7" y="1742" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="1870" width="270" height="112" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="860" y="1870" width="6" height="112" rx="3" fill="#35a77d"/>
+      <text x="875" y="1890" font-size="12.5" font-weight="750" fill="#287a5c">P09</text>
+      <rect x="1070" y="1877" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1095" y="1894" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      
+      <text x="875" y="1919" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="875" dy="0">행정정보 공동이용 사전 동의서를</tspan><tspan x="875" dy="18">작성해 학급담임교사에게</tspan><tspan x="875" dy="18">제출한다.</tspan></text>
+      <text x="875" y="1972" font-size="11" font-weight="650" fill="#287a5c">학생/학부모</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="1760" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="1760" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="1780" font-size="12.5" font-weight="750" fill="#627169">P10</text>
+      <rect x="558.7" y="1767" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="1784" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="1804" font-size="10" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학적-기본학적관리-학생주소연계-연계대상자관리]</tspan></text>
+      <text x="363.7" y="1828" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">학생주소연계의 연계대상자관리</tspan><tspan x="363.7" dy="18">탭에서 학년도·학년·반 확인 후</tspan><tspan x="363.7" dy="18">&apos;진행상태&apos;를 선택해 연계대상</tspan><tspan x="363.7" dy="18">학생을 조회한다.</tspan></text>
+      <text x="363.7" y="1899" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="1925" width="270" height="167" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="348.7" y="1925" width="6" height="167" rx="3" fill="#087452"/>
+      <text x="363.7" y="1945" font-size="12.5" font-weight="750" fill="#d8f4e8">P11</text>
+      <rect x="558.7" y="1932" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="583.7" y="1949" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="363.7" y="1969" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="363.7" dy="0">[학적-기본학적관리-학생주소연계-연계대상자관리]</tspan></text>
+      <text x="363.7" y="1993" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="363.7" dy="0">연계대상 학생을 선택하고</tspan><tspan x="363.7" dy="18">승인및자료요청을 클릭해</tspan><tspan x="363.7" dy="18">기안문서상신 창에서 결재경로를</tspan><tspan x="363.7" dy="18">지정해 상신하고, 결재권자의</tspan><tspan x="363.7" dy="18">결재를 완료한다.</tspan></text>
+      <text x="363.7" y="2082" font-size="11" font-weight="650" fill="#d8f4e8">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1371.3" y="1834" width="270" height="184" rx="8" fill="#fff8e8" stroke="#d9901a" stroke-width="2.3"/>
+      <rect x="1371.3" y="1834" width="6" height="184" rx="3" fill="#d9901a"/>
+      <text x="1386.3" y="1854" font-size="12.5" font-weight="750" fill="#a96008">P12</text>
+      <rect x="1581.3" y="1841" width="50" height="24" rx="5" fill="#d9901a" opacity="0.14"/>
+      <text x="1606.3" y="1858" text-anchor="middle" font-size="12" font-weight="800" fill="#7a4305">병목</text>
+      
+      <text x="1386.3" y="1883" font-size="15.5" font-weight="800" fill="#7a4305"><tspan x="1386.3" dy="0">결재 완료된 건에 대해 학생</tspan><tspan x="1386.3" dy="18">성명·주민등록번호를</tspan><tspan x="1386.3" dy="18">주민등록정보시스템으로</tspan><tspan x="1386.3" dy="18">송신하고, 해당 학생의 주소</tspan><tspan x="1386.3" dy="18">정보를 수신한다. 학생주소정보</tspan><tspan x="1386.3" dy="18">요청기간(3~4월,</tspan><tspan x="1386.3" dy="18">9~10월초)에만 처리된다.</tspan></text>
+      <text x="1386.3" y="2008" font-size="11" font-weight="650" fill="#a96008">나이스시스템(행정안전부 연계)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="2100" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="2100" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="2120" font-size="12.5" font-weight="750" fill="#627169">P13</text>
+      <rect x="558.7" y="2107" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="2124" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="2144" font-size="9" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학적-기본학적관리-학생주소연계-연계결과확인및반영]</tspan></text>
+      <text x="363.7" y="2168" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">학생주소연계의</tspan><tspan x="363.7" dy="18">연계결과확인및반영 탭에서</tspan><tspan x="363.7" dy="18">학년도·학년·반 확인 후</tspan><tspan x="363.7" dy="18">&apos;전송결과&apos;를 선택해 수신된</tspan><tspan x="363.7" dy="18">학생주소정보를 조회한다.</tspan></text>
+      <text x="363.7" y="2257" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="2283" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="348.7" y="2283" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="363.7" y="2303" font-size="12.5" font-weight="750" fill="#d8f4e8">P14</text>
+      <rect x="558.7" y="2290" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="583.7" y="2307" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="363.7" y="2327" font-size="9" font-weight="750" fill="#d8f4e8"><tspan x="363.7" dy="0">[학적-기본학적관리-학생주소연계-연계결과확인및반영]</tspan></text>
+      <text x="363.7" y="2351" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="363.7" dy="0">연계주소를 반영할 학생을 선택해</tspan><tspan x="363.7" dy="18">자료반영을 클릭하여</tspan><tspan x="363.7" dy="18">학교생활기록부 인적·학적사항의</tspan><tspan x="363.7" dy="18">학생정보에 반영한다.</tspan></text>
+      <text x="363.7" y="2422" font-size="11" font-weight="650" fill="#d8f4e8">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="2440" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="2440" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="2460" font-size="12.5" font-weight="750" fill="#627169">P15</text>
+      <rect x="558.7" y="2447" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="2464" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="2484" font-size="10" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학적-기본학적관리-학생주소연계이력조회]</tspan></text>
+      <text x="363.7" y="2508" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">학생주소연계이력조회에서</tspan><tspan x="363.7" dy="18">학년도·학년·반 확인 후</tspan><tspan x="363.7" dy="18">&apos;요청일자&apos;를 설정해 조회하고</tspan><tspan x="363.7" dy="18">필요시 출력한다.</tspan></text>
+      <text x="363.7" y="2579" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="2605" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="2605" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="2625" font-size="12.5" font-weight="750" fill="#627169">P16</text>
+      <rect x="558.7" y="2612" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="2629" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="2649" font-size="10" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학적-기본학적관리-학생주소연계조회현황]</tspan></text>
+      <text x="363.7" y="2673" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">학생주소연계조회현황에서 학년도</tspan><tspan x="363.7" dy="18">확인 후 &apos;기간&apos;을 설정해</tspan><tspan x="363.7" dy="18">조회하여</tspan><tspan x="363.7" dy="18">요청건수·수신건수·반영건수를</tspan><tspan x="363.7" dy="18">확인한다.</tspan></text>
+      <text x="363.7" y="2762" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+<rect x="38" y="2798" width="617.3" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2836" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2820" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2835" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2820" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2835" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2820" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2835" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2820" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2835" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2828" x2="522" y2="2828" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="536" y="2834" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

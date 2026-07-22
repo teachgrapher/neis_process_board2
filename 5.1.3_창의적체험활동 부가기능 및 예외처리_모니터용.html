@@ -1,0 +1,303 @@
+<!-- 창의적체험활동 부가기능 및 예외처리 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>창의적체험활동 부가기능 및 예외처리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"창의적체험활동 부가기능 및 예외처리","subtitle":"학생부자료기록의 부가기능을 활용하고 이수시간 불일치·반변경·위탁공동교육과정 등 예외상황을 처리한다.","lanes":["학급담임교사","시스템(나이스)","학적/교무업무담당자"],"stages":["부가기능 활용","이수시간 불일치 확인","반변경·전입생 처리","위탁·공동교육과정 처리","FAQ 대응"],"nodes":[{"id":"P01","lane":"학급담임교사","stage":"부가기능 활용","label":"특기사항 입력창에서 문자열바꾸기를 열어 찾을 내용과 바꿀 내용을 입력하고 적용하여 전체 학생의 특기사항 문자열을 일괄 변경한다.","menu":"[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-학생부자료기록-문자열바꾸기]","emphasis":"lead"},{"id":"P02","lane":"학급담임교사","stage":"부가기능 활용","label":"다중유의어점검을 실행해 특기사항에 입력된 내용의 유의어1·유의어2·거리정보·범례(금지사유 A~I)를 확인한다.","menu":"[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-학생부자료기록-다중유의어점검]","emphasis":"normal"},{"id":"P03","lane":"학급담임교사","stage":"부가기능 활용","label":"특기사항 입력창에서 마우스 우클릭으로 기재유의어조회·기록및이력조회를 열어 학생명을 클릭해 누가기록·나이스플러스·학생부수정이력을 확인하고 이수시간·특기사항을 입력한다.","menu":"[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-학생부자료기록(우클릭:훈령정보조회/기재유의어조회/기록및이력조회/맞춤법검사)]","emphasis":"normal"},{"id":"P04","lane":"시스템(나이스)","stage":"이수시간 불일치 확인","label":"자율·자치활동으로 등록된 시수와 학생부특별활동 행사코드의 시수를 이수시간기준일까지 학생의 일일출결현황에 따라 자동으로 계산한다.","menu":"[교육과정-시간표관리-전체시간표관리]","emphasis":"key"},{"id":"P05","lane":"학급담임교사","stage":"이수시간 불일치 확인","label":"학년말에 학생부 이수시간과 누가기록 이수시간 합계를 반드시 대조·확인하여 일치시킨다.","menu":"[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-학생부자료기록]","emphasis":"bottleneck"},{"id":"P06","lane":"학급담임교사","stage":"이수시간 불일치 확인","label":"누가기록 등록 후 결석 처리한 경우 자동 삭제되지 않으므로 출결현황조회에서 월을 조회해 결석(과) 교시를 확인하고 해당 누가기록을 수동으로 삭제한다.","menu":"[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-누가기록/출결현황조회]","emphasis":"normal"},{"id":"P07","lane":"학적/교무업무담당자","stage":"이수시간 불일치 확인","label":"특정 학생이 조회되지 않을 때 해당 반 강의실의 자율·자치활동 시간표 등록 여부와 수업정보의 수강학생편성 여부를 확인한다.","menu":"[교육과정-시간표관리-전체시간표관리-수업정보]","emphasis":"normal"},{"id":"P08","lane":"학급담임교사","stage":"반변경·전입생 처리","label":"전입생의 누락된 누가기록이나 위탁학생의 시간표에 없는 일자의 누가기록을 일자추가(직접입력)로 지정해 학생을 선택하여 이수시간·활동내용을 등록한다.","menu":"[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-누가기록-일괄등록(직접입력)]","emphasis":"lead"},{"id":"P09","lane":"학급담임교사","stage":"반변경·전입생 처리","label":"반 변경 학생은 반 변경 이전 이수시간만 자동 계산되므로 반 변경 이전과 이후의 이수시간을 수기로 합산해 등록한다.","menu":"[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-학생부자료기록-이수시간반영]","emphasis":"loop"},{"id":"P10","lane":"학적/교무업무담당자","stage":"반변경·전입생 처리","label":"교무학년도를 변경하지 않고 학생자료종합검색에서 해당 학생의 과년도 창의적체험활동 누가기록을 조회·확인한다.","menu":"[학적-기본학적관리-학생자료종합검색-학생생활-창의적체험활동누가기록]","emphasis":"normal"},{"id":"P11","lane":"학급담임교사","stage":"위탁·공동교육과정 처리","label":"위탁/공동 버튼을 클릭해 거점교나 위탁기관에서 전송한 공동교육과정 수강생의 학생부 자료를 확인하고 본교 자료에 합산해 반영한다.","menu":"[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-학생부자료기록-위탁/공동]","emphasis":"key"},{"id":"P12","lane":"학적/교무업무담당자","stage":"위탁·공동교육과정 처리","label":"위탁기관에서 공문으로 송부한 누가기록은 나이스에서 관리하지 않으므로 학교가 별도 문서로 관리하도록 안내한다.","menu":"","emphasis":"normal"},{"id":"P13","lane":"학급담임교사","stage":"FAQ 대응","label":"수학여행 미참여 학생처럼 누가기록에 입력하지 않아 등교 인정으로 이수시간이 불일치하는 경우 해당 학생의 이수시간을 확인해 수동으로 수정한다.","menu":"[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-학생부자료기록]","emphasis":"loop"},{"id":"P14","lane":"학급담임교사","stage":"FAQ 대응","label":"이수시간기준일 반영 후 불일치가 발생하면 누가기록된 일자의 시간표 변경 여부와 자율·자치활동 교시 출석상태의 '/' 표시 여부를 확인한다.","menu":"[학적-출결관리-출결관리-일일출결관리(담임용)]","emphasis":"normal"}],"edges":[{"id":"L01","source":"P09","target":"P05","type":"loop","label":"이수시간 재대조"},{"id":"L02","source":"P13","target":"P05","type":"loop","label":"이수시간 재대조"}]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2431" viewBox="0 0 1800 2431">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2431" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 14 · 레인 3 · 게이트 5</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">창의적체험활동 부가기능 및 예외처리</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">학생부자료기록의 부가기능을 활용하고 이수시간 불일치·반변경·위탁공동교육과정 등 예외상황을 처리한다.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="1971" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="598" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="598" fill="#eef3f0"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">부가기능 활용</tspan></text>
+<rect x="38" y="958" width="1724" height="348" fill="#84baa9"/>
+<rect x="38" y="958" width="190" height="348" fill="#087452"/>
+<text x="58" y="990" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1023" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">이수시간 불일치</tspan><tspan x="58" dy="22">확인</tspan></text>
+<rect x="38" y="1306" width="1724" height="366" fill="#fbfcfb"/>
+<rect x="38" y="1306" width="190" height="366" fill="#eef3f0"/>
+<text x="58" y="1338" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1371" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">반변경·전입생</tspan><tspan x="58" dy="22">처리</tspan></text>
+<rect x="38" y="1672" width="1724" height="188" fill="#84baa9"/>
+<rect x="38" y="1672" width="190" height="188" fill="#087452"/>
+<text x="58" y="1704" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1737" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">위탁·공동교육과</tspan><tspan x="58" dy="22">정 처리</tspan></text>
+<rect x="38" y="1860" width="1724" height="371" fill="#fbfcfb"/>
+<rect x="38" y="1860" width="190" height="371" fill="#eef3f0"/>
+<text x="58" y="1892" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1925" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">FAQ 대응</tspan></text>
+<rect x="228" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="511.3" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">학급담임교사</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">학급담임교사</tspan></text>
+<rect x="739.3" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="739.3" y="260" width="511.3" height="7" fill="#3b82f6"/>
+<text x="759.3" y="299" font-size="20" font-weight="800" fill="#17231d">시스템</text>
+<text x="759.3" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="759.3" dy="0">시스템(나이스)</tspan></text>
+<rect x="1250.7" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="1250.7" y="260" width="511.3" height="7" fill="#c78116"/>
+<text x="1270.7" y="299" font-size="20" font-weight="800" fill="#17231d">학적</text>
+<text x="1270.7" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1270.7" dy="0">학적/교무업무담당자</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2231" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="739.3" y1="260" x2="739.3" y2="2231" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1250.7" y1="260" x2="1250.7" y2="2231" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2231" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="958" x2="1762" y2="958" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1306" x2="1762" y2="1306" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1672" x2="1762" y2="1672" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1860" x2="1762" y2="1860" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2231" x2="1762" y2="2231" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 348.7 1587 H 333 V 1034 H 340.7" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 348.7 1587 H 333 V 1034 H 340.7" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 348.7 1954 H 327 V 1034 H 340.7" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 348.7 1954 H 327 V 1034 H 340.7" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="198.6" y="1259.5" width="128.9" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="263" y="1279.5" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">이수시간 재대조</text>
+<rect x="192.6" y="1479" width="128.9" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="257" y="1499" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">이수시간 재대조</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="364" width="270" height="180" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="348.7" y="364" width="6" height="180" rx="3" fill="#35a77d"/>
+      <text x="363.7" y="384" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="558.7" y="371" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="583.7" y="388" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="363.7" y="408" font-size="8" font-weight="750" fill="#287a5c"><tspan x="363.7" dy="0">[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-학생부</tspan><tspan x="363.7" dy="13">자료기록-문자열바꾸기]</tspan></text>
+      <text x="363.7" y="445" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="363.7" dy="0">특기사항 입력창에서</tspan><tspan x="363.7" dy="18">문자열바꾸기를 열어 찾을 내용과</tspan><tspan x="363.7" dy="18">바꿀 내용을 입력하고 적용하여</tspan><tspan x="363.7" dy="18">전체 학생의 특기사항 문자열을</tspan><tspan x="363.7" dy="18">일괄 변경한다.</tspan></text>
+      <text x="363.7" y="534" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="560" width="270" height="162" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="560" width="6" height="162" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="580" font-size="12.5" font-weight="750" fill="#627169">P02</text>
+      <rect x="558.7" y="567" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="584" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="604" font-size="8" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-학생부</tspan><tspan x="363.7" dy="13">자료기록-다중유의어점검]</tspan></text>
+      <text x="363.7" y="641" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">다중유의어점검을 실행해</tspan><tspan x="363.7" dy="18">특기사항에 입력된 내용의</tspan><tspan x="363.7" dy="18">유의어1·유의어2·거리정보·범례(</tspan><tspan x="363.7" dy="18">금지사유 A~I)를 확인한다.</tspan></text>
+      <text x="363.7" y="712" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="738" width="270" height="216" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="738" width="6" height="216" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="758" font-size="12.5" font-weight="750" fill="#627169">P03</text>
+      <rect x="558.7" y="745" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="762" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="782" font-size="8" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-학생부</tspan><tspan x="363.7" dy="13">자료기록(우클릭:훈령정보조회/기재유의어조회/기록및이력조회…</tspan></text>
+      <text x="363.7" y="819" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">특기사항 입력창에서 마우스</tspan><tspan x="363.7" dy="18">우클릭으로</tspan><tspan x="363.7" dy="18">기재유의어조회·기록및이력조회</tspan><tspan x="363.7" dy="18">를 열어 학생명을 클릭해</tspan><tspan x="363.7" dy="18">누가기록·나이스플러스·학생부수</tspan><tspan x="363.7" dy="18">정이력을 확인하고</tspan><tspan x="363.7" dy="18">이수시간·특기사항을 입력한다.</tspan></text>
+      <text x="363.7" y="944" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="860" y="1048.5" width="270" height="167" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="860" y="1048.5" width="6" height="167" rx="3" fill="#087452"/>
+      <text x="875" y="1068.5" font-size="12.5" font-weight="750" fill="#d8f4e8">P04</text>
+      <rect x="1070" y="1055.5" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1095" y="1072.5" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="875" y="1092.5" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="875" dy="0">[교육과정-시간표관리-전체시간표관리]</tspan></text>
+      <text x="875" y="1116.5" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="875" dy="0">자율·자치활동으로 등록된 시수와</tspan><tspan x="875" dy="18">학생부특별활동 행사코드의</tspan><tspan x="875" dy="18">시수를 이수시간기준일까지</tspan><tspan x="875" dy="18">학생의 일일출결현황에 따라</tspan><tspan x="875" dy="18">자동으로 계산한다.</tspan></text>
+      <text x="875" y="1205.5" font-size="11" font-weight="650" fill="#d8f4e8">시스템(나이스)</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="962" width="270" height="144" rx="8" fill="#fff8e8" stroke="#d9901a" stroke-width="2.3"/>
+      <rect x="348.7" y="962" width="6" height="144" rx="3" fill="#d9901a"/>
+      <text x="363.7" y="982" font-size="12.5" font-weight="750" fill="#a96008">P05</text>
+      <rect x="558.7" y="969" width="50" height="24" rx="5" fill="#d9901a" opacity="0.14"/>
+      <text x="583.7" y="986" text-anchor="middle" font-size="12" font-weight="800" fill="#7a4305">병목</text>
+      <text x="363.7" y="1006" font-size="8" font-weight="750" fill="#a96008"><tspan x="363.7" dy="0">[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-학생부</tspan><tspan x="363.7" dy="13">자료기록]</tspan></text>
+      <text x="363.7" y="1043" font-size="15.5" font-weight="800" fill="#7a4305"><tspan x="363.7" dy="0">학년말에 학생부 이수시간과</tspan><tspan x="363.7" dy="18">누가기록 이수시간 합계를 반드시</tspan><tspan x="363.7" dy="18">대조·확인하여 일치시킨다.</tspan></text>
+      <text x="363.7" y="1096" font-size="11" font-weight="650" fill="#a96008">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="1122" width="270" height="180" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="1122" width="6" height="180" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="1142" font-size="12.5" font-weight="750" fill="#627169">P06</text>
+      <rect x="558.7" y="1129" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="1146" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="1166" font-size="8" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-누가기</tspan><tspan x="363.7" dy="13">록/출결현황조회]</tspan></text>
+      <text x="363.7" y="1203" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">누가기록 등록 후 결석 처리한</tspan><tspan x="363.7" dy="18">경우 자동 삭제되지 않으므로</tspan><tspan x="363.7" dy="18">출결현황조회에서 월을 조회해</tspan><tspan x="363.7" dy="18">결석(과) 교시를 확인하고 해당</tspan><tspan x="363.7" dy="18">누가기록을 수동으로 삭제한다.</tspan></text>
+      <text x="363.7" y="1292" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1371.3" y="1057.5" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1371.3" y="1057.5" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="1386.3" y="1077.5" font-size="12.5" font-weight="750" fill="#627169">P07</text>
+      <rect x="1581.3" y="1064.5" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1606.3" y="1081.5" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1386.3" y="1101.5" font-size="10" font-weight="750" fill="#627169"><tspan x="1386.3" dy="0">[교육과정-시간표관리-전체시간표관리-수업정보]</tspan></text>
+      <text x="1386.3" y="1125.5" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1386.3" dy="0">특정 학생이 조회되지 않을 때</tspan><tspan x="1386.3" dy="18">해당 반 강의실의 자율·자치활동</tspan><tspan x="1386.3" dy="18">시간표 등록 여부와 수업정보의</tspan><tspan x="1386.3" dy="18">수강학생편성 여부를 확인한다.</tspan></text>
+      <text x="1386.3" y="1196.5" font-size="11" font-weight="650" fill="#627169">학적/교무업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="1310" width="270" height="180" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="348.7" y="1310" width="6" height="180" rx="3" fill="#35a77d"/>
+      <text x="363.7" y="1330" font-size="12.5" font-weight="750" fill="#287a5c">P08</text>
+      <rect x="558.7" y="1317" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="583.7" y="1334" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="363.7" y="1354" font-size="8" font-weight="750" fill="#287a5c"><tspan x="363.7" dy="0">[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-누가기</tspan><tspan x="363.7" dy="13">록-일괄등록(직접입력)]</tspan></text>
+      <text x="363.7" y="1391" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="363.7" dy="0">전입생의 누락된 누가기록이나</tspan><tspan x="363.7" dy="18">위탁학생의 시간표에 없는 일자의</tspan><tspan x="363.7" dy="18">누가기록을 일자추가(직접입력)로</tspan><tspan x="363.7" dy="18">지정해 학생을 선택하여</tspan><tspan x="363.7" dy="18">이수시간·활동내용을 등록한다.</tspan></text>
+      <text x="363.7" y="1480" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="1506" width="270" height="162" rx="8" fill="#edf4ff" stroke="#3478db" stroke-width="2.3"/>
+      <rect x="348.7" y="1506" width="6" height="162" rx="3" fill="#3478db"/>
+      <text x="363.7" y="1526" font-size="12.5" font-weight="750" fill="#316bbd">P09</text>
+      <rect x="558.7" y="1513" width="50" height="24" rx="5" fill="#3478db" opacity="0.14"/>
+      <text x="583.7" y="1530" text-anchor="middle" font-size="12" font-weight="800" fill="#173f7a">회귀</text>
+      <text x="363.7" y="1550" font-size="8" font-weight="750" fill="#316bbd"><tspan x="363.7" dy="0">[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-학생부</tspan><tspan x="363.7" dy="13">자료기록-이수시간반영]</tspan></text>
+      <text x="363.7" y="1587" font-size="15.5" font-weight="800" fill="#173f7a"><tspan x="363.7" dy="0">반 변경 학생은 반 변경 이전</tspan><tspan x="363.7" dy="18">이수시간만 자동 계산되므로 반</tspan><tspan x="363.7" dy="18">변경 이전과 이후의 이수시간을</tspan><tspan x="363.7" dy="18">수기로 합산해 등록한다.</tspan></text>
+      <text x="363.7" y="1658" font-size="11" font-weight="650" fill="#316bbd">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1371.3" y="1408" width="270" height="162" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1371.3" y="1408" width="6" height="162" rx="3" fill="#b9c7bf"/>
+      <text x="1386.3" y="1428" font-size="12.5" font-weight="750" fill="#627169">P10</text>
+      <rect x="1581.3" y="1415" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1606.3" y="1432" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1386.3" y="1452" font-size="8" font-weight="750" fill="#627169"><tspan x="1386.3" dy="0">[학적-기본학적관리-학생자료종합검색-학생생활-창의적체험활동</tspan><tspan x="1386.3" dy="13">누가기록]</tspan></text>
+      <text x="1386.3" y="1489" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1386.3" dy="0">교무학년도를 변경하지 않고</tspan><tspan x="1386.3" dy="18">학생자료종합검색에서 해당</tspan><tspan x="1386.3" dy="18">학생의 과년도 창의적체험활동</tspan><tspan x="1386.3" dy="18">누가기록을 조회·확인한다.</tspan></text>
+      <text x="1386.3" y="1560" font-size="11" font-weight="650" fill="#627169">학적/교무업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="1676" width="270" height="180" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="348.7" y="1676" width="6" height="180" rx="3" fill="#087452"/>
+      <text x="363.7" y="1696" font-size="12.5" font-weight="750" fill="#d8f4e8">P11</text>
+      <rect x="558.7" y="1683" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="583.7" y="1700" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="363.7" y="1720" font-size="8" font-weight="750" fill="#d8f4e8"><tspan x="363.7" dy="0">[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-학생부</tspan><tspan x="363.7" dy="13">자료기록-위탁/공동]</tspan></text>
+      <text x="363.7" y="1757" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="363.7" dy="0">위탁/공동 버튼을 클릭해</tspan><tspan x="363.7" dy="18">거점교나 위탁기관에서 전송한</tspan><tspan x="363.7" dy="18">공동교육과정 수강생의 학생부</tspan><tspan x="363.7" dy="18">자료를 확인하고 본교 자료에</tspan><tspan x="363.7" dy="18">합산해 반영한다.</tspan></text>
+      <text x="363.7" y="1846" font-size="11" font-weight="650" fill="#d8f4e8">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1371.3" y="1701" width="270" height="130" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1371.3" y="1701" width="6" height="130" rx="3" fill="#b9c7bf"/>
+      <text x="1386.3" y="1721" font-size="12.5" font-weight="750" fill="#627169">P12</text>
+      <rect x="1581.3" y="1708" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1606.3" y="1725" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      
+      <text x="1386.3" y="1750" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1386.3" dy="0">위탁기관에서 공문으로 송부한</tspan><tspan x="1386.3" dy="18">누가기록은 나이스에서 관리하지</tspan><tspan x="1386.3" dy="18">않으므로 학교가 별도 문서로</tspan><tspan x="1386.3" dy="18">관리하도록 안내한다.</tspan></text>
+      <text x="1386.3" y="1821" font-size="11" font-weight="650" fill="#627169">학적/교무업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="1864" width="270" height="180" rx="8" fill="#edf4ff" stroke="#3478db" stroke-width="2.3"/>
+      <rect x="348.7" y="1864" width="6" height="180" rx="3" fill="#3478db"/>
+      <text x="363.7" y="1884" font-size="12.5" font-weight="750" fill="#316bbd">P13</text>
+      <rect x="558.7" y="1871" width="50" height="24" rx="5" fill="#3478db" opacity="0.14"/>
+      <text x="583.7" y="1888" text-anchor="middle" font-size="12" font-weight="800" fill="#173f7a">회귀</text>
+      <text x="363.7" y="1908" font-size="8" font-weight="750" fill="#316bbd"><tspan x="363.7" dy="0">[학생생활-창의적체험활동-자율·자치활동(자율활동)관리-학생부</tspan><tspan x="363.7" dy="13">자료기록]</tspan></text>
+      <text x="363.7" y="1945" font-size="15.5" font-weight="800" fill="#173f7a"><tspan x="363.7" dy="0">수학여행 미참여 학생처럼</tspan><tspan x="363.7" dy="18">누가기록에 입력하지 않아 등교</tspan><tspan x="363.7" dy="18">인정으로 이수시간이 불일치하는</tspan><tspan x="363.7" dy="18">경우 해당 학생의 이수시간을</tspan><tspan x="363.7" dy="18">확인해 수동으로 수정한다.</tspan></text>
+      <text x="363.7" y="2034" font-size="11" font-weight="650" fill="#316bbd">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="348.7" y="2060" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="348.7" y="2060" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="363.7" y="2080" font-size="12.5" font-weight="750" fill="#627169">P14</text>
+      <rect x="558.7" y="2067" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="583.7" y="2084" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="363.7" y="2104" font-size="10" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[학적-출결관리-출결관리-일일출결관리(담임용)]</tspan></text>
+      <text x="363.7" y="2128" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">이수시간기준일 반영 후 불일치가</tspan><tspan x="363.7" dy="18">발생하면 누가기록된 일자의</tspan><tspan x="363.7" dy="18">시간표 변경 여부와</tspan><tspan x="363.7" dy="18">자율·자치활동 교시 출석상태의</tspan><tspan x="363.7" dy="18">&apos;/&apos; 표시 여부를 확인한다.</tspan></text>
+      <text x="363.7" y="2217" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+<rect x="38" y="2253" width="617.3" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2291" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2275" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2290" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2275" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2290" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2275" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2290" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2275" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2290" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2283" x2="522" y2="2283" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="536" y="2289" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!-- 출결현황 통계 및 학생부 반영 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>출결현황 통계 및 학생부 반영</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"출결현황 통계 및 학생부 반영","subtitle":"학급별 출결현황과 통계를 확인하고 특기사항을 등록한 뒤 학교생활기록부에 반영·검증하는 절차.","lanes":["학급담임교사","학적/학생부 업무담당자"],"stages":["G1 출결현황 조회","G2 학급별 연간 통계 확인","G3 과목 출결현황 확인","G4 출결 특기사항 등록","G5 학생부 반영 및 확인"],"nodes":[{"id":"P01","lane":"학급담임교사","stage":"G1 출결현황 조회","label":"학급별출결현황 화면에서 학년도·학년·반과 월별·기간·성명·인정내역포함을 설정해 조회하고, 대상 학생을 선택해 개인별출력 창에서 출결현황을 확인·출력한다.","menu":"[학급담임-학적-출결현황및통계-출결현황및통계-학급별출결현황]","emphasis":"lead"},{"id":"P02","lane":"학급담임교사","stage":"G1 출결현황 조회","label":"동일 화면에서 학급별출력을 클릭해 학급별출력 창에서 학급 전체 학생의 1년간 출결현황을 확인·출력한다.","menu":"[학급담임-학적-출결현황및통계-출결현황및통계-학급별출결현황]","emphasis":"normal"},{"id":"P03","lane":"학급담임교사","stage":"G2 학급별 연간 통계 확인","label":"반별연간출결통계 화면에서 학년도·학년·반을 확인해 조회하고 필요시 출력한다.","menu":"[학급담임-학적-출결현황및통계-출결현황및통계-반별연간출결통계]","emphasis":"lead"},{"id":"P04","lane":"학급담임교사","stage":"G3 과목 출결현황 확인","label":"반별과목출결현황 화면에서 학년도·학기·계열/학년/학과·반을 확인해 조회한 뒤 학생을 클릭해 수강 과목별 이수기준 충족 여부를 확인한다.","menu":"[학급담임-학적-출결현황및통계-반별과목출결현황]","emphasis":"lead"},{"id":"P05","lane":"학급담임교사","stage":"G4 출결 특기사항 등록","label":"출결특기사항등록 화면에서 학년도·학년·반을 확인해 조회하고 개근일괄입력을 클릭해 지각·조퇴·결과 내역이 없는 학생에게 개근을 일괄 등록한다.","menu":"[학급담임-학적-출결관리-출결관리-출결특기사항등록]","emphasis":"lead"},{"id":"P06","lane":"학급담임교사","stage":"G4 출결 특기사항 등록","label":"개근 이외 학생의 성명을 클릭해 일일출결 상세조회 창에서 사유를 확인한 뒤, 장기결석·기타결석·단기결석 등 종류별로 학교생활기록부 기재요령에 맞게 특기사항을 입력하고 저장한다.","menu":"[학급담임-학적-출결관리-출결관리-출결특기사항등록]","emphasis":"key"},{"id":"P07","lane":"학적/학생부 업무담당자","stage":"G4 출결 특기사항 등록","label":"월출결 마감된 자료를 수정해야 할 경우 승인사항-상신함에서 해당 월 문서를 기결문서취소하여 담임교사가 마감을 재처리할 수 있도록 조치한다.","menu":"[승인사항-상신함]","emphasis":"loop"},{"id":"P08","lane":"학급담임교사","stage":"G5 학생부 반영 및 확인","label":"반별월출결마감관리 화면에서 학년도·학년·반을 확인해 조회하고, 월마감이 안 된 달이나 재마감이 필요한 달을 확인해 마감을 취소한 뒤 다시 마감한다.","menu":"[학급담임-학적-출결관리-출결관리-반별월출결마감관리]","emphasis":"loop"},{"id":"P09","lane":"학급담임교사","stage":"G5 학생부 반영 및 확인","label":"학생부반영 화면에서 출결상황을 선택해 개인별반영 또는 전체반영으로 학교생활기록부에 출결자료를 반영한다.","menu":"[학급담임-학교생활기록부-학교생활기록부-학생부반영]","emphasis":"key"},{"id":"P10","lane":"학급담임교사","stage":"G5 학생부 반영 및 확인","label":"학생부항목별조회 화면에서 학년도·학년·반을 확인해 출결상황-출결상황(현재학년)을 선택하여 반영된 출결상황과 수업일수를 확인한다.","menu":"[학급담임-학생부-학교생활기록부-학교생활기록부-학생부항목별조회]","emphasis":"normal"},{"id":"P11","lane":"학적/학생부 업무담당자","stage":"G5 학생부 반영 및 확인","label":"고3 학생은 대입전형자료 생성(수시·정시) 시 학교생활기록부 자료 입력 기준일을 기준으로 출결상황을 확인하고, 졸업 시 한 번 더 수정·확인한다.","menu":"[학급담임-학생부-학교생활기록부-학교생활기록부-학생부항목별조회]","emphasis":"normal"}],"edges":[{"id":"L01","source":"P04","target":"P08","type":"loop","label":"월마감 안 된 달 재마감"},{"id":"L02","source":"P07","target":"P06","type":"loop","label":"마감취소 후 특기사항 재입력"},{"id":"L03","source":"P10","target":"P08","type":"loop","label":"수업일수 오류 시 재마감"}]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2400" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 11 · 레인 2 · 게이트 5</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">출결현황 통계 및 학생부 반영</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">학급별 출결현황과 통계를 확인하고 특기사항을 등록한 뒤 학교생활기록부에 반영·검증하는 절차.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="1940" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="404.6" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="404.6" fill="#eef3f0"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#53645b">G1</text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">출결현황 조회</tspan></text>
+<rect x="38" y="764.6" width="1724" height="190.6" fill="#f5f8f6"/>
+<rect x="38" y="764.6" width="190" height="190.6" fill="#e4f5ed"/>
+<text x="58" y="796.6" class="mono" font-size="16" font-weight="800" fill="#087452">G2</text>
+<text x="58" y="829.6" font-size="19" font-weight="800" fill="#087452"><tspan x="58" dy="0">학급별 연간 통계</tspan><tspan x="58" dy="22">확인</tspan></text>
+<rect x="38" y="955.2" width="1724" height="213.6" fill="#fbfcfb"/>
+<rect x="38" y="955.2" width="190" height="213.6" fill="#e4f5ed"/>
+<text x="58" y="987.2" class="mono" font-size="16" font-weight="800" fill="#087452">G3</text>
+<text x="58" y="1020.2" font-size="19" font-weight="800" fill="#087452"><tspan x="58" dy="0">과목 출결현황</tspan><tspan x="58" dy="22">확인</tspan></text>
+<rect x="38" y="1168.8" width="1724" height="440.6" fill="#84baa9"/>
+<rect x="38" y="1168.8" width="190" height="440.6" fill="#087452"/>
+<text x="58" y="1200.8" class="mono" font-size="16" font-weight="800" fill="#ffffff">G4</text>
+<text x="58" y="1233.8" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">출결 특기사항</tspan><tspan x="58" dy="22">등록</tspan></text>
+<rect x="38" y="1609.4" width="1724" height="590.6" fill="#84baa9"/>
+<rect x="38" y="1609.4" width="190" height="590.6" fill="#087452"/>
+<text x="58" y="1641.4" class="mono" font-size="16" font-weight="800" fill="#ffffff">G5</text>
+<text x="58" y="1674.4" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">학생부 반영 및</tspan><tspan x="58" dy="22">확인</tspan></text>
+<rect x="228" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="767" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">학급담임교사</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">학급담임교사</tspan></text>
+<rect x="995" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="995" y="260" width="767" height="7" fill="#3b82f6"/>
+<text x="1015" y="299" font-size="20" font-weight="800" fill="#17231d">학적</text>
+<text x="1015" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1015" dy="0">학적/학생부 업무담당자</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="995" y1="260" x2="995" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="764.6" x2="1762" y2="764.6" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="955.2" x2="1762" y2="955.2" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1168.8" x2="1762" y2="1168.8" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1609.4" x2="1762" y2="1609.4" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2200" x2="1762" y2="2200" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 611.5 1145.5 V 1156.8 H 977 V 1604.7 H 600.5 V 1624.7" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 611.5 1145.5 V 1156.8 H 977 V 1604.7 H 600.5 V 1624.7" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 1243.5 1389.1 H 774.5 V 1484.6 H 754.5" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 1243.5 1389.1 H 774.5 V 1484.6 H 754.5" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 476.5 2086.7 H 216 V 1725.2 H 468.5" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 476.5 2086.7 H 216 V 1725.2 H 468.5" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="891.2" y="1365.8" width="171.6" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="977" y="1385.8" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">월마감 안 된 달 재마감</text>
+<rect x="890.7" y="1404.9" width="208.7" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="995" y="1424.9" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">마감취소 후 특기사항 재입력</text>
+<rect x="185.7" y="1886.5" width="180.7" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="276" y="1906.5" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">수업일수 오류 시 재마감</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="383.3" width="270" height="185" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="383.3" width="6" height="185" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="403.3" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="686.5" y="390.3" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="407.3" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="427.3" font-size="8" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학급담임-학적-출결현황및통계-출결현황및통계-학급별출결현황]</tspan></text>
+      <text x="491.5" y="451.3" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">학급별출결현황 화면에서</tspan><tspan x="491.5" dy="18">학년도·학년·반과</tspan><tspan x="491.5" dy="18">월별·기간·성명·인정내역포함을</tspan><tspan x="491.5" dy="18">설정해 조회하고, 대상 학생을</tspan><tspan x="491.5" dy="18">선택해 개인별출력 창에서</tspan><tspan x="491.5" dy="18">출결현황을 확인·출력한다.</tspan></text>
+      <text x="491.5" y="558.3" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="592.3" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="592.3" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="612.3" font-size="12.5" font-weight="750" fill="#627169">P02</text>
+      <rect x="686.5" y="599.3" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="616.3" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="636.3" font-size="8" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학급담임-학적-출결현황및통계-출결현황및통계-학급별출결현황]</tspan></text>
+      <text x="491.5" y="660.3" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">동일 화면에서 학급별출력을</tspan><tspan x="491.5" dy="18">클릭해 학급별출력 창에서 학급</tspan><tspan x="491.5" dy="18">전체 학생의 1년간 출결현황을</tspan><tspan x="491.5" dy="18">확인·출력한다.</tspan></text>
+      <text x="491.5" y="731.3" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="787.9" width="270" height="144" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="787.9" width="6" height="144" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="807.9" font-size="12.5" font-weight="750" fill="#287a5c">P03</text>
+      <rect x="686.5" y="794.9" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="811.9" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="831.9" font-size="8" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학급담임-학적-출결현황및통계-출결현황및통계-반별연간출결통</tspan><tspan x="491.5" dy="13">계]</tspan></text>
+      <text x="491.5" y="868.9" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">반별연간출결통계 화면에서</tspan><tspan x="491.5" dy="18">학년도·학년·반을 확인해</tspan><tspan x="491.5" dy="18">조회하고 필요시 출력한다.</tspan></text>
+      <text x="491.5" y="921.9" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="978.5" width="270" height="167" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="978.5" width="6" height="167" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="998.5" font-size="12.5" font-weight="750" fill="#287a5c">P04</text>
+      <rect x="686.5" y="985.5" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="1002.5" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="1022.5" font-size="10" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학급담임-학적-출결현황및통계-반별과목출결현황]</tspan></text>
+      <text x="491.5" y="1046.5" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">반별과목출결현황 화면에서</tspan><tspan x="491.5" dy="18">학년도·학기·계열/학년/학과·반</tspan><tspan x="491.5" dy="18">을 확인해 조회한 뒤 학생을</tspan><tspan x="491.5" dy="18">클릭해 수강 과목별 이수기준 충족</tspan><tspan x="491.5" dy="18">여부를 확인한다.</tspan></text>
+      <text x="491.5" y="1135.5" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1192.1" width="270" height="167" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="476.5" y="1192.1" width="6" height="167" rx="3" fill="#35a77d"/>
+      <text x="491.5" y="1212.1" font-size="12.5" font-weight="750" fill="#287a5c">P05</text>
+      <rect x="686.5" y="1199.1" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="711.5" y="1216.1" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="491.5" y="1236.1" font-size="9.5" font-weight="750" fill="#287a5c"><tspan x="491.5" dy="0">[학급담임-학적-출결관리-출결관리-출결특기사항등록]</tspan></text>
+      <text x="491.5" y="1260.1" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="491.5" dy="0">출결특기사항등록 화면에서</tspan><tspan x="491.5" dy="18">학년도·학년·반을 확인해</tspan><tspan x="491.5" dy="18">조회하고 개근일괄입력을 클릭해</tspan><tspan x="491.5" dy="18">지각·조퇴·결과 내역이 없는</tspan><tspan x="491.5" dy="18">학생에게 개근을 일괄 등록한다.</tspan></text>
+      <text x="491.5" y="1349.1" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1383.1" width="270" height="203" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="1383.1" width="6" height="203" rx="3" fill="#087452"/>
+      <text x="491.5" y="1403.1" font-size="12.5" font-weight="750" fill="#d8f4e8">P06</text>
+      <rect x="686.5" y="1390.1" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="1407.1" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="1427.1" font-size="9.5" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[학급담임-학적-출결관리-출결관리-출결특기사항등록]</tspan></text>
+      <text x="491.5" y="1451.1" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">개근 이외 학생의 성명을 클릭해</tspan><tspan x="491.5" dy="18">일일출결 상세조회 창에서 사유를</tspan><tspan x="491.5" dy="18">확인한 뒤,</tspan><tspan x="491.5" dy="18">장기결석·기타결석·단기결석 등</tspan><tspan x="491.5" dy="18">종류별로 학교생활기록부</tspan><tspan x="491.5" dy="18">기재요령에 맞게 특기사항을</tspan><tspan x="491.5" dy="18">입력하고 저장한다.</tspan></text>
+      <text x="491.5" y="1576.1" font-size="11" font-weight="650" fill="#d8f4e8">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1305.6" width="270" height="167" rx="8" fill="#edf4ff" stroke="#3478db" stroke-width="2.3"/>
+      <rect x="1243.5" y="1305.6" width="6" height="167" rx="3" fill="#3478db"/>
+      <text x="1258.5" y="1325.6" font-size="12.5" font-weight="750" fill="#316bbd">P07</text>
+      <rect x="1453.5" y="1312.6" width="50" height="24" rx="5" fill="#3478db" opacity="0.14"/>
+      <text x="1478.5" y="1329.6" text-anchor="middle" font-size="12" font-weight="800" fill="#173f7a">회귀</text>
+      <text x="1258.5" y="1349.6" font-size="10" font-weight="750" fill="#316bbd"><tspan x="1258.5" dy="0">[승인사항-상신함]</tspan></text>
+      <text x="1258.5" y="1373.6" font-size="15.5" font-weight="800" fill="#173f7a"><tspan x="1258.5" dy="0">월출결 마감된 자료를 수정해야 할</tspan><tspan x="1258.5" dy="18">경우 승인사항-상신함에서 해당</tspan><tspan x="1258.5" dy="18">월 문서를 기결문서취소하여</tspan><tspan x="1258.5" dy="18">담임교사가 마감을 재처리할 수</tspan><tspan x="1258.5" dy="18">있도록 조치한다.</tspan></text>
+      <text x="1258.5" y="1462.6" font-size="11" font-weight="650" fill="#316bbd">학적/학생부 업무담당자</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1632.7" width="270" height="167" rx="8" fill="#edf4ff" stroke="#3478db" stroke-width="2.3"/>
+      <rect x="476.5" y="1632.7" width="6" height="167" rx="3" fill="#3478db"/>
+      <text x="491.5" y="1652.7" font-size="12.5" font-weight="750" fill="#316bbd">P08</text>
+      <rect x="686.5" y="1639.7" width="50" height="24" rx="5" fill="#3478db" opacity="0.14"/>
+      <text x="711.5" y="1656.7" text-anchor="middle" font-size="12" font-weight="800" fill="#173f7a">회귀</text>
+      <text x="491.5" y="1676.7" font-size="9" font-weight="750" fill="#316bbd"><tspan x="491.5" dy="0">[학급담임-학적-출결관리-출결관리-반별월출결마감관리]</tspan></text>
+      <text x="491.5" y="1700.7" font-size="15.5" font-weight="800" fill="#173f7a"><tspan x="491.5" dy="0">반별월출결마감관리 화면에서</tspan><tspan x="491.5" dy="18">학년도·학년·반을 확인해</tspan><tspan x="491.5" dy="18">조회하고, 월마감이 안 된 달이나</tspan><tspan x="491.5" dy="18">재마감이 필요한 달을 확인해</tspan><tspan x="491.5" dy="18">마감을 취소한 뒤 다시 마감한다.</tspan></text>
+      <text x="491.5" y="1789.7" font-size="11" font-weight="650" fill="#316bbd">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1823.7" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="476.5" y="1823.7" width="6" height="149" rx="3" fill="#087452"/>
+      <text x="491.5" y="1843.7" font-size="12.5" font-weight="750" fill="#d8f4e8">P09</text>
+      <rect x="686.5" y="1830.7" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="711.5" y="1847.7" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="491.5" y="1867.7" font-size="9" font-weight="750" fill="#d8f4e8"><tspan x="491.5" dy="0">[학급담임-학교생활기록부-학교생활기록부-학생부반영]</tspan></text>
+      <text x="491.5" y="1891.7" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="491.5" dy="0">학생부반영 화면에서 출결상황을</tspan><tspan x="491.5" dy="18">선택해 개인별반영 또는</tspan><tspan x="491.5" dy="18">전체반영으로 학교생활기록부에</tspan><tspan x="491.5" dy="18">출결자료를 반영한다.</tspan></text>
+      <text x="491.5" y="1962.7" font-size="11" font-weight="650" fill="#d8f4e8">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1996.7" width="270" height="180" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="1996.7" width="6" height="180" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="2016.7" font-size="12.5" font-weight="750" fill="#627169">P10</text>
+      <rect x="686.5" y="2003.7" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="2020.7" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="2040.7" font-size="8" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[학급담임-학생부-학교생활기록부-학교생활기록부-학생부항목별</tspan><tspan x="491.5" dy="13">조회]</tspan></text>
+      <text x="491.5" y="2077.7" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">학생부항목별조회 화면에서</tspan><tspan x="491.5" dy="18">학년도·학년·반을 확인해</tspan><tspan x="491.5" dy="18">출결상황-출결상황(현재학년)을</tspan><tspan x="491.5" dy="18">선택하여 반영된 출결상황과</tspan><tspan x="491.5" dy="18">수업일수를 확인한다.</tspan></text>
+      <text x="491.5" y="2166.7" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1805.7" width="270" height="198" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1805.7" width="6" height="198" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1825.7" font-size="12.5" font-weight="750" fill="#627169">P11</text>
+      <rect x="1453.5" y="1812.7" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1829.7" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1849.7" font-size="8" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[학급담임-학생부-학교생활기록부-학교생활기록부-학생부항목별</tspan><tspan x="1258.5" dy="13">조회]</tspan></text>
+      <text x="1258.5" y="1886.7" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">고3 학생은 대입전형자료</tspan><tspan x="1258.5" dy="18">생성(수시·정시) 시</tspan><tspan x="1258.5" dy="18">학교생활기록부 자료 입력</tspan><tspan x="1258.5" dy="18">기준일을 기준으로 출결상황을</tspan><tspan x="1258.5" dy="18">확인하고, 졸업 시 한 번 더</tspan><tspan x="1258.5" dy="18">수정·확인한다.</tspan></text>
+      <text x="1258.5" y="1993.7" font-size="11" font-weight="650" fill="#627169">학적/학생부 업무담당자</text>
+    </g>
+  
+<rect x="38" y="2222" width="617.3" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2260" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2244" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2259" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2244" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2259" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2244" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2259" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2244" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2259" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2252" x2="522" y2="2252" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="536" y="2258" font-size="15" fill="#3a463f">보완 회귀</text>
+
+</svg>
+</div>
+</body>
+</html>
