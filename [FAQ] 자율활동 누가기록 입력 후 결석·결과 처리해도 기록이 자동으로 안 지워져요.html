@@ -1,0 +1,99 @@
+<!-- [FAQ] 자율활동 누가기록 입력 후 결석·결과 처리해도 기록이 자동으로 안 지워져요 — korea100studio 스윔레인 보드(편집기 저장본) -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[FAQ] 자율활동 누가기록 입력 후 결석·결과 처리해도 기록이 자동으로 안 지워져요</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#eef1f0 }
+.sheet{ width:100%; max-width:2400px; margin:0 auto; padding:12px 20px 48px; box-sizing:border-box; background:transparent }
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto }
+.toolbar{ text-align:center; padding:16px; font-family:"Pretendard",sans-serif }
+.toolbar button{ font-size:16px; font-weight:600; padding:11px 24px; cursor:pointer; background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111 }
+.toolbar .tip{ font-size:13px; color:#555; margin-top:8px }
+@media print{
+  html,body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; page-break-inside:avoid }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"[FAQ] 자율활동 누가기록 입력 후 결석·결과 처리해도 기록이 자동으로 안 지워져요","subtitle":"누가기록을 먼저 등록하고 나중에 결석·결과 처리를 하면 기존 누가기록이 자동 삭제되지 않아 수동 삭제가 필요합니다.","lanes":["담임교사","나이스시스템","-"],"stages":["누가기록 입력","출결 처리","시스템 동작","수동 삭제"],"nodes":[{"id":"P01","lane":"담임교사","stage":"누가기록 입력","label":"학생의 자율활동 누가기록을 먼저 입력한다","menu":"[학생생활] > [창의적체험활동] > [자율·자치활동(자율활동)관리]","emphasis":"lead"},{"id":"P02","lane":"담임교사","stage":"출결 처리","label":"이후 해당 일자에 대해 결석 또는 결과 처리를 한다","menu":"[학적] > [출결관리]","emphasis":"normal"},{"id":"P03","lane":"나이스시스템","stage":"시스템 동작","label":"이미 등록된 누가기록을 자동으로 삭제하지 않는다","menu":"[나이스 메뉴 경로를 입력하세요]","emphasis":"bottleneck"},{"id":"P04","lane":"담임교사","stage":"수동 삭제","label":"누가기록 탭에서 학년, 반을 확인 후 조회한다","menu":"[학생생활] > [창의적체험활동] > [자율·자치활동(자율활동)관리]","emphasis":"normal"},{"id":"P06","lane":"담임교사","stage":"수동 삭제","label":"결석·결과 처리된 날짜의 누가기록을 선택하여 수동으로 삭제한다","menu":"[학생생활] > [창의적체험활동] > [자율·자치활동(자율활동)관리]","emphasis":"key"}],"edges":[]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1416.5" height="1368" viewBox="0 0 1416.5 1368">
+<defs><filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/></filter><marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/></marker><marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/></marker><marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/></marker><style>text{font-family:"Pretendard",-apple-system,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif}.mono{font-family:"Archivo","SFMono-Regular","Menlo",monospace}</style></defs>
+<rect width="1416.5" height="1368" fill="#ffffff"/>
+<rect x="0" y="0" width="1416.5" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1416.5" height="9" fill="#18a87b"/>
+<text x="1376.5" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 5 · 레인 3 · 게이트 4</text>
+<text data-edit="board::title" x="40" y="132" font-size="34" font-weight="850" fill="#ffffff">[FAQ] 자율활동 누가기록 입력 후 결석·결과 처리해도 기록이 자동으로 안 지워져요</text>
+<text data-edit="board::subtitle" x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">누가기록을 먼저 등록하고 나중에 결석·결과 처리를 하면 기존 누가기록이 자동 삭제되지 않아 수동 삭제가 필요합니다.</text>
+<rect x="38" y="260" width="1340.5" height="1016" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 →</text>
+<rect x="38" y="360" width="1340.5" height="190" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="190" fill="#e4f5ed"/>
+<text data-edit="stage:0:name" x="58" y="402" font-size="19" font-weight="800" fill="#35a77d"><tspan x="58" dy="0">누가기록 입력</tspan></text>
+<rect x="38" y="550" width="1340.5" height="184" fill="#f5f8f6"/>
+<rect x="38" y="550" width="190" height="184" fill="#eef3f0"/>
+<text data-edit="stage:1:name" x="58" y="592" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">출결 처리</tspan></text>
+<rect x="38" y="734" width="1340.5" height="184" fill="#fbfcfb"/>
+<rect x="38" y="734" width="190" height="184" fill="#eef3f0"/>
+<text data-edit="stage:2:name" x="58" y="776" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">시스템 동작</tspan></text>
+<rect x="38" y="918" width="1340.5" height="358" fill="#84baa9"/>
+<rect x="38" y="918" width="190" height="358" fill="#087452"/>
+<text data-edit="stage:3:name" x="58" y="960" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">수동 삭제</tspan></text>
+<rect x="228" y="260" width="383.5" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="383.5" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">담임교사</text>
+<text data-edit="lane:0:name" x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f">담임교사</text>
+<rect x="611.5" y="260" width="383.5" height="100" fill="#f7faf8"/>
+<rect x="611.5" y="260" width="383.5" height="7" fill="#3b82f6"/>
+<text x="631.5" y="299" font-size="20" font-weight="800" fill="#17231d">나이스시스템</text>
+<text data-edit="lane:1:name" x="631.5" y="329" font-size="13.5" font-weight="600" fill="#68776f">나이스시스템</text>
+<rect x="995" y="260" width="383.5" height="100" fill="#f7faf8"/>
+<rect x="995" y="260" width="383.5" height="7" fill="#c78116"/>
+<text x="1015" y="299" font-size="20" font-weight="800" fill="#17231d">-</text>
+<text data-edit="lane:2:name" x="1015" y="329" font-size="13.5" font-weight="600" fill="#68776f">-</text>
+<line x1="228" y1="260" x2="228" y2="1276" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="611.5" y1="260" x2="611.5" y2="1276" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="995" y1="260" x2="995" y2="1276" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1378.5" y1="260" x2="1378.5" y2="1276" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1378.5" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1378.5" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="550" x2="1378.5" y2="550" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="734" x2="1378.5" y2="734" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="918" x2="1378.5" y2="918" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1276" x2="1378.5" y2="1276" stroke="#b8c7bf" stroke-width="2"/>
+<g data-node="P01" filter="url(#card-shadow)"><rect x="284.8" y="392" width="270" height="126" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/><rect x="284.8" y="392" width="6" height="126" rx="3" fill="#35a77d"/><text x="299.8" y="412" class="mono" font-size="12.5" font-weight="750" fill="#287a5c">P01</text><rect x="494.8" y="399" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/><text x="519.8" y="416" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text><text data-edit="node:P01:menu" x="299.8" y="436" font-size="8" font-weight="750" fill="#287a5c"><tspan x="299.8" dy="0">[학생생활] &gt; [창의적체험활동] &gt;</tspan><tspan x="299.8" dy="13">[자율·자치활동(자율활동)관리]</tspan></text><text data-edit="node:P01:label" x="299.8" y="473" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="299.8" dy="0">학생의 자율활동 누가기록을 먼저</tspan><tspan x="299.8" dy="18">입력한다</tspan></text><text x="299.8" y="508" font-size="11" font-weight="650" fill="#287a5c">담임교사</text></g>
+<g data-node="P02" filter="url(#card-shadow)"><rect x="284.8" y="585.5" width="270" height="113" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/><rect x="284.8" y="585.5" width="6" height="113" rx="3" fill="#b9c7bf"/><text x="299.8" y="605.5" class="mono" font-size="12.5" font-weight="750" fill="#627169">P02</text><rect x="494.8" y="592.5" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/><text x="519.8" y="609.5" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text><text data-edit="node:P02:menu" x="299.8" y="629.5" font-size="10" font-weight="750" fill="#627169"><tspan x="299.8" dy="0">[학적] &gt; [출결관리]</tspan></text><text data-edit="node:P02:label" x="299.8" y="653.5" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="299.8" dy="0">이후 해당 일자에 대해 결석 또는</tspan><tspan x="299.8" dy="18">결과 처리를 한다</tspan></text><text x="299.8" y="688.5" font-size="11" font-weight="650" fill="#627169">담임교사</text></g>
+<g data-node="P03" filter="url(#card-shadow)"><rect x="668.3" y="769.5" width="270" height="113" rx="8" fill="#fff8e8" stroke="#d9901a" stroke-width="2.3"/><rect x="668.3" y="769.5" width="6" height="113" rx="3" fill="#d9901a"/><text x="683.3" y="789.5" class="mono" font-size="12.5" font-weight="750" fill="#a96008">P03</text><rect x="878.3" y="776.5" width="50" height="24" rx="5" fill="#d9901a" opacity="0.14"/><text x="903.3" y="793.5" text-anchor="middle" font-size="12" font-weight="800" fill="#7a4305">병목</text><text data-edit="node:P03:menu" x="683.3" y="813.5" font-size="10" font-weight="750" fill="#a96008"><tspan x="683.3" dy="0">[나이스 메뉴 경로를 입력하세요]</tspan></text><text data-edit="node:P03:label" x="683.3" y="837.5" font-size="15.5" font-weight="800" fill="#7a4305"><tspan x="683.3" dy="0">이미 등록된 누가기록을 자동으로</tspan><tspan x="683.3" dy="18">삭제하지 않는다</tspan></text><text x="683.3" y="872.5" font-size="11" font-weight="650" fill="#a96008">나이스시스템</text></g>
+<g data-node="P04" filter="url(#card-shadow)"><rect x="284.8" y="950" width="270" height="126" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/><rect x="284.8" y="950" width="6" height="126" rx="3" fill="#b9c7bf"/><text x="299.8" y="970" class="mono" font-size="12.5" font-weight="750" fill="#627169">P04</text><rect x="494.8" y="957" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/><text x="519.8" y="974" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text><text data-edit="node:P04:menu" x="299.8" y="994" font-size="8" font-weight="750" fill="#627169"><tspan x="299.8" dy="0">[학생생활] &gt; [창의적체험활동] &gt;</tspan><tspan x="299.8" dy="13">[자율·자치활동(자율활동)관리]</tspan></text><text data-edit="node:P04:label" x="299.8" y="1031" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="299.8" dy="0">누가기록 탭에서 학년, 반을 확인</tspan><tspan x="299.8" dy="18">후 조회한다</tspan></text><text x="299.8" y="1066" font-size="11" font-weight="650" fill="#627169">담임교사</text></g>
+<g data-node="P06" filter="url(#card-shadow)"><rect x="284.8" y="1100" width="270" height="144" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/><rect x="284.8" y="1100" width="6" height="144" rx="3" fill="#087452"/><text x="299.8" y="1120" class="mono" font-size="12.5" font-weight="750" fill="#d8f4e8">P06</text><rect x="494.8" y="1107" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/><text x="519.8" y="1124" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text><text data-edit="node:P06:menu" x="299.8" y="1144" font-size="8" font-weight="750" fill="#d8f4e8"><tspan x="299.8" dy="0">[학생생활] &gt; [창의적체험활동] &gt;</tspan><tspan x="299.8" dy="13">[자율·자치활동(자율활동)관리]</tspan></text><text data-edit="node:P06:label" x="299.8" y="1181" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="299.8" dy="0">결석·결과 처리된 날짜의</tspan><tspan x="299.8" dy="18">누가기록을 선택하여 수동으로</tspan><tspan x="299.8" dy="18">삭제한다</tspan></text><text x="299.8" y="1234" font-size="11" font-weight="650" fill="#d8f4e8">담임교사</text></g>
+<rect x="38" y="1298" width="640" height="52" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="60" y="1330" font-size="16" font-weight="850" fill="#18251e">범례</text>
+<rect x="124" y="1316" width="17" height="17" rx="4" fill="#35a77d"/>
+<text x="149" y="1329" font-size="14" fill="#3a463f">선행</text>
+<rect x="216" y="1316" width="17" height="17" rx="4" fill="#087452"/>
+<text x="241" y="1329" font-size="14" fill="#3a463f">핵심</text>
+<rect x="308" y="1316" width="17" height="17" rx="4" fill="#d9901a"/>
+<text x="333" y="1329" font-size="14" fill="#3a463f">병목</text>
+<rect x="400" y="1316" width="17" height="17" rx="4" fill="#3478db"/>
+<text x="425" y="1329" font-size="14" fill="#3a463f">회귀</text>
+<line x1="492" y1="1324" x2="534" y2="1324" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/>
+<text x="546" y="1329" font-size="14" fill="#3a463f">보완 회귀</text>
+</svg>
+</div>
+</body>
+</html>
