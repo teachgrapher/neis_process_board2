@@ -400,7 +400,8 @@
     // 파일명 규칙이 다르면 이 함수만 고치면 됩니다. file이 주어지면 그 이름을 그대로 씁니다.
     function fileHref(code, title, file) {
       const base = file || (code + "_" + title + "_모니터용");
-      return encodeURI(base + ".html");
+      // encodeURI는 '+'를 인코딩하지 않아 서버가 공백으로 해석할 수 있으므로 encodeURIComponent를 씁니다.
+      return encodeURIComponent(base) + ".html";
     }
 
     const partsEl = document.getElementById("parts");
