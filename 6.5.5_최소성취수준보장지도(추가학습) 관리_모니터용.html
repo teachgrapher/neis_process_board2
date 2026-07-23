@@ -1,4 +1,4 @@
-<!-- 최소성취수준보장지도(추가학습) 관리 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!-- 최소성취수준보장지도(추가학습) 관리 — korea100studio 스윔레인 보드(편집기 저장본) -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,245 +6,106 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>최소성취수준보장지도(추가학습) 관리</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
 <style>
 @page{ size:A4 portrait; margin:8mm }
-html,body{ margin:0; padding:0; background:#e8e8e8 }
-.sheet{
-  width:100%; max-width:2400px; margin:0 auto; background:#fff;
-  padding:8mm; box-sizing:border-box;
-}
-.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
-.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
-.toolbar button{
-  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
-  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
-}
-.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+html,body{ margin:0; padding:0; background:#eef1f0 }
+.sheet{ width:100%; max-width:2400px; margin:0 auto; padding:12px 20px 48px; box-sizing:border-box; background:transparent }
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto }
+.toolbar{ text-align:center; padding:16px; font-family:"Pretendard",sans-serif }
+.toolbar button{ font-size:16px; font-weight:600; padding:11px 24px; cursor:pointer; background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111 }
+.toolbar .tip{ font-size:13px; color:#555; margin-top:8px }
 @media print{
-  body{ background:#fff }
+  html,body{ background:#fff }
   .toolbar{ display:none }
   .sheet{ width:auto; max-width:none; margin:0; padding:0; box-shadow:none }
-  .sheet svg{ width:194mm; height:auto }
+  .sheet svg{ width:194mm; page-break-inside:avoid }
 }
 </style>
 </head>
 <body>
-<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"최소성취수준보장지도(추가학습) 관리","subtitle":"고교학점제 학점 이수 기준에 따라 성취율·출결로 대상자를 파악하고 예외처리·이수처리를 거쳐 마감하는 절차.","lanes":["교과담당교사","업무담당교사","학급담임교사"],"stages":["대상자 파악(성취율·출결)","대상자 가져오기","예외처리","이수관리","마감 및 조회"],"nodes":[{"id":"P01","lane":"교과담당교사","stage":"대상자 파악(성취율·출결)","label":"지필/수행학업성취율현황을 조회하여 성취도 미도달 학생을 확인한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성취수준보장지도(추가학습)대상자-지필/수행학업성취율현황]","emphasis":"lead"},{"id":"P02","lane":"교과담당교사","stage":"대상자 파악(성취율·출결)","label":"과목별출결현황을 조회하여 교과목 출결 이수기준 충족 여부를 확인한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성취수준보장지도(추가학습)대상자-과목별출결현황]","emphasis":"normal"},{"id":"P03","lane":"학급담임교사","stage":"대상자 파악(성취율·출결)","label":"일일출결관리에서 교과담당교사가 마감한 일자의 교시 출결마감이 모두 되었는지 확인한다.","menu":"[학급담임-학적-출결관리-출결관리-일일출결관리(담임용)]","emphasis":"normal"},{"id":"P04","lane":"업무담당교사","stage":"대상자 가져오기","label":"학기말 성적산출 마감과 과목별 출결마감이 완료된 과목·강의실을 조회하여 대상자가져오기로 확정한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성취수준보장지도(추가학습)대상자]","emphasis":"key"},{"id":"P05","lane":"업무담당교사","stage":"예외처리","label":"미이수 대상자를 조회하여 예외처리 사유(특수교육 대상자, 학교외 장소 수강, 기타)를 선택하고 저장한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성취수준보장지도(추가학습)예외처리]","emphasis":"normal"},{"id":"P06","lane":"교과담당교사","stage":"이수관리","label":"미이수 학생을 선택해 학점당 시수를 적용하고 참여시수와 비고(보장지도 내용)를 등록해 이수여부를 처리한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성취수준보장지도(추가학습)이수관리]","emphasis":"key"},{"id":"P07","lane":"업무담당교사","stage":"마감 및 조회","label":"과목·강의실을 조회해 학점반영을 실행한 후 마감하여 대상자·예외처리자·이수자·미이수자·학점반영자 현황을 확인한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성취수준보장지도(추가학습)마감]","emphasis":"normal"},{"id":"P08","lane":"학급담임교사","stage":"마감 및 조회","label":"학급 단위로 전체 또는 미이수 학생의 보장지도(추가학습) 처리 현황을 조회한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)조회]","emphasis":"normal"},{"id":"P09","lane":"교과담당교사","stage":"마감 및 조회","label":"담당 과목·강의실 단위로 전체 또는 미이수 학생의 보장지도(추가학습) 처리 현황을 조회한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)조회]","emphasis":"normal"},{"id":"P10","lane":"업무담당교사","stage":"마감 및 조회","label":"학년 단위로 강의실별 마감여부를 확인하여 전체 과목을 선택해 마감정보저장 후 승인요청으로 최종 상신한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)마감관리]","emphasis":"key"}],"edges":[{"id":"L01","source":"P07","target":"P04","type":"loop","label":"출결 수정 시 대상자가져오기부터 재처리"}]}</script>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"최소성취수준보장지도(추가학습) 관리","subtitle":"고교학점제 학점 이수 기준에 따라 성취율·출결로 대상자를 파악하고 예외처리·이수처리를 거쳐 마감하는 절차.","lanes":["교과담당교사","성적담당교사","학급담임교사"],"stages":["대상자 파악(성취율·출결)","대상자 가져오기","예외처리","이수관리","마감 및 조회"],"nodes":[{"id":"P01","lane":"교과담당교사","stage":"대상자 파악(성취율·출결)","label":"지필/수행학업성취율현황을 조회하여 성취도 미도달 학생을 확인한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성취수준보장지도(추가학습)대상자-지필/수행학업성취율현황]","emphasis":"lead"},{"id":"P11","lane":"교과담당교사","stage":"대상자 파악(성취율·출결)","label":"과목별 출결 마감을 실시한다.","menu":"[학적] > [출결관리] > [과목별출결관리] > [학기별과목출결마감(창의적체험활동제외)]","emphasis":"lead"},{"id":"P03","lane":"학급담임교사","stage":"대상자 파악(성취율·출결)","label":"일일출결관리에서 교과담당교사가 마감한 일자의 교시 출결마감이 모두 되었는지 확인하고 일출결 마감, 월출결 마감을 실시한다.","menu":"[학급담임-학적-출결관리-출결관리-일일출결관리(담임용)]","emphasis":"lead"},{"id":"P04","lane":"교과담당교사","stage":"대상자 가져오기","label":"학기말 성적산출 마감과 과목별 출결마감이 완료된 과목·강의실을 조회하여 대상자가져오기로 확정한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성취수준보장지도(추가학습)대상자]","emphasis":"key"},{"id":"P05","lane":"교과담당교사","stage":"예외처리","label":"미이수 대상자를 조회하여 예외처리 사유(특수교육 대상자, 학교외 장소 수강, 기타)를 선택하고 저장한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성취수준보장지도(추가학습)예외처리]","emphasis":"normal"},{"id":"P06","lane":"교과담당교사","stage":"이수관리","label":"미이수 학생을 선택해 학점당 시수를 적용하고 참여시수와 비고(보장지도 내용)를 등록해 이수여부를 처리한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성취수준보장지도(추가학습)이수관리]","emphasis":"key"},{"id":"P07","lane":"성적담당교사","stage":"마감 및 조회","label":"과목·강의실을 조회해 학점반영을 실행한 후 마감하여 대상자·예외처리자·이수자·미이수자·학점반영자 현황을 확인한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성취수준보장지도(추가학습)마감]","emphasis":"normal"},{"id":"P08","lane":"학급담임교사","stage":"마감 및 조회","label":"학급 단위로 전체 또는 미이수 학생의 보장지도(추가학습) 처리 현황을 조회한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)조회]","emphasis":"normal"},{"id":"P09","lane":"교과담당교사","stage":"마감 및 조회","label":"담당 과목·강의실 단위로 전체 또는 미이수 학생의 보장지도(추가학습) 처리 현황을 조회한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)조회]","emphasis":"normal"},{"id":"P10","lane":"성적담당교사","stage":"마감 및 조회","label":"학년 단위로 강의실별 마감여부를 확인하여 전체 과목을 선택해 마감정보저장 후 승인요청으로 최종 상신한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)마감관리]","emphasis":"key"},{"id":"P02","lane":"교과담당교사","stage":"대상자 파악(성취율·출결)","label":"과목별출결현황을 조회하여 교과목 출결 이수기준 충족 여부를 확인한다.","menu":"[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성취수준보장지도(추가학습)대상자-과목별출결현황]","emphasis":"lead"},{"id":"P12","lane":"성적담당교사","stage":"대상자 파악(성취율·출결)","label":"성적 산출 전체 마감을 실시한다.","menu":"[성적] > [성적처리] > [성적산출마감관리]","emphasis":"lead"}],"edges":[{"id":"L01","source":"P07","target":"P04","type":"loop","label":"출결 수정 시 대상자가져오기부터 재처리","route":{"channel":-710},"labelOffset":{"dx":193,"dy":419}}]}</script>
 <div class="toolbar">
   <button onclick="window.print()">인쇄하기</button>
   <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
 </div>
 <div class="sheet">
-<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400">
-<defs>
-      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
-        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
-      </filter>
-      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
-    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
-  </marker>
-      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
-    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
-  </marker>
-      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
-    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
-  </marker>
-      <style>
-        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
-        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
-      </style>
-    </defs>
-<rect width="1800" height="2400" fill="#ffffff"/>
-<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
-<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
-
-    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 10 · 레인 3 · 게이트 5</text>
-    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">최소성취수준보장지도(추가학습) 관리</text>
-    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">고교학점제 학점 이수 기준에 따라 성취율·출결로 대상자를 파악하고 예외처리·이수처리를 거쳐 마감하는 절차.</text>
-    
-  
-<rect x="38" y="260" width="1724" height="1940" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1416.5" height="2055" viewBox="0 0 1416.5 2055">
+<defs><filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/></filter><marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/></marker><marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/></marker><marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/></marker><style>text{font-family:"Pretendard",-apple-system,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif}.mono{font-family:"Archivo","SFMono-Regular","Menlo",monospace}</style></defs>
+<rect width="1416.5" height="2055" fill="#ffffff"/>
+<rect x="0" y="0" width="1416.5" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1416.5" height="9" fill="#18a87b"/>
+<text x="1376.5" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 12 · 레인 3 · 게이트 5</text>
+<text data-edit="board::title" x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">최소성취수준보장지도(추가학습) 관리</text>
+<text data-edit="board::subtitle" x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">고교학점제 학점 이수 기준에 따라 성취율·출결로 대상자를 파악하고 예외처리·이수처리를 거쳐 마감하는 절차.</text>
+<rect x="38" y="260" width="1340.5" height="1703" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
 <rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
 <text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
-<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
-<rect x="38" y="360" width="1724" height="449.8" fill="#fbfcfb"/>
-<rect x="38" y="360" width="190" height="449.8" fill="#eef3f0"/>
-<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
-<text x="58" y="425" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">대상자</tspan><tspan x="58" dy="22">파악(성취율·…</tspan></text>
-<rect x="38" y="809.8" width="1724" height="299.8" fill="#84baa9"/>
-<rect x="38" y="809.8" width="190" height="299.8" fill="#087452"/>
-<text x="58" y="841.8" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
-<text x="58" y="874.8" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">대상자 가져오기</tspan></text>
-<rect x="38" y="1109.6" width="1724" height="299.8" fill="#fbfcfb"/>
-<rect x="38" y="1109.6" width="190" height="299.8" fill="#eef3f0"/>
-<text x="58" y="1141.6" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
-<text x="58" y="1174.6" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">예외처리</tspan></text>
-<rect x="38" y="1409.4" width="1724" height="299.8" fill="#84baa9"/>
-<rect x="38" y="1409.4" width="190" height="299.8" fill="#087452"/>
-<text x="58" y="1441.4" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
-<text x="58" y="1474.4" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">이수관리</tspan></text>
-<rect x="38" y="1709.2" width="1724" height="490.8" fill="#84baa9"/>
-<rect x="38" y="1709.2" width="190" height="490.8" fill="#087452"/>
-<text x="58" y="1741.2" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
-<text x="58" y="1774.2" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">마감 및 조회</tspan></text>
-<rect x="228" y="260" width="511.3" height="100" fill="#f7faf8"/>
-<rect x="228" y="260" width="511.3" height="7" fill="#0f9f72"/>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 →</text>
+<rect x="38" y="360" width="1340.5" height="508" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="508" fill="#e4f5ed"/>
+<text data-edit="stage:0:name" x="58" y="402" font-size="19" font-weight="800" fill="#35a77d"><tspan x="58" dy="0">대상자</tspan><tspan x="58" dy="22">파악(성취율·출</tspan><tspan x="58" dy="22">결)</tspan></text>
+<rect x="38" y="868" width="1340.5" height="226" fill="#84baa9"/>
+<rect x="38" y="868" width="190" height="226" fill="#087452"/>
+<text data-edit="stage:1:name" x="58" y="910" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">대상자 가져오기</tspan></text>
+<rect x="38" y="1094" width="1340.5" height="226" fill="#fbfcfb"/>
+<rect x="38" y="1094" width="190" height="226" fill="#eef3f0"/>
+<text data-edit="stage:2:name" x="58" y="1136" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">예외처리</tspan></text>
+<rect x="38" y="1320" width="1340.5" height="226" fill="#84baa9"/>
+<rect x="38" y="1320" width="190" height="226" fill="#087452"/>
+<text data-edit="stage:3:name" x="58" y="1362" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">이수관리</tspan></text>
+<rect x="38" y="1546" width="1340.5" height="417" fill="#84baa9"/>
+<rect x="38" y="1546" width="190" height="417" fill="#087452"/>
+<text data-edit="stage:4:name" x="58" y="1588" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">마감 및 조회</tspan></text>
+<rect x="228" y="260" width="383.5" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="383.5" height="7" fill="#0f9f72"/>
 <text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">교과담당교사</text>
-<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">교과담당교사</tspan></text>
-<rect x="739.3" y="260" width="511.3" height="100" fill="#f7faf8"/>
-<rect x="739.3" y="260" width="511.3" height="7" fill="#3b82f6"/>
-<text x="759.3" y="299" font-size="20" font-weight="800" fill="#17231d">업무담당교사</text>
-<text x="759.3" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="759.3" dy="0">업무담당교사</tspan></text>
-<rect x="1250.7" y="260" width="511.3" height="100" fill="#f7faf8"/>
-<rect x="1250.7" y="260" width="511.3" height="7" fill="#c78116"/>
-<text x="1270.7" y="299" font-size="20" font-weight="800" fill="#17231d">학급담임교사</text>
-<text x="1270.7" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1270.7" dy="0">학급담임교사</tspan></text>
-<line x1="228" y1="260" x2="228" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
-<line x1="739.3" y1="260" x2="739.3" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
-<line x1="1250.7" y1="260" x2="1250.7" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
-<line x1="1762" y1="260" x2="1762" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
-<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
-<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
-<line x1="38" y1="809.8" x2="1762" y2="809.8" stroke="#c8d3cd" stroke-width="1.5"/>
-<line x1="38" y1="1109.6" x2="1762" y2="1109.6" stroke="#c8d3cd" stroke-width="1.5"/>
-<line x1="38" y1="1409.4" x2="1762" y2="1409.4" stroke="#c8d3cd" stroke-width="1.5"/>
-<line x1="38" y1="1709.2" x2="1762" y2="1709.2" stroke="#c8d3cd" stroke-width="1.5"/>
-<line x1="38" y1="2200" x2="1762" y2="2200" stroke="#b8c7bf" stroke-width="2"/>
-<path d="M 860 1868.1 H 216 V 1089.6 H 995 V 1048.7" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
-<path d="M 860 1868.1 H 216 V 1089.6 H 995 V 1048.7" fill="none" stroke="#3478db" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
-<rect x="144.2" y="1355.9" width="283.6" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
-<text x="286" y="1375.9" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">출결 수정 시 대상자가져오기부터 재처리</text>
-
-    <g filter="url(#card-shadow)">
-      <rect x="348.7" y="428.9" width="270" height="144" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
-      <rect x="348.7" y="428.9" width="6" height="144" rx="3" fill="#35a77d"/>
-      <text x="363.7" y="448.9" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
-      <rect x="558.7" y="435.9" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
-      <text x="583.7" y="452.9" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
-      <text x="363.7" y="472.9" font-size="8" font-weight="750" fill="#287a5c"><tspan x="363.7" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성</tspan><tspan x="363.7" dy="13">취수준보장지도(추가학습)대상자-지필/수행학업성취율현황]</tspan></text>
-      <text x="363.7" y="509.9" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="363.7" dy="0">지필/수행학업성취율현황을</tspan><tspan x="363.7" dy="18">조회하여 성취도 미도달 학생을</tspan><tspan x="363.7" dy="18">확인한다.</tspan></text>
-      <text x="363.7" y="562.9" font-size="11" font-weight="650" fill="#287a5c">교과담당교사</text>
-    </g>
-  
-
-    <g filter="url(#card-shadow)">
-      <rect x="348.7" y="596.9" width="270" height="144" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
-      <rect x="348.7" y="596.9" width="6" height="144" rx="3" fill="#b9c7bf"/>
-      <text x="363.7" y="616.9" font-size="12.5" font-weight="750" fill="#627169">P02</text>
-      <rect x="558.7" y="603.9" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
-      <text x="583.7" y="620.9" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
-      <text x="363.7" y="640.9" font-size="8" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성</tspan><tspan x="363.7" dy="13">취수준보장지도(추가학습)대상자-과목별출결현황]</tspan></text>
-      <text x="363.7" y="677.9" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">과목별출결현황을 조회하여</tspan><tspan x="363.7" dy="18">교과목 출결 이수기준 충족 여부를</tspan><tspan x="363.7" dy="18">확인한다.</tspan></text>
-      <text x="363.7" y="730.9" font-size="11" font-weight="650" fill="#627169">교과담당교사</text>
-    </g>
-  
-
-    <g filter="url(#card-shadow)">
-      <rect x="1371.3" y="519.4" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
-      <rect x="1371.3" y="519.4" width="6" height="131" rx="3" fill="#b9c7bf"/>
-      <text x="1386.3" y="539.4" font-size="12.5" font-weight="750" fill="#627169">P03</text>
-      <rect x="1581.3" y="526.4" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
-      <text x="1606.3" y="543.4" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
-      <text x="1386.3" y="563.4" font-size="8.5" font-weight="750" fill="#627169"><tspan x="1386.3" dy="0">[학급담임-학적-출결관리-출결관리-일일출결관리(담임용)]</tspan></text>
-      <text x="1386.3" y="587.4" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1386.3" dy="0">일일출결관리에서 교과담당교사가</tspan><tspan x="1386.3" dy="18">마감한 일자의 교시 출결마감이</tspan><tspan x="1386.3" dy="18">모두 되었는지 확인한다.</tspan></text>
-      <text x="1386.3" y="640.4" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
-    </g>
-  
-
-    <g filter="url(#card-shadow)">
-      <rect x="860" y="878.7" width="270" height="162" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
-      <rect x="860" y="878.7" width="6" height="162" rx="3" fill="#087452"/>
-      <text x="875" y="898.7" font-size="12.5" font-weight="750" fill="#d8f4e8">P04</text>
-      <rect x="1070" y="885.7" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
-      <text x="1095" y="902.7" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
-      <text x="875" y="922.7" font-size="8" font-weight="750" fill="#d8f4e8"><tspan x="875" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성</tspan><tspan x="875" dy="13">취수준보장지도(추가학습)대상자]</tspan></text>
-      <text x="875" y="959.7" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="875" dy="0">학기말 성적산출 마감과 과목별</tspan><tspan x="875" dy="18">출결마감이 완료된 과목·강의실을</tspan><tspan x="875" dy="18">조회하여 대상자가져오기로</tspan><tspan x="875" dy="18">확정한다.</tspan></text>
-      <text x="875" y="1030.7" font-size="11" font-weight="650" fill="#d8f4e8">업무담당교사</text>
-    </g>
-  
-
-    <g filter="url(#card-shadow)">
-      <rect x="860" y="1178.5" width="270" height="162" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
-      <rect x="860" y="1178.5" width="6" height="162" rx="3" fill="#b9c7bf"/>
-      <text x="875" y="1198.5" font-size="12.5" font-weight="750" fill="#627169">P05</text>
-      <rect x="1070" y="1185.5" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
-      <text x="1095" y="1202.5" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
-      <text x="875" y="1222.5" font-size="8" font-weight="750" fill="#627169"><tspan x="875" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성</tspan><tspan x="875" dy="13">취수준보장지도(추가학습)예외처리]</tspan></text>
-      <text x="875" y="1259.5" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="875" dy="0">미이수 대상자를 조회하여</tspan><tspan x="875" dy="18">예외처리 사유(특수교육 대상자,</tspan><tspan x="875" dy="18">학교외 장소 수강, 기타)를</tspan><tspan x="875" dy="18">선택하고 저장한다.</tspan></text>
-      <text x="875" y="1330.5" font-size="11" font-weight="650" fill="#627169">업무담당교사</text>
-    </g>
-  
-
-    <g filter="url(#card-shadow)">
-      <rect x="348.7" y="1478.3" width="270" height="162" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
-      <rect x="348.7" y="1478.3" width="6" height="162" rx="3" fill="#087452"/>
-      <text x="363.7" y="1498.3" font-size="12.5" font-weight="750" fill="#d8f4e8">P06</text>
-      <rect x="558.7" y="1485.3" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
-      <text x="583.7" y="1502.3" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
-      <text x="363.7" y="1522.3" font-size="8" font-weight="750" fill="#d8f4e8"><tspan x="363.7" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성</tspan><tspan x="363.7" dy="13">취수준보장지도(추가학습)이수관리]</tspan></text>
-      <text x="363.7" y="1559.3" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="363.7" dy="0">미이수 학생을 선택해 학점당</tspan><tspan x="363.7" dy="18">시수를 적용하고 참여시수와</tspan><tspan x="363.7" dy="18">비고(보장지도 내용)를 등록해</tspan><tspan x="363.7" dy="18">이수여부를 처리한다.</tspan></text>
-      <text x="363.7" y="1630.3" font-size="11" font-weight="650" fill="#d8f4e8">교과담당교사</text>
-    </g>
-  
-
-    <g filter="url(#card-shadow)">
-      <rect x="860" y="1778.1" width="270" height="180" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
-      <rect x="860" y="1778.1" width="6" height="180" rx="3" fill="#b9c7bf"/>
-      <text x="875" y="1798.1" font-size="12.5" font-weight="750" fill="#627169">P07</text>
-      <rect x="1070" y="1785.1" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
-      <text x="1095" y="1802.1" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
-      <text x="875" y="1822.1" font-size="8" font-weight="750" fill="#627169"><tspan x="875" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성</tspan><tspan x="875" dy="13">취수준보장지도(추가학습)마감]</tspan></text>
-      <text x="875" y="1859.1" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="875" dy="0">과목·강의실을 조회해 학점반영을</tspan><tspan x="875" dy="18">실행한 후 마감하여</tspan><tspan x="875" dy="18">대상자·예외처리자·이수자·미이</tspan><tspan x="875" dy="18">수자·학점반영자 현황을</tspan><tspan x="875" dy="18">확인한다.</tspan></text>
-      <text x="875" y="1948.1" font-size="11" font-weight="650" fill="#627169">업무담당교사</text>
-    </g>
-  
-
-    <g filter="url(#card-shadow)">
-      <rect x="1371.3" y="1889.1" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
-      <rect x="1371.3" y="1889.1" width="6" height="131" rx="3" fill="#b9c7bf"/>
-      <text x="1386.3" y="1909.1" font-size="12.5" font-weight="750" fill="#627169">P08</text>
-      <rect x="1581.3" y="1896.1" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
-      <text x="1606.3" y="1913.1" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
-      <text x="1386.3" y="1933.1" font-size="9.5" font-weight="750" fill="#627169"><tspan x="1386.3" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)조회]</tspan></text>
-      <text x="1386.3" y="1957.1" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1386.3" dy="0">학급 단위로 전체 또는 미이수</tspan><tspan x="1386.3" dy="18">학생의 보장지도(추가학습) 처리</tspan><tspan x="1386.3" dy="18">현황을 조회한다.</tspan></text>
-      <text x="1386.3" y="2010.1" font-size="11" font-weight="650" fill="#627169">학급담임교사</text>
-    </g>
-  
-
-    <g filter="url(#card-shadow)">
-      <rect x="348.7" y="1880.1" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
-      <rect x="348.7" y="1880.1" width="6" height="149" rx="3" fill="#b9c7bf"/>
-      <text x="363.7" y="1900.1" font-size="12.5" font-weight="750" fill="#627169">P09</text>
-      <rect x="558.7" y="1887.1" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
-      <text x="583.7" y="1904.1" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
-      <text x="363.7" y="1924.1" font-size="9.5" font-weight="750" fill="#627169"><tspan x="363.7" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)조회]</tspan></text>
-      <text x="363.7" y="1948.1" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="363.7" dy="0">담당 과목·강의실 단위로 전체</tspan><tspan x="363.7" dy="18">또는 미이수 학생의</tspan><tspan x="363.7" dy="18">보장지도(추가학습) 처리 현황을</tspan><tspan x="363.7" dy="18">조회한다.</tspan></text>
-      <text x="363.7" y="2019.1" font-size="11" font-weight="650" fill="#627169">교과담당교사</text>
-    </g>
-  
-
-    <g filter="url(#card-shadow)">
-      <rect x="860" y="1982.1" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
-      <rect x="860" y="1982.1" width="6" height="149" rx="3" fill="#087452"/>
-      <text x="875" y="2002.1" font-size="12.5" font-weight="750" fill="#d8f4e8">P10</text>
-      <rect x="1070" y="1989.1" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
-      <text x="1095" y="2006.1" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
-      <text x="875" y="2026.1" font-size="8.5" font-weight="750" fill="#d8f4e8"><tspan x="875" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)마감관리]</tspan></text>
-      <text x="875" y="2050.1" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="875" dy="0">학년 단위로 강의실별 마감여부를</tspan><tspan x="875" dy="18">확인하여 전체 과목을 선택해</tspan><tspan x="875" dy="18">마감정보저장 후 승인요청으로</tspan><tspan x="875" dy="18">최종 상신한다.</tspan></text>
-      <text x="875" y="2121.1" font-size="11" font-weight="650" fill="#d8f4e8">업무담당교사</text>
-    </g>
-  
-<rect x="38" y="2222" width="617.3" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
-<text x="62" y="2260" font-size="17" font-weight="850" fill="#18251e">범례</text>
-<rect x="132" y="2244" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2259" font-size="15" fill="#3a463f">선행</text>
-<rect x="218" y="2244" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2259" font-size="15" fill="#3a463f">핵심</text>
-<rect x="304" y="2244" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2259" font-size="15" fill="#3a463f">병목</text>
-<rect x="390" y="2244" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2259" font-size="15" fill="#3a463f">회귀</text>
-<line x1="476" y1="2252" x2="522" y2="2252" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/><text x="536" y="2258" font-size="15" fill="#3a463f">보완 회귀</text>
-
+<text data-edit="lane:0:name" x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f">교과담당교사</text>
+<rect x="611.5" y="260" width="383.5" height="100" fill="#f7faf8"/>
+<rect x="611.5" y="260" width="383.5" height="7" fill="#3b82f6"/>
+<text x="631.5" y="299" font-size="20" font-weight="800" fill="#17231d">성적담당교사</text>
+<text data-edit="lane:1:name" x="631.5" y="329" font-size="13.5" font-weight="600" fill="#68776f">성적담당교사</text>
+<rect x="995" y="260" width="383.5" height="100" fill="#f7faf8"/>
+<rect x="995" y="260" width="383.5" height="7" fill="#c78116"/>
+<text x="1015" y="299" font-size="20" font-weight="800" fill="#17231d">학급담임교사</text>
+<text data-edit="lane:2:name" x="1015" y="329" font-size="13.5" font-weight="600" fill="#68776f">학급담임교사</text>
+<line x1="228" y1="260" x2="228" y2="1963" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="611.5" y1="260" x2="611.5" y2="1963" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="995" y1="260" x2="995" y2="1963" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1378.5" y1="260" x2="1378.5" y2="1963" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1378.5" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1378.5" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="868" x2="1378.5" y2="868" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1094" x2="1378.5" y2="1094" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1320" x2="1378.5" y2="1320" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1546" x2="1378.5" y2="1546" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1963" x2="1378.5" y2="1963" stroke="#b8c7bf" stroke-width="2"/>
+<g data-edge="L01"><path class="edge-hit" d="M 803.3 1758 V 1094 H 419.8 V 1070" fill="none" stroke="#000" stroke-opacity="0" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" style="cursor:pointer"/><path d="M 803.3 1758 V 1094 H 419.8 V 1070" fill="none" stroke="#ffffff" stroke-width="6.5" stroke-dasharray="10 8" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M 803.3 1758 V 1094 H 419.8 V 1070" fill="none" stroke="#3478db" stroke-width="4" stroke-dasharray="10 8" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/></g>
+<g data-node="P01" filter="url(#card-shadow)"><rect x="284.8" y="392" width="270" height="144" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/><rect x="284.8" y="392" width="6" height="144" rx="3" fill="#35a77d"/><text x="299.8" y="412" class="mono" font-size="12.5" font-weight="750" fill="#287a5c">P01</text><rect x="494.8" y="399" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/><text x="519.8" y="416" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text><text data-edit="node:P01:menu" x="299.8" y="436" font-size="8" font-weight="750" fill="#287a5c"><tspan x="299.8" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성</tspan><tspan x="299.8" dy="13">취수준보장지도(추가학습)대상자-지필/수행학업성취율현황]</tspan></text><text data-edit="node:P01:label" x="299.8" y="473" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="299.8" dy="0">지필/수행학업성취율현황을</tspan><tspan x="299.8" dy="18">조회하여 성취도 미도달 학생을</tspan><tspan x="299.8" dy="18">확인한다.</tspan></text><text x="299.8" y="526" font-size="11" font-weight="650" fill="#287a5c">교과담당교사</text></g>
+<g data-node="P11" filter="url(#card-shadow)"><rect x="284.8" y="560" width="270" height="108" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/><rect x="284.8" y="560" width="6" height="108" rx="3" fill="#35a77d"/><text x="299.8" y="580" class="mono" font-size="12.5" font-weight="750" fill="#287a5c">P11</text><rect x="494.8" y="567" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/><text x="519.8" y="584" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text><text data-edit="node:P11:menu" x="299.8" y="604" font-size="8" font-weight="750" fill="#287a5c"><tspan x="299.8" dy="0">[학적] &gt; [출결관리] &gt; [과목별출결관리] &gt;</tspan><tspan x="299.8" dy="13">[학기별과목출결마감(창의적체험활동제외)]</tspan></text><text data-edit="node:P11:label" x="299.8" y="641" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="299.8" dy="0">과목별 출결 마감을 실시한다.</tspan></text><text x="299.8" y="658" font-size="11" font-weight="650" fill="#287a5c">교과담당교사</text></g>
+<g data-node="P03" filter="url(#card-shadow)"><rect x="1051.8" y="539.5" width="270" height="149" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/><rect x="1051.8" y="539.5" width="6" height="149" rx="3" fill="#35a77d"/><text x="1066.8" y="559.5" class="mono" font-size="12.5" font-weight="750" fill="#287a5c">P03</text><rect x="1261.8" y="546.5" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/><text x="1286.8" y="563.5" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text><text data-edit="node:P03:menu" x="1066.8" y="583.5" font-size="8" font-weight="750" fill="#287a5c"><tspan x="1066.8" dy="0">[학급담임-학적-출결관리-출결관리-일일출결관리(담임용)]</tspan></text><text data-edit="node:P03:label" x="1066.8" y="607.5" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="1066.8" dy="0">일일출결관리에서 교과담당교사가</tspan><tspan x="1066.8" dy="18">마감한 일자의 교시 출결마감이</tspan><tspan x="1066.8" dy="18">모두 되었는지 확인하고 일출결</tspan><tspan x="1066.8" dy="18">마감, 월출결 마감을 실시한다.</tspan></text><text x="1066.8" y="678.5" font-size="11" font-weight="650" fill="#287a5c">학급담임교사</text></g>
+<g data-node="P04" filter="url(#card-shadow)"><rect x="284.8" y="900" width="270" height="162" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/><rect x="284.8" y="900" width="6" height="162" rx="3" fill="#087452"/><text x="299.8" y="920" class="mono" font-size="12.5" font-weight="750" fill="#d8f4e8">P04</text><rect x="494.8" y="907" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/><text x="519.8" y="924" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text><text data-edit="node:P04:menu" x="299.8" y="944" font-size="8" font-weight="750" fill="#d8f4e8"><tspan x="299.8" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성</tspan><tspan x="299.8" dy="13">취수준보장지도(추가학습)대상자]</tspan></text><text data-edit="node:P04:label" x="299.8" y="981" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="299.8" dy="0">학기말 성적산출 마감과 과목별</tspan><tspan x="299.8" dy="18">출결마감이 완료된 과목·강의실을</tspan><tspan x="299.8" dy="18">조회하여 대상자가져오기로</tspan><tspan x="299.8" dy="18">확정한다.</tspan></text><text x="299.8" y="1052" font-size="11" font-weight="650" fill="#d8f4e8">교과담당교사</text></g>
+<g data-node="P05" filter="url(#card-shadow)"><rect x="284.8" y="1126" width="270" height="162" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/><rect x="284.8" y="1126" width="6" height="162" rx="3" fill="#b9c7bf"/><text x="299.8" y="1146" class="mono" font-size="12.5" font-weight="750" fill="#627169">P05</text><rect x="494.8" y="1133" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/><text x="519.8" y="1150" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text><text data-edit="node:P05:menu" x="299.8" y="1170" font-size="8" font-weight="750" fill="#627169"><tspan x="299.8" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성</tspan><tspan x="299.8" dy="13">취수준보장지도(추가학습)예외처리]</tspan></text><text data-edit="node:P05:label" x="299.8" y="1207" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="299.8" dy="0">미이수 대상자를 조회하여</tspan><tspan x="299.8" dy="18">예외처리 사유(특수교육 대상자,</tspan><tspan x="299.8" dy="18">학교외 장소 수강, 기타)를</tspan><tspan x="299.8" dy="18">선택하고 저장한다.</tspan></text><text x="299.8" y="1278" font-size="11" font-weight="650" fill="#627169">교과담당교사</text></g>
+<g data-node="P06" filter="url(#card-shadow)"><rect x="284.8" y="1352" width="270" height="162" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/><rect x="284.8" y="1352" width="6" height="162" rx="3" fill="#087452"/><text x="299.8" y="1372" class="mono" font-size="12.5" font-weight="750" fill="#d8f4e8">P06</text><rect x="494.8" y="1359" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/><text x="519.8" y="1376" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text><text data-edit="node:P06:menu" x="299.8" y="1396" font-size="8" font-weight="750" fill="#d8f4e8"><tspan x="299.8" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성</tspan><tspan x="299.8" dy="13">취수준보장지도(추가학습)이수관리]</tspan></text><text data-edit="node:P06:label" x="299.8" y="1433" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="299.8" dy="0">미이수 학생을 선택해 학점당</tspan><tspan x="299.8" dy="18">시수를 적용하고 참여시수와</tspan><tspan x="299.8" dy="18">비고(보장지도 내용)를 등록해</tspan><tspan x="299.8" dy="18">이수여부를 처리한다.</tspan></text><text x="299.8" y="1504" font-size="11" font-weight="650" fill="#d8f4e8">교과담당교사</text></g>
+<g data-node="P07" filter="url(#card-shadow)"><rect x="668.3" y="1578" width="270" height="180" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/><rect x="668.3" y="1578" width="6" height="180" rx="3" fill="#b9c7bf"/><text x="683.3" y="1598" class="mono" font-size="12.5" font-weight="750" fill="#627169">P07</text><rect x="878.3" y="1585" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/><text x="903.3" y="1602" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text><text data-edit="node:P07:menu" x="683.3" y="1622" font-size="8" font-weight="750" fill="#627169"><tspan x="683.3" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성</tspan><tspan x="683.3" dy="13">취수준보장지도(추가학습)마감]</tspan></text><text data-edit="node:P07:label" x="683.3" y="1659" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="683.3" dy="0">과목·강의실을 조회해 학점반영을</tspan><tspan x="683.3" dy="18">실행한 후 마감하여</tspan><tspan x="683.3" dy="18">대상자·예외처리자·이수자·미이</tspan><tspan x="683.3" dy="18">수자·학점반영자 현황을</tspan><tspan x="683.3" dy="18">확인한다.</tspan></text><text x="683.3" y="1748" font-size="11" font-weight="650" fill="#627169">성적담당교사</text></g>
+<g data-node="P08" filter="url(#card-shadow)"><rect x="1051.8" y="1689" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/><rect x="1051.8" y="1689" width="6" height="131" rx="3" fill="#b9c7bf"/><text x="1066.8" y="1709" class="mono" font-size="12.5" font-weight="750" fill="#627169">P08</text><rect x="1261.8" y="1696" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/><text x="1286.8" y="1713" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text><text data-edit="node:P08:menu" x="1066.8" y="1733" font-size="8" font-weight="750" fill="#627169"><tspan x="1066.8" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)조회]</tspan></text><text data-edit="node:P08:label" x="1066.8" y="1757" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1066.8" dy="0">학급 단위로 전체 또는 미이수</tspan><tspan x="1066.8" dy="18">학생의 보장지도(추가학습) 처리</tspan><tspan x="1066.8" dy="18">현황을 조회한다.</tspan></text><text x="1066.8" y="1810" font-size="11" font-weight="650" fill="#627169">학급담임교사</text></g>
+<g data-node="P09" filter="url(#card-shadow)"><rect x="284.8" y="1680" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/><rect x="284.8" y="1680" width="6" height="149" rx="3" fill="#b9c7bf"/><text x="299.8" y="1700" class="mono" font-size="12.5" font-weight="750" fill="#627169">P09</text><rect x="494.8" y="1687" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/><text x="519.8" y="1704" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text><text data-edit="node:P09:menu" x="299.8" y="1724" font-size="8" font-weight="750" fill="#627169"><tspan x="299.8" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)조회]</tspan></text><text data-edit="node:P09:label" x="299.8" y="1748" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="299.8" dy="0">담당 과목·강의실 단위로 전체</tspan><tspan x="299.8" dy="18">또는 미이수 학생의</tspan><tspan x="299.8" dy="18">보장지도(추가학습) 처리 현황을</tspan><tspan x="299.8" dy="18">조회한다.</tspan></text><text x="299.8" y="1819" font-size="11" font-weight="650" fill="#627169">교과담당교사</text></g>
+<g data-node="P10" filter="url(#card-shadow)"><rect x="668.3" y="1782" width="270" height="149" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/><rect x="668.3" y="1782" width="6" height="149" rx="3" fill="#087452"/><text x="683.3" y="1802" class="mono" font-size="12.5" font-weight="750" fill="#d8f4e8">P10</text><rect x="878.3" y="1789" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/><text x="903.3" y="1806" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text><text data-edit="node:P10:menu" x="683.3" y="1826" font-size="8" font-weight="750" fill="#d8f4e8"><tspan x="683.3" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)마감관리]</tspan></text><text data-edit="node:P10:label" x="683.3" y="1850" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="683.3" dy="0">학년 단위로 강의실별 마감여부를</tspan><tspan x="683.3" dy="18">확인하여 전체 과목을 선택해</tspan><tspan x="683.3" dy="18">마감정보저장 후 승인요청으로</tspan><tspan x="683.3" dy="18">최종 상신한다.</tspan></text><text x="683.3" y="1921" font-size="11" font-weight="650" fill="#d8f4e8">성적담당교사</text></g>
+<g data-node="P02" filter="url(#card-shadow)"><rect x="284.8" y="692" width="270" height="144" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/><rect x="284.8" y="692" width="6" height="144" rx="3" fill="#35a77d"/><text x="299.8" y="712" class="mono" font-size="12.5" font-weight="750" fill="#287a5c">P02</text><rect x="494.8" y="699" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/><text x="519.8" y="716" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text><text data-edit="node:P02:menu" x="299.8" y="736" font-size="8" font-weight="750" fill="#287a5c"><tspan x="299.8" dy="0">[성적-성적처리-최소성취수준보장지도(추가학습)이수관리-최소성</tspan><tspan x="299.8" dy="13">취수준보장지도(추가학습)대상자-과목별출결현황]</tspan></text><text data-edit="node:P02:label" x="299.8" y="773" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="299.8" dy="0">과목별출결현황을 조회하여</tspan><tspan x="299.8" dy="18">교과목 출결 이수기준 충족 여부를</tspan><tspan x="299.8" dy="18">확인한다.</tspan></text><text x="299.8" y="826" font-size="11" font-weight="650" fill="#287a5c">교과담당교사</text></g>
+<g data-node="P12" filter="url(#card-shadow)"><rect x="668.3" y="566.5" width="270" height="95" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/><rect x="668.3" y="566.5" width="6" height="95" rx="3" fill="#35a77d"/><text x="683.3" y="586.5" class="mono" font-size="12.5" font-weight="750" fill="#287a5c">P12</text><rect x="878.3" y="573.5" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/><text x="903.3" y="590.5" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text><text data-edit="node:P12:menu" x="683.3" y="610.5" font-size="10" font-weight="750" fill="#287a5c"><tspan x="683.3" dy="0">[성적] &gt; [성적처리] &gt; [성적산출마감관리]</tspan></text><text data-edit="node:P12:label" x="683.3" y="634.5" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="683.3" dy="0">성적 산출 전체 마감을 실시한다.</tspan></text><text x="683.3" y="651.5" font-size="11" font-weight="650" fill="#287a5c">성적담당교사</text></g>
+<g data-edge="L01"><g data-edge-label="L01" class="edge-label" style="cursor:move"><rect x="658.7" y="1498" width="291.6" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4" opacity="1"/><text x="804.5" y="1518" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">출결 수정 시 대상자가져오기부터 재처리</text></g></g>
+<rect x="38" y="1985" width="640" height="52" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="60" y="2017" font-size="16" font-weight="850" fill="#18251e">범례</text>
+<rect x="124" y="2003" width="17" height="17" rx="4" fill="#35a77d"/>
+<text x="149" y="2016" font-size="14" fill="#3a463f">선행</text>
+<rect x="216" y="2003" width="17" height="17" rx="4" fill="#087452"/>
+<text x="241" y="2016" font-size="14" fill="#3a463f">핵심</text>
+<rect x="308" y="2003" width="17" height="17" rx="4" fill="#d9901a"/>
+<text x="333" y="2016" font-size="14" fill="#3a463f">병목</text>
+<rect x="400" y="2003" width="17" height="17" rx="4" fill="#3478db"/>
+<text x="425" y="2016" font-size="14" fill="#3a463f">회귀</text>
+<line x1="492" y1="2011" x2="534" y2="2011" stroke="#3478db" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-loop)"/>
+<text x="546" y="2016" font-size="14" fill="#3a463f">보완 회귀</text>
 </svg>
 </div>
 </body>
