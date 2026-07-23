@@ -1,0 +1,306 @@
+<!-- 전체시간표 운영 관리 — korea100studio 스윔레인 보드의 A4 세로 인쇄용 문서 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>전체시간표 운영 관리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+@page{ size:A4 portrait; margin:8mm }
+html,body{ margin:0; padding:0; background:#e8e8e8 }
+.sheet{
+  width:100%; max-width:2400px; margin:0 auto; background:#fff;
+  padding:8mm; box-sizing:border-box;
+}
+.sheet svg{ display:block; width:100%; height:auto; margin:0 auto; page-break-inside:avoid }
+.toolbar{ text-align:center; padding:14px; font-family:sans-serif }
+.toolbar button{
+  font-size:15px; font-weight:600; padding:10px 22px; cursor:pointer;
+  background:#FFE14D; border:2px solid #111; border-radius:0; box-shadow:3px 3px 0 #111;
+}
+.toolbar .tip{ font-size:12px; color:#555; margin-top:8px }
+@media print{
+  body{ background:#fff }
+  .toolbar{ display:none }
+  .sheet{ width:auto; max-width:none; min-height:auto; margin:0; padding:0; box-shadow:none }
+  .sheet svg{ width:194mm; height:auto }
+}
+</style>
+</head>
+<body>
+<script type="application/json" id="board-data">{"schema_version":1,"profile":"gov","title":"전체시간표 운영 관리","subtitle":"전체시간표관리에서 수업시간을 설정하고 행사·일괄변경·수업추가/교체/변경·공백·삭제·고정을 처리하는 절차.","lanes":["교과교사","시간표담당교사"],"stages":["수업시간 설정","행사 처리","수업시간 일괄 변경","수업 추가/교체/변경 처리","공백·삭제·고정 처리"],"nodes":[{"id":"P01","lane":"시간표담당교사","stage":"수업시간 설정","label":"학년도·학기·학년·일자와 일별/주별/2주 조회방식 등 조회조건을 설정하고 전체시간표를 조회한다.","menu":"[교육과정-시간표관리-전체시간표관리]","emphasis":"lead"},{"id":"P02","lane":"시간표담당교사","stage":"수업시간 설정","label":"시간설정을 클릭해 수업시간관리 창에서 수업진행분·점심시간·수업기간·쉬는시간을 선택하고 교시별 수업시작시간·수업종료시간을 입력해 저장한다.","menu":"[교육과정-시간표관리-전체시간표관리]","emphasis":"key"},{"id":"P03","lane":"시간표담당교사","stage":"행사 처리","label":"행사코드관리 탭에서 시간표에 반영할 행사가 미리 등록되어 있는지 확인한다.","menu":"[교육과정-학사일정관리-학사일정관리]","emphasis":"normal"},{"id":"P04","lane":"시간표담당교사","stage":"행사 처리","label":"전체시간표관리를 조회한 뒤 행사처리를 클릭해 행사내역과 행사대상(강의실·계열·학년·과정·학교 중 적용범위)을 선택하고 저장한다.","menu":"[교육과정-시간표관리-전체시간표관리]","emphasis":"normal"},{"id":"P05","lane":"교과교사","stage":"수업시간 일괄 변경","label":"특별휴가·출장 등으로 교사교체가 필요한 기간과 대체 교사 정보를 시간표담당교사에게 전달한다.","emphasis":"normal"},{"id":"P06","lane":"시간표담당교사","stage":"수업시간 일괄 변경","label":"일괄변경 창에서 변경구분(복사/교사교체)·강의실·적용범위·처리단위·기간·교체대상을 선택해 저장한다.","menu":"[교육과정-시간표관리-전체시간표관리]","emphasis":"bottleneck"},{"id":"P07","lane":"시간표담당교사","stage":"수업 추가/교체/변경 처리","label":"관리할 수업에 마우스 우측 버튼을 눌러 팝업메뉴에서 수업추가를 선택하고, 개설과목을 선택해 덮어쓰기 또는 동시수업으로 수업을 추가한다.","menu":"[교육과정-시간표관리-전체시간표관리]","emphasis":"lead"},{"id":"P08","lane":"시간표담당교사","stage":"수업 추가/교체/변경 처리","label":"수업교체 창에서 대상시간표와 교체시간표를 선택해 과목·교사를 1:1로 교체한다.","menu":"[교육과정-시간표관리-전체시간표관리]","emphasis":"key"},{"id":"P09","lane":"교과교사","stage":"수업 추가/교체/변경 처리","label":"수업변경 창에서 변경할 과목 또는 교사 정보를 확인하고 이력추가·이력미추가 여부를 선택한다.","menu":"[교육과정-시간표관리-전체시간표관리]","emphasis":"normal"},{"id":"P10","lane":"시간표담당교사","stage":"수업 추가/교체/변경 처리","label":"팝업메뉴의 행사처리를 클릭해 해당 교시를 행사로 처리한다.","menu":"[교육과정-시간표관리-전체시간표관리]","emphasis":"normal"},{"id":"P11","lane":"시간표담당교사","stage":"수업 추가/교체/변경 처리","label":"이력추가로 처리된 수업교체·수업변경 내역을 조회하고 승인요청으로 수업교환계획서를 대신한다.","menu":"[교육과정-시간표관리-수업교체이력관리]","emphasis":"normal"},{"id":"P12","lane":"시간표담당교사","stage":"공백·삭제·고정 처리","label":"팝업메뉴의 공백삽입을 클릭해 해당 교시를 공백으로 만들고 이후 교시를 한 교시씩 밀어 저장한다.","menu":"[교육과정-시간표관리-전체시간표관리]","emphasis":"normal"},{"id":"P13","lane":"시간표담당교사","stage":"공백·삭제·고정 처리","label":"수업삭제 또는 일괄삭제를 클릭해 해당 과목이나 선택한 기간 내 과목을 일괄 삭제한다.","menu":"[교육과정-시간표관리-전체시간표관리]","emphasis":"normal"},{"id":"P14","lane":"시간표담당교사","stage":"공백·삭제·고정 처리","label":"수업고정으로 교환·변경이 불가능하도록 고정하거나, 수업고정해제로 고정된 수업을 다시 교환·변경 가능하게 해제한다.","menu":"[교육과정-시간표관리-전체시간표관리]","emphasis":"normal"},{"id":"P15","lane":"교과교사","stage":"공백·삭제·고정 처리","label":"수업정보를 클릭해 해당 수업의 강의실과 수강학생 목록을 확인한다.","menu":"[교육과정-시간표관리-전체시간표관리]","emphasis":"normal"}],"edges":[{"id":"L01","source":"P09","target":"P11","type":"message","label":"이력추가 시 승인요청 경로"}]}</script>
+<div class="toolbar">
+  <button onclick="window.print()">인쇄하기</button>
+  <div class="tip">인쇄 대화상자에서 용지는 A4 세로, 배율은 "페이지에 맞춤"을 고르면 한 장에 담깁니다.</div>
+</div>
+<div class="sheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2482" viewBox="0 0 1800 2482">
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#53675d" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="12" markerHeight="9" refX="10.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L11,4.5 L1,8 Z" fill="#3478db" stroke="#ffffff" stroke-width="0.9" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: "Pretendard", -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "Archivo", "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2482" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">노드 15 · 레인 2 · 게이트 5</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">전체시간표 운영 관리</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">전체시간표관리에서 수업시간을 설정하고 행사·일괄변경·수업추가/교체/변경·공백·삭제·고정을 처리하는 절차.</text>
+    
+  
+<rect x="38" y="260" width="1724" height="2022" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">단계 ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">행위자 묶음 →</text>
+<rect x="38" y="360" width="1724" height="358" fill="#84baa9"/>
+<rect x="38" y="360" width="190" height="358" fill="#087452"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">수업시간 설정</tspan></text>
+<rect x="38" y="718" width="1724" height="322" fill="#f5f8f6"/>
+<rect x="38" y="718" width="190" height="322" fill="#eef3f0"/>
+<text x="58" y="750" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="783" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">행사 처리</tspan></text>
+<rect x="38" y="1040" width="1724" height="157" fill="#fbfcfb"/>
+<rect x="38" y="1040" width="190" height="157" fill="#eef3f0"/>
+<text x="58" y="1072" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1105" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">수업시간 일괄</tspan><tspan x="58" dy="22">변경</tspan></text>
+<rect x="38" y="1197" width="1724" height="616" fill="#84baa9"/>
+<rect x="38" y="1197" width="190" height="616" fill="#087452"/>
+<text x="58" y="1229" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1262" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">수업</tspan><tspan x="58" dy="22">추가/교체/변…</tspan></text>
+<rect x="38" y="1813" width="1724" height="469" fill="#fbfcfb"/>
+<rect x="38" y="1813" width="190" height="469" fill="#eef3f0"/>
+<text x="58" y="1845" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1878" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">공백·삭제·고정</tspan><tspan x="58" dy="22">처리</tspan></text>
+<rect x="228" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="767" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">교과교사</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">교과교사</tspan></text>
+<rect x="995" y="260" width="767" height="100" fill="#f7faf8"/>
+<rect x="995" y="260" width="767" height="7" fill="#3b82f6"/>
+<text x="1015" y="299" font-size="20" font-weight="800" fill="#17231d">시간표담당교사</text>
+<text x="1015" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1015" dy="0">시간표담당교사</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2282" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="995" y1="260" x2="995" y2="2282" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2282" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="718" x2="1762" y2="718" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1040" x2="1762" y2="1040" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1197" x2="1762" y2="1197" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1813" x2="1762" y2="1813" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2282" x2="1762" y2="2282" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 746.5 1505 H 1215.5 V 1734.5 H 1235.5" fill="none" stroke="#ffffff" stroke-width="4.1" stroke-dasharray="7 5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M 746.5 1505 H 1215.5 V 1734.5 H 1235.5" fill="none" stroke="#0f8a65" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#arrow-message)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="897.7" y="1587.8" width="194.7" height="30" rx="6" fill="#ffffff" stroke="#0f8a65" stroke-width="1.4"/>
+<text x="995" y="1607.8" text-anchor="middle" font-size="14" font-weight="750" fill="#0f8a65">이력추가 시 승인요청 경로</text>
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="364" width="270" height="149" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="1243.5" y="364" width="6" height="149" rx="3" fill="#35a77d"/>
+      <text x="1258.5" y="384" font-size="12.5" font-weight="750" fill="#287a5c">P01</text>
+      <rect x="1453.5" y="371" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1478.5" y="388" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="1258.5" y="408" font-size="10" font-weight="750" fill="#287a5c"><tspan x="1258.5" dy="0">[교육과정-시간표관리-전체시간표관리]</tspan></text>
+      <text x="1258.5" y="432" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="1258.5" dy="0">학년도·학기·학년·일자와</tspan><tspan x="1258.5" dy="18">일별/주별/2주 조회방식 등</tspan><tspan x="1258.5" dy="18">조회조건을 설정하고</tspan><tspan x="1258.5" dy="18">전체시간표를 조회한다.</tspan></text>
+      <text x="1258.5" y="503" font-size="11" font-weight="650" fill="#287a5c">시간표담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="529" width="270" height="185" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="1243.5" y="529" width="6" height="185" rx="3" fill="#087452"/>
+      <text x="1258.5" y="549" font-size="12.5" font-weight="750" fill="#d8f4e8">P02</text>
+      <rect x="1453.5" y="536" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1478.5" y="553" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="1258.5" y="573" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="1258.5" dy="0">[교육과정-시간표관리-전체시간표관리]</tspan></text>
+      <text x="1258.5" y="597" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="1258.5" dy="0">시간설정을 클릭해 수업시간관리</tspan><tspan x="1258.5" dy="18">창에서</tspan><tspan x="1258.5" dy="18">수업진행분·점심시간·수업기간·</tspan><tspan x="1258.5" dy="18">쉬는시간을 선택하고 교시별</tspan><tspan x="1258.5" dy="18">수업시작시간·수업종료시간을</tspan><tspan x="1258.5" dy="18">입력해 저장한다.</tspan></text>
+      <text x="1258.5" y="704" font-size="11" font-weight="650" fill="#d8f4e8">시간표담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="722" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="722" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="742" font-size="12.5" font-weight="750" fill="#627169">P03</text>
+      <rect x="1453.5" y="729" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="746" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="766" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[교육과정-학사일정관리-학사일정관리]</tspan></text>
+      <text x="1258.5" y="790" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">행사코드관리 탭에서 시간표에</tspan><tspan x="1258.5" dy="18">반영할 행사가 미리 등록되어</tspan><tspan x="1258.5" dy="18">있는지 확인한다.</tspan></text>
+      <text x="1258.5" y="843" font-size="11" font-weight="650" fill="#627169">시간표담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="869" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="869" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="889" font-size="12.5" font-weight="750" fill="#627169">P04</text>
+      <rect x="1453.5" y="876" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="893" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="913" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[교육과정-시간표관리-전체시간표관리]</tspan></text>
+      <text x="1258.5" y="937" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">전체시간표관리를 조회한 뒤</tspan><tspan x="1258.5" dy="18">행사처리를 클릭해 행사내역과</tspan><tspan x="1258.5" dy="18">행사대상(강의실·계열·학년·과정</tspan><tspan x="1258.5" dy="18">·학교 중 적용범위)을 선택하고</tspan><tspan x="1258.5" dy="18">저장한다.</tspan></text>
+      <text x="1258.5" y="1026" font-size="11" font-weight="650" fill="#627169">시간표담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1062.5" width="270" height="112" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="1062.5" width="6" height="112" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="1082.5" font-size="12.5" font-weight="750" fill="#627169">P05</text>
+      <rect x="686.5" y="1069.5" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="1086.5" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      
+      <text x="491.5" y="1111.5" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">특별휴가·출장 등으로 교사교체가</tspan><tspan x="491.5" dy="18">필요한 기간과 대체 교사 정보를</tspan><tspan x="491.5" dy="18">시간표담당교사에게 전달한다.</tspan></text>
+      <text x="491.5" y="1164.5" font-size="11" font-weight="650" fill="#627169">교과교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1044" width="270" height="149" rx="8" fill="#fff8e8" stroke="#d9901a" stroke-width="2.3"/>
+      <rect x="1243.5" y="1044" width="6" height="149" rx="3" fill="#d9901a"/>
+      <text x="1258.5" y="1064" font-size="12.5" font-weight="750" fill="#a96008">P06</text>
+      <rect x="1453.5" y="1051" width="50" height="24" rx="5" fill="#d9901a" opacity="0.14"/>
+      <text x="1478.5" y="1068" text-anchor="middle" font-size="12" font-weight="800" fill="#7a4305">병목</text>
+      <text x="1258.5" y="1088" font-size="10" font-weight="750" fill="#a96008"><tspan x="1258.5" dy="0">[교육과정-시간표관리-전체시간표관리]</tspan></text>
+      <text x="1258.5" y="1112" font-size="15.5" font-weight="800" fill="#7a4305"><tspan x="1258.5" dy="0">일괄변경 창에서</tspan><tspan x="1258.5" dy="18">변경구분(복사/교사교체)·강의실</tspan><tspan x="1258.5" dy="18">·적용범위·처리단위·기간·교체대</tspan><tspan x="1258.5" dy="18">상을 선택해 저장한다.</tspan></text>
+      <text x="1258.5" y="1183" font-size="11" font-weight="650" fill="#a96008">시간표담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1201" width="270" height="167" rx="8" fill="#effaf5" stroke="#35a77d" stroke-width="2.3"/>
+      <rect x="1243.5" y="1201" width="6" height="167" rx="3" fill="#35a77d"/>
+      <text x="1258.5" y="1221" font-size="12.5" font-weight="750" fill="#287a5c">P07</text>
+      <rect x="1453.5" y="1208" width="50" height="24" rx="5" fill="#35a77d" opacity="0.14"/>
+      <text x="1478.5" y="1225" text-anchor="middle" font-size="12" font-weight="800" fill="#123d2e">선행</text>
+      <text x="1258.5" y="1245" font-size="10" font-weight="750" fill="#287a5c"><tspan x="1258.5" dy="0">[교육과정-시간표관리-전체시간표관리]</tspan></text>
+      <text x="1258.5" y="1269" font-size="15.5" font-weight="800" fill="#123d2e"><tspan x="1258.5" dy="0">관리할 수업에 마우스 우측 버튼을</tspan><tspan x="1258.5" dy="18">눌러 팝업메뉴에서 수업추가를</tspan><tspan x="1258.5" dy="18">선택하고, 개설과목을 선택해</tspan><tspan x="1258.5" dy="18">덮어쓰기 또는 동시수업으로</tspan><tspan x="1258.5" dy="18">수업을 추가한다.</tspan></text>
+      <text x="1258.5" y="1358" font-size="11" font-weight="650" fill="#287a5c">시간표담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1384" width="270" height="131" rx="8" fill="#087452" stroke="#087452" stroke-width="2.3"/>
+      <rect x="1243.5" y="1384" width="6" height="131" rx="3" fill="#087452"/>
+      <text x="1258.5" y="1404" font-size="12.5" font-weight="750" fill="#d8f4e8">P08</text>
+      <rect x="1453.5" y="1391" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1478.5" y="1408" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">핵심</text>
+      <text x="1258.5" y="1428" font-size="10" font-weight="750" fill="#d8f4e8"><tspan x="1258.5" dy="0">[교육과정-시간표관리-전체시간표관리]</tspan></text>
+      <text x="1258.5" y="1452" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="1258.5" dy="0">수업교체 창에서 대상시간표와</tspan><tspan x="1258.5" dy="18">교체시간표를 선택해 과목·교사를</tspan><tspan x="1258.5" dy="18">1:1로 교체한다.</tspan></text>
+      <text x="1258.5" y="1505" font-size="11" font-weight="650" fill="#d8f4e8">시간표담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1430.5" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="1430.5" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="1450.5" font-size="12.5" font-weight="750" fill="#627169">P09</text>
+      <rect x="686.5" y="1437.5" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="1454.5" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="1474.5" font-size="10" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[교육과정-시간표관리-전체시간표관리]</tspan></text>
+      <text x="491.5" y="1498.5" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">수업변경 창에서 변경할 과목 또는</tspan><tspan x="491.5" dy="18">교사 정보를 확인하고</tspan><tspan x="491.5" dy="18">이력추가·이력미추가 여부를</tspan><tspan x="491.5" dy="18">선택한다.</tspan></text>
+      <text x="491.5" y="1569.5" font-size="11" font-weight="650" fill="#627169">교과교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1531" width="270" height="113" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1531" width="6" height="113" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1551" font-size="12.5" font-weight="750" fill="#627169">P10</text>
+      <rect x="1453.5" y="1538" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1555" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1575" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[교육과정-시간표관리-전체시간표관리]</tspan></text>
+      <text x="1258.5" y="1599" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">팝업메뉴의 행사처리를 클릭해</tspan><tspan x="1258.5" dy="18">해당 교시를 행사로 처리한다.</tspan></text>
+      <text x="1258.5" y="1634" font-size="11" font-weight="650" fill="#627169">시간표담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1660" width="270" height="149" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1660" width="6" height="149" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1680" font-size="12.5" font-weight="750" fill="#627169">P11</text>
+      <rect x="1453.5" y="1667" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1684" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1704" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[교육과정-시간표관리-수업교체이력관리]</tspan></text>
+      <text x="1258.5" y="1728" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">이력추가로 처리된</tspan><tspan x="1258.5" dy="18">수업교체·수업변경 내역을</tspan><tspan x="1258.5" dy="18">조회하고 승인요청으로</tspan><tspan x="1258.5" dy="18">수업교환계획서를 대신한다.</tspan></text>
+      <text x="1258.5" y="1799" font-size="11" font-weight="650" fill="#627169">시간표담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1817" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1817" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1837" font-size="12.5" font-weight="750" fill="#627169">P12</text>
+      <rect x="1453.5" y="1824" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1841" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="1861" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[교육과정-시간표관리-전체시간표관리]</tspan></text>
+      <text x="1258.5" y="1885" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">팝업메뉴의 공백삽입을 클릭해</tspan><tspan x="1258.5" dy="18">해당 교시를 공백으로 만들고 이후</tspan><tspan x="1258.5" dy="18">교시를 한 교시씩 밀어 저장한다.</tspan></text>
+      <text x="1258.5" y="1938" font-size="11" font-weight="650" fill="#627169">시간표담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="1964" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="1964" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="1984" font-size="12.5" font-weight="750" fill="#627169">P13</text>
+      <rect x="1453.5" y="1971" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="1988" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="2008" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[교육과정-시간표관리-전체시간표관리]</tspan></text>
+      <text x="1258.5" y="2032" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">수업삭제 또는 일괄삭제를 클릭해</tspan><tspan x="1258.5" dy="18">해당 과목이나 선택한 기간 내</tspan><tspan x="1258.5" dy="18">과목을 일괄 삭제한다.</tspan></text>
+      <text x="1258.5" y="2085" font-size="11" font-weight="650" fill="#627169">시간표담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="1243.5" y="2111" width="270" height="167" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="1243.5" y="2111" width="6" height="167" rx="3" fill="#b9c7bf"/>
+      <text x="1258.5" y="2131" font-size="12.5" font-weight="750" fill="#627169">P14</text>
+      <rect x="1453.5" y="2118" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="1478.5" y="2135" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="1258.5" y="2155" font-size="10" font-weight="750" fill="#627169"><tspan x="1258.5" dy="0">[교육과정-시간표관리-전체시간표관리]</tspan></text>
+      <text x="1258.5" y="2179" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="1258.5" dy="0">수업고정으로 교환·변경이</tspan><tspan x="1258.5" dy="18">불가능하도록 고정하거나,</tspan><tspan x="1258.5" dy="18">수업고정해제로 고정된 수업을</tspan><tspan x="1258.5" dy="18">다시 교환·변경 가능하게</tspan><tspan x="1258.5" dy="18">해제한다.</tspan></text>
+      <text x="1258.5" y="2268" font-size="11" font-weight="650" fill="#627169">시간표담당교사</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      <rect x="476.5" y="1982" width="270" height="131" rx="8" fill="#ffffff" stroke="#b9c7bf" stroke-width="2.3"/>
+      <rect x="476.5" y="1982" width="6" height="131" rx="3" fill="#b9c7bf"/>
+      <text x="491.5" y="2002" font-size="12.5" font-weight="750" fill="#627169">P15</text>
+      <rect x="686.5" y="1989" width="50" height="24" rx="5" fill="#b9c7bf" opacity="0.14"/>
+      <text x="711.5" y="2006" text-anchor="middle" font-size="12" font-weight="800" fill="#17231d">후속</text>
+      <text x="491.5" y="2026" font-size="10" font-weight="750" fill="#627169"><tspan x="491.5" dy="0">[교육과정-시간표관리-전체시간표관리]</tspan></text>
+      <text x="491.5" y="2050" font-size="15.5" font-weight="800" fill="#17231d"><tspan x="491.5" dy="0">수업정보를 클릭해 해당 수업의</tspan><tspan x="491.5" dy="18">강의실과 수강학생 목록을</tspan><tspan x="491.5" dy="18">확인한다.</tspan></text>
+      <text x="491.5" y="2103" font-size="11" font-weight="650" fill="#627169">교과교사</text>
+    </g>
+  
+<rect x="38" y="2304" width="617.3" height="60" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<text x="62" y="2342" font-size="17" font-weight="850" fill="#18251e">범례</text>
+<rect x="132" y="2326" width="18" height="18" rx="4" fill="#35a77d"/><text x="158" y="2341" font-size="15" fill="#3a463f">선행</text>
+<rect x="218" y="2326" width="18" height="18" rx="4" fill="#087452"/><text x="244" y="2341" font-size="15" fill="#3a463f">핵심</text>
+<rect x="304" y="2326" width="18" height="18" rx="4" fill="#d9901a"/><text x="330" y="2341" font-size="15" fill="#3a463f">병목</text>
+<rect x="390" y="2326" width="18" height="18" rx="4" fill="#3478db"/><text x="416" y="2341" font-size="15" fill="#3a463f">회귀</text>
+<line x1="476" y1="2334" x2="522" y2="2334" stroke="#0f8a65" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-message)"/><text x="536" y="2340" font-size="15" fill="#3a463f">정보 전달</text>
+
+</svg>
+</div>
+</body>
+</html>
